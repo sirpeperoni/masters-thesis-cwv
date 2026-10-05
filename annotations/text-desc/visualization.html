@@ -1,0 +1,552 @@
+<title>Разметка описаний коммитов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Вид: рабочий просмотрщик разметки — слева тип раздела, справа текст с подсвеченными сущностями. */
+:root {
+  --bg: #f4f5f2; --surface: #fcfcfa; --fg: #1d2433; --muted: #5b6475; --line: #d9dcd4; --accent: #c8611d;
+  --reg: #b3261e; --reg-bg: #fbe3df;
+  --e-library: #d6e4f7; --e-version: #e4dcf5; --e-ui_component: #d9efe0; --e-domain_object: #c9ece8;
+  --e-perf: #fbd9b8; --e-action: #f2e5b3; --e-code: #e6e6e1; --e-reference: #e9d9e6; --e-person: #f3d6d6;
+  --sans: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif; --mono: 'IBM Plex Mono', Consolas, 'Courier New', monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #14181f; --surface: #1b2029; --fg: #e6e8ec; --muted: #9aa3b2; --line: #2e3542; --accent: #e8935a;
+  --reg: #ff8a80; --reg-bg: #4a1f1c;
+  --e-library: #23395a; --e-version: #3a2f57; --e-ui_component: #1f4430; --e-domain_object: #1d4744;
+  --e-perf: #5a3518; --e-action: #4d4320; --e-code: #33373d; --e-reference: #4a2b45; --e-person: #532828;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #14181f; --surface: #1b2029; --fg: #e6e8ec; --muted: #9aa3b2; --line: #2e3542; --accent: #e8935a;
+  --reg: #ff8a80; --reg-bg: #4a1f1c;
+  --e-library: #23395a; --e-version: #3a2f57; --e-ui_component: #1f4430; --e-domain_object: #1d4744;
+  --e-perf: #5a3518; --e-action: #4d4320; --e-code: #33373d; --e-reference: #4a2b45; --e-person: #532828;
+  color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 16px; padding-block: 24px 64px; display: flex; flex-direction: column; gap: 20px; }
+h1 { font-size: 26px; font-weight: 600; margin: 0; text-wrap: balance; }
+.lead { color: var(--muted); max-width: 70ch; margin: 0; }
+.stats { display: flex; flex-wrap: wrap; gap: 24px; font-variant-numeric: tabular-nums; }
+.stats b { font-size: 22px; display: block; }
+.stats span { color: var(--muted); font-size: 13px; }
+.toolbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--bg); padding-block: 10px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.legend, .nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; cursor: pointer; }
+.chip input { accent-color: var(--accent); }
+.chip .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.nav a { font-family: var(--mono); font-size: 12px; color: var(--muted); text-decoration: none; padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; }
+.nav a.reg { color: var(--reg); border-color: var(--reg); }
+.nav a:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.doc { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; scroll-margin-top: 120px; }
+.doc-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.doc-head h2 { font-family: var(--mono); font-size: 16px; margin: 0; }
+.repo { font-weight: 500; }
+.meta { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.doc-head a { margin-left: auto; color: var(--accent); font-size: 13px; }
+.pill { font-size: 12px; padding: 1px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); }
+.pill-reg { color: var(--reg); background: var(--reg-bg); border-color: transparent; }
+.sec { display: grid; grid-template-columns: 150px minmax(0, 1fr); border-top: 1px solid var(--line); }
+.sec:first-of-type { border-top: none; }
+.sec-label { font-size: 12px; color: var(--muted); padding: 8px 12px; border-right: 1px solid var(--line); letter-spacing: 0.02em; }
+.s-template, .s-bot_boilerplate, .s-ai_note, .s-squash_log { color: var(--accent); }
+.sec-text { margin: 0; padding: 8px 12px; font-family: var(--mono); font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+mark.e { color: inherit; border-radius: 3px; padding: 0 2px; }
+.e-library { background: var(--e-library); } .e-version { background: var(--e-version); }
+.e-ui_component { background: var(--e-ui_component); } .e-domain_object { background: var(--e-domain_object); }
+.e-perf { background: var(--e-perf); font-weight: 500; } .e-action { background: var(--e-action); }
+.e-code { background: var(--e-code); } .e-reference { background: var(--e-reference); } .e-person { background: var(--e-person); }
+body.off-library mark.e-library, body.off-version mark.e-version, body.off-ui_component mark.e-ui_component,
+body.off-domain_object mark.e-domain_object, body.off-perf mark.e-perf, body.off-action mark.e-action,
+body.off-code mark.e-code, body.off-reference mark.e-reference, body.off-person mark.e-person { background: none; font-weight: inherit; }
+.legend mark.e { background-clip: padding-box; }
+@media (max-width: 640px) { .sec { grid-template-columns: 1fr; } .sec-label { border-right: none; padding-bottom: 0; } .doc-head a { margin-left: 0; } }
+</style>
+<div class="wrap">
+  <h1>Разметка описаний коммитов</h1>
+  <p class="lead">Описания изменений (сообщения коммитов и pull request'ов) для пар «база → коммит» из набора данных Core Web Vitals.
+  Слева — тип раздела (уровень 2), в тексте — именованные сущности; подсказка при наведении — подтип, «вручную» — правка аннотатора,
+  ✎ у раздела — тип исправлен вручную. Красным отмечены пары, где замеры нашли регрессию.</p>
+  <div class="stats"><div><b>23</b><span>документов</span></div><div><b>5854</b><span>токенов</span></div>
+  <div><b>210</b><span>разделов</span></div><div><b>535</b><span>сущностей</span></div></div>
+  <div class="toolbar"><div class="legend"><label class="chip"><input type="checkbox" id="f-library" data-type="library" checked><mark class="e e-library">библиотека</mark><span class="n">75</span></label><label class="chip"><input type="checkbox" id="f-version" data-type="version" checked><mark class="e e-version">версия</mark><span class="n">55</span></label><label class="chip"><input type="checkbox" id="f-ui_component" data-type="ui_component" checked><mark class="e e-ui_component">интерфейс</mark><span class="n">54</span></label><label class="chip"><input type="checkbox" id="f-domain_object" data-type="domain_object" checked><mark class="e e-domain_object">объект</mark><span class="n">36</span></label><label class="chip"><input type="checkbox" id="f-perf" data-type="perf" checked><mark class="e e-perf">производительность</mark><span class="n">19</span></label><label class="chip"><input type="checkbox" id="f-action" data-type="action" checked><mark class="e e-action">действие</mark><span class="n">91</span></label><label class="chip"><input type="checkbox" id="f-code" data-type="code" checked><mark class="e e-code">код</mark><span class="n">148</span></label><label class="chip"><input type="checkbox" id="f-reference" data-type="reference" checked><mark class="e e-reference">ссылка</mark><span class="n">48</span></label><label class="chip"><input type="checkbox" id="f-person" data-type="person" checked><mark class="e e-person">автор</mark><span class="n">9</span></label></div><nav class="nav"><a href="#P01" class="reg">P01</a><a href="#P02" class="">P02</a><a href="#P07" class="">P07</a><a href="#P08" class="">P08</a><a href="#P09" class="">P09</a><a href="#P11" class="reg">P11</a><a href="#P12" class="reg">P12</a><a href="#P14" class="reg">P14</a><a href="#P15" class="reg">P15</a><a href="#P19" class="">P19</a><a href="#P20" class="reg">P20</a><a href="#P21" class="reg">P21</a><a href="#P22" class="reg">P22</a><a href="#P25" class="">P25</a><a href="#P26" class="reg">P26</a><a href="#P29" class="">P29</a><a href="#P30" class="reg">P30</a><a href="#P32" class="reg">P32</a><a href="#P34" class="reg">P34</a><a href="#P38" class="">P38</a><a href="#P40" class="">P40</a><a href="#P41" class="reg">P41</a><a href="#P48" class="reg">P48</a></nav></div>
+  <article class="doc" id="P01"><header class="doc-head"><h2>P01</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · lcp</span><span class="meta">1009 симв. · 257 токенов · 52 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/a58cde951683...da8999444078" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1980</mark> from mermaid-js/chore/update-all-deps</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="UPDATE">update</mark> all dependencies to latest versions</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">## Summary
+- <mark class="e e-action" title="UPDATE">Bump</mark> the full dependency tree to latest versions, including <mark class="e e-library" title="BUILD_TOOL">Vite</mark> 8, <mark class="e e-library" title="BUILD_TOOL">Vitest</mark> 4, <mark class="e e-library" title="BUILD_TOOL">ESLint</mark> 10, <mark class="e e-library" title="BUILD_TOOL">TypeScript</mark> 6, <mark class="e e-library" title="FRAMEWORK">Svelte</mark> <mark class="e e-version" title="VERSION">5.56</mark>, and <mark class="e e-library" title="FRAMEWORK">`@sveltejs/kit`</mark> <mark class="e e-version" title="VERSION">2.63</mark>
+- <mark class="e e-action" title="REFACTOR">Migrate</mark> <mark class="e e-library" title="PACKAGE">`mode-watcher`</mark> <mark class="e e-version" title="VERSION">0.x</mark> → <mark class="e e-version" title="VERSION">1.x</mark> (<mark class="e e-code" title="CODE">`$mode`</mark> store → <mark class="e e-code" title="CODE">`mode.current`</mark> rune) across <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>, <mark class="e e-ui_component" title="UI_COMPONENT">editors</mark>, and <mark class="e e-ui_component" title="UI_COMPONENT">theme</mark> components
+- <mark class="e e-action" title="FIX">Fix</mark> <mark class="e e-library" title="BUILD_TOOL">ESLint</mark> <mark class="e e-code" title="CODE">`svelte/no-navigation-without-resolve`</mark> violations and upgrade <mark class="e e-library" title="BUILD_TOOL">Playwright</mark> CI image to <mark class="e e-version" title="VERSION">`v1.60.0-jammy`</mark> for <mark class="e e-library" title="BUILD_TOOL">Node</mark> 24 compatibility</pre></div><div class="sec"><div class="sec-label s-dep_table">таблица версий</div><pre class="sec-text">## Notable bumps
+| Package | Before | After |
+|---------|--------|-------|
+| <mark class="e e-library" title="BUILD_TOOL">vite</mark> | <mark class="e e-version" title="VERSION">7.x</mark> | <mark class="e e-version" title="VERSION">8.0.16</mark> |
+| <mark class="e e-library" title="BUILD_TOOL">vitest</mark> | <mark class="e e-version" title="VERSION">3.x</mark> | <mark class="e e-version" title="VERSION">4.1.8</mark> |
+| <mark class="e e-library" title="BUILD_TOOL">eslint</mark> | <mark class="e e-version" title="VERSION">9.x</mark> | <mark class="e e-version" title="VERSION">10.4.1</mark> |
+| <mark class="e e-library" title="BUILD_TOOL">typescript</mark> | <mark class="e e-version" title="VERSION">5.9</mark> | <mark class="e e-version" title="VERSION">6.0.3</mark> |
+| <mark class="e e-library" title="PACKAGE">mode-watcher</mark> | <mark class="e e-version" title="VERSION">0.5</mark> | <mark class="e e-version" title="VERSION">1.1.0</mark> |
+| <mark class="e e-library" title="PACKAGE">monaco-editor</mark> | <mark class="e e-version" title="VERSION">0.52</mark> | <mark class="e e-version" title="VERSION">0.55.1</mark> |
+| <mark class="e e-library" title="PACKAGE">uuid</mark> | 9 | <mark class="e e-version" title="VERSION">14.0.0</mark> |
+| <mark class="e e-library" title="BUILD_TOOL">husky</mark> | 8 | <mark class="e e-version" title="VERSION">9.1.7</mark> |</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">## Test plan
+- [x] <mark class="e e-code" title="CODE">`pnpm build`</mark>
+- [x] <mark class="e e-code" title="CODE">`pnpm lint`</mark>
+- [x] <mark class="e e-code" title="CODE">`pnpm test:unit run`</mark> (20 tests)
+- [x] <mark class="e e-code" title="CODE">`CI=true pnpm test:e2e`</mark> (23 passed, 7 skipped)
+- [ ] CI passes on GitHub Actions</pre></div><div class="sec"><div class="sec-label s-ai_note">ИИ-помощник</div><pre class="sec-text">Made with Cursor</pre></div></article><article class="doc" id="P02"><header class="doc-head"><h2>P02</h2><span class="repo">excalidraw</span><span class="pill">без регрессии</span><span class="meta">960 симв. · 175 токенов · 11 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/4dfb8a3f8eaf...f7dcc893ea0f" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: transparent link background, scale link <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> when zooming to below 100% (<mark class="e e-reference" title="ISSUE">#9520</mark>)</pre></div><div class="sec"><div class="sec-label s-squash_log">журнал squash</div><pre class="sec-text">* Do not set link background color, dynamically scale down link <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> size with zoom.
+
+* <mark class="e e-action" title="REMOVE">removed</mark> unnecessary change
+
+* use <mark class="e e-domain_object" title="DOMAIN_OBJECT">canvas</mark> bg color &amp; reduce size and stroke width</pre></div><div class="sec"><div class="sec-label s-trailer">трейлер</div><pre class="sec-text">Co-authored-by: dwelle &lt;5153846+dwelle@users.noreply.github.com&gt;</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: transparent link background, scale link <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> when zooming to below 100%</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">Functionally, the <mark class="e e-ui_component" title="UI_COMPONENT">icons</mark> are fine—but visually, they’re a bit distracting. At low zoom levels or with non-white backgrounds, the <mark class="e e-ui_component" title="UI_COMPONENT">icons</mark> remain relatively large and stand out too much.</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">This PR implements two minor visual improvements:
+   – Made the <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> background transparent
+   – Gradually reduced <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> size when zooming below 100%</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">sample: https://excalidraw-79ex37zp9-excalidraw.vercel.app/#json=HThLaW9fjg39IzWjMma4e,2WBzrLbSFLWoevVWy_bzzQ</pre></div><div class="sec"><div class="sec-label s-testing">проверка</div><pre class="sec-text">Before/after with a non-white <mark class="e e-domain_object" title="DOMAIN_OBJECT">scene</mark> color:
+
+[изображение]
+
+Before / after zooming to 10%:
+
+[изображение]</pre></div></article><article class="doc" id="P07"><header class="doc-head"><h2>P07</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">1488 симв. · 283 токенов · 16 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/5817555d918a...7172054b9150" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1793</mark> from mermaid-js/sidv/updateDeps2</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1786</mark> from aschaber1/develop</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1761</mark> from aschaber1/develop</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="UPDATE">Update</mark> Deps</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">## :bookmark_tabs: Summary
+<mark class="e e-action" title="UPDATE">Updates</mark> <mark class="e e-library" title="BUILD_TOOL">eslint</mark> to v9, <mark class="e e-library" title="FRAMEWORK">svelte</mark>, and fixes some issues found during linting. </pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">ci(docker-publish): :contruction_worker: fix <mark class="e e-domain_object" title="DOMAIN_OBJECT">quotes</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="FIX">Fix</mark> quotation issue introduced through <mark class="e e-reference" title="ISSUE">#1761</mark></pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">ci(docker-publish): <mark class="e e-action" title="ADD">add</mark> arm64 builds and attestations</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание ✎</div><pre class="sec-text"><mark class="e e-action" title="ADD">add</mark> arm64 builds and attestations. these builds do take a good bit longer, during my tests they were around 15 mins. hope that&#x27;s okay. There&#x27;s a more complex solution with building them in a matrix using different runners. I have done this for this project: https://github.com/lukevella/rallly/pull/1783 because the run time exceeded acceptable amounts otherwise and got timed out.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Describe the way your implementation works or what design decisions you made if applicable:</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">- usually running on <mark class="e e-code" title="CODE">`arm64`</mark> is cheaper
+- <mark class="e e-action" title="ADD">adding</mark> attestations increases security by providing provenance.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [X] :book: have read the contribution guidelines
+- [X] :computer: have added unit/e2e tests (if appropriate)
+- [X] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P08"><header class="doc-head"><h2>P08</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">1154 симв. · 269 токенов · 20 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/66a4516adf77...8754416d847d" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#2040</mark> from mermaid-js/renovate/patch-mermaid-packages</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>(deps): <mark class="e e-action" title="UPDATE">update</mark> <mark class="e e-library" title="PACKAGE">mermaid</mark> packages to <mark class="e e-version" title="VERSION">^1.0.1</mark></pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">This PR contains the following updates:</pre></div><div class="sec"><div class="sec-label s-dep_table">таблица версий</div><pre class="sec-text">| Package | Change | Age | Confidence |
+|---|---|---|---|
+| @mermaid-js/<mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>-tidy-tree | <mark class="e e-version" title="VERSION">`^1.0.0`</mark> → <mark class="e e-version" title="VERSION">`^1.0.1`</mark> | [изображение] | [изображение] |
+| @mermaid-js/mermaid-zenuml (source) | <mark class="e e-version" title="VERSION">`^1.0.0`</mark> → <mark class="e e-version" title="VERSION">`^1.0.1`</mark> | [изображение] | [изображение] |</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">### Release Notes
+
+mermaid-js/mermaid (@mermaid-js/<mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>-tidy-tree)</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### <mark class="e e-version" title="VERSION">`v1.0.1`</mark></pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">Compare Source</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">##### Patch Changes</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">- <mark class="e e-reference" title="ISSUE">#8248</mark> <mark class="e e-reference" title="COMMIT">`3e9f40b`</mark> Thanks <mark class="e e-person" title="PERSON">@sidharthv96</mark>! - Support <mark class="e e-library" title="PACKAGE">Mermaid</mark> 12 in the tidy-tree <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> package while retaining <mark class="e e-library" title="PACKAGE">Mermaid</mark> 11 compatibility.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### Configuration</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">📅 **Schedule**: (UTC)</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота ✎</div><pre class="sec-text">- Branch creation
+  - At any time (no schedule defined)
+- Automerge
+  - At any time (no schedule defined)</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">🚦 **Automerge**: Enabled.
+
+♻ **Rebasing**: Whenever PR is behind base branch, or you tick the rebase/retry checkbox.
+
+🔕 **Ignore**: Close this PR and you won&#x27;t be reminded about these updates again.</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота ✎</div><pre class="sec-text">- [ ] If you want to rebase/retry this PR, check this box</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">This PR was generated by Mend <mark class="e e-library" title="BUILD_TOOL">Renovate</mark>. <mark class="e e-ui_component" title="UI_COMPONENT">View</mark> the repository job log.</pre></div></article><article class="doc" id="P09"><header class="doc-head"><h2>P09</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">964 симв. · 182 токенов · 8 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/e41499eda3dd...01cd13c712c2" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1798</mark> from junqwoopark/bug/1797_fix_export_background_color</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>(export): <mark class="e e-action" title="REMOVE">Remove</mark> redundant hsl() from background color</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание ✎</div><pre class="sec-text">This PR fixes an issue where exported Images have an incorrect background color.
+   - Copied Image incorrectly had a black background.
+   - Downloaded SVGs incorrectly had a white background.
+This change ensures that the background color of the exported SVG respects the current <mark class="e e-ui_component" title="UI_COMPONENT">theme</mark> of the <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark>.</pre></div><div class="sec"><div class="sec-label s-reference">ссылки</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> <mark class="e e-reference" title="ISSUE">#1797</mark> </pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">The code incorrectly wrapped a color value from a CSS variable with an hsl() function, creating an invalid color. The fix removes the redundant hsl() wrapper, ensuring the background color value from the CSS variable is used directly and correctly.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [x] :book: have read the contribution guidelines
+- [x] :computer: have added unit/e2e tests (if appropriate)
+- [x] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P11"><header class="doc-head"><h2>P11</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · tbtFlow</span><span class="meta">523 симв. · 102 токенов · 5 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/ce50b65cde16...5a7ee057c35a" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1783</mark> from mermaid-js/sidv/updateMermaid</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="UPDATE">Update</mark> <mark class="e e-library" title="PACKAGE">mermaid</mark> version</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Brief description about the content of your PR:</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> #&lt;your issue id here&gt;</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Describe the way your implementation works or what design decisions you made if applicable:</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P12"><header class="doc-head"><h2>P12</h2><span class="repo">excalidraw</span><span class="pill pill-reg">регрессия · lcp, lcpObs</span><span class="meta">2966 симв. · 530 токенов · 66 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/7497a0827003...51ad8951d4d8" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="UPDATE">Update</mark> translations from Crowdin (<mark class="e e-reference" title="ISSUE">#10316</mark>)</pre></div><div class="sec"><div class="sec-label s-squash_log">журнал squash</div><pre class="sec-text">* New translations <mark class="e e-code" title="CODE">en.json</mark> (Swedish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Japanese)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Occitan)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Russian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Russian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Portuguese, Brazilian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Occitan)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Italian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Italian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Italian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Italian)
+
+* Auto commit: Calculate translation coverage
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Swedish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Japanese)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Occitan)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Russian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Portuguese, Brazilian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Italian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Romanian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (French)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Spanish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Arabic)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Bulgarian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Catalan)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Czech)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Danish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (German)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Greek)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Basque)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Finnish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Hebrew)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Hungarian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Korean)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Kurdish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Lithuanian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Dutch)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Punjabi)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Polish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Portuguese)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Slovak)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Slovenian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Turkish)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Ukrainian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Chinese Simplified)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Chinese Traditional)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Vietnamese)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Galician)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Indonesian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Persian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Khmer)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Tamil)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Bengali)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Marathi)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Thai)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Norwegian Nynorsk)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Kazakh)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Latvian)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Azerbaijani)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Hindi)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Burmese)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Chinese Traditional, Hong Kong)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Sinhala)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Uzbek)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (Norwegian Bokmal)
+
+* New translations <mark class="e e-code" title="CODE">en.json</mark> (German, Switzerland)</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">[…]</pre></div></article><article class="doc" id="P14"><header class="doc-head"><h2>P14</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · tbt, cls</span><span class="meta">511 симв. · 96 токенов · 8 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/93d02aadc019...097f6f0f34c8" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1633</mark> from mermaid-js/sidv/redesign</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Redesign</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Brief description about the content of your PR:</pre></div><div class="sec"><div class="sec-label s-reference">ссылки</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> <mark class="e e-reference" title="ISSUE">#1630</mark>
+<mark class="e e-action" title="FIX">Resolves</mark> <mark class="e e-reference" title="ISSUE">#1581</mark>
+<mark class="e e-action" title="FIX">Resolves</mark> <mark class="e e-reference" title="ISSUE">#1587</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Describe the way your implementation works or what design decisions you made if applicable:</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P15"><header class="doc-head"><h2>P15</h2><span class="repo">excalidraw</span><span class="pill pill-reg">регрессия · lcp, lcpObs</span><span class="meta">1727 симв. · 322 токенов · 45 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/414182f5997b...204e06b77bf7" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: compact <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> for tablets (<mark class="e e-reference" title="ISSUE">#9910</mark>)</pre></div><div class="sec"><div class="sec-label s-squash_log">журнал squash</div><pre class="sec-text">* feat: <mark class="e e-action" title="ADD">allow</mark> the hiding of top picks
+
+* feat: <mark class="e e-action" title="ADD">allow</mark> the hiding of default fonts
+
+* <mark class="e e-action" title="REFACTOR">refactor</mark>: <mark class="e e-action" title="REFACTOR">rename</mark> to compactMode
+
+* feat: <mark class="e e-action" title="ADD">introduce</mark> <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> (incomplete)
+
+* tweak <mark class="e e-ui_component" title="UI_COMPONENT">icons</mark>
+
+* do not show border
+
+* lint
+
+* <mark class="e e-action" title="ADD">add</mark> isTouchMobile to device
+
+* <mark class="e e-action" title="ADD">add</mark> isTouchMobile to device
+
+* <mark class="e e-action" title="REFACTOR">refactor</mark> to use showCompactSidebar instead
+
+* <mark class="e e-action" title="REMOVE">hide</mark> <mark class="e e-ui_component" title="UI_COMPONENT">library</mark> label in compact
+
+* <mark class="e e-action" title="FIX">fix</mark> <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> color in dark <mark class="e e-ui_component" title="UI_COMPONENT">theme</mark>
+
+* <mark class="e e-action" title="FIX">fix</mark> <mark class="e e-ui_component" title="UI_COMPONENT">library</mark> and share btns getting hidden in smaller tablet widths
+
+* <mark class="e e-action" title="UPDATE">update</mark> tests
+
+* use a smaller gap between <mark class="e e-domain_object" title="DOMAIN_OBJECT">shapes</mark>
+
+* proper fix of range
+
+* quicker switching between different <mark class="e e-ui_component" title="UI_COMPONENT">popovers</mark>
+
+* to not show <mark class="e e-ui_component" title="UI_COMPONENT">properties panel</mark> at all when editing text
+
+* <mark class="e e-action" title="FIX">fix</mark> switching between different <mark class="e e-ui_component" title="UI_COMPONENT">popovers</mark> for texts
+
+* <mark class="e e-action" title="FIX">fix</mark> <mark class="e e-ui_component" title="UI_COMPONENT">popover</mark> not closable and font search auto focus
+
+* change properties for a new or editing text
+
+* change <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> for more style <mark class="e e-ui_component" title="UI_COMPONENT">settings</mark>
+
+* use bolt <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> for extra actions
+
+* <mark class="e e-action" title="FIX">fix</mark> breakpoints
+
+* use rem for <mark class="e e-ui_component" title="UI_COMPONENT">icon</mark> sizes
+
+* <mark class="e e-action" title="FIX">fix</mark> tests
+
+* improve switching between triggers (incomplete)
+
+* improve trigger switching (complete)
+
+* <mark class="e e-action" title="REFACTOR">clean</mark> up code
+
+* put compact into app state
+
+* <mark class="e e-action" title="FIX">fix</mark> <mark class="e e-ui_component" title="UI_COMPONENT">button</mark> size
+
+* <mark class="e e-action" title="REMOVE">remove</mark> redundant PanelComponentProps[&quot;compactMode&quot;]
+
+* <mark class="e e-action" title="REFACTOR">move</mark> fontSize UI on top
+
+* mobile detection (breakpoints incomplete)
+
+* tweak compact mode detection
+
+* <mark class="e e-action" title="REFACTOR">rename</mark> appState prop &amp; values
+
+* <mark class="e e-action" title="UPDATE">update</mark> snapshots</pre></div><div class="sec"><div class="sec-label s-trailer">трейлер</div><pre class="sec-text">Co-authored-by: dwelle &lt;5153846+dwelle@users.noreply.github.com&gt;</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: compact <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> for tablets</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">This PR brings compact <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> to tablets. By doing so, users would have more <mark class="e e-ui_component" title="UI_COMPONENT">screen</mark> space to work on their <mark class="e e-domain_object" title="DOMAIN_OBJECT">drawings</mark>. </pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">We&#x27;ve put the flag into app state and will most likely expose this config to desktops too. </pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">Some follow-ups in coming PRs:
+- improve mobile <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>
+- expose config on desktops</pre></div></article><article class="doc" id="P19"><header class="doc-head"><h2>P19</h2><span class="repo">vuejs-docs</span><span class="pill">без регрессии</span><span class="meta">685 симв. · 133 токенов · 5 сущностей</span><a href="https://github.com/vuejs/docs/compare/bfcf01f4a29a...7f5558934b13" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">docs: remarks about minor versions (<mark class="e e-reference" title="ISSUE">#2990</mark>)</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">docs: remarks about minor version (follow up to b6339b62a9522eb195a24ef74ee6392d65d2bfd7)</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">docs: remarks about minor versions</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">follow up to b6339b62a9522eb195a24ef74ee6392d65d2bfd7</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">In mentioned commit a lot of &quot;<mark class="e e-version" title="VERSION">3.x</mark>+&quot; badges were removed from docs and replaced with text &quot;Only suported in <mark class="e e-version" title="VERSION">3.x</mark>+&quot;</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">I found two more places, where <mark class="e e-version" title="VERSION">3.1</mark> / <mark class="e e-version" title="VERSION">3.3</mark> were still present, so I altered them in the same manner.</pre></div><div class="sec"><div class="sec-label s-description">описание ✎</div><pre class="sec-text">I also noticed sometimes the text is placed before function description and sometimes after. I took liberty to unify the usage and put all of them **before**, because I think this good to know in advance whether I can use it in my project or not.</pre></div></article><article class="doc" id="P20"><header class="doc-head"><h2>P20</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · tbtFlow</span><span class="meta">1891 симв. · 420 токенов · 40 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/e67de3a20b05...61b23314cdbb" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#2013</mark> from mermaid-js/renovate/patch-mermaid-packages</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="ADD">Add</mark> <mark class="e e-code" title="CODE">claude.md</mark></pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>(deps): <mark class="e e-action" title="UPDATE">update</mark> dependency <mark class="e e-library" title="PACKAGE">mermaid</mark> to <mark class="e e-version" title="VERSION">^11.16.1</mark></pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">This PR contains the following updates:</pre></div><div class="sec"><div class="sec-label s-dep_table">таблица версий</div><pre class="sec-text">| Package | Change | Age | Confidence |
+|---|---|---|---|
+| <mark class="e e-library" title="PACKAGE">mermaid</mark> | <mark class="e e-version" title="VERSION">`^11.16.0`</mark> → <mark class="e e-version" title="VERSION">`^11.16.1`</mark> | [изображение] | [изображение] |</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">### Release Notes
+
+mermaid-js/mermaid (<mark class="e e-library" title="PACKAGE">mermaid</mark>)</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### <mark class="e e-version" title="VERSION">`v11.16.1`</mark></pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">Compare Source</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">##### Patch Changes</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`12d472c`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - fix: handle CSS sibling combinators in compileCSS
+
+- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`2cd6dcf`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - fix: increase protections against prototype pollution
+
+  User-controlled <mark class="e e-ui_component" title="UI_COMPONENT">input</mark> already has protections against prototype pollution.
+
+  <mark class="e e-action" title="FIX">Fixes</mark>: GHSA-c4c3-pg64-4m4v
+
+- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`99af3fc`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - fix(architecture): use <mark class="e e-code" title="CODE">`Map`</mark>s and <mark class="e e-code" title="CODE">`Set`</mark>s to store groups/services
+
+  Services are now rendered in the order they are defined and more service IDs
+  are now supported.
+
+- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`2cd6dcf`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - deprecate: Deprecate the <mark class="e e-code" title="CODE">`mermaidAPI.setConfig()`</mark> function
+
+  Calling this function has no observable effect, as the next time a
+  <mark class="e e-code" title="CODE">`render()`</mark> or <mark class="e e-code" title="CODE">`parse()`</mark> is called, the <mark class="e e-code" title="CODE">`currentConfig`</mark> is cleared.
+
+- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`630aa7e`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - fix(xychart): support zero-width x-axis ranges
+
+- <mark class="e e-reference" title="ISSUE">#8022</mark> <mark class="e e-reference" title="COMMIT">`59b22fa`</mark> Thanks <mark class="e e-person" title="PERSON">@aloisklink</mark>! - fix(radar): limit number of ticks to 32
+
+  Setting a ticks value higher than this would only show 32 ticks.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### Configuration</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">📅 **Schedule**: (UTC)</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота ✎</div><pre class="sec-text">- Branch creation
+  - At any time (no schedule defined)
+- Automerge
+  - At any time (no schedule defined)</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">🚦 **Automerge**: Enabled.
+
+♻ **Rebasing**: Whenever PR is behind base branch, or you tick the rebase/retry checkbox.
+
+🔕 **Ignore**: Close this PR and you won&#x27;t be reminded about this update again.</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота ✎</div><pre class="sec-text">- [ ] If you want to rebase/retry this PR, check this box</pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">This PR was generated by Mend <mark class="e e-library" title="BUILD_TOOL">Renovate</mark>. <mark class="e e-ui_component" title="UI_COMPONENT">View</mark> the repository job log.</pre></div></article><article class="doc" id="P21"><header class="doc-head"><h2>P21</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · lcp</span><span class="meta">511 симв. · 102 токенов · 4 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/96dddeb34d48...92f029830fa1" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1687</mark> from mermaid-js/sidv/mobile</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: <mark class="e e-action" title="ADD">Add</mark> mobile support</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Brief description about the content of your PR:</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> #&lt;your issue id here&gt;</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Describe the way your implementation works or what design decisions you made if applicable:</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P22"><header class="doc-head"><h2>P22</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · tbt, tbtFlow</span><span class="meta">2829 симв. · 608 токенов · 78 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/4036e45fd6a0...66a4516adf77" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#2029</mark> from mermaid-js/sidv/update-mermaid-12</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="UPDATE">update</mark> to <mark class="e e-library" title="PACKAGE">mermaid</mark> v12 and derive the <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> from its defaults</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="UPDATE">Updates</mark> <mark class="e e-library" title="PACKAGE">mermaid</mark> to **v12** together with the companion <mark class="e e-library" title="PACKAGE">`@mermaid-js/*`</mark> packages, drops the now-redundant <mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-elk`</mark>, and replaces the <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark>&#x27;s hard-coded <mark class="e e-code" title="CODE">`&quot;theme&quot;: &quot;default&quot;`</mark> with a <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> that follows each <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> type&#x27;s own <mark class="e e-library" title="PACKAGE">mermaid</mark> default (and its dark variant when the site is dark).</pre></div><div class="sec"><div class="sec-label s-dep_table">таблица версий</div><pre class="sec-text">| Package | Before | After |
+| --- | --- | --- |
+| <mark class="e e-library" title="PACKAGE">`mermaid`</mark> | <mark class="e e-version" title="VERSION">`^11.17.2`</mark> | <mark class="e e-version" title="VERSION">`^12.0.0`</mark> |
+| <mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-tidy-tree`</mark> | <mark class="e e-version" title="VERSION">`^0.2.2`</mark> | <mark class="e e-version" title="VERSION">`^1.0.0`</mark> |
+| <mark class="e e-library" title="PACKAGE">`@mermaid-js/mermaid-zenuml`</mark> | <mark class="e e-version" title="VERSION">`^0.2.3`</mark> | <mark class="e e-version" title="VERSION">`^1.0.0`</mark> |
+| <mark class="e e-library" title="PACKAGE">`@mermaid-js/examples`</mark> | <mark class="e e-version" title="VERSION">`^1.4.0`</mark> | <mark class="e e-version" title="VERSION">`^2.0.0`</mark> |
+| <mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-elk`</mark> | <mark class="e e-version" title="VERSION">`^0.2.3`</mark> | _removed_ |</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">Release notes: <mark class="e e-library" title="PACKAGE">mermaid</mark>@<mark class="e e-version" title="VERSION">12.0.0</mark>.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### Dependency update</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">- **<mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-elk`</mark> removed.** <mark class="e e-library" title="PACKAGE">Mermaid</mark> 12 bundles <mark class="e e-library" title="PACKAGE · вручную">ELK</mark> and registers it automatically (it is also the new default <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>). Keeping the package would ship a second copy of the <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark> engine and its <mark class="e e-version" title="VERSION">`1.0.0`</mark> release still declares a <mark class="e e-code" title="CODE">`mermaid@^11`</mark> peer range. <mark class="e e-code" title="CODE">`src/lib/util/mermaid.ts`</mark> now only registers tidy-tree, which is not bundled.
+- **Peer-dependency warnings.** <mark class="e e-code" title="CODE">`@mermaid-js/layout-tidy-tree@1.0.0`</mark> and <mark class="e e-code" title="CODE">`@mermaid-js/mermaid-zenuml@1.0.0`</mark> still declare <mark class="e e-code" title="CODE">`mermaid@^11`</mark> as a peer. <mark class="e e-library" title="BUILD_TOOL">pnpm</mark> reports this as a warning only; the upstream packages need their peer ranges bumped.
+- The app does not use the removed <mark class="e e-code" title="CODE">`defaultRenderer`</mark> option or the removed <mark class="e e-ui_component" title="UI_COMPONENT">layout</mark>-internal exports, and <mark class="e e-code" title="CODE">`standardizeDiagramType`</mark> already normalises the <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> ids that changed.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">Theme</mark> follows the <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> type</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-library" title="PACKAGE">Mermaid</mark> 12 gives ten config sections their own default <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> (<mark class="e e-code" title="CODE">`redux-color`</mark> with the <mark class="e e-code" title="CODE">`neo`</mark> look for <mark class="e e-domain_object" title="DOMAIN_OBJECT">flowchart</mark>, swimlane, agentflow, sequence, class, state, ER, requirement, use case and Venn); everything else uses the global <mark class="e e-code" title="CODE">`default`</mark>. Pinning <mark class="e e-code" title="CODE">`&quot;theme&quot;: &quot;default&quot;`</mark> in every config, as the <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark> used to, opted every user out of that.</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">- **<mark class="e e-code" title="CODE">`syncManagedTheme`</mark> (state module).** After every validation, and whenever the site switches light/dark, the <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> is set to the current <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> type&#x27;s default — <mark class="e e-code" title="CODE">`getDefaultTheme(diagramType)`</mark> reads the config section&#x27;s <mark class="e e-code" title="CODE">`theme`</mark> from <mark class="e e-code" title="CODE">`mermaid.mermaidAPI.defaultConfig`</mark>, falling back to the global one — or, in dark mode, <mark class="e e-code" title="CODE">`darkVariantOf`</mark> it: redux <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">themes</mark> get their <mark class="e e-code" title="CODE">`-dark`</mark> variant (<mark class="e e-code" title="CODE">`redux-color`</mark> → <mark class="e e-code" title="CODE">`redux-dark-color`</mark>), anything else becomes <mark class="e e-code" title="CODE">`dark`</mark>. It converges after one update because the next validation finds the <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> already in place.
+- **Only <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark>-set <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">themes</mark> are replaced.** <mark class="e e-code" title="CODE">`isManagedTheme`</mark> accepts a missing <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark>, the global default, every section default and their dark variants. A <mark class="e e-domain_object" title="DOMAIN_OBJECT · вручную">theme</mark> the user typed into the config (<mark class="e e-code" title="CODE">`forest`</mark>, <mark class="e e-code" title="CODE">`neo`</mark>, <mark class="e e-code" title="CODE">`base`</mark>, …) is never touched, in either mode or when the <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark> type changes.
+[…]</pre></div></article><article class="doc" id="P25"><header class="doc-head"><h2>P25</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">510 симв. · 105 токенов · 10 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/4350d7e13af8...6b42be28417f" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1710</mark> from mermaid-js/sidv/1659</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>: <mark class="e e-reference" title="ISSUE">#1659</mark> Frozen UI with comment regex</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="FIX">Fixes</mark> <mark class="e e-perf" title="PERF · вручную">UI freeze</mark> when edge case of %% is entered in <mark class="e e-library" title="PACKAGE">monaco</mark>.</pre></div><div class="sec"><div class="sec-label s-reference">ссылки</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> <mark class="e e-reference" title="ISSUE">#1659</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-testing">проверка</div><pre class="sec-text">A new regex, developed by <mark class="e e-person" title="PERSON">@yogitas-ht</mark> and tested by MermaidChart QA team is used. </pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P26"><header class="doc-head"><h2>P26</h2><span class="repo">excalidraw</span><span class="pill pill-reg">регрессия · tbt</span><span class="meta">2702 симв. · 523 токенов · 31 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/21815fb930f2...b479f3bd6553" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: <mark class="e e-action" title="ADD">add</mark> first-class support for CJK (<mark class="e e-reference" title="ISSUE">#8530</mark>)</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: <mark class="e e-action" title="ADD">add</mark> first-class support for CJK</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">**Business value**
+1. Introduced <mark class="e e-code" title="CODE">`Xiaolai-Regular`</mark> for CJK as a fallback font for Excalifont
+    - it was additionally adjusted to fit our needs
+       - <mark class="e e-action" title="REMOVE">removed</mark> non-CJK codepoints
+       - reduced any Hangul side-bearings to 40%
+       - centered in width of inproperly centered CJK codepoints (mainly Hangul Jamo, but also others)
+     - it was manually split into multiple woff2 font faces for <mark class="e e-perf" title="PERF">lazy</mark>-<mark class="e e-perf" title="PERF">loading</mark> with https://chinese-font.netlify.app/online-split
+1. Improved wrapping to handle CJK codepoints, according to the special CJK rules (especially for Japanese and Korean)
+1. <mark class="e e-action" title="ADD">Added</mark> support for multicodepoint Emojis wrapping (in other <mark class="e e-domain_object" title="DOMAIN_OBJECT">words</mark>, emojis won&#x27;t be broken apart during wrapping anymore)
+1. <mark class="e e-action" title="ADD">Added</mark> keyboard shortcut for SVG export (<mark class="e e-code" title="CODE">`ctrl+shift+c`</mark> on all the platforms) with a <mark class="e e-ui_component" title="UI_COMPONENT">toast</mark> once completed (similar to PNG).
+1. Mitigated subsequent FOUT by fixing local <mark class="e e-perf" title="PERF">caching</mark> for fonts hosted on our CDN (previously cross-origin requests for fonts were not being cached by the service-worker).</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">Completes <mark class="e e-reference" title="ISSUE">#8408</mark></pre></div><div class="sec"><div class="sec-label s-testing">проверка</div><pre class="sec-text">**Technical parts**
+[изображение]
+https://link.excalidraw.com/readonly/MbbnWPSWXgadXdtmzgeO</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">1. Improved overall SVG export to process <mark class="e e-code" title="CODE">`FontFace`</mark>s concurrently (with or without workers, fetching and processing max 3 at a time) with some additional <mark class="e e-perf" title="PERF">perf</mark>. optimisations.
+1. Offloaded SVG export in <mark class="e e-code" title="CODE">`excalidraw-app`</mark> to shortlived <mark class="e e-code" title="CODE">`Web Workers`</mark> (re-used or terminated after 500ms of inactivity) due to <mark class="e e-perf" title="PERF">performance</mark> issues on the main thread (i.e. just Xiaolai consists of about 250 font faces, which would make the <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark> unresponsive for a few seconds).
+    - as part of this introduced initial infra for a pool of short-lived idle workers (could be possibly re-used elsewhere)
+    - <mark class="e e-action" title="ADD">added</mark> fallback for the main thread in case the <mark class="e e-code" title="CODE">`Web Workers`</mark> are not available (i.e. running in server-side or when everything is one chunk as in the obsidian)
+    - for more fallbacks check the `The NOT so happy path` in the <mark class="e e-domain_object" title="DOMAIN_OBJECT">diagram</mark>
+1. Adjusted the SVG export to inline fallback fonts first, so that their glyphs get overridden by the default fonts. Refactored font and <mark class="e e-code" title="CODE">`ExcalidrawFontFace`</mark>-related logic and fixed various <mark class="e e-perf" title="PERF">perf</mark>. / <mark class="e e-perf" title="PERF">caching</mark> issues (i.e. bail in font faces <mark class="e e-perf" title="PERF">cache</mark> not working)
+1. Adjusted the utils build process to merge all existing fonts with the big CJK font (with normalized glyphs, merged licenses, etc.).
+1. Adjusted the whole process for the E+ server-side export (processed on the main thread, fetched dataurl, skipped unnecessary expected logging, etc.).
+1. Introduced initial infra for manual code splitting (<mark class="e e-perf" title="PERF">lazy load</mark> **/*.<mark class="e e-code" title="CODE">chunk.js</mark> in <mark class="e e-code" title="CODE">`excalidraw-app`</mark>, create separate chunks in <mark class="e e-library" title="BUILD_TOOL">esbuild</mark>).
+[…]</pre></div></article><article class="doc" id="P29"><header class="doc-head"><h2>P29</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">1281 симв. · 257 токенов · 35 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/9fac30c8d73c...c23fa1b343d2" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#2001</mark> from mermaid-js/sidv/update-mermaid-deps</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore: <mark class="e e-action" title="UPDATE">update</mark> <mark class="e e-library" title="PACKAGE">mermaid</mark> packages to latest &amp; isolate them in <mark class="e e-library" title="BUILD_TOOL">Renovate</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## Summary</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">- <mark class="e e-action" title="UPDATE">Bump</mark> all <mark class="e e-library" title="PACKAGE">mermaid</mark> packages to their latest versions:
+  - <mark class="e e-library" title="PACKAGE">`mermaid`</mark> <mark class="e e-version" title="VERSION">`^11.15.0`</mark> → <mark class="e e-version" title="VERSION">`^11.16.0`</mark>
+  - <mark class="e e-library" title="PACKAGE">`@mermaid-js/examples`</mark> <mark class="e e-version" title="VERSION">`^1.2.0`</mark> → <mark class="e e-version" title="VERSION">`^1.3.0`</mark>
+  - <mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-elk`</mark> <mark class="e e-version" title="VERSION">`^0.2.1`</mark> → <mark class="e e-version" title="VERSION">`^0.2.2`</mark>
+  - <mark class="e e-library" title="PACKAGE">`@mermaid-js/layout-tidy-tree`</mark> / <mark class="e e-library" title="PACKAGE">`@mermaid-js/mermaid-zenuml`</mark> already at latest
+- <mark class="e e-action" title="UPDATE">Update</mark> the <mark class="e e-library" title="BUILD_TOOL">Renovate</mark> config so <mark class="e e-library" title="PACKAGE">mermaid</mark> releases land **<mark class="e e-perf" title="PERF">fast</mark>, in one PR, unmixed**:
+  - The old <mark class="e e-code" title="CODE">`^mermaid`</mark> pattern only matched the bare <mark class="e e-library" title="PACKAGE">`mermaid`</mark> package — the scoped <mark class="e e-library" title="PACKAGE">`@mermaid-js/*`</mark> packages were falling into the <mark class="e e-code" title="CODE">`group:allNonMajor`</mark> PR and getting mixed with unrelated updates. Now matched explicitly.
+  - <mark class="e e-action" title="ADD">Added</mark> <mark class="e e-code" title="CODE">`&quot;schedule&quot;: [&quot;at any time&quot;]`</mark> so the <mark class="e e-library" title="PACKAGE">mermaid</mark> group ignores the repo-wide <mark class="e e-code" title="CODE">`schedule:earlyMondays`</mark> and opens a PR as soon as a release is detected.
+  - <mark class="e e-code" title="CODE">`automerge: true`</mark> keeps minor/patch bumps flowing automatically.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## Test plan</pre></div><div class="sec"><div class="sec-label s-testing">проверка ✎</div><pre class="sec-text">- <mark class="e e-code" title="CODE">`pnpm check`</mark> → 0 errors / 0 warnings (1530 files)
+- Verified the lockfile diff only changes <mark class="e e-library" title="PACKAGE">mermaid</mark> specifiers; remaining churn is <mark class="e e-library" title="BUILD_TOOL">pnpm</mark> recomputing peer-dependency resolution suffixes (no other top-level dep version changed)
+- <mark class="e e-library" title="BUILD_TOOL">Renovate</mark> config validated with <mark class="e e-code" title="CODE">`renovate-config-validator`</mark></pre></div><div class="sec"><div class="sec-label s-ai_note">ИИ-помощник</div><pre class="sec-text">🤖 Generated with Claude Code</pre></div></article><article class="doc" id="P30"><header class="doc-head"><h2>P30</h2><span class="repo">excalidraw</span><span class="pill pill-reg">регрессия · lcp</span><span class="meta">763 симв. · 143 токенов · 24 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/6ebf52279dbf...a0b98a944f1d" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: TextToDiagram v2 (<mark class="e e-reference" title="ISSUE">#10530</mark>)</pre></div><div class="sec"><div class="sec-label s-squash_log">журнал squash</div><pre class="sec-text">* feat: introducing TextToDiagram v2 feature
+
+* <mark class="e e-action" title="FIX">fix</mark>: <mark class="e e-library" title="BUILD_TOOL">eslint</mark> issue
+
+* debug <mark class="e e-library" title="PACKAGE">mermaid</mark> <mark class="e e-perf" title="PERF">bundle size</mark>
+
+* tests: covering the utils
+
+* <mark class="e e-action" title="FIX">fix</mark>: import mock chunks dynamically to shrink the <mark class="e e-perf" title="PERF">bundle size</mark>
+
+* <mark class="e e-action" title="FIX">fix</mark>: removing replay feature
+
+* <mark class="e e-action" title="FIX">fix</mark>: removing unused prop
+
+* <mark class="e e-action" title="FIX">fix</mark>: bumping <mark class="e e-library" title="PACKAGE">workbox</mark> <mark class="e e-perf" title="PERF">cache</mark> limit
+
+* snapshots + <mark class="e e-library" title="BUILD_TOOL">yarn</mark>.lock
+
+* <mark class="e e-action" title="UPDATE">bump</mark> mermaid-to-excalidraw@2 and <mark class="e e-perf" title="PERF · вручную">split into its own chunk</mark>
+
+* <mark class="e e-action" title="UPDATE">bump</mark> <mark class="e e-library" title="BUILD_TOOL">node</mark>@20
+
+* css tweaks
+
+* <mark class="e e-action" title="REFACTOR">move</mark> files around &amp; rewrite stream chunk schema
+
+* random naming &amp; file structure refactor + some tweaks
+
+* <mark class="e e-action" title="FIX">fix</mark> <mark class="e e-ui_component" title="UI_COMPONENT">preview</mark> <mark class="e e-ui_component" title="UI_COMPONENT">theme</mark>
+
+* <mark class="e e-action" title="ADD">support</mark> custom warning renderer
+
+* label and css fix
+
+* <mark class="e e-action" title="FIX">fix</mark> and rwrite 429 handling
+
+* <mark class="e e-action" title="FIX">fix</mark> label</pre></div><div class="sec"><div class="sec-label s-trailer">трейлер</div><pre class="sec-text">Co-authored-by: dwelle &lt;5153846+dwelle@users.noreply.github.com&gt;</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: TextToDiagram v2</pre></div></article><article class="doc" id="P32"><header class="doc-head"><h2>P32</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · inp, tbtFlow, lcpObs</span><span class="meta">574 симв. · 120 токенов · 10 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/5ce27dd981c6...0683cdbaa2db" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1726</mark> from mermaid-js/sidv/hideAIRepair</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>: <mark class="e e-action" title="REMOVE">Hide</mark> AI Repair <mark class="e e-ui_component" title="UI_COMPONENT">button</mark> in config <mark class="e e-ui_component" title="UI_COMPONENT">tab</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="REMOVE">Hides</mark> the repair <mark class="e e-ui_component" title="UI_COMPONENT">button</mark> if there&#x27;s a parsing error in the *Config* <mark class="e e-ui_component" title="UI_COMPONENT">tab</mark> as it won&#x27;t help.</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text"><mark class="e e-action" title="FIX">Resolves</mark> #&lt;your issue id here&gt;</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Describe the way your implementation works or what design decisions you made if applicable:</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [x] :book: have read the contribution guidelines
+- [x] :computer: have added unit/e2e tests (if appropriate)
+- [x] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P34"><header class="doc-head"><h2>P34</h2><span class="repo">excalidraw</span><span class="pill pill-reg">регрессия · lcp, lcpObs</span><span class="meta">1506 симв. · 304 токенов · 23 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/15ca182333c4...61623bbeba08" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>: Comic Shanns issues, new fonts structure (<mark class="e e-reference" title="ISSUE">#8641</mark>)</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="FIX">fix</mark>: Comic Shanns issues, new fonts structure</pre></div><div class="sec"><div class="sec-label s-reference">ссылки</div><pre class="sec-text"><mark class="e e-action" title="FIX">Fixes</mark> https://github.com/excalidraw/excalidraw/issues/8327</pre></div><div class="sec"><div class="sec-label s-change_list">список изменений</div><pre class="sec-text">Adopted https://github.com/jesusmgg/comic-shanns-mono with few modifications:
+- cleared unnecessary characters for box <mark class="e e-domain_object" title="DOMAIN_OBJECT">drawings</mark> and braille
+- <mark class="e e-action" title="ADD">added</mark> polish Ł &amp; ł from https://github.com/kaBeech/serious-shanns/tree/main
+- corrected `tumed question mark` glyph
+
+Also done:
+- unified prod font paths across <mark class="e e-code" title="CODE">`excalidraw-app`</mark>, OSS package (host apps, examples, E+), and CDN into <mark class="e e-code" title="CODE">`fonts/[FontFamilyName]/[FontFamilyName]-*.woff2`</mark>
+  - grouping into subfolders per font family ✅
+  - unification of <mark class="e e-code" title="CODE">`EXCALIDRAW_ASSET_PATH`</mark> for OSS and E+ ✅ (instead of one relying on &quot;/&quot; while the other on &quot;/fonts/&quot;)
+  - unified and organized <mark class="e e-code" title="CODE">`excalidraw-app/build`</mark> &amp; <mark class="e e-code" title="CODE">`excalidraw/dist/prod/`</mark> into <mark class="e e-code" title="CODE">`fonts/`</mark> folder ✅ (instead of having all on root)
+    [изображение]
+  - host apps can just copy the whole &quot;fonts&quot; folder instead of all the woff2 files ✅
+- split all non-deprecated fonts into multiple chunks (atm only Excalifont and Comic Shanns left) and related:
+  - stopped adding <mark class="e e-library" title="BUILD_TOOL">vite</mark> <mark class="e e-code" title="CODE">`-[hash]`</mark> suffix to fonts on <mark class="e e-code" title="CODE">`excalidraw-app`</mark> build (we have hashes thanks to the split)
+  - optimized fetch during export to force <mark class="e e-perf" title="PERF">cache</mark>
+- stopped preloading Virgil, as at this point it&#x27;s unnecessary for new <mark class="e e-domain_object" title="DOMAIN_OBJECT">scenes</mark>, while old <mark class="e e-domain_object" title="DOMAIN_OBJECT">scenes</mark> will mostly get it from the <mark class="e e-perf" title="PERF">cache</mark> or just fetch it on init if needed</pre></div><div class="sec"><div class="sec-label s-reference">ссылки</div><pre class="sec-text"><mark class="e e-action" title="FIX">Fixes</mark>:
+- <mark class="e e-reference" title="ISSUE">#8677</mark>
+- <mark class="e e-reference" title="ISSUE">#8678</mark> </pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">Todo:
+- [ ] Update new font structure to the DO <mark class="e e-person" title="PERSON">@dwelle</mark></pre></div></article><article class="doc" id="P38"><header class="doc-head"><h2>P38</h2><span class="repo">mermaid-live-editor</span><span class="pill">без регрессии</span><span class="meta">2910 симв. · 597 токенов · 20 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/130711a9d08a...6438d0074df8" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1719</mark> from mermaid-js/renovate/all-minor-patch</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">chore(deps): <mark class="e e-action" title="UPDATE">update</mark> all non-major dependencies to <mark class="e e-version" title="VERSION">v10.34.1</mark></pre></div><div class="sec"><div class="sec-label s-bot_boilerplate">текст бота</div><pre class="sec-text">&gt; ℹ️ **Note**
+&gt; 
+&gt; This PR body was truncated due to platform limits.
+
+This PR contains the following updates:</pre></div><div class="sec"><div class="sec-label s-dep_table">таблица версий</div><pre class="sec-text">| Package | Change | Age | Confidence |
+|---|---|---|---|
+| <mark class="e e-library" title="BUILD_TOOL">pnpm</mark> (source) | `<mark class="e e-version" title="VERSION">10.10.0</mark>+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39<mark class="e e-code" title="CODE">` → `</mark><mark class="e e-version" title="VERSION">10.34.1</mark>` | [изображение] | [изображение] |</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">### Release Notes
+
+pnpm/pnpm (<mark class="e e-library" title="BUILD_TOOL">pnpm</mark>)</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### <mark class="e e-version" title="VERSION">`v10.34.1`</mark>: <mark class="e e-library" title="BUILD_TOOL">pnpm</mark> <mark class="e e-version" title="VERSION">10.34.1</mark></pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">Compare Source</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">#### Patch Changes</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">- Reject <mark class="e e-code" title="CODE">`pnpm-lock.yaml`</mark> entries whose remote tarball <mark class="e e-code" title="CODE">`resolution:`</mark> block is missing the <mark class="e e-code" title="CODE">`integrity`</mark> field. Previously the worker that extracts a downloaded tarball skipped hash verification when no integrity was supplied and minted a fresh one from the unverified bytes, so an attacker who could both alter the lockfile (e.g. via a pull request that strips <mark class="e e-code" title="CODE">`integrity:`</mark>) and serve modified content at the referenced tarball URL could install a tampered package without any error — including under <mark class="e e-code" title="CODE">`--frozen-lockfile`</mark>. <mark class="e e-library" title="BUILD_TOOL">pnpm</mark> now fails closed at lockfile-read time with <mark class="e e-code" title="CODE">`ERR_PNPM_MISSING_TARBALL_INTEGRITY`</mark>. Git-hosted tarballs (<mark class="e e-code" title="CODE">`gitHosted: true`</mark> or a URL on codeload.github.com / bitbucket.org / gitlab.com) and <mark class="e e-code" title="CODE">`file:`</mark> tarballs are exempt — the commit SHA in a git-host URL and the user-controlled local path already anchor the bytes.</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">#### Platinum Sponsors</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        [изображение]
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">#### Gold Sponsors</pre></div><div class="sec"><div class="sec-label s-release_notes">заметки к релизу</div><pre class="sec-text">&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        
+          &lt;picture&gt;
+            &lt;source media=&quot;(prefers-color-scheme: light)&quot; srcset=&quot;https://pnpm.io/img/users/sanity.svg&quot; /&gt;
+            &lt;source media=&quot;(prefers-color-scheme: dark)&quot; srcset=&quot;https://pnpm.io/img/users/sanity_light.svg&quot; /&gt;
+            [изображение]
+          &lt;/picture&gt;
+        
+      &lt;/td&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        
+          &lt;picture&gt;
+            &lt;source media=&quot;(prefers-color-scheme: light)&quot; srcset=&quot;https://pnpm.io/img/users/discord.svg&quot; /&gt;
+            &lt;source media=&quot;(prefers-color-scheme: dark)&quot; srcset=&quot;https://pnpm.io/img/users/discord_light.svg&quot; /&gt;
+            [изображение]
+          &lt;/picture&gt;
+        
+      &lt;/td&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        [изображение]
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        
+          &lt;picture&gt;
+            &lt;source media=&quot;(prefers-color-scheme: light)&quot; srcset=&quot;https://pnpm.io/img/users/serpapi_dark.svg&quot; /&gt;
+            &lt;source media=&quot;(prefers-color-scheme: dark)&quot; srcset=&quot;https://pnpm.io/img/users/serpapi_light.svg&quot; /&gt;
+            [изображение]
+          &lt;/picture&gt;
+        
+      &lt;/td&gt;
+      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;
+        
+          &lt;picture&gt;
+[…]</pre></div></article><article class="doc" id="P40"><header class="doc-head"><h2>P40</h2><span class="repo">excalidraw</span><span class="pill">без регрессии</span><span class="meta">652 симв. · 133 токенов · 11 сущностей</span><a href="https://github.com/excalidraw/excalidraw/compare/46f42ef8d79a...ae6bee340329" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: do not delete <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> children on <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> delete (<mark class="e e-reference" title="ISSUE">#9011</mark>)</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: do not delete <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> children on <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> delete</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">This PR changes how <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> deletion works. Previously, we deleted the <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> and its children. Now we&#x27;re only deleting the <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> and keeping the children, selecting them instead.</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">This way it&#x27;s much easier to remove children from the <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> instead of having to do it through context <mark class="e e-ui_component" title="UI_COMPONENT">menu</mark> in two steps.</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">If people want to delete both the <mark class="e e-domain_object" title="DOMAIN_OBJECT">frame</mark> and its children both, they can just hit delete twice.</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">(Un)related, fixed (or rather, improved, as a proper fix will take more work) selection on removing the last group member when editing a group.</pre></div></article><article class="doc" id="P41"><header class="doc-head"><h2>P41</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · lcp</span><span class="meta">580 симв. · 112 токенов · 7 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/987e09d8bc81...df6c1cceee52" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">Merge pull request <mark class="e e-reference" title="ISSUE">#1688</mark> from mermaid-js/sidv/faLoad</pre></div><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text">feat: Wait for <mark class="e e-library" title="STYLE_LIB">fontawesome</mark> to load before <mark class="e e-perf" title="PERF">rendering</mark></pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :bookmark_tabs: Summary</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="FIX">Fixes</mark> <mark class="e e-library" title="BUILD_TOOL">node</mark> size issue on <mark class="e e-perf" title="PERF">first load</mark>, where text is cut off. </pre></div><div class="sec"><div class="sec-label s-testing">проверка</div><pre class="sec-text">Before
+[изображение]
+
+After
+[изображение]</pre></div><div class="sec"><div class="sec-label s-trailer">трейлер</div><pre class="sec-text">Co-authored-by: Alois Klink &lt;alois@aloisklink.com&gt;</pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">## :straight_ruler: Design Decisions</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text">Implementation adapted from Alois&#x27; work in MermaidChart. </pre></div><div class="sec"><div class="sec-label s-heading">подзаголовок</div><pre class="sec-text">### :clipboard: Tasks</pre></div><div class="sec"><div class="sec-label s-template">шаблон PR</div><pre class="sec-text">Make sure you</pre></div><div class="sec"><div class="sec-label s-checklist">чек-лист</div><pre class="sec-text">- [ ] :book: have read the contribution guidelines
+- [ ] :computer: have added unit/e2e tests (if appropriate)
+- [ ] :bookmark: targeted <mark class="e e-code" title="CODE">`develop`</mark> branch</pre></div></article><article class="doc" id="P48"><header class="doc-head"><h2>P48</h2><span class="repo">mermaid-live-editor</span><span class="pill pill-reg">регрессия · inp, tbtFlow</span><span class="meta">520 симв. · 81 токенов · 6 сущностей</span><a href="https://github.com/mermaid-js/mermaid-live-editor/compare/ca96ca8771cf...b3c8bd6c283f" target="_blank" rel="noopener">diff на GitHub</a></header><div class="sec"><div class="sec-label s-title">заголовок</div><pre class="sec-text"><mark class="e e-action" title="REFACTOR">refactor</mark>: <mark class="e e-action" title="REFACTOR">Migrate</mark> <mark class="e e-ui_component" title="UI_COMPONENT">editor</mark> state from svelte/store to runes</pre></div><div class="sec"><div class="sec-label s-description">описание</div><pre class="sec-text"><mark class="e e-action" title="REFACTOR">Replace</mark> the writable+derived store pipeline in <mark class="e e-code" title="CODE">state.ts</mark> with a
+<mark class="e e-code" title="CODE">state.svelte.ts</mark> module: a deep $state inputState mutated only through
+the exported update functions, each of which persists the snapshot and
+re-validates it asynchronously into validatedState.current (with
+urls.current derived from it). Store subscriptions in components become
+$effect blocks, and the rough/grid toggles use function bindings.</pre></div><div class="sec"><div class="sec-label s-ai_note">ИИ-помощник</div><pre class="sec-text">Co-Authored-By: Claude Fable 5 &lt;noreply@anthropic.com&gt;</pre></div></article>
+</div>
+<script>
+document.querySelectorAll('.legend input').forEach(function (box) {
+  box.addEventListener('change', function () { document.body.classList.toggle('off-' + box.dataset.type, !box.checked); });
+});
+</script>

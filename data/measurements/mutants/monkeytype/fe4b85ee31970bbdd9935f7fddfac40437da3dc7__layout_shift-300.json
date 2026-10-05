@@ -1,0 +1,99 @@
+{
+ "schema": 2,
+ "repo": "monkeytype-mutants",
+ "sha": "fe4b85ee31970bbdd9935f7fddfac40437da3dc7",
+ "parent": "d6128ce8b36651dfc9779f1e2e24ceb8c4cbb2f5",
+ "date": "2026-01-27T20:17:06+01:00",
+ "subject": "feat: add setting to display typed words differently (@fehmer) (#7360)",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": null,
+  "buildMs": 16464,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.93",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*api.monkeytype.com*",
+   "*instatus.com*",
+   "*nitropay*",
+   "*playwire*",
+   "*pubgalaxy*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*googletagmanager*",
+   "*google-analytics*",
+   "*sentry.io*",
+   "*identitytoolkit.googleapis.com*",
+   "*securetoken.googleapis.com*",
+   "*firebaseinstallations.googleapis.com*",
+   "*bench-fake.firebaseapp.com*",
+   "*intergient*",
+   "*amazon-adsystem*",
+   "*confiant*",
+   "*fixedfold*",
+   "*api.github.com*",
+   "*raw.githubusercontent.com*",
+   "*www.google.com*",
+   "*www.gstatic.com*"
+  ],
+  "lang": "en-US"
+ },
+ "mutation": {
+  "op": "layout_shift",
+  "metric": "cls",
+  "level": 300,
+  "unit": "px",
+  "file": "",
+  "snippet": ""
+ },
+ "error": "files\n@monkeytype/frontend:build: Processed 308 files (5.4s) (31 warnings)\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: ✔ No circular dependency found!\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: \u001b[36mvite v7.1.12 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: \u001b[1mRunning oxlint...\u001b[0m\n@monkeytype/frontend:build: \n@monkeytype/frontend:build:   \u001b[38;2;225;80;80;1m×\u001b[0m \u001b[38;2;225;80;80;1meslint(no-var): Unexpected var, use let or const instead.\u001b[0m\n@monkeytype/frontend:build:      ╭─[\u001b[38;2;92;157;255;1msrc/ts/index.ts\u001b[0m:110:5]\n@monkeytype/frontend:build: \n@monkeytype/frontend:build:  \u001b[2m109\u001b[0m │   setTimeout(function () {\n@monkeytype/frontend:build:  \u001b[2m110\u001b[0m │     var d = document.createElement('div'); d.style.height = '300px'; document.body.prepend(d);\n@monkeytype/frontend:build:      · \u001b[38;2;246;87;248m    ───\u001b[0m\n@monkeytype/frontend:build:  \u001b[2m111\u001b[0m │   }, 300);\n@monkeytype/frontend:build:      ╰────\n@monkeytype/frontend:build: \u001b[38;2;106;159;181m  help: \u001b[0mReplace var with let or const\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: Found 0 warnings and 1 error.\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: Finished in 233ms on 358 files using 16 threads.\n@monkeytype/frontend:build: \n@monkeytype/frontend:build: \u001b[31mBuild aborted due to linting errors\u001b[0m\n@monkeytype/frontend:build: \n@monkeytype/frontend:build:  ELIFECYCLE  Command failed with exit code 1.\n@monkeytype/frontend:build: ERROR: command finished with error: command (E:\\diplom\\work\\repos\\monkeytype\\frontend) E:\\diplom\\bench\\shims\\pnpm.cmd run build exited (1)\n@monkeytype/frontend#build: command (E:\\diplom\\work\\repos\\monkeytype\\frontend) E:\\diplom\\bench\\shims\\pnpm.cmd run build exited (1)\n\n Tasks:    5 successful, 6 total\nCached:    0 cached, 6 total\n  Time:    15.744s \nFailed:    @monkeytype/frontend#build\n\n ERROR  run failed: command  exited (1)\n ELIFECYCLE  Command failed with exit code 1.\n"
+}

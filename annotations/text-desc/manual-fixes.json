@@ -1,0 +1,30 @@
+{
+  "_comment": "Ручные правки аннотатора поверх автоматической разметки (схема v2). Селекторы — по тексту; doc '*' — во всех документах.",
+  "remove": [
+    {"doc": "*", "text": "css", "label": "STYLE_LIB", "why": "CSS — язык, а не библиотека стилей"},
+    {"doc": "P12", "text": "crowdin", "label": "PACKAGE", "why": "сервис переводов, не пакет"},
+    {"doc": "*", "text": "@mermaid", "label": "PERSON", "why": "часть имени пакета @mermaid-js/…, не пользователь"},
+    {"doc": "*", "text": "`the not so happy path`", "label": "CODE", "why": "фраза в обратных кавычках, не код"},
+    {"doc": "*", "text": "`tumed question mark`", "label": "CODE", "why": "фраза в обратных кавычках, не код"}
+  ],
+  "relabel": [
+    {"doc": "P22", "text": "theme", "from": "UI_COMPONENT", "to": "DOMAIN_OBJECT", "why": "тема диаграммы mermaid, не интерфейса"},
+    {"doc": "P22", "text": "themes", "from": "UI_COMPONENT", "to": "DOMAIN_OBJECT", "why": "темы диаграмм"}
+  ],
+  "add": [
+    {"doc": "P22", "text": "ELK", "label": "PACKAGE", "why": "движок раскладки диаграмм, встроен в mermaid 12"},
+    {"doc": "P25", "text": "UI freeze", "label": "PERF", "why": "зависание интерфейса — проблема отзывчивости"},
+    {"doc": "P30", "text": "split into its own chunk", "label": "PERF", "why": "разбиение бандла"},
+    {"doc": "P30", "text": "shrink the bundle size", "label": "PERF", "why": "уменьшение бандла"}
+  ],
+  "sections": [
+    {"doc": "P07", "starts_with": "add arm64 builds", "label": "DESCRIPTION", "why": "описание, а не мотивация"},
+    {"doc": "P09", "starts_with": "This PR fixes an issue", "label": "DESCRIPTION", "why": "описание прозой, не список"},
+    {"doc": "P19", "starts_with": "I also noticed", "label": "DESCRIPTION", "why": "не тестирование: «before» — про порядок текста"},
+    {"doc": "P08", "starts_with": "- Branch creation", "label": "BOT_BOILERPLATE", "why": "настройки бота, не изменения"},
+    {"doc": "P20", "starts_with": "- Branch creation", "label": "BOT_BOILERPLATE", "why": "настройки бота, не изменения"},
+    {"doc": "P08", "starts_with": "- [ ] If you want to rebase", "label": "BOT_BOILERPLATE", "why": "служебная галочка бота"},
+    {"doc": "P20", "starts_with": "- [ ] If you want to rebase", "label": "BOT_BOILERPLATE", "why": "служебная галочка бота"},
+    {"doc": "P29", "starts_with": "- `pnpm check`", "label": "TESTING", "why": "раздел «Test plan»"}
+  ]
+}
