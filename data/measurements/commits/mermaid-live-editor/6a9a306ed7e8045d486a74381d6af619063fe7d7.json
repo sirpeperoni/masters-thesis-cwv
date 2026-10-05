@@ -1,0 +1,1410 @@
+{
+ "schema": 2,
+ "repo": "mermaid-live-editor",
+ "sha": "6a9a306ed7e8045d486a74381d6af619063fe7d7",
+ "parent": "337e9f86ace66b02c648104077b3a30edbe14e12",
+ "date": "2026-06-10T00:44:16+05:30",
+ "subject": "fix: Untrack input state reads inside state update functions",
+ "status": "ok",
+ "base": {
+  "sha": "337e9f86ace66b02c648104077b3a30edbe14e12",
+  "distHash": "05cf2a382d32d12d2177853c7606299eb926836ea37a93bd452d27f86ab811be"
+ },
+ "distHash": "242aba2d889d5289ac8f332b73e06d3889338179f8f61e3ede9764da531253bc",
+ "timings": {
+  "installMs": null,
+  "buildMs": 26478,
+  "measureMs": 747472
+ },
+ "bundle": {
+  "files": 227,
+  "byExt": {
+   "(none)": {
+    "files": 1,
+    "raw": 0,
+    "gzip": 0
+   },
+   ".html": {
+    "files": 4,
+    "raw": 14206,
+    "gzip": 4150
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 4286,
+    "gzip": 4286
+   },
+   ".png": {
+    "files": 1,
+    "raw": 12392,
+    "gzip": 12392
+   },
+   ".svg": {
+    "files": 7,
+    "raw": 7909,
+    "gzip": 3951
+   },
+   ".json": {
+    "files": 2,
+    "raw": 404,
+    "gzip": 298
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 114,
+    "gzip": 111
+   },
+   ".js": {
+    "files": 197,
+    "raw": 22821169,
+    "gzip": 5798278
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 417,
+    "gzip": 417
+   },
+   ".css": {
+    "files": 5,
+    "raw": 284445,
+    "gzip": 62316
+   },
+   ".ttf": {
+    "files": 1,
+    "raw": 121972,
+    "gzip": 121972
+   },
+   ".woff2": {
+    "files": 6,
+    "raw": 378872,
+    "gzip": 378872
+   }
+  },
+  "totalRaw": 23646186,
+  "totalGzip": 6387043
+ },
+ "runs": {
+  "edit": [
+   {
+    "navigation": {
+     "lcp": 3312.15965,
+     "cls": 0.0006907158596737004,
+     "tbt": 87.939075,
+     "fcp": 3102.2815,
+     "mpfid": 438,
+     "bytes": 2212326,
+     "bootup": 1499.1880000000342,
+     "mainthread": 2989.791999999974,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 696,
+     "observedFirstContentfulPaint": 696,
+     "observedFirstContentfulPaintAllFrames": 696,
+     "observedLargestContentfulPaint": 696,
+     "observedLargestContentfulPaintAllFrames": 696,
+     "observedTraceEnd": 3078,
+     "observedLoad": 55,
+     "observedDomContentLoaded": 55,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 699,
+     "observedLastVisualChange": 2456,
+     "observedSpeedIndex": 775,
+     "lcp_timeToFirstByte": 3.908,
+     "lcp_elementRenderDelay": 692.247
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 125.393,
+     "tbt": 124.25799999999845,
+     "cls": 0,
+     "mainthread": 5940.613000000069
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 3458.5128500000005,
+     "cls": 0.0006907158596737004,
+     "tbt": 500.9999999999998,
+     "fcp": 2794.1935000000003,
+     "mpfid": 458,
+     "bytes": 2212326,
+     "bootup": 1548.6480000000322,
+     "mainthread": 3054.107999999973,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 750,
+     "observedFirstContentfulPaint": 750,
+     "observedFirstContentfulPaintAllFrames": 750,
+     "observedLargestContentfulPaint": 750,
+     "observedLargestContentfulPaintAllFrames": 750,
+     "observedTraceEnd": 3126,
+     "observedLoad": 50,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 739,
+     "observedLastVisualChange": 2127,
+     "observedSpeedIndex": 807,
+     "lcp_timeToFirstByte": 3.667,
+     "lcp_elementRenderDelay": 746.153
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 123.385,
+     "tbt": 152.6160000000009,
+     "cls": 0,
+     "mainthread": 5888.108000000012
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 3047.1422000000002,
+     "cls": 0.0006907158596737004,
+     "tbt": 455.8798999999997,
+     "fcp": 2836.902,
+     "mpfid": 483,
+     "bytes": 2212326,
+     "bootup": 1470.1560000000272,
+     "mainthread": 2972.4439999999804,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 696,
+     "observedFirstContentfulPaint": 696,
+     "observedFirstContentfulPaintAllFrames": 696,
+     "observedLargestContentfulPaint": 696,
+     "observedLargestContentfulPaintAllFrames": 696,
+     "observedTraceEnd": 3091,
+     "observedLoad": 55,
+     "observedDomContentLoaded": 54,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 696,
+     "observedLastVisualChange": 2436,
+     "observedSpeedIndex": 775,
+     "lcp_timeToFirstByte": 4.629,
+     "lcp_elementRenderDelay": 691.241
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 122.102,
+     "tbt": 83.70999999999867,
+     "cls": 0,
+     "mainthread": 5674.644000000025
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 3315.294,
+     "cls": 0.0006907158596737004,
+     "tbt": 86.37699999999995,
+     "fcp": 3102.0400000000004,
+     "mpfid": 442,
+     "bytes": 2212326,
+     "bootup": 1521.2960000000312,
+     "mainthread": 3016.5359999999773,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3113,
+     "observedLoad": 68,
+     "observedDomContentLoaded": 67,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 716,
+     "observedLastVisualChange": 2426,
+     "observedSpeedIndex": 792,
+     "lcp_timeToFirstByte": 3.9030000305175783,
+     "lcp_elementRenderDelay": 727.8699999694825
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 124.005,
+     "tbt": 134.87699999999995,
+     "cls": 0,
+     "mainthread": 5960.031000000035
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 3075.9090499999998,
+     "cls": 0.0006907158596737004,
+     "tbt": 446.913225,
+     "fcp": 2855.7355,
+     "mpfid": 490,
+     "bytes": 2212326,
+     "bootup": 1510.372000000029,
+     "mainthread": 2983.2079999999733,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3095,
+     "observedLoad": 56,
+     "observedDomContentLoaded": 56,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 706,
+     "observedLastVisualChange": 2456,
+     "observedSpeedIndex": 783,
+     "lcp_timeToFirstByte": 3.401,
+     "lcp_elementRenderDelay": 710.344
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 121.821,
+     "tbt": 97.2239999999997,
+     "cls": 0,
+     "mainthread": 5748.209000000007
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 3325.37845,
+     "cls": 0.0006907158596737004,
+     "tbt": 113.99999999999977,
+     "fcp": 3093.8895,
+     "mpfid": 439.5,
+     "bytes": 2212326,
+     "bootup": 1541.9440000000295,
+     "mainthread": 3026.755999999982,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 715,
+     "observedFirstContentfulPaint": 715,
+     "observedFirstContentfulPaintAllFrames": 715,
+     "observedLargestContentfulPaint": 715,
+     "observedLargestContentfulPaintAllFrames": 715,
+     "observedTraceEnd": 3123,
+     "observedLoad": 62,
+     "observedDomContentLoaded": 62,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 711,
+     "observedLastVisualChange": 2108,
+     "observedSpeedIndex": 786,
+     "lcp_timeToFirstByte": 3.811,
+     "lcp_elementRenderDelay": 711.245
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 121.902,
+     "tbt": 78.1410000000019,
+     "cls": 0,
+     "mainthread": 6059.804000000079
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 3075.77265,
+     "cls": 0.0006907158596737004,
+     "tbt": 457.33884999999964,
+     "fcp": 2859.1115000000004,
+     "mpfid": 493.5,
+     "bytes": 2212328,
+     "bootup": 1515.39200000003,
+     "mainthread": 3004.0279999999734,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3110,
+     "observedLoad": 62,
+     "observedDomContentLoaded": 62,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 729,
+     "observedLastVisualChange": 2125,
+     "observedSpeedIndex": 794,
+     "lcp_timeToFirstByte": 3.249,
+     "lcp_elementRenderDelay": 728.871
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 123.103,
+     "tbt": 107.42200000000025,
+     "cls": 0,
+     "mainthread": 5910.769000000025
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 3397.9109,
+     "cls": 0.0006907158596737004,
+     "tbt": 140.4919,
+     "fcp": 3125.919,
+     "mpfid": 436,
+     "bytes": 2212325,
+     "bootup": 1460.4160000000334,
+     "mainthread": 3019.843999999978,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 730,
+     "observedFirstContentfulPaint": 730,
+     "observedFirstContentfulPaintAllFrames": 730,
+     "observedLargestContentfulPaint": 730,
+     "observedLargestContentfulPaintAllFrames": 730,
+     "observedTraceEnd": 3107,
+     "observedLoad": 61,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 714,
+     "observedLastVisualChange": 2435,
+     "observedSpeedIndex": 790,
+     "lcp_timeToFirstByte": 4.188000030517578,
+     "lcp_elementRenderDelay": 726.2349999694824
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 137.987,
+     "tbt": 544.2009999999998,
+     "cls": 0,
+     "mainthread": 6455.105000000062
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 3108.9547000000002,
+     "cls": 0.0006907158596737004,
+     "tbt": 433.4111499999997,
+     "fcp": 2894.277,
+     "mpfid": 506.5,
+     "bytes": 2212326,
+     "bootup": 1517.172000000029,
+     "mainthread": 3078.9919999999656,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3111,
+     "observedLoad": 64,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 729,
+     "observedLastVisualChange": 2435,
+     "observedSpeedIndex": 805,
+     "lcp_timeToFirstByte": 3.795,
+     "lcp_elementRenderDelay": 728.479
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 123.373,
+     "tbt": 115.43099999999936,
+     "cls": 0,
+     "mainthread": 5790.689000000018
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 3069.8368000000005,
+     "cls": 0.0006907158596737004,
+     "tbt": 512.3256000000001,
+     "fcp": 2829.4880000000003,
+     "mpfid": 492,
+     "bytes": 2212326,
+     "bootup": 1516.4880000000305,
+     "mainthread": 3047.0639999999776,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 731,
+     "observedFirstContentfulPaint": 731,
+     "observedFirstContentfulPaintAllFrames": 731,
+     "observedLargestContentfulPaint": 731,
+     "observedLargestContentfulPaintAllFrames": 731,
+     "observedTraceEnd": 3113,
+     "observedLoad": 53,
+     "observedDomContentLoaded": 53,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 720,
+     "observedLastVisualChange": 2439,
+     "observedSpeedIndex": 798,
+     "lcp_timeToFirstByte": 3.927,
+     "lcp_elementRenderDelay": 727.17
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 132.525,
+     "tbt": 137.81800000000476,
+     "cls": 0,
+     "mainthread": 6096.833000000033
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 3175.55495,
+     "cls": 0.0006907158596737004,
+     "tbt": 507.4747749999997,
+     "fcp": 2904.5045,
+     "mpfid": 493,
+     "bytes": 2212326,
+     "bootup": 1563.1840000000293,
+     "mainthread": 3059.6959999999694,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3104,
+     "observedLoad": 57,
+     "observedDomContentLoaded": 57,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 727,
+     "observedLastVisualChange": 2120,
+     "observedSpeedIndex": 799,
+     "lcp_timeToFirstByte": 3.515,
+     "lcp_elementRenderDelay": 728.797
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 123.605,
+     "tbt": 404.2519999999979,
+     "cls": 0,
+     "mainthread": 6103.89800000007
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 3054.49795,
+     "cls": 0.0006907158596737004,
+     "tbt": 461.31827500000054,
+     "fcp": 2842.6345,
+     "mpfid": 486,
+     "bytes": 2212326,
+     "bootup": 1493.9040000000307,
+     "mainthread": 2983.2439999999774,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 697,
+     "observedFirstContentfulPaint": 697,
+     "observedFirstContentfulPaintAllFrames": 697,
+     "observedLargestContentfulPaint": 697,
+     "observedLargestContentfulPaintAllFrames": 697,
+     "observedTraceEnd": 3081,
+     "observedLoad": 61,
+     "observedDomContentLoaded": 60,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 696,
+     "observedLastVisualChange": 2426,
+     "observedSpeedIndex": 773,
+     "lcp_timeToFirstByte": 3.516,
+     "lcp_elementRenderDelay": 693.294
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 122.056,
+     "tbt": 73.81199999999899,
+     "cls": 0,
+     "mainthread": 5591.695000000032
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 3099.5720000000006,
+     "cls": 0.0006907158596737004,
+     "tbt": 477.9739999999997,
+     "fcp": 2863.0200000000004,
+     "mpfid": 493,
+     "bytes": 2212326,
+     "bootup": 1574.0600000000272,
+     "mainthread": 3060.027999999986,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 733,
+     "observedFirstContentfulPaint": 733,
+     "observedFirstContentfulPaintAllFrames": 733,
+     "observedLargestContentfulPaint": 733,
+     "observedLargestContentfulPaintAllFrames": 733,
+     "observedTraceEnd": 3137,
+     "observedLoad": 58,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 718,
+     "observedLastVisualChange": 2474,
+     "observedSpeedIndex": 799,
+     "lcp_timeToFirstByte": 3.8829999694824218,
+     "lcp_elementRenderDelay": 729.1410000305176
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 122.399,
+     "tbt": 87.06699999999933,
+     "cls": 0,
+     "mainthread": 5703.749000000005
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 3166.27085,
+     "cls": 0.0006907158596737004,
+     "tbt": 485.50000000000045,
+     "fcp": 2907.4735,
+     "mpfid": 491.5,
+     "bytes": 2212326,
+     "bootup": 1519.3400000000274,
+     "mainthread": 2999.7879999999714,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3127,
+     "observedLoad": 55,
+     "observedDomContentLoaded": 55,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 709,
+     "observedLastVisualChange": 2477,
+     "observedSpeedIndex": 787,
+     "lcp_timeToFirstByte": 3.717,
+     "lcp_elementRenderDelay": 710.101
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 120.911,
+     "tbt": 101.81100000000106,
+     "cls": 0,
+     "mainthread": 5868.944000000073
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 3091.3777999999998,
+     "cls": 0.0006907158596737004,
+     "tbt": 477.4202,
+     "fcp": 2877.298,
+     "mpfid": 507.5,
+     "bytes": 2212326,
+     "bootup": 1546.34000000003,
+     "mainthread": 3093.7319999999618,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3118,
+     "observedLoad": 65,
+     "observedDomContentLoaded": 65,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 731,
+     "observedLastVisualChange": 2135,
+     "observedSpeedIndex": 803,
+     "lcp_timeToFirstByte": 3.801000030517578,
+     "lcp_elementRenderDelay": 728.3409999694824
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 123.459,
+     "tbt": 109.50700000000325,
+     "cls": 0,
+     "mainthread": 5704.098000000025
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "edit": [
+   {
+    "navigation": {
+     "lcp": 3328.1458000000002,
+     "cls": 0.0006907158596737004,
+     "tbt": 107.98389999999995,
+     "fcp": 3111.678,
+     "mpfid": 449.5,
+     "bytes": 2212319,
+     "bootup": 1581.2120000000307,
+     "mainthread": 3079.879999999974,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 730,
+     "observedFirstContentfulPaint": 730,
+     "observedFirstContentfulPaintAllFrames": 730,
+     "observedLargestContentfulPaint": 730,
+     "observedLargestContentfulPaintAllFrames": 730,
+     "observedTraceEnd": 3119,
+     "observedLoad": 61,
+     "observedDomContentLoaded": 61,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 718,
+     "observedLastVisualChange": 2449,
+     "observedSpeedIndex": 799,
+     "lcp_timeToFirstByte": 3.928,
+     "lcp_elementRenderDelay": 725.586
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 153.243,
+     "tbt": 1708.9790000000046,
+     "cls": 0,
+     "mainthread": 8149.271000000067
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 3460.4574000000002,
+     "cls": 0.0006907158596737004,
+     "tbt": 177.49644999999987,
+     "fcp": 3154.46805,
+     "mpfid": 441.5,
+     "bytes": 2212319,
+     "bootup": 1576.6400000000335,
+     "mainthread": 3077.4399999999764,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3128,
+     "observedLoad": 59,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 714,
+     "observedLastVisualChange": 2106,
+     "observedSpeedIndex": 790,
+     "lcp_timeToFirstByte": 3.9510000305175783,
+     "lcp_elementRenderDelay": 710.4489999694824
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 167.131,
+     "tbt": 1745.1840000000059,
+     "cls": 0,
+     "mainthread": 8276.445000000094
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 3460.86405,
+     "cls": 0.0006907158596737004,
+     "tbt": 161.28927499999986,
+     "fcp": 3179.2855,
+     "mpfid": 443.5,
+     "bytes": 2212319,
+     "bootup": 1574.344000000034,
+     "mainthread": 3092.279999999984,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3140,
+     "observedLoad": 59,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 711,
+     "observedLastVisualChange": 2151,
+     "observedSpeedIndex": 789,
+     "lcp_timeToFirstByte": 3.457,
+     "lcp_elementRenderDelay": 710.501
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 152.28,
+     "tbt": 1849.0470000000005,
+     "cls": 0,
+     "mainthread": 8045.617000000081
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 3319.7907500000006,
+     "cls": 0.0006907158596737004,
+     "tbt": 93.10412500000007,
+     "fcp": 3108.0825000000004,
+     "mpfid": 435.5,
+     "bytes": 2212319,
+     "bootup": 1589.8080000000314,
+     "mainthread": 3172.5559999999773,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3124,
+     "observedLoad": 60,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 733,
+     "observedLastVisualChange": 2114,
+     "observedSpeedIndex": 807,
+     "lcp_timeToFirstByte": 3.9359999694824217,
+     "lcp_elementRenderDelay": 727.7620000305176
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 165.168,
+     "tbt": 1673.8220000000017,
+     "cls": 0,
+     "mainthread": 7959.776000000097
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 3083.0464999999995,
+     "cls": 0.0006907158596737004,
+     "tbt": 704.8842500000001,
+     "fcp": 2605.8149999999996,
+     "mpfid": 510,
+     "bytes": 2212319,
+     "bootup": 1592.3520000000294,
+     "mainthread": 3071.791999999975,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3120,
+     "observedLoad": 47,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 717,
+     "observedLastVisualChange": 2484,
+     "observedSpeedIndex": 795,
+     "lcp_timeToFirstByte": 3.527,
+     "lcp_elementRenderDelay": 728.483
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 166.849,
+     "tbt": 1922.7420000000095,
+     "cls": 0,
+     "mainthread": 8060.481000000108
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 3079.85735,
+     "cls": 0.0006907158596737004,
+     "tbt": 486,
+     "fcp": 2853.1885,
+     "mpfid": 489,
+     "bytes": 2212318,
+     "bootup": 1567.6280000000286,
+     "mainthread": 3164.1279999999815,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 733,
+     "observedFirstContentfulPaint": 733,
+     "observedFirstContentfulPaintAllFrames": 733,
+     "observedLargestContentfulPaint": 733,
+     "observedLargestContentfulPaintAllFrames": 733,
+     "observedTraceEnd": 3130,
+     "observedLoad": 71,
+     "observedDomContentLoaded": 71,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 718,
+     "observedLastVisualChange": 2490,
+     "observedSpeedIndex": 804,
+     "lcp_timeToFirstByte": 4.037,
+     "lcp_elementRenderDelay": 728.499
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 170.404,
+     "tbt": 1991.6780000000012,
+     "cls": 0,
+     "mainthread": 8061.525000000105
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 3047.4034999999994,
+     "cls": 0.0006907158596737004,
+     "tbt": 483.8907499999998,
+     "fcp": 2835.1849999999995,
+     "mpfid": 487.5,
+     "bytes": 2212318,
+     "bootup": 1524.4800000000296,
+     "mainthread": 3009.6519999999773,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3097,
+     "observedLoad": 64,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 701,
+     "observedLastVisualChange": 2427,
+     "observedSpeedIndex": 781,
+     "lcp_timeToFirstByte": 4.054,
+     "lcp_elementRenderDelay": 709.79
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 165.035,
+     "tbt": 1864.447999999994,
+     "cls": 0,
+     "mainthread": 8041.328000000105
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 3450.2472499999994,
+     "cls": 0.0006907158596737004,
+     "tbt": 160.62487499999997,
+     "fcp": 3168.4974999999995,
+     "mpfid": 439.5,
+     "bytes": 2212319,
+     "bootup": 1604.5960000000352,
+     "mainthread": 3106.675999999977,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3125,
+     "observedLoad": 66,
+     "observedDomContentLoaded": 66,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 721,
+     "observedLastVisualChange": 2107,
+     "observedSpeedIndex": 794,
+     "lcp_timeToFirstByte": 3.912,
+     "lcp_elementRenderDelay": 728.4
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 141.229,
+     "tbt": 1616.490000000006,
+     "cls": 0,
+     "mainthread": 7753.9540000000725
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 3343.25345,
+     "cls": 0.0006907158596737004,
+     "tbt": 91.05697499999997,
+     "fcp": 3109.1395,
+     "mpfid": 441.5,
+     "bytes": 2212319,
+     "bootup": 1548.868000000035,
+     "mainthread": 3050.907999999982,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 696,
+     "observedFirstContentfulPaint": 696,
+     "observedFirstContentfulPaintAllFrames": 696,
+     "observedLargestContentfulPaint": 696,
+     "observedLargestContentfulPaintAllFrames": 696,
+     "observedTraceEnd": 3094,
+     "observedLoad": 50,
+     "observedDomContentLoaded": 49,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 700,
+     "observedLastVisualChange": 2458,
+     "observedSpeedIndex": 781,
+     "lcp_timeToFirstByte": 3.388,
+     "lcp_elementRenderDelay": 692.981
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 152.12,
+     "tbt": 1900.7599999999954,
+     "cls": 0,
+     "mainthread": 8027.6200000000745
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 3194.3803999999996,
+     "cls": 0.0006907158596737004,
+     "tbt": 514.8918000000001,
+     "fcp": 2919.1639999999998,
+     "mpfid": 501.5,
+     "bytes": 2212319,
+     "bootup": 1542.1400000000294,
+     "mainthread": 3084.351999999968,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 732,
+     "observedFirstContentfulPaint": 732,
+     "observedFirstContentfulPaintAllFrames": 732,
+     "observedLargestContentfulPaint": 732,
+     "observedLargestContentfulPaintAllFrames": 732,
+     "observedTraceEnd": 3127,
+     "observedLoad": 62,
+     "observedDomContentLoaded": 62,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 722,
+     "observedLastVisualChange": 2472,
+     "observedSpeedIndex": 801,
+     "lcp_timeToFirstByte": 4.03,
+     "lcp_elementRenderDelay": 727.821
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 158.133,
+     "tbt": 1697.8270000000039,
+     "cls": 0,
+     "mainthread": 7722.049000000047
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 3379.37605,
+     "cls": 0.0006907158596737004,
+     "tbt": 99.08527500000014,
+     "fcp": 3153.2055,
+     "mpfid": 466,
+     "bytes": 2212319,
+     "bootup": 1539.4160000000338,
+     "mainthread": 3141.251999999968,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 751,
+     "observedFirstContentfulPaint": 751,
+     "observedFirstContentfulPaintAllFrames": 751,
+     "observedLargestContentfulPaint": 751,
+     "observedLargestContentfulPaintAllFrames": 751,
+     "observedTraceEnd": 3135,
+     "observedLoad": 64,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 737,
+     "observedLastVisualChange": 2132,
+     "observedSpeedIndex": 808,
+     "lcp_timeToFirstByte": 3.507,
+     "lcp_elementRenderDelay": 747.948
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 167.721,
+     "tbt": 1986.932000000003,
+     "cls": 0,
+     "mainthread": 8230.347000000076
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 3434.9678000000004,
+     "cls": 0.0006907158596737004,
+     "tbt": 170.88490000000002,
+     "fcp": 3151.6980000000003,
+     "mpfid": 444.5,
+     "bytes": 2212319,
+     "bootup": 1564.40800000003,
+     "mainthread": 3015.4119999999893,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 715,
+     "observedFirstContentfulPaint": 715,
+     "observedFirstContentfulPaintAllFrames": 715,
+     "observedLargestContentfulPaint": 715,
+     "observedLargestContentfulPaintAllFrames": 715,
+     "observedTraceEnd": 3105,
+     "observedLoad": 56,
+     "observedDomContentLoaded": 56,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 699,
+     "observedLastVisualChange": 2105,
+     "observedSpeedIndex": 775,
+     "lcp_timeToFirstByte": 3.581000030517578,
+     "lcp_elementRenderDelay": 711.5649999694824
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 163.411,
+     "tbt": 2101.060999999999,
+     "cls": 0,
+     "mainthread": 8277.45300000008
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 3456.4693999999995,
+     "cls": 0.0006907158596737004,
+     "tbt": 131.65769999999998,
+     "fcp": 3185.1539999999995,
+     "mpfid": 456.5,
+     "bytes": 2212319,
+     "bootup": 1544.920000000032,
+     "mainthread": 3073.9639999999667,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 713,
+     "observedFirstContentfulPaint": 713,
+     "observedFirstContentfulPaintAllFrames": 713,
+     "observedLargestContentfulPaint": 713,
+     "observedLargestContentfulPaintAllFrames": 713,
+     "observedTraceEnd": 3107,
+     "observedLoad": 53,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 711,
+     "observedLastVisualChange": 2452,
+     "observedSpeedIndex": 790,
+     "lcp_timeToFirstByte": 3.458,
+     "lcp_elementRenderDelay": 709.851
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 166.535,
+     "tbt": 1872.696999999998,
+     "cls": 0,
+     "mainthread": 8008.59100000008
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 3046.1550499999994,
+     "cls": 0.0006907158596737004,
+     "tbt": 707.970225,
+     "fcp": 2608.0954999999994,
+     "mpfid": 489,
+     "bytes": 2212319,
+     "bootup": 1513.7920000000317,
+     "mainthread": 3012.49999999998,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 714,
+     "observedFirstContentfulPaint": 714,
+     "observedFirstContentfulPaintAllFrames": 714,
+     "observedLargestContentfulPaint": 714,
+     "observedLargestContentfulPaintAllFrames": 714,
+     "observedTraceEnd": 3115,
+     "observedLoad": 52,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 702,
+     "observedLastVisualChange": 2420,
+     "observedSpeedIndex": 782,
+     "lcp_timeToFirstByte": 3.571,
+     "lcp_elementRenderDelay": 710.235
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 157.723,
+     "tbt": 1901.8129999999985,
+     "cls": 0,
+     "mainthread": 7972.257000000079
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 3323.1818000000003,
+     "cls": 0.0006907158596737004,
+     "tbt": 118.24379999999996,
+     "fcp": 3102.438,
+     "mpfid": 449,
+     "bytes": 2212319,
+     "bootup": 1568.4440000000357,
+     "mainthread": 3075.927999999977,
+     "dom": 442,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 713,
+     "observedFirstContentfulPaint": 713,
+     "observedFirstContentfulPaintAllFrames": 713,
+     "observedLargestContentfulPaint": 713,
+     "observedLargestContentfulPaintAllFrames": 713,
+     "observedTraceEnd": 3113,
+     "observedLoad": 54,
+     "observedDomContentLoaded": 54,
+     "observedCumulativeLayoutShift": 0.0006907158596737004,
+     "observedCumulativeLayoutShiftMainFrame": 0.0006907158596737004,
+     "observedFirstVisualChange": 707,
+     "observedLastVisualChange": 2457,
+     "observedSpeedIndex": 788,
+     "lcp_timeToFirstByte": 3.719,
+     "lcp_elementRenderDelay": 709.773
+    },
+    "lcpElement": {
+     "selector": "div.flex > div.grid > a.col-start-1 > span.text-base",
+     "label": "Try Mermaid Advanced Editor — OSS users get 10% off with code JS26",
+     "snippet": "<span class=\"text-base tracking-wider text-white\">"
+    },
+    "interaction": {
+     "inp": 154.242,
+     "tbt": 1899.665000000007,
+     "cls": 0,
+     "mainthread": 8018.000000000073
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.59",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*mermaid.js.org/schemas/*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "mermaid.js.org"
+  ]
+ }
+}

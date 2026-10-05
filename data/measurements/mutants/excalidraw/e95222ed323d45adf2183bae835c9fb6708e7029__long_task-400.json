@@ -1,0 +1,1418 @@
+{
+ "schema": 2,
+ "repo": "excalidraw-mutants",
+ "sha": "e95222ed323d45adf2183bae835c9fb6708e7029",
+ "parent": "d87620b23907cef9a119c758124569b5f44991a4",
+ "date": "2025-12-28T21:53:25+01:00",
+ "subject": "fix: add constants and side methods to packages (#10418)",
+ "status": "ok",
+ "base": {
+  "sha": "d87620b23907cef9a119c758124569b5f44991a4",
+  "distHash": "5a4427098d1311412a26b3701b2e2e25cd3b0c442f81c033f03bc6d74c841be9"
+ },
+ "distHash": "6d4121113b9e1a15fa473fedfaa7026a2659cabfdcf1cbf092fd7e725767fe66",
+ "timings": {
+  "installMs": null,
+  "buildMs": 31030,
+  "measureMs": 438286
+ },
+ "bundle": {
+  "files": 379,
+  "byExt": {
+   ".png": {
+    "files": 14,
+    "raw": 301455,
+    "gzip": 301455
+   },
+   ".js": {
+    "files": 120,
+    "raw": 8688388,
+    "gzip": 2925496
+   },
+   ".css": {
+    "files": 1,
+    "raw": 182311,
+    "gzip": 29609
+   },
+   ".woff2": {
+    "files": 233,
+    "raw": 13194216,
+    "gzip": 13194216
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 3,
+    "raw": 33627,
+    "gzip": 14853
+   },
+   ".html": {
+    "files": 1,
+    "raw": 6580,
+    "gzip": 2250
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 1355,
+    "gzip": 517
+   },
+   ".jpg": {
+    "files": 2,
+    "raw": 75765,
+    "gzip": 75765
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 187,
+    "gzip": 133
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 478,
+    "gzip": 478
+   },
+   "(none)": {
+    "files": 1,
+    "raw": 36,
+    "gzip": 36
+   }
+  },
+  "totalRaw": 22499484,
+  "totalGzip": 16559894
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 925.5097499999999,
+     "cls": 0.003949949654145871,
+     "tbt": 1614,
+     "fcp": 806.0097499999999,
+     "mpfid": 1601,
+     "bytes": 780145,
+     "bootup": 2159.407999999956,
+     "mainthread": 3081.475999999962,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 585,
+     "observedFirstContentfulPaint": 585,
+     "observedFirstContentfulPaintAllFrames": 585,
+     "observedLargestContentfulPaint": 2037,
+     "observedLargestContentfulPaintAllFrames": 2037,
+     "observedTraceEnd": 10789,
+     "observedLoad": 8436,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003949949654145871,
+     "observedCumulativeLayoutShiftMainFrame": 0.003949949654145871,
+     "observedFirstVisualChange": 580,
+     "observedLastVisualChange": 7728,
+     "observedSpeedIndex": 1253,
+     "lcp_timeToFirstByte": 3.337,
+     "lcp_elementRenderDelay": 2033.556
+    },
+    "lcpElement": {
+     "selector": "div.Stack > div.Island > div.HintViewer > span",
+     "label": "To move canvas, hold Scroll wheel or Space while dragging, or use the hand tool",
+     "snippet": "<span>"
+    },
+    "interaction": {
+     "inp": 119.198,
+     "tbt": 12.064000000000306,
+     "cls": 0,
+     "mainthread": 1452.7519999999836
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1269.7516249999999,
+     "cls": 0.003954071146353208,
+     "tbt": 1612,
+     "fcp": 844.251625,
+     "mpfid": 1601,
+     "bytes": 780144,
+     "bootup": 2040.0839999999662,
+     "mainthread": 2702.255999999971,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 592,
+     "observedFirstContentfulPaint": 592,
+     "observedFirstContentfulPaintAllFrames": 592,
+     "observedLargestContentfulPaint": 873,
+     "observedLargestContentfulPaintAllFrames": 873,
+     "observedTraceEnd": 3684,
+     "observedLoad": 1350,
+     "observedDomContentLoaded": 150,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 586,
+     "observedLastVisualChange": 876,
+     "observedSpeedIndex": 864,
+     "lcp_timeToFirstByte": 4.56,
+     "lcp_elementRenderDelay": 868.319
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 112.399,
+     "tbt": 13.826000000000022,
+     "cls": 0,
+     "mainthread": 1460.9939999999879
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1270.480375,
+     "cls": 0.003954071146353208,
+     "tbt": 1615,
+     "fcp": 842.9803750000001,
+     "mpfid": 1600,
+     "bytes": 780144,
+     "bootup": 2022.6839999999677,
+     "mainthread": 2661.0559999999723,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 594,
+     "observedFirstContentfulPaint": 594,
+     "observedFirstContentfulPaintAllFrames": 594,
+     "observedLargestContentfulPaint": 858,
+     "observedLargestContentfulPaintAllFrames": 858,
+     "observedTraceEnd": 3484,
+     "observedLoad": 1145,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 591,
+     "observedLastVisualChange": 859,
+     "observedSpeedIndex": 847,
+     "lcp_timeToFirstByte": 4.251,
+     "lcp_elementRenderDelay": 853.523
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.668,
+     "tbt": 13.070999999999913,
+     "cls": 0,
+     "mainthread": 1467.3299999999845
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1270.688,
+     "cls": 0.003954071146353208,
+     "tbt": 1616,
+     "fcp": 843.188,
+     "mpfid": 1601,
+     "bytes": 780140,
+     "bootup": 2013.9199999999682,
+     "mainthread": 2644.9119999999725,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 592,
+     "observedFirstContentfulPaint": 592,
+     "observedFirstContentfulPaintAllFrames": 592,
+     "observedLargestContentfulPaint": 855,
+     "observedLargestContentfulPaintAllFrames": 855,
+     "observedTraceEnd": 3589,
+     "observedLoad": 1242,
+     "observedDomContentLoaded": 141,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 588,
+     "observedLastVisualChange": 848,
+     "observedSpeedIndex": 838,
+     "lcp_timeToFirstByte": 3.294,
+     "lcp_elementRenderDelay": 851.914
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 121.966,
+     "tbt": 8.83199999999988,
+     "cls": 0,
+     "mainthread": 1454.7219999999845
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1271.017875,
+     "cls": 0.003954071146353208,
+     "tbt": 1612,
+     "fcp": 845.517875,
+     "mpfid": 1601,
+     "bytes": 780145,
+     "bootup": 2022.3439999999655,
+     "mainthread": 2620.0119999999706,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 579,
+     "observedFirstContentfulPaint": 579,
+     "observedFirstContentfulPaintAllFrames": 579,
+     "observedLargestContentfulPaint": 845,
+     "observedLargestContentfulPaintAllFrames": 845,
+     "observedTraceEnd": 3482,
+     "observedLoad": 1148,
+     "observedDomContentLoaded": 136,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 575,
+     "observedLastVisualChange": 849,
+     "observedSpeedIndex": 836,
+     "lcp_timeToFirstByte": 3.749000061035156,
+     "lcp_elementRenderDelay": 841.5389999389648
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 93.736,
+     "tbt": 5.574000000000069,
+     "cls": 0,
+     "mainthread": 1459.476999999985
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 1273.886375,
+     "cls": 0.003954071146353208,
+     "tbt": 1616.9999999999998,
+     "fcp": 845.886375,
+     "mpfid": 1600.9999999999998,
+     "bytes": 780145,
+     "bootup": 2024.7839999999674,
+     "mainthread": 2664.935999999962,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 593,
+     "observedFirstContentfulPaint": 593,
+     "observedFirstContentfulPaintAllFrames": 593,
+     "observedLargestContentfulPaint": 857,
+     "observedLargestContentfulPaintAllFrames": 857,
+     "observedTraceEnd": 3530,
+     "observedLoad": 1189,
+     "observedDomContentLoaded": 152,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 591,
+     "observedLastVisualChange": 859,
+     "observedSpeedIndex": 849,
+     "lcp_timeToFirstByte": 4.316000061035156,
+     "lcp_elementRenderDelay": 853.1449999389648
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 110.879,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1479.4049999999831
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 1268.966875,
+     "cls": 0.003954071146353208,
+     "tbt": 1612.9999999999998,
+     "fcp": 842.9668750000001,
+     "mpfid": 1600.9999999999998,
+     "bytes": 780147,
+     "bootup": 2023.955999999969,
+     "mainthread": 2638.8359999999734,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 575,
+     "observedFirstContentfulPaint": 575,
+     "observedFirstContentfulPaintAllFrames": 575,
+     "observedLargestContentfulPaint": 856,
+     "observedLargestContentfulPaintAllFrames": 856,
+     "observedTraceEnd": 3485,
+     "observedLoad": 1142,
+     "observedDomContentLoaded": 142,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 575,
+     "observedLastVisualChange": 847,
+     "observedSpeedIndex": 836,
+     "lcp_timeToFirstByte": 3.495,
+     "lcp_elementRenderDelay": 852.495
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 117.273,
+     "tbt": 12.048999999999978,
+     "cls": 0,
+     "mainthread": 1474.7809999999845
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 1269.9542500000002,
+     "cls": 0.003954071146353208,
+     "tbt": 1615.0000000000002,
+     "fcp": 842.45425,
+     "mpfid": 1600.0000000000002,
+     "bytes": 780150,
+     "bootup": 2015.3119999999683,
+     "mainthread": 2645.131999999972,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 577,
+     "observedFirstContentfulPaint": 577,
+     "observedFirstContentfulPaintAllFrames": 577,
+     "observedLargestContentfulPaint": 858,
+     "observedLargestContentfulPaintAllFrames": 858,
+     "observedTraceEnd": 3494,
+     "observedLoad": 1150,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 577,
+     "observedLastVisualChange": 862,
+     "observedSpeedIndex": 852,
+     "lcp_timeToFirstByte": 3.785,
+     "lcp_elementRenderDelay": 854.708
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 115.936,
+     "tbt": 13.849999999999909,
+     "cls": 0,
+     "mainthread": 1471.9449999999806
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 1233.1763750000002,
+     "cls": 0.003954071146353208,
+     "tbt": 1620.0000000000002,
+     "fcp": 843.676375,
+     "mpfid": 1601.0000000000002,
+     "bytes": 780148,
+     "bootup": 2037.6639999999702,
+     "mainthread": 2675.4999999999745,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 578,
+     "observedFirstContentfulPaint": 578,
+     "observedFirstContentfulPaintAllFrames": 578,
+     "observedLargestContentfulPaint": 863,
+     "observedLargestContentfulPaintAllFrames": 863,
+     "observedTraceEnd": 3765,
+     "observedLoad": 1431,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 576,
+     "observedLastVisualChange": 857,
+     "observedSpeedIndex": 847,
+     "lcp_timeToFirstByte": 3.503,
+     "lcp_elementRenderDelay": 859.019
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 111.214,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1465.9309999999805
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 1275.89275,
+     "cls": 0.003954071146353208,
+     "tbt": 1619,
+     "fcp": 846.3927500000001,
+     "mpfid": 1600,
+     "bytes": 780150,
+     "bootup": 2047.14399999997,
+     "mainthread": 2709.3759999999616,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 593,
+     "observedFirstContentfulPaint": 593,
+     "observedFirstContentfulPaintAllFrames": 593,
+     "observedLargestContentfulPaint": 875,
+     "observedLargestContentfulPaintAllFrames": 875,
+     "observedTraceEnd": 3493,
+     "observedLoad": 1153,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 592,
+     "observedLastVisualChange": 877,
+     "observedSpeedIndex": 863,
+     "lcp_timeToFirstByte": 4.421,
+     "lcp_elementRenderDelay": 870.852
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 110.722,
+     "tbt": 21.01200000000017,
+     "cls": 0,
+     "mainthread": 1498.8139999999823
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 1267.6168750000002,
+     "cls": 0.003954071146353208,
+     "tbt": 1612.0000000000002,
+     "fcp": 841.6168749999999,
+     "mpfid": 1600.0000000000002,
+     "bytes": 780148,
+     "bootup": 2023.875999999969,
+     "mainthread": 2672.199999999964,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 595,
+     "observedFirstContentfulPaint": 595,
+     "observedFirstContentfulPaintAllFrames": 595,
+     "observedLargestContentfulPaint": 860,
+     "observedLargestContentfulPaintAllFrames": 860,
+     "observedTraceEnd": 3792,
+     "observedLoad": 1448,
+     "observedDomContentLoaded": 151,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 583,
+     "observedLastVisualChange": 865,
+     "observedSpeedIndex": 842,
+     "lcp_timeToFirstByte": 3.597,
+     "lcp_elementRenderDelay": 856.138
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 108.459,
+     "tbt": 10.844000000000051,
+     "cls": 0,
+     "mainthread": 1459.3189999999802
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 1269.01075,
+     "cls": 0.003954071146353208,
+     "tbt": 1614,
+     "fcp": 842.0107500000001,
+     "mpfid": 1600,
+     "bytes": 780149,
+     "bootup": 2006.915999999963,
+     "mainthread": 2621.1039999999684,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 579,
+     "observedFirstContentfulPaint": 579,
+     "observedFirstContentfulPaintAllFrames": 579,
+     "observedLargestContentfulPaint": 860,
+     "observedLargestContentfulPaintAllFrames": 860,
+     "observedTraceEnd": 3487,
+     "observedLoad": 1154,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 579,
+     "observedLastVisualChange": 853,
+     "observedSpeedIndex": 843,
+     "lcp_timeToFirstByte": 3.739,
+     "lcp_elementRenderDelay": 856.521
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 111.636,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1478.4679999999867
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 1266.3165,
+     "cls": 0.003954071146353208,
+     "tbt": 1610,
+     "fcp": 841.8165,
+     "mpfid": 1601,
+     "bytes": 780148,
+     "bootup": 2017.7919999999679,
+     "mainthread": 2651.2799999999725,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 580,
+     "observedFirstContentfulPaint": 580,
+     "observedFirstContentfulPaintAllFrames": 580,
+     "observedLargestContentfulPaint": 863,
+     "observedLargestContentfulPaintAllFrames": 863,
+     "observedTraceEnd": 3754,
+     "observedLoad": 1425,
+     "observedDomContentLoaded": 147,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 581,
+     "observedLastVisualChange": 856,
+     "observedSpeedIndex": 846,
+     "lcp_timeToFirstByte": 3.398,
+     "lcp_elementRenderDelay": 859.523
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 123.348,
+     "tbt": 9.057999999999993,
+     "cls": 0,
+     "mainthread": 1478.3569999999843
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 1226.9961249999997,
+     "cls": 0.003954071146353208,
+     "tbt": 1614.0000000000002,
+     "fcp": 840.4961250000001,
+     "mpfid": 1601.0000000000002,
+     "bytes": 780147,
+     "bootup": 2023.771999999967,
+     "mainthread": 2635.0919999999705,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 577,
+     "observedFirstContentfulPaint": 577,
+     "observedFirstContentfulPaintAllFrames": 577,
+     "observedLargestContentfulPaint": 840,
+     "observedLargestContentfulPaintAllFrames": 840,
+     "observedTraceEnd": 4001,
+     "observedLoad": 1662,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 576,
+     "observedLastVisualChange": 844,
+     "observedSpeedIndex": 834,
+     "lcp_timeToFirstByte": 3.853,
+     "lcp_elementRenderDelay": 836.529
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.184,
+     "tbt": 11.315000000000055,
+     "cls": 0,
+     "mainthread": 1463.3319999999849
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 1267.56025,
+     "cls": 0.003954071146353208,
+     "tbt": 1613,
+     "fcp": 801.56025,
+     "mpfid": 1601,
+     "bytes": 780150,
+     "bootup": 2034.03199999997,
+     "mainthread": 2647.175999999975,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 576,
+     "observedFirstContentfulPaint": 576,
+     "observedFirstContentfulPaintAllFrames": 576,
+     "observedLargestContentfulPaint": 858,
+     "observedLargestContentfulPaintAllFrames": 858,
+     "observedTraceEnd": 3867,
+     "observedLoad": 1528,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003954071146353208,
+     "observedCumulativeLayoutShiftMainFrame": 0.003954071146353208,
+     "observedFirstVisualChange": 567,
+     "observedLastVisualChange": 863,
+     "observedSpeedIndex": 840,
+     "lcp_timeToFirstByte": 3.296,
+     "lcp_elementRenderDelay": 855.158
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 115.018,
+     "tbt": 19.330000000000382,
+     "cls": 0,
+     "mainthread": 1502.09899999998
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1336.9565,
+     "cls": 0.0043669213783819275,
+     "tbt": 76,
+     "fcp": 850.4565,
+     "mpfid": 146,
+     "bytes": 780091,
+     "bootup": 453.9839999999998,
+     "mainthread": 1158.8040000000053,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 470,
+     "observedLargestContentfulPaintAllFrames": 470,
+     "observedTraceEnd": 3297,
+     "observedLoad": 962,
+     "observedDomContentLoaded": 140,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 185,
+     "observedLastVisualChange": 584,
+     "observedSpeedIndex": 466,
+     "lcp_timeToFirstByte": 3.724,
+     "lcp_elementRenderDelay": 465.802
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 105.945,
+     "tbt": 15.461999999999989,
+     "cls": 0,
+     "mainthread": 1430.7399999999836
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1327.944125,
+     "cls": 0.0043669213783819275,
+     "tbt": 93,
+     "fcp": 843.9441250000001,
+     "mpfid": 143,
+     "bytes": 780098,
+     "bootup": 442.1200000000011,
+     "mainthread": 1156.1440000000048,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 188,
+     "observedFirstContentfulPaint": 188,
+     "observedFirstContentfulPaintAllFrames": 188,
+     "observedLargestContentfulPaint": 469,
+     "observedLargestContentfulPaintAllFrames": 469,
+     "observedTraceEnd": 3693,
+     "observedLoad": 1362,
+     "observedDomContentLoaded": 142,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 184,
+     "observedLastVisualChange": 565,
+     "observedSpeedIndex": 463,
+     "lcp_timeToFirstByte": 3.823,
+     "lcp_elementRenderDelay": 465.032
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.275,
+     "tbt": 12.041000000000167,
+     "cls": 0,
+     "mainthread": 1449.2169999999865
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 930.2771250000001,
+     "cls": 0.0043669213783819275,
+     "tbt": 82,
+     "fcp": 841.2771250000001,
+     "mpfid": 152,
+     "bytes": 780099,
+     "bootup": 439.740000000001,
+     "mainthread": 1137.2240000000052,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 452,
+     "observedLargestContentfulPaintAllFrames": 452,
+     "observedTraceEnd": 3313,
+     "observedLoad": 975,
+     "observedDomContentLoaded": 138,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 187,
+     "observedLastVisualChange": 600,
+     "observedSpeedIndex": 457,
+     "lcp_timeToFirstByte": 3.466,
+     "lcp_elementRenderDelay": 449.008
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 116.696,
+     "tbt": 8.207000000000335,
+     "cls": 0,
+     "mainthread": 1457.782999999978
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1404.3141249999999,
+     "cls": 0.0043669213783819275,
+     "tbt": 87,
+     "fcp": 843.8141250000001,
+     "mpfid": 137,
+     "bytes": 780105,
+     "bootup": 417.5720000000017,
+     "mainthread": 1090.6320000000062,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 191,
+     "observedFirstContentfulPaint": 191,
+     "observedFirstContentfulPaintAllFrames": 191,
+     "observedLargestContentfulPaint": 454,
+     "observedLargestContentfulPaintAllFrames": 454,
+     "observedTraceEnd": 3291,
+     "observedLoad": 949,
+     "observedDomContentLoaded": 140,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 186,
+     "observedLastVisualChange": 587,
+     "observedSpeedIndex": 453,
+     "lcp_timeToFirstByte": 3.693,
+     "lcp_elementRenderDelay": 450.698
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 124.956,
+     "tbt": 9.223999999999705,
+     "cls": 0,
+     "mainthread": 1469.9339999999822
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1205.9413749999999,
+     "cls": 0.0043669213783819275,
+     "tbt": 65,
+     "fcp": 844.9413749999999,
+     "mpfid": 134,
+     "bytes": 780103,
+     "bootup": 431.27200000000175,
+     "mainthread": 1123.284000000006,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 454,
+     "observedLargestContentfulPaintAllFrames": 454,
+     "observedTraceEnd": 3414,
+     "observedLoad": 1075,
+     "observedDomContentLoaded": 135,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 183,
+     "observedLastVisualChange": 602,
+     "observedSpeedIndex": 453,
+     "lcp_timeToFirstByte": 3.589,
+     "lcp_elementRenderDelay": 450.264
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 117.178,
+     "tbt": 12.490000000000236,
+     "cls": 0,
+     "mainthread": 1452.9979999999837
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 1332.9963750000002,
+     "cls": 0.0043669213783819275,
+     "tbt": 76,
+     "fcp": 847.9963750000001,
+     "mpfid": 146,
+     "bytes": 780103,
+     "bootup": 460.5960000000008,
+     "mainthread": 1164.7000000000062,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 469,
+     "observedLargestContentfulPaintAllFrames": 469,
+     "observedTraceEnd": 3712,
+     "observedLoad": 1368,
+     "observedDomContentLoaded": 143,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 186,
+     "observedLastVisualChange": 583,
+     "observedSpeedIndex": 461,
+     "lcp_timeToFirstByte": 3.7,
+     "lcp_elementRenderDelay": 465.374
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 117.517,
+     "tbt": 7.675999999999931,
+     "cls": 0,
+     "mainthread": 1446.8179999999809
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 1372.97625,
+     "cls": 0.0043669213783819275,
+     "tbt": 70,
+     "fcp": 849.9762499999999,
+     "mpfid": 140,
+     "bytes": 780105,
+     "bootup": 456.2840000000008,
+     "mainthread": 1187.3920000000016,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 190,
+     "observedFirstContentfulPaint": 190,
+     "observedFirstContentfulPaintAllFrames": 190,
+     "observedLargestContentfulPaint": 486,
+     "observedLargestContentfulPaintAllFrames": 486,
+     "observedTraceEnd": 3241,
+     "observedLoad": 899,
+     "observedDomContentLoaded": 147,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 188,
+     "observedLastVisualChange": 599,
+     "observedSpeedIndex": 477,
+     "lcp_timeToFirstByte": 3.682,
+     "lcp_elementRenderDelay": 482.264
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.188,
+     "tbt": 13.085999999999785,
+     "cls": 0,
+     "mainthread": 1462.6399999999842
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 1280.087375,
+     "cls": 0.0043669213783819275,
+     "tbt": 63,
+     "fcp": 841.5873749999998,
+     "mpfid": 133,
+     "bytes": 780103,
+     "bootup": 419.3480000000014,
+     "mainthread": 1105.6240000000046,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 453,
+     "observedLargestContentfulPaintAllFrames": 453,
+     "observedTraceEnd": 3244,
+     "observedLoad": 909,
+     "observedDomContentLoaded": 143,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 184,
+     "observedLastVisualChange": 602,
+     "observedSpeedIndex": 455,
+     "lcp_timeToFirstByte": 3.869,
+     "lcp_elementRenderDelay": 449.42
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.105,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1469.744999999983
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 935.2088749999999,
+     "cls": 0.0043669213783819275,
+     "tbt": 65,
+     "fcp": 853.708875,
+     "mpfid": 135,
+     "bytes": 780107,
+     "bootup": 450.052000000001,
+     "mainthread": 1139.804000000007,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 453,
+     "observedFirstContentfulPaint": 453,
+     "observedFirstContentfulPaintAllFrames": 453,
+     "observedLargestContentfulPaint": 453,
+     "observedLargestContentfulPaintAllFrames": 453,
+     "observedTraceEnd": 3710,
+     "observedLoad": 1371,
+     "observedDomContentLoaded": 149,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 445,
+     "observedLastVisualChange": 620,
+     "observedSpeedIndex": 464,
+     "lcp_timeToFirstByte": 3.614,
+     "lcp_elementRenderDelay": 449.815
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 112.35,
+     "tbt": 13.476999999999862,
+     "cls": 0,
+     "mainthread": 1501.5319999999824
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 1335.5342500000002,
+     "cls": 0.0043669213783819275,
+     "tbt": 84,
+     "fcp": 846.5342500000002,
+     "mpfid": 154,
+     "bytes": 780104,
+     "bootup": 458.5080000000014,
+     "mainthread": 1170.3880000000074,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 189,
+     "observedFirstContentfulPaint": 189,
+     "observedFirstContentfulPaintAllFrames": 189,
+     "observedLargestContentfulPaint": 467,
+     "observedLargestContentfulPaintAllFrames": 467,
+     "observedTraceEnd": 3329,
+     "observedLoad": 992,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 186,
+     "observedLastVisualChange": 614,
+     "observedSpeedIndex": 471,
+     "lcp_timeToFirstByte": 3.437,
+     "lcp_elementRenderDelay": 463.922
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 108.095,
+     "tbt": 7.597999999999956,
+     "cls": 0,
+     "mainthread": 1444.3609999999824
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 1327.7145,
+     "cls": 0.0043669213783819275,
+     "tbt": 75,
+     "fcp": 843.7145,
+     "mpfid": 145,
+     "bytes": 780105,
+     "bootup": 455.36000000000104,
+     "mainthread": 1187.9880000000046,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 193,
+     "observedFirstContentfulPaint": 193,
+     "observedFirstContentfulPaintAllFrames": 193,
+     "observedLargestContentfulPaint": 474,
+     "observedLargestContentfulPaintAllFrames": 474,
+     "observedTraceEnd": 3729,
+     "observedLoad": 1396,
+     "observedDomContentLoaded": 151,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 189,
+     "observedLastVisualChange": 603,
+     "observedSpeedIndex": 466,
+     "lcp_timeToFirstByte": 3.769,
+     "lcp_elementRenderDelay": 470.62
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 118.64,
+     "tbt": 11.836999999999989,
+     "cls": 0,
+     "mainthread": 1484.9759999999822
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 926.3050000000001,
+     "cls": 0.003949949654145871,
+     "tbt": 70.5,
+     "fcp": 844.3050000000001,
+     "mpfid": 139,
+     "bytes": 780104,
+     "bootup": 548.724000000001,
+     "mainthread": 1420.8520000000044,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 191,
+     "observedFirstContentfulPaint": 191,
+     "observedFirstContentfulPaintAllFrames": 191,
+     "observedLargestContentfulPaint": 2035,
+     "observedLargestContentfulPaintAllFrames": 2035,
+     "observedTraceEnd": 9376,
+     "observedLoad": 7018,
+     "observedDomContentLoaded": 139,
+     "observedCumulativeLayoutShift": 0.003949949654145871,
+     "observedCumulativeLayoutShiftMainFrame": 0.003949949654145871,
+     "observedFirstVisualChange": 185,
+     "observedLastVisualChange": 6184,
+     "observedSpeedIndex": 802,
+     "lcp_timeToFirstByte": 2.96,
+     "lcp_elementRenderDelay": 2032.216
+    },
+    "lcpElement": {
+     "selector": "div.Stack > div.Island > div.HintViewer > span",
+     "label": "To move canvas, hold Scroll wheel or Space while dragging, or use the hand tool",
+     "snippet": "<span>"
+    },
+    "interaction": {
+     "inp": 92.34,
+     "tbt": 7.850000000000364,
+     "cls": 0,
+     "mainthread": 1434.6019999999842
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 1324.754875,
+     "cls": 0.0043669213783819275,
+     "tbt": 83,
+     "fcp": 843.2548750000001,
+     "mpfid": 133,
+     "bytes": 780105,
+     "bootup": 422.428000000001,
+     "mainthread": 1116.4840000000067,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 191,
+     "observedFirstContentfulPaint": 191,
+     "observedFirstContentfulPaintAllFrames": 191,
+     "observedLargestContentfulPaint": 451,
+     "observedLargestContentfulPaintAllFrames": 451,
+     "observedTraceEnd": 3377,
+     "observedLoad": 1034,
+     "observedDomContentLoaded": 147,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 185,
+     "observedLastVisualChange": 565,
+     "observedSpeedIndex": 452,
+     "lcp_timeToFirstByte": 3.641000061035156,
+     "lcp_elementRenderDelay": 447.75899993896485
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 113.011,
+     "tbt": 12.067000000000007,
+     "cls": 0,
+     "mainthread": 1470.8209999999833
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 1344.676625,
+     "cls": 0.0043669213783819275,
+     "tbt": 80,
+     "fcp": 820.676625,
+     "mpfid": 143,
+     "bytes": 780106,
+     "bootup": 485.6440000000024,
+     "mainthread": 1216.1520000000053,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 207,
+     "observedFirstContentfulPaint": 207,
+     "observedFirstContentfulPaintAllFrames": 207,
+     "observedLargestContentfulPaint": 488,
+     "observedLargestContentfulPaintAllFrames": 488,
+     "observedTraceEnd": 3394,
+     "observedLoad": 1073,
+     "observedDomContentLoaded": 157,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 204,
+     "observedLastVisualChange": 564,
+     "observedSpeedIndex": 479,
+     "lcp_timeToFirstByte": 3.125,
+     "lcp_elementRenderDelay": 484.916
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 109.471,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1477.099999999985
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 1321.19125,
+     "cls": 0.0043669213783819275,
+     "tbt": 64,
+     "fcp": 842.1912500000001,
+     "mpfid": 134,
+     "bytes": 780104,
+     "bootup": 413.3320000000006,
+     "mainthread": 1089.3880000000038,
+     "dom": 286,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 190,
+     "observedFirstContentfulPaint": 190,
+     "observedFirstContentfulPaintAllFrames": 190,
+     "observedLargestContentfulPaint": 454,
+     "observedLargestContentfulPaintAllFrames": 454,
+     "observedTraceEnd": 3257,
+     "observedLoad": 928,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0043669213783819275,
+     "observedCumulativeLayoutShiftMainFrame": 0.0043669213783819275,
+     "observedFirstVisualChange": 185,
+     "observedLastVisualChange": 568,
+     "observedSpeedIndex": 450,
+     "lcp_timeToFirstByte": 3.282,
+     "lcp_elementRenderDelay": 451.056
+    },
+    "lcpElement": {
+     "selector": "div.excalidraw > div.layer-ui__wrapper > div.welcome-screen-center > div.welcome-screen-center__heading",
+     "label": "All your data is saved locally in your browser.",
+     "snippet": "<div class=\"welcome-screen-center__heading welcome-screen-decor excalifont\">"
+    },
+    "interaction": {
+     "inp": 115.538,
+     "tbt": 18.149999999999636,
+     "cls": 0,
+     "mainthread": 1476.374999999984
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.59",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [],
+  "lang": "en-US"
+ },
+ "mutation": {
+  "op": "long_task",
+  "metric": "tbt",
+  "level": 400,
+  "unit": "ms",
+  "file": "excalidraw-app/index.tsx",
+  "snippet": "\n/* mutant:long_task */\nif (typeof window !== 'undefined') {\n  setTimeout(function () { const __t = performance.now(); while (performance.now() - __t < 400) {} }, 0);\n}\n"
+ },
+ "externalHosts": {
+  "external": [
+   "excalidraw.nyc3.cdn.digitaloceanspaces.com",
+   "queue.simpleanalyticscdn.com",
+   "scripts.simpleanalyticscdn.com"
+  ],
+  "blocked": []
+ }
+}

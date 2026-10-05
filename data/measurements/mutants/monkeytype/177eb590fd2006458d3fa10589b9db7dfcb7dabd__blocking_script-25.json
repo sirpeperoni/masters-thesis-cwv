@@ -1,0 +1,1441 @@
+{
+ "schema": 2,
+ "repo": "monkeytype-mutants",
+ "sha": "177eb590fd2006458d3fa10589b9db7dfcb7dabd",
+ "parent": "88bb7a081f39e74d14abfe480c43729f90d01c9f",
+ "date": "2025-09-01T11:51:07+02:00",
+ "subject": "fix(profile): prevent profile XP updates on other user profile (@Majestic-Fire) (#6897)",
+ "status": "ok",
+ "base": {
+  "sha": "88bb7a081f39e74d14abfe480c43729f90d01c9f",
+  "distHash": "6c99673913d92707dfffaa28e00a65edee956abe6be9453ac8d7d560b4ad604b"
+ },
+ "distHash": "c4801656106d34607519e43ff5139636e678f5b0011f5ede2f43b2c9e563e66b",
+ "timings": {
+  "installMs": 504754,
+  "buildMs": 68407,
+  "measureMs": 607081
+ },
+ "bundle": {
+  "files": 1137,
+  "byExt": {
+   ".txt": {
+    "files": 15,
+    "raw": 1234434,
+    "gzip": 298344
+   },
+   ".html": {
+    "files": 6,
+    "raw": 233574,
+    "gzip": 53985
+   },
+   ".json": {
+    "files": 725,
+    "raw": 110324684,
+    "gzip": 26010855
+   },
+   ".css": {
+    "files": 201,
+    "raw": 372451,
+    "gzip": 86848
+   },
+   ".png": {
+    "files": 30,
+    "raw": 527552,
+    "gzip": 527552
+   },
+   ".xml": {
+    "files": 2,
+    "raw": 1333,
+    "gzip": 1333
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 2,
+    "raw": 2145,
+    "gzip": 1209
+   },
+   ".jpg": {
+    "files": 1,
+    "raw": 5981,
+    "gzip": 5981
+   },
+   ".js": {
+    "files": 13,
+    "raw": 2094296,
+    "gzip": 612195
+   },
+   ".wav": {
+    "files": 64,
+    "raw": 2268856,
+    "gzip": 2268856
+   },
+   ".woff2": {
+    "files": 77,
+    "raw": 4103340,
+    "gzip": 4103340
+   }
+  },
+  "totalRaw": 121183732,
+  "totalGzip": 33985584
+ },
+ "runs": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1945.2779500000001,
+     "cls": 0.00013314420803782503,
+     "tbt": 267,
+     "fcp": 808.6151,
+     "mpfid": 317,
+     "bytes": 890002,
+     "bootup": 918.5080000000183,
+     "mainthread": 1772.3080000000205,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 86,
+     "observedFirstContentfulPaint": 936,
+     "observedFirstContentfulPaintAllFrames": 936,
+     "observedLargestContentfulPaint": 1202,
+     "observedLargestContentfulPaintAllFrames": 1202,
+     "observedTraceEnd": 3511,
+     "observedLoad": 276,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 74,
+     "observedLastVisualChange": 3508,
+     "observedSpeedIndex": 378,
+     "lcp_timeToFirstByte": 5.064999969482422,
+     "lcp_elementRenderDelay": 1197.3940000305176
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.949,
+     "tbt": 26.203000000000003,
+     "cls": 0,
+     "mainthread": 3925.196999999958
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 2021.3227,
+     "cls": 0.00006657210401891251,
+     "tbt": 304,
+     "fcp": 806.7766,
+     "mpfid": 340,
+     "bytes": 890042,
+     "bootup": 1013.108000000018,
+     "mainthread": 1880.2040000000152,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 91,
+     "observedFirstContentfulPaint": 1374,
+     "observedFirstContentfulPaintAllFrames": 1374,
+     "observedLargestContentfulPaint": 1624,
+     "observedLargestContentfulPaintAllFrames": 1624,
+     "observedTraceEnd": 3726,
+     "observedLoad": 301,
+     "observedDomContentLoaded": 269,
+     "observedCumulativeLayoutShift": 0.00006657210401891251,
+     "observedCumulativeLayoutShiftMainFrame": 0.00006657210401891251,
+     "observedFirstVisualChange": 87,
+     "observedLastVisualChange": 3723,
+     "observedSpeedIndex": 499,
+     "lcp_timeToFirstByte": 6.026,
+     "lcp_elementRenderDelay": 1618.417
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.913,
+     "tbt": 26.985000000000042,
+     "cls": 0,
+     "mainthread": 3853.37599999996
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1921.3776500000004,
+     "cls": 0.00013314420803782503,
+     "tbt": 260,
+     "fcp": 807.4137000000001,
+     "mpfid": 308,
+     "bytes": 889962,
+     "bootup": 846.5080000000191,
+     "mainthread": 1743.5440000000233,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 77,
+     "observedFirstContentfulPaint": 911,
+     "observedFirstContentfulPaintAllFrames": 911,
+     "observedLargestContentfulPaint": 1161,
+     "observedLargestContentfulPaintAllFrames": 1161,
+     "observedTraceEnd": 3482,
+     "observedLoad": 273,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 74,
+     "observedLastVisualChange": 3478,
+     "observedSpeedIndex": 367,
+     "lcp_timeToFirstByte": 4.587,
+     "lcp_elementRenderDelay": 1156.19
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 64.962,
+     "tbt": 28.808999999999997,
+     "cls": 0,
+     "mainthread": 3380.5679999999406
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1919.49875,
+     "cls": 0.00006657210401891251,
+     "tbt": 256,
+     "fcp": 807.3355000000001,
+     "mpfid": 306,
+     "bytes": 889990,
+     "bootup": 848.8120000000192,
+     "mainthread": 1778.440000000023,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 85,
+     "observedFirstContentfulPaint": 918,
+     "observedFirstContentfulPaintAllFrames": 918,
+     "observedLargestContentfulPaint": 1168,
+     "observedLargestContentfulPaintAllFrames": 1168,
+     "observedTraceEnd": 3490,
+     "observedLoad": 271,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00006657210401891251,
+     "observedCumulativeLayoutShiftMainFrame": 0.00006657210401891251,
+     "observedFirstVisualChange": 72,
+     "observedLastVisualChange": 3474,
+     "observedSpeedIndex": 365,
+     "lcp_timeToFirstByte": 5.566,
+     "lcp_elementRenderDelay": 1162.881
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.548,
+     "tbt": 31.005999999999915,
+     "cls": 0,
+     "mainthread": 3642.326999999963
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1944.6954500000002,
+     "cls": 0.00013314420803782503,
+     "tbt": 280,
+     "fcp": 807.2920999999999,
+     "mpfid": 327,
+     "bytes": 889976,
+     "bootup": 893.8480000000176,
+     "mainthread": 1826.74000000002,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 80,
+     "observedFirstContentfulPaint": 947,
+     "observedFirstContentfulPaintAllFrames": 947,
+     "observedLargestContentfulPaint": 1230,
+     "observedLargestContentfulPaintAllFrames": 1230,
+     "observedTraceEnd": 3518,
+     "observedLoad": 289,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 78,
+     "observedLastVisualChange": 3514,
+     "observedSpeedIndex": 384,
+     "lcp_timeToFirstByte": 4.706,
+     "lcp_elementRenderDelay": 1225.301
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.121,
+     "tbt": 41.91599999999997,
+     "cls": 0,
+     "mainthread": 3744.6509999999635
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 1973.6269999999981,
+     "cls": 0.00013314420803782503,
+     "tbt": 279,
+     "fcp": 809.752,
+     "mpfid": 325,
+     "bytes": 890153,
+     "bootup": 1026.5960000000175,
+     "mainthread": 1990.4840000000179,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 90,
+     "observedFirstContentfulPaint": 16974,
+     "observedFirstContentfulPaintAllFrames": 16974,
+     "observedLargestContentfulPaint": 17257,
+     "observedLargestContentfulPaintAllFrames": 17257,
+     "observedTraceEnd": 19337,
+     "observedLoad": 286,
+     "observedDomContentLoaded": 262,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 78,
+     "observedLastVisualChange": 19334,
+     "observedSpeedIndex": 4551,
+     "lcp_timeToFirstByte": 4.13,
+     "lcp_elementRenderDelay": 17252.826
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.832,
+     "tbt": 54.589999999999804,
+     "cls": 0,
+     "mainthread": 4170.548999999953
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 1993.1850499999996,
+     "cls": 0.00013314420803782503,
+     "tbt": 323,
+     "fcp": 805.4449,
+     "mpfid": 358,
+     "bytes": 890020,
+     "bootup": 1006.3600000000159,
+     "mainthread": 1926.0160000000146,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 78,
+     "observedFirstContentfulPaint": 1011,
+     "observedFirstContentfulPaintAllFrames": 1011,
+     "observedLargestContentfulPaint": 1278,
+     "observedLargestContentfulPaintAllFrames": 1278,
+     "observedTraceEnd": 3581,
+     "observedLoad": 303,
+     "observedDomContentLoaded": 270,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 78,
+     "observedLastVisualChange": 3570,
+     "observedSpeedIndex": 396,
+     "lcp_timeToFirstByte": 4.673,
+     "lcp_elementRenderDelay": 1273.436
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.026,
+     "tbt": 49.015999999999934,
+     "cls": 0,
+     "mainthread": 3525.3419999999687
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 1939.1085500000002,
+     "cls": 0.00013314420803782503,
+     "tbt": 262,
+     "fcp": 808.5939000000001,
+     "mpfid": 312,
+     "bytes": 890087,
+     "bootup": 855.7280000000187,
+     "mainthread": 1784.2760000000212,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 80,
+     "observedFirstContentfulPaint": 1230,
+     "observedFirstContentfulPaintAllFrames": 1230,
+     "observedLargestContentfulPaint": 1480,
+     "observedLargestContentfulPaintAllFrames": 1480,
+     "observedTraceEnd": 3790,
+     "observedLoad": 277,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 83,
+     "observedLastVisualChange": 3788,
+     "observedSpeedIndex": 456,
+     "lcp_timeToFirstByte": 4.307000030517578,
+     "lcp_elementRenderDelay": 1475.9929999694825
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.999,
+     "tbt": 22.49300000000008,
+     "cls": 0,
+     "mainthread": 3949.352999999953
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 1947.1495,
+     "cls": 0.00013314420803782503,
+     "tbt": 273,
+     "fcp": 811.081,
+     "mpfid": 319,
+     "bytes": 889948,
+     "bootup": 932.8440000000156,
+     "mainthread": 1851.8920000000185,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 81,
+     "observedFirstContentfulPaint": 964,
+     "observedFirstContentfulPaintAllFrames": 964,
+     "observedLargestContentfulPaint": 1231,
+     "observedLargestContentfulPaintAllFrames": 1231,
+     "observedTraceEnd": 3525,
+     "observedLoad": 280,
+     "observedDomContentLoaded": 255,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 82,
+     "observedLastVisualChange": 3522,
+     "observedSpeedIndex": 386,
+     "lcp_timeToFirstByte": 4.939999969482422,
+     "lcp_elementRenderDelay": 1225.6640000305176
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.015,
+     "tbt": 23.71999999999997,
+     "cls": 0,
+     "mainthread": 3745.1689999999653
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 1962.94895,
+     "cls": 0.00013314420803782503,
+     "tbt": 306,
+     "fcp": 807.1331,
+     "mpfid": 333,
+     "bytes": 889976,
+     "bootup": 911.5280000000189,
+     "mainthread": 1878.0760000000207,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 76,
+     "observedFirstContentfulPaint": 993,
+     "observedFirstContentfulPaintAllFrames": 993,
+     "observedLargestContentfulPaint": 1259,
+     "observedLargestContentfulPaintAllFrames": 1259,
+     "observedTraceEnd": 3564,
+     "observedLoad": 300,
+     "observedDomContentLoaded": 268,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 87,
+     "observedLastVisualChange": 3547,
+     "observedSpeedIndex": 390,
+     "lcp_timeToFirstByte": 4.781,
+     "lcp_elementRenderDelay": 1254.665
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.026,
+     "tbt": 29.731999999999857,
+     "cls": 0,
+     "mainthread": 3385.61399999997
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 1954.0068,
+     "cls": 0.00013314420803782503,
+     "tbt": 272,
+     "fcp": 818.6283999999999,
+     "mpfid": 322,
+     "bytes": 889948,
+     "bootup": 929.1280000000143,
+     "mainthread": 1825.468000000017,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 85,
+     "observedFirstContentfulPaint": 935,
+     "observedFirstContentfulPaintAllFrames": 935,
+     "observedLargestContentfulPaint": 1218,
+     "observedLargestContentfulPaintAllFrames": 1218,
+     "observedTraceEnd": 3532,
+     "observedLoad": 282,
+     "observedDomContentLoaded": 258,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 75,
+     "observedLastVisualChange": 3530,
+     "observedSpeedIndex": 379,
+     "lcp_timeToFirstByte": 5.593,
+     "lcp_elementRenderDelay": 1212.377
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 64.931,
+     "tbt": 28.467999999999876,
+     "cls": 0,
+     "mainthread": 4024.089999999958
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 2008.8974000000003,
+     "cls": 0.00013314420803782503,
+     "tbt": 292.9999999999998,
+     "fcp": 808.1752000000001,
+     "mpfid": 329,
+     "bytes": 890079,
+     "bootup": 888.2840000000174,
+     "mainthread": 1819.4680000000194,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 88,
+     "observedFirstContentfulPaint": 1055,
+     "observedFirstContentfulPaintAllFrames": 1055,
+     "observedLargestContentfulPaint": 1305,
+     "observedLargestContentfulPaintAllFrames": 1305,
+     "observedTraceEnd": 3624,
+     "observedLoad": 291,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 78,
+     "observedLastVisualChange": 3621,
+     "observedSpeedIndex": 407,
+     "lcp_timeToFirstByte": 4.5420000305175785,
+     "lcp_elementRenderDelay": 1300.5599999694825
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.982,
+     "tbt": 28.9790000000001,
+     "cls": 0,
+     "mainthread": 3672.1149999999716
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 1948.8815,
+     "cls": 0.00013314420803782503,
+     "tbt": 275,
+     "fcp": 805.655,
+     "mpfid": 325,
+     "bytes": 889922,
+     "bootup": 877.3520000000157,
+     "mainthread": 1845.5080000000146,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 93,
+     "observedFirstContentfulPaint": 943,
+     "observedFirstContentfulPaintAllFrames": 943,
+     "observedLargestContentfulPaint": 1209,
+     "observedLargestContentfulPaintAllFrames": 1209,
+     "observedTraceEnd": 3545,
+     "observedLoad": 289,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 91,
+     "observedLastVisualChange": 3530,
+     "observedSpeedIndex": 393,
+     "lcp_timeToFirstByte": 4.559000030517578,
+     "lcp_elementRenderDelay": 1204.6369999694825
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.041,
+     "tbt": 29.852000000000146,
+     "cls": 0,
+     "mainthread": 3685.124999999945
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 1927.5360499999997,
+     "cls": 0.00006657210401891251,
+     "tbt": 303,
+     "fcp": 808.1389,
+     "mpfid": 344,
+     "bytes": 889961,
+     "bootup": 984.6040000000163,
+     "mainthread": 1891.132000000014,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 75,
+     "observedFirstContentfulPaint": 959,
+     "observedFirstContentfulPaintAllFrames": 959,
+     "observedLargestContentfulPaint": 1242,
+     "observedLargestContentfulPaintAllFrames": 1242,
+     "observedTraceEnd": 3532,
+     "observedLoad": 293,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00006657210401891251,
+     "observedCumulativeLayoutShiftMainFrame": 0.00006657210401891251,
+     "observedFirstVisualChange": 80,
+     "observedLastVisualChange": 3530,
+     "observedSpeedIndex": 386,
+     "lcp_timeToFirstByte": 4.563,
+     "lcp_elementRenderDelay": 1237.549
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.972,
+     "tbt": 29.76700000000008,
+     "cls": 0,
+     "mainthread": 3933.159999999931
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 2001.78085,
+     "cls": 0.00013314420803782503,
+     "tbt": 284,
+     "fcp": 808.4793,
+     "mpfid": 324,
+     "bytes": 889956,
+     "bootup": 896.8280000000155,
+     "mainthread": 1855.404000000017,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 82,
+     "observedFirstContentfulPaint": 1149,
+     "observedFirstContentfulPaintAllFrames": 1149,
+     "observedLargestContentfulPaint": 1416,
+     "observedLargestContentfulPaintAllFrames": 1416,
+     "observedTraceEnd": 3718,
+     "observedLoad": 284,
+     "observedDomContentLoaded": 257,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 74,
+     "observedLastVisualChange": 3715,
+     "observedSpeedIndex": 428,
+     "lcp_timeToFirstByte": 4.709000030517578,
+     "lcp_elementRenderDelay": 1410.9209999694824
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.059,
+     "tbt": 30.34499999999997,
+     "cls": 0,
+     "mainthread": 3606.1119999999487
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1927.61835,
+     "cls": 0.00013314420803782503,
+     "tbt": 218.22514999999999,
+     "fcp": 1112.4503,
+     "mpfid": 306,
+     "bytes": 889103,
+     "bootup": 744.6560000000168,
+     "mainthread": 1694.1560000000195,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 76,
+     "observedFirstContentfulPaint": 1226,
+     "observedFirstContentfulPaintAllFrames": 1226,
+     "observedLargestContentfulPaint": 1493,
+     "observedLargestContentfulPaintAllFrames": 1493,
+     "observedTraceEnd": 3813,
+     "observedLoad": 263,
+     "observedDomContentLoaded": 240,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3810,
+     "observedSpeedIndex": 444,
+     "lcp_timeToFirstByte": 4.52,
+     "lcp_elementRenderDelay": 1488.325
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.226,
+     "tbt": 71.9499999999999,
+     "cls": 0,
+     "mainthread": 3609.710999999967
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1950.6877999999997,
+     "cls": 0.00013314420803782503,
+     "tbt": 232.10519999999974,
+     "fcp": 1129.2104,
+     "mpfid": 321,
+     "bytes": 890031,
+     "bootup": 829.6360000000178,
+     "mainthread": 1822.9680000000178,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 65,
+     "observedFirstContentfulPaint": 965,
+     "observedFirstContentfulPaintAllFrames": 965,
+     "observedLargestContentfulPaint": 1232,
+     "observedLargestContentfulPaintAllFrames": 1232,
+     "observedTraceEnd": 3536,
+     "observedLoad": 286,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3532,
+     "observedSpeedIndex": 374,
+     "lcp_timeToFirstByte": 4.922,
+     "lcp_elementRenderDelay": 1226.67
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.963,
+     "tbt": 33.68800000000019,
+     "cls": 0,
+     "mainthread": 4660.849999999957
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1935.1348000000012,
+     "cls": 0.00013314420803782503,
+     "tbt": 287,
+     "fcp": 780.5971999999999,
+     "mpfid": 323,
+     "bytes": 890082,
+     "bootup": 932.1760000000143,
+     "mainthread": 2009.2480000000126,
+     "dom": 3005,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 95,
+     "observedFirstContentfulPaint": 12095,
+     "observedFirstContentfulPaintAllFrames": 12095,
+     "observedLargestContentfulPaint": 12378,
+     "observedLargestContentfulPaintAllFrames": 12378,
+     "observedTraceEnd": 14438,
+     "observedLoad": 300,
+     "observedDomContentLoaded": 272,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 85,
+     "observedLastVisualChange": 14435,
+     "observedSpeedIndex": 3166,
+     "lcp_timeToFirstByte": 5.771,
+     "lcp_elementRenderDelay": 12372.376
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.028,
+     "tbt": 103.35899999999995,
+     "cls": 0,
+     "mainthread": 4133.041999999957
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1983.0578000000005,
+     "cls": 0.00006657210401891251,
+     "tbt": 247.56420000000003,
+     "fcp": 1121.1284,
+     "mpfid": 312,
+     "bytes": 889913,
+     "bootup": 828.2520000000167,
+     "mainthread": 1843.5720000000163,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 1042,
+     "observedFirstContentfulPaintAllFrames": 1042,
+     "observedLargestContentfulPaint": 1292,
+     "observedLargestContentfulPaintAllFrames": 1292,
+     "observedTraceEnd": 3594,
+     "observedLoad": 282,
+     "observedDomContentLoaded": 249,
+     "observedCumulativeLayoutShift": 0.00006657210401891251,
+     "observedCumulativeLayoutShiftMainFrame": 0.00006657210401891251,
+     "observedFirstVisualChange": 56,
+     "observedLastVisualChange": 3591,
+     "observedSpeedIndex": 384,
+     "lcp_timeToFirstByte": 4.392,
+     "lcp_elementRenderDelay": 1287.718
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.999,
+     "tbt": 33.85499999999993,
+     "cls": 0,
+     "mainthread": 3874.029999999957
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1993.2506999999998,
+     "cls": 0.00013314420803782503,
+     "tbt": 221.90530000000012,
+     "fcp": 1156.8106,
+     "mpfid": 349,
+     "bytes": 889771,
+     "bootup": 832.1920000000177,
+     "mainthread": 1794.32000000002,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 69,
+     "observedFirstContentfulPaint": 985,
+     "observedFirstContentfulPaintAllFrames": 985,
+     "observedLargestContentfulPaint": 1252,
+     "observedLargestContentfulPaintAllFrames": 1252,
+     "observedTraceEnd": 3568,
+     "observedLoad": 286,
+     "observedDomContentLoaded": 262,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 64,
+     "observedLastVisualChange": 3565,
+     "observedSpeedIndex": 381,
+     "lcp_timeToFirstByte": 5.738999969482422,
+     "lcp_elementRenderDelay": 1246.2040000305176
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 64.988,
+     "tbt": 123.06200000000004,
+     "cls": 0,
+     "mainthread": 4057.269999999956
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 1974.9856000000002,
+     "cls": 0.00013314420803782503,
+     "tbt": 236.63940000000002,
+     "fcp": 1142.2788,
+     "mpfid": 333,
+     "bytes": 889913,
+     "bootup": 850.340000000017,
+     "mainthread": 1793.672000000016,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 66,
+     "observedFirstContentfulPaint": 950,
+     "observedFirstContentfulPaintAllFrames": 950,
+     "observedLargestContentfulPaint": 1216,
+     "observedLargestContentfulPaintAllFrames": 1216,
+     "observedTraceEnd": 3512,
+     "observedLoad": 282,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3510,
+     "observedSpeedIndex": 369,
+     "lcp_timeToFirstByte": 5.477,
+     "lcp_elementRenderDelay": 1210.727
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.104,
+     "tbt": 27.18100000000007,
+     "cls": 0,
+     "mainthread": 3676.1449999999645
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 1947.31495,
+     "cls": 0.00006657210401891251,
+     "tbt": 220.55854999999997,
+     "fcp": 1132.1171,
+     "mpfid": 325,
+     "bytes": 889909,
+     "bootup": 779.0560000000164,
+     "mainthread": 1777.0480000000189,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 66,
+     "observedFirstContentfulPaint": 966,
+     "observedFirstContentfulPaintAllFrames": 966,
+     "observedLargestContentfulPaint": 1233,
+     "observedLargestContentfulPaintAllFrames": 1233,
+     "observedTraceEnd": 3532,
+     "observedLoad": 287,
+     "observedDomContentLoaded": 261,
+     "observedCumulativeLayoutShift": 0.00006657210401891251,
+     "observedCumulativeLayoutShiftMainFrame": 0.00006657210401891251,
+     "observedFirstVisualChange": 62,
+     "observedLastVisualChange": 3529,
+     "observedSpeedIndex": 373,
+     "lcp_timeToFirstByte": 5.1229999694824215,
+     "lcp_elementRenderDelay": 1227.4850000305175
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.103,
+     "tbt": 28.20100000000008,
+     "cls": 0,
+     "mainthread": 4039.605999999961
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 1952.7601,
+     "cls": 0.00013314420803782503,
+     "tbt": 222.0389,
+     "fcp": 1140.0778,
+     "mpfid": 334,
+     "bytes": 889876,
+     "bootup": 843.308000000018,
+     "mainthread": 1802.8040000000199,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 68,
+     "observedFirstContentfulPaint": 952,
+     "observedFirstContentfulPaintAllFrames": 952,
+     "observedLargestContentfulPaint": 1218,
+     "observedLargestContentfulPaintAllFrames": 1218,
+     "observedTraceEnd": 3514,
+     "observedLoad": 281,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 66,
+     "observedLastVisualChange": 3512,
+     "observedSpeedIndex": 363,
+     "lcp_timeToFirstByte": 5.048,
+     "lcp_elementRenderDelay": 1213.41
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.179,
+     "tbt": 27.301999999999936,
+     "cls": 0,
+     "mainthread": 4299.339999999942
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 1946.357999999999,
+     "cls": 0.00013314420803782503,
+     "tbt": 222.59400000000028,
+     "fcp": 1126.1879999999999,
+     "mpfid": 320,
+     "bytes": 890035,
+     "bootup": 918.2320000000159,
+     "mainthread": 1880.976000000012,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 57,
+     "observedFirstContentfulPaint": 10773,
+     "observedFirstContentfulPaintAllFrames": 10773,
+     "observedLargestContentfulPaint": 11040,
+     "observedLargestContentfulPaintAllFrames": 11040,
+     "observedTraceEnd": 13125,
+     "observedLoad": 263,
+     "observedDomContentLoaded": 239,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 13123,
+     "observedSpeedIndex": 2922,
+     "lcp_timeToFirstByte": 3.95,
+     "lcp_elementRenderDelay": 11036
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.015,
+     "tbt": 73.83400000000009,
+     "cls": 0,
+     "mainthread": 4313.838999999939
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 1897.0652000000002,
+     "cls": 0.00013314420803782503,
+     "tbt": 225.92089999999985,
+     "fcp": 1120.8418000000001,
+     "mpfid": 315,
+     "bytes": 889772,
+     "bootup": 880.3560000000176,
+     "mainthread": 1768.7360000000174,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 914,
+     "observedFirstContentfulPaintAllFrames": 914,
+     "observedLargestContentfulPaint": 1197,
+     "observedLargestContentfulPaintAllFrames": 1197,
+     "observedTraceEnd": 3500,
+     "observedLoad": 272,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3497,
+     "observedSpeedIndex": 363,
+     "lcp_timeToFirstByte": 4.464,
+     "lcp_elementRenderDelay": 1192.391
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 64.881,
+     "tbt": 30.19999999999999,
+     "cls": 0,
+     "mainthread": 3885.2869999999543
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 2018.9312500000008,
+     "cls": 0.00013314420803782503,
+     "tbt": 230.92425000000026,
+     "fcp": 1183.8485,
+     "mpfid": 368,
+     "bytes": 889877,
+     "bootup": 876.1240000000145,
+     "mainthread": 1867.740000000014,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 76,
+     "observedFirstContentfulPaint": 1026,
+     "observedFirstContentfulPaintAllFrames": 1026,
+     "observedLargestContentfulPaint": 1293,
+     "observedLargestContentfulPaintAllFrames": 1293,
+     "observedTraceEnd": 3608,
+     "observedLoad": 305,
+     "observedDomContentLoaded": 280,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 73,
+     "observedLastVisualChange": 3605,
+     "observedSpeedIndex": 397,
+     "lcp_timeToFirstByte": 5.62,
+     "lcp_elementRenderDelay": 1287.151
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.848,
+     "tbt": 45.65700000000001,
+     "cls": 0,
+     "mainthread": 3773.821999999964
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 1926.7997500000001,
+     "cls": 0.00013314420803782503,
+     "tbt": 228.20675000000028,
+     "fcp": 1111.4134999999999,
+     "mpfid": 304,
+     "bytes": 889944,
+     "bootup": 858.3160000000148,
+     "mainthread": 1749.880000000015,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 69,
+     "observedFirstContentfulPaint": 902,
+     "observedFirstContentfulPaintAllFrames": 902,
+     "observedLargestContentfulPaint": 1169,
+     "observedLargestContentfulPaintAllFrames": 1169,
+     "observedTraceEnd": 3485,
+     "observedLoad": 257,
+     "observedDomContentLoaded": 236,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 62,
+     "observedLastVisualChange": 3483,
+     "observedSpeedIndex": 357,
+     "lcp_timeToFirstByte": 4.714,
+     "lcp_elementRenderDelay": 1163.978
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.961,
+     "tbt": 28.367999999999967,
+     "cls": 0,
+     "mainthread": 4035.7229999999513
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 1993.8358999999998,
+     "cls": 0.00013314420803782503,
+     "tbt": 226.74310000000037,
+     "fcp": 1123.4861999999998,
+     "mpfid": 316,
+     "bytes": 889997,
+     "bootup": 772.464000000014,
+     "mainthread": 1748.1080000000163,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 74,
+     "observedFirstContentfulPaint": 1057,
+     "observedFirstContentfulPaintAllFrames": 1057,
+     "observedLargestContentfulPaint": 1324,
+     "observedLargestContentfulPaintAllFrames": 1324,
+     "observedTraceEnd": 3637,
+     "observedLoad": 269,
+     "observedDomContentLoaded": 248,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 68,
+     "observedLastVisualChange": 3634,
+     "observedSpeedIndex": 402,
+     "lcp_timeToFirstByte": 4.726,
+     "lcp_elementRenderDelay": 1319.094
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 66.061,
+     "tbt": 26.8209999999998,
+     "cls": 0,
+     "mainthread": 3756.8519999999558
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 1939.3374,
+     "cls": 0.00013314420803782503,
+     "tbt": 222.35159999999996,
+     "fcp": 1122.7032,
+     "mpfid": 309,
+     "bytes": 889850,
+     "bootup": 818.7120000000164,
+     "mainthread": 1791.1920000000162,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 946,
+     "observedFirstContentfulPaintAllFrames": 946,
+     "observedLargestContentfulPaint": 1213,
+     "observedLargestContentfulPaintAllFrames": 1213,
+     "observedTraceEnd": 3526,
+     "observedLoad": 277,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 60,
+     "observedLastVisualChange": 3524,
+     "observedSpeedIndex": 365,
+     "lcp_timeToFirstByte": 4.467,
+     "lcp_elementRenderDelay": 1208.333
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.983,
+     "tbt": 33.57900000000001,
+     "cls": 0,
+     "mainthread": 3381.55899999995
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 1967.93505,
+     "cls": 0.00013314420803782503,
+     "tbt": 223.26345000000038,
+     "fcp": 1140.5268999999998,
+     "mpfid": 334,
+     "bytes": 889810,
+     "bootup": 901.8200000000193,
+     "mainthread": 1759.85200000002,
+     "dom": 3126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 74,
+     "observedFirstContentfulPaint": 957,
+     "observedFirstContentfulPaintAllFrames": 957,
+     "observedLargestContentfulPaint": 1224,
+     "observedLargestContentfulPaintAllFrames": 1224,
+     "observedTraceEnd": 3543,
+     "observedLoad": 277,
+     "observedDomContentLoaded": 257,
+     "observedCumulativeLayoutShift": 0.00013314420803782503,
+     "observedCumulativeLayoutShiftMainFrame": 0.00013314420803782503,
+     "observedFirstVisualChange": 78,
+     "observedLastVisualChange": 3540,
+     "observedSpeedIndex": 384,
+     "lcp_timeToFirstByte": 4.416,
+     "lcp_elementRenderDelay": 1219.714
+    },
+    "lcpElement": {
+     "selector": "body.darkMode > div#app > footer > div.keyTips",
+     "label": "tab + enter - restart test\nesc or ctrl+shift+p - command line",
+     "snippet": "<div class=\"keyTips\">"
+    },
+    "interaction": {
+     "inp": 65.984,
+     "tbt": 25.63100000000003,
+     "cls": 0,
+     "mainthread": 3456.166999999953
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.93",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*api.monkeytype.com*",
+   "*instatus.com*",
+   "*nitropay*",
+   "*playwire*",
+   "*pubgalaxy*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*googletagmanager*",
+   "*google-analytics*",
+   "*sentry.io*",
+   "*identitytoolkit.googleapis.com*",
+   "*securetoken.googleapis.com*",
+   "*firebaseinstallations.googleapis.com*",
+   "*bench-fake.firebaseapp.com*",
+   "*intergient*",
+   "*amazon-adsystem*",
+   "*confiant*",
+   "*fixedfold*",
+   "*api.github.com*",
+   "*raw.githubusercontent.com*",
+   "*www.google.com*",
+   "*www.gstatic.com*"
+  ],
+  "lang": "en-US"
+ },
+ "mutation": {
+  "op": "blocking_script",
+  "metric": "lcp",
+  "level": 25,
+  "unit": "ms",
+  "file": "frontend/src/html/head.html",
+  "snippet": "<script>/* mutant:blocking_script */ (function () { const __t = performance.now(); while (performance.now() - __t < 25) {} })();</script>"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.github.com",
+   "cdn.intergient.com",
+   "www.google.com"
+  ]
+ }
+}

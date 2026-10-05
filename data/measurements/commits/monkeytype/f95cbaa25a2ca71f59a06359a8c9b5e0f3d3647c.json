@@ -1,0 +1,598 @@
+{
+ "schema": 2,
+ "repo": "monkeytype",
+ "sha": "f95cbaa25a2ca71f59a06359a8c9b5e0f3d3647c",
+ "parent": "e89ec7cb4f92bbf8d7f0daa4bbe880a5757d9f5a",
+ "date": "2026-03-18T22:47:49+01:00",
+ "subject": "impr: enhance import tree script with folder leaf detection and error handling",
+ "status": "ok",
+ "base": {
+  "sha": "e89ec7cb4f92bbf8d7f0daa4bbe880a5757d9f5a",
+  "distHash": "753453d3d9d5de6d6aa781ed4c1b5c456076d422fc5194e81c25ae6bb7380ae7"
+ },
+ "distHash": "ac29a5e26acac86cb8b6d46d3ad1d28f849f209807d57d9f4abf95c60ccb7cfc",
+ "timings": {
+  "installMs": null,
+  "buildMs": 34801,
+  "measureMs": 180539
+ },
+ "bundle": {
+  "files": 1061,
+  "byExt": {
+   ".txt": {
+    "files": 15,
+    "raw": 1234383,
+    "gzip": 298318
+   },
+   ".html": {
+    "files": 6,
+    "raw": 177883,
+    "gzip": 43532
+   },
+   ".json": {
+    "files": 757,
+    "raw": 111223405,
+    "gzip": 26422549
+   },
+   ".css": {
+    "files": 71,
+    "raw": 334105,
+    "gzip": 67891
+   },
+   ".png": {
+    "files": 31,
+    "raw": 535572,
+    "gzip": 535572
+   },
+   ".xml": {
+    "files": 2,
+    "raw": 1333,
+    "gzip": 1333
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 2,
+    "raw": 2145,
+    "gzip": 1209
+   },
+   ".jpg": {
+    "files": 1,
+    "raw": 5981,
+    "gzip": 5981
+   },
+   ".webp": {
+    "files": 1,
+    "raw": 808,
+    "gzip": 808
+   },
+   ".js": {
+    "files": 15,
+    "raw": 2519234,
+    "gzip": 770856
+   },
+   ".wav": {
+    "files": 76,
+    "raw": 2716986,
+    "gzip": 2716986
+   },
+   ".woff2": {
+    "files": 83,
+    "raw": 4713636,
+    "gzip": 4713636
+   }
+  },
+  "totalRaw": 123480557,
+  "totalGzip": 35593757
+ },
+ "runs": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1808.598575,
+     "cls": 0,
+     "tbt": 233.17984999999976,
+     "fcp": 1377.3597,
+     "mpfid": 411,
+     "bytes": 1166518,
+     "bootup": 962.0240000000233,
+     "mainthread": 1988.6160000000214,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 64,
+     "observedFirstContentfulPaint": 981,
+     "observedFirstContentfulPaintAllFrames": 981,
+     "observedLargestContentfulPaint": 981,
+     "observedLargestContentfulPaintAllFrames": 981,
+     "observedTraceEnd": 3655,
+     "observedLoad": 321,
+     "observedDomContentLoaded": 312,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3652,
+     "observedSpeedIndex": 302,
+     "lcp_timeToFirstByte": 4.19,
+     "lcp_elementRenderDelay": 976.312
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 65.991,
+     "tbt": 38.96700000000001,
+     "cls": 0,
+     "mainthread": 2889.7409999999218
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1761.89785,
+     "cls": 0,
+     "tbt": 232.6286500000001,
+     "fcp": 1362.2573,
+     "mpfid": 397.0000000000002,
+     "bytes": 1166516,
+     "bootup": 929.6400000000233,
+     "mainthread": 1912.6200000000279,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 73,
+     "observedFirstContentfulPaint": 1023,
+     "observedFirstContentfulPaintAllFrames": 1023,
+     "observedLargestContentfulPaint": 1023,
+     "observedLargestContentfulPaintAllFrames": 1023,
+     "observedTraceEnd": 3670,
+     "observedLoad": 305,
+     "observedDomContentLoaded": 298,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 69,
+     "observedLastVisualChange": 3667,
+     "observedSpeedIndex": 327,
+     "lcp_timeToFirstByte": 4.364,
+     "lcp_elementRenderDelay": 1018.714
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 64.964,
+     "tbt": 40.664000000000016,
+     "cls": 0,
+     "mainthread": 2891.3799999999205
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1799.14145,
+     "cls": 0,
+     "tbt": 232.97204999999985,
+     "fcp": 1366.9441000000002,
+     "mpfid": 401,
+     "bytes": 1166580,
+     "bootup": 976.8360000000233,
+     "mainthread": 1917.8840000000278,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 81,
+     "observedFirstContentfulPaint": 1031,
+     "observedFirstContentfulPaintAllFrames": 1031,
+     "observedLargestContentfulPaint": 1031,
+     "observedLargestContentfulPaintAllFrames": 1031,
+     "observedTraceEnd": 3634,
+     "observedLoad": 306,
+     "observedDomContentLoaded": 298,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 65,
+     "observedLastVisualChange": 3631,
+     "observedSpeedIndex": 325,
+     "lcp_timeToFirstByte": 4.2150000305175785,
+     "lcp_elementRenderDelay": 1026.3709999694825
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 64.875,
+     "tbt": 122.56899999999976,
+     "cls": 0,
+     "mainthread": 3307.8649999999134
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1743.2039999999995,
+     "cls": 0,
+     "tbt": 192.71299999999997,
+     "fcp": 1371.426,
+     "mpfid": 406,
+     "bytes": 1166254,
+     "bootup": 936.720000000023,
+     "mainthread": 1913.620000000026,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 58,
+     "observedFirstContentfulPaint": 974,
+     "observedFirstContentfulPaintAllFrames": 974,
+     "observedLargestContentfulPaint": 974,
+     "observedLargestContentfulPaintAllFrames": 974,
+     "observedTraceEnd": 3660,
+     "observedLoad": 303,
+     "observedDomContentLoaded": 296,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 55,
+     "observedLastVisualChange": 3657,
+     "observedSpeedIndex": 306,
+     "lcp_timeToFirstByte": 4.132,
+     "lcp_elementRenderDelay": 970.224
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 65.915,
+     "tbt": 44.78899999999999,
+     "cls": 0,
+     "mainthread": 2856.4079999999285
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1830.1137,
+     "cls": 0,
+     "tbt": 233.04830000000015,
+     "fcp": 1366.0965999999999,
+     "mpfid": 400,
+     "bytes": 1166291,
+     "bootup": 984.5600000000237,
+     "mainthread": 1887.6320000000276,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 67,
+     "observedFirstContentfulPaint": 1067,
+     "observedFirstContentfulPaintAllFrames": 1067,
+     "observedLargestContentfulPaint": 1067,
+     "observedLargestContentfulPaintAllFrames": 1067,
+     "observedTraceEnd": 3669,
+     "observedLoad": 299,
+     "observedDomContentLoaded": 290,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3663,
+     "observedSpeedIndex": 331,
+     "lcp_timeToFirstByte": 4.985,
+     "lcp_elementRenderDelay": 1061.706
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 66.147,
+     "tbt": 40.06399999999999,
+     "cls": 0,
+     "mainthread": 2672.919999999937
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1798.6608,
+     "cls": 0,
+     "tbt": 268.2252000000003,
+     "fcp": 1317.4503999999997,
+     "mpfid": 389,
+     "bytes": 1166251,
+     "bootup": 912.6920000000259,
+     "mainthread": 1891.1200000000315,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 62,
+     "observedFirstContentfulPaint": 1129,
+     "observedFirstContentfulPaintAllFrames": 1129,
+     "observedLargestContentfulPaint": 1129,
+     "observedLargestContentfulPaintAllFrames": 1129,
+     "observedTraceEnd": 3661,
+     "observedLoad": 300,
+     "observedDomContentLoaded": 291,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 1661,
+     "observedSpeedIndex": 336,
+     "lcp_timeToFirstByte": 4.9,
+     "lcp_elementRenderDelay": 1124.167
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 65.858,
+     "tbt": 39.84899999999999,
+     "cls": 0,
+     "mainthread": 3075.4639999999067
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1810.8457499999997,
+     "cls": 0,
+     "tbt": 266.75775,
+     "fcp": 1334.5155,
+     "mpfid": 403,
+     "bytes": 1166414,
+     "bootup": 941.6240000000231,
+     "mainthread": 1993.0600000000254,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 1045,
+     "observedFirstContentfulPaintAllFrames": 1045,
+     "observedLargestContentfulPaint": 1045,
+     "observedLargestContentfulPaintAllFrames": 1045,
+     "observedTraceEnd": 3654,
+     "observedLoad": 303,
+     "observedDomContentLoaded": 295,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 3636,
+     "observedSpeedIndex": 324,
+     "lcp_timeToFirstByte": 4.473,
+     "lcp_elementRenderDelay": 1040.137
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 65.99,
+     "tbt": 42.15999999999994,
+     "cls": 0,
+     "mainthread": 2897.349999999914
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1791.31945,
+     "cls": 0,
+     "tbt": 233.0470499999999,
+     "fcp": 1367.0941,
+     "mpfid": 400.9999999999998,
+     "bytes": 1166417,
+     "bootup": 986.1440000000241,
+     "mainthread": 1913.6640000000264,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 62,
+     "observedFirstContentfulPaint": 996,
+     "observedFirstContentfulPaintAllFrames": 996,
+     "observedLargestContentfulPaint": 996,
+     "observedLargestContentfulPaintAllFrames": 996,
+     "observedTraceEnd": 3659,
+     "observedLoad": 301,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 3656,
+     "observedSpeedIndex": 312,
+     "lcp_timeToFirstByte": 4.160000030517578,
+     "lcp_elementRenderDelay": 991.3609999694825
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 66.009,
+     "tbt": 40.20900000000003,
+     "cls": 0,
+     "mainthread": 2577.0399999999377
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1778.30295,
+     "cls": 0,
+     "tbt": 232.32655,
+     "fcp": 1360.6531,
+     "mpfid": 396,
+     "bytes": 1166452,
+     "bootup": 977.8120000000225,
+     "mainthread": 1915.0200000000275,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 66,
+     "observedFirstContentfulPaint": 966,
+     "observedFirstContentfulPaintAllFrames": 966,
+     "observedLargestContentfulPaint": 966,
+     "observedLargestContentfulPaintAllFrames": 966,
+     "observedTraceEnd": 3635,
+     "observedLoad": 304,
+     "observedDomContentLoaded": 289,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3627,
+     "observedSpeedIndex": 309,
+     "lcp_timeToFirstByte": 4.301,
+     "lcp_elementRenderDelay": 961.233
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 65.956,
+     "tbt": 43.62600000000003,
+     "cls": 0,
+     "mainthread": 2688.5949999999348
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1782.99915,
+     "cls": 0,
+     "tbt": 233.16435,
+     "fcp": 1354.3287,
+     "mpfid": 388,
+     "bytes": 1166359,
+     "bootup": 952.9960000000244,
+     "mainthread": 1890.1040000000294,
+     "dom": 2482,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 73,
+     "observedFirstContentfulPaint": 973,
+     "observedFirstContentfulPaintAllFrames": 973,
+     "observedLargestContentfulPaint": 973,
+     "observedLargestContentfulPaintAllFrames": 973,
+     "observedTraceEnd": 3637,
+     "observedLoad": 298,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 67,
+     "observedLastVisualChange": 3635,
+     "observedSpeedIndex": 315,
+     "lcp_timeToFirstByte": 3.785,
+     "lcp_elementRenderDelay": 969.265
+    },
+    "lcpElement": {
+     "selector": "div.fixed > div.content-grid > div.flex > div.self-center",
+     "label": "New merch store now open, including a limited edition metal keycap! monkeytype.…",
+     "snippet": "<div class=\"self-center p-2\">"
+    },
+    "interaction": {
+     "inp": 66.071,
+     "tbt": 39.00999999999999,
+     "cls": 0,
+     "mainthread": 2964.227999999917
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.93",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*api.monkeytype.com*",
+   "*instatus.com*",
+   "*nitropay*",
+   "*playwire*",
+   "*pubgalaxy*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*googletagmanager*",
+   "*google-analytics*",
+   "*sentry.io*",
+   "*identitytoolkit.googleapis.com*",
+   "*securetoken.googleapis.com*",
+   "*firebaseinstallations.googleapis.com*",
+   "*bench-fake.firebaseapp.com*",
+   "*intergient*",
+   "*amazon-adsystem*",
+   "*confiant*",
+   "*fixedfold*",
+   "*api.github.com*",
+   "*raw.githubusercontent.com*",
+   "*www.google.com*",
+   "*www.gstatic.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.github.com",
+   "cdn.intergient.com",
+   "www.google.com"
+  ]
+ }
+}

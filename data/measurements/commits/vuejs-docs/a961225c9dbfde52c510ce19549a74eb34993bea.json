@@ -1,0 +1,591 @@
+{
+ "schema": 2,
+ "repo": "vuejs-docs",
+ "sha": "a961225c9dbfde52c510ce19549a74eb34993bea",
+ "parent": "ac7a921f0124c62b993fa2059e7a21db6877f9de",
+ "date": "2024-09-16T14:16:01+02:00",
+ "subject": "v-model.number: clarify unexpected behavior (#2975)",
+ "status": "ok",
+ "base": {
+  "sha": "ac7a921f0124c62b993fa2059e7a21db6877f9de",
+  "distHash": "0865d080c457b9affa71ce43ec3cfdb75ab5c46d525d1ea69eb8041ea92fda7b"
+ },
+ "distHash": "9e57e0060ba89ba7e623deff7b6830f217e89e84326e9e1a754f63eff6f9f93d",
+ "timings": {
+  "installMs": null,
+  "buildMs": 34669,
+  "measureMs": 156825
+ },
+ "bundle": {
+  "files": 424,
+  "byExt": {
+   ".html": {
+    "files": 111,
+    "raw": 11824883,
+    "gzip": 1994975
+   },
+   ".js": {
+    "files": 234,
+    "raw": 12619950,
+    "gzip": 2689765
+   },
+   ".png": {
+    "files": 41,
+    "raw": 2600674,
+    "gzip": 2600674
+   },
+   ".woff2": {
+    "files": 14,
+    "raw": 642756,
+    "gzip": 642756
+   },
+   ".svg": {
+    "files": 11,
+    "raw": 260994,
+    "gzip": 92798
+   },
+   ".css": {
+    "files": 1,
+    "raw": 125601,
+    "gzip": 24451
+   },
+   ".json": {
+    "files": 1,
+    "raw": 4413,
+    "gzip": 1741
+   },
+   ".jpg": {
+    "files": 8,
+    "raw": 796661,
+    "gzip": 796661
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 7725,
+    "gzip": 7725
+   },
+   "(none)": {
+    "files": 2,
+    "raw": 4697,
+    "gzip": 4697
+   }
+  },
+  "totalRaw": 28888354,
+  "totalGzip": 8856243
+ },
+ "runs": {
+  "reactivity": [
+   {
+    "navigation": {
+     "lcp": 802.898125,
+     "cls": 0.002202142252575665,
+     "tbt": 351,
+     "fcp": 612.47775,
+     "mpfid": 300,
+     "bytes": 673088,
+     "bootup": 238.09600000000012,
+     "mainthread": 1538.044000000002,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 734,
+     "observedFirstContentfulPaint": 734,
+     "observedFirstContentfulPaintAllFrames": 734,
+     "observedLargestContentfulPaint": 734,
+     "observedLargestContentfulPaintAllFrames": 734,
+     "observedTraceEnd": 3326,
+     "observedLoad": 979,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 732,
+     "observedLastVisualChange": 972,
+     "observedSpeedIndex": 760,
+     "lcp_timeToFirstByte": 6.173999938964844,
+     "lcp_resourceLoadDelay": 9.079000061035156,
+     "lcp_resourceLoadDuration": 281.485,
+     "lcp_elementRenderDelay": 436.765
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65334/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 140.071,
+     "tbt": 121.15400000000011,
+     "cls": 0.0000033832413974257943,
+     "mainthread": 1417.6019999999883
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 783.4580000000001,
+     "cls": 0.10886880891924233,
+     "tbt": 307.4999999999999,
+     "fcp": 619.587,
+     "mpfid": 302,
+     "bytes": 673001,
+     "bootup": 253.9960000000004,
+     "mainthread": 1745.1520000000007,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 483,
+     "observedFirstContentfulPaint": 483,
+     "observedFirstContentfulPaintAllFrames": 483,
+     "observedLargestContentfulPaint": 483,
+     "observedLargestContentfulPaintAllFrames": 483,
+     "observedTraceEnd": 3039,
+     "observedLoad": 515,
+     "observedDomContentLoaded": 314,
+     "observedCumulativeLayoutShift": 0.10886880891924233,
+     "observedCumulativeLayoutShiftMainFrame": 0.10886880891924233,
+     "observedFirstVisualChange": 472,
+     "observedLastVisualChange": 753,
+     "observedSpeedIndex": 505,
+     "lcp_timeToFirstByte": 4.716,
+     "lcp_resourceLoadDelay": 8.336,
+     "lcp_resourceLoadDuration": 20.579,
+     "lcp_elementRenderDelay": 449.052
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65334/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 119.984,
+     "tbt": 134.47299999999996,
+     "cls": 0.0000023068616291626535,
+     "mainthread": 1525.3659999999873
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1447.7570999999998,
+     "cls": 0.002202142252575665,
+     "tbt": 432.9999999999999,
+     "fcp": 842.3571999999999,
+     "mpfid": 352.9999999999999,
+     "bytes": 673076,
+     "bootup": 278.6560000000002,
+     "mainthread": 1816.2639999999994,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 597,
+     "observedFirstContentfulPaint": 597,
+     "observedFirstContentfulPaintAllFrames": 597,
+     "observedLargestContentfulPaint": 597,
+     "observedLargestContentfulPaintAllFrames": 597,
+     "observedTraceEnd": 3098,
+     "observedLoad": 523,
+     "observedDomContentLoaded": 392,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 593,
+     "observedLastVisualChange": 851,
+     "observedSpeedIndex": 621,
+     "lcp_timeToFirstByte": 5.391,
+     "lcp_resourceLoadDelay": 13.998,
+     "lcp_resourceLoadDuration": 61.713,
+     "lcp_elementRenderDelay": 515.488
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65334/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 169.811,
+     "tbt": 186.18299999999977,
+     "cls": 0.000002157429296909202,
+     "mainthread": 1606.3149999999848
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 890.5375999999999,
+     "cls": 0.002202142252575665,
+     "tbt": 307.5000000000002,
+     "fcp": 616.8919999999999,
+     "mpfid": 319.0000000000001,
+     "bytes": 673153,
+     "bootup": 227.42800000000042,
+     "mainthread": 1570.4880000000007,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 627,
+     "observedFirstContentfulPaint": 627,
+     "observedFirstContentfulPaintAllFrames": 627,
+     "observedLargestContentfulPaint": 627,
+     "observedLargestContentfulPaintAllFrames": 627,
+     "observedTraceEnd": 3167,
+     "observedLoad": 573,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 615,
+     "observedLastVisualChange": 881,
+     "observedSpeedIndex": 645,
+     "lcp_timeToFirstByte": 5.458,
+     "lcp_resourceLoadDelay": 12.887,
+     "lcp_resourceLoadDuration": 150.954,
+     "lcp_elementRenderDelay": 458.023
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65334/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 162.056,
+     "tbt": 199.26999999999987,
+     "cls": 0.000002993316405451946,
+     "mainthread": 1635.6379999999854
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 863.08875,
+     "cls": 0.002202142252575665,
+     "tbt": 313.2045000000003,
+     "fcp": 610.9064999999999,
+     "mpfid": 392.00000000000045,
+     "bytes": 673140,
+     "bootup": 249.60400000000033,
+     "mainthread": 1804.3920000000019,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 531,
+     "observedFirstContentfulPaint": 531,
+     "observedFirstContentfulPaintAllFrames": 531,
+     "observedLargestContentfulPaint": 531,
+     "observedLargestContentfulPaintAllFrames": 531,
+     "observedTraceEnd": 3114,
+     "observedLoad": 571,
+     "observedDomContentLoaded": 365,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 524,
+     "observedLastVisualChange": 784,
+     "observedSpeedIndex": 554,
+     "lcp_timeToFirstByte": 5.321,
+     "lcp_resourceLoadDelay": 16.565,
+     "lcp_resourceLoadDuration": 21.409,
+     "lcp_elementRenderDelay": 487.909
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65334/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 141.013,
+     "tbt": 181.44799999999998,
+     "cls": 0.00000199632256369845,
+     "mainthread": 1459.483999999989
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "reactivity": [
+   {
+    "navigation": {
+     "lcp": 792.52575,
+     "cls": 0.002202142252575665,
+     "tbt": 292.5,
+     "fcp": 612.52575,
+     "mpfid": 278,
+     "bytes": 672912,
+     "bootup": 254.02799999999988,
+     "mainthread": 1650.444000000001,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 606,
+     "observedFirstContentfulPaint": 606,
+     "observedFirstContentfulPaintAllFrames": 606,
+     "observedLargestContentfulPaint": 606,
+     "observedLargestContentfulPaintAllFrames": 606,
+     "observedTraceEnd": 3153,
+     "observedLoad": 637,
+     "observedDomContentLoaded": 422,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 603,
+     "observedLastVisualChange": 862,
+     "observedSpeedIndex": 634,
+     "lcp_timeToFirstByte": 4.56,
+     "lcp_resourceLoadDelay": 15.083,
+     "lcp_resourceLoadDuration": 145.157,
+     "lcp_elementRenderDelay": 441.246
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65333/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 122.168,
+     "tbt": 64.99600000000021,
+     "cls": 0.000003222134664215042,
+     "mainthread": 1204.7759999999948
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 873.578,
+     "cls": 0.002202142252575665,
+     "tbt": 294.2072000000003,
+     "fcp": 573.8936000000001,
+     "mpfid": 333.0000000000002,
+     "bytes": 673002,
+     "bootup": 237.91200000000043,
+     "mainthread": 1601.600000000001,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 504,
+     "observedFirstContentfulPaint": 504,
+     "observedFirstContentfulPaintAllFrames": 504,
+     "observedLargestContentfulPaint": 504,
+     "observedLargestContentfulPaintAllFrames": 504,
+     "observedTraceEnd": 3070,
+     "observedLoad": 711,
+     "observedDomContentLoaded": 334,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 498,
+     "observedLastVisualChange": 727,
+     "observedSpeedIndex": 526,
+     "lcp_timeToFirstByte": 4.995,
+     "lcp_resourceLoadDelay": 12.297,
+     "lcp_resourceLoadDuration": 47.398,
+     "lcp_elementRenderDelay": 439.709
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65333/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 113.545,
+     "tbt": 81.16200000000003,
+     "cls": 0.000003107725534833494,
+     "mainthread": 1302.9119999999905
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 827.898375,
+     "cls": 0.002202142252575665,
+     "tbt": 218.76737500000002,
+     "fcp": 614.05575,
+     "mpfid": 302.9999999999999,
+     "bytes": 672910,
+     "bootup": 232.47200000000038,
+     "mainthread": 1556.9600000000012,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 558,
+     "observedFirstContentfulPaint": 558,
+     "observedFirstContentfulPaintAllFrames": 558,
+     "observedLargestContentfulPaint": 558,
+     "observedLargestContentfulPaintAllFrames": 558,
+     "observedTraceEnd": 3133,
+     "observedLoad": 797,
+     "observedDomContentLoaded": 407,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 555,
+     "observedLastVisualChange": 842,
+     "observedSpeedIndex": 585,
+     "lcp_timeToFirstByte": 4.915999938964844,
+     "lcp_resourceLoadDelay": 13.631000061035156,
+     "lcp_resourceLoadDuration": 83.128,
+     "lcp_elementRenderDelay": 455.899
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65333/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 157.025,
+     "tbt": 211.81499999999994,
+     "cls": 0.000001881913434316902,
+     "mainthread": 1716.4869999999846
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 933.3496,
+     "cls": 0.002202142252575665,
+     "tbt": 325.5000000000002,
+     "fcp": 617.4217500000001,
+     "mpfid": 338.0000000000002,
+     "bytes": 672985,
+     "bootup": 215.00800000000032,
+     "mainthread": 1613.8080000000007,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 576,
+     "observedFirstContentfulPaint": 576,
+     "observedFirstContentfulPaintAllFrames": 576,
+     "observedLargestContentfulPaint": 576,
+     "observedLargestContentfulPaintAllFrames": 576,
+     "observedTraceEnd": 3087,
+     "observedLoad": 546,
+     "observedDomContentLoaded": 404,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 570,
+     "observedLastVisualChange": 828,
+     "observedSpeedIndex": 598,
+     "lcp_timeToFirstByte": 5.428,
+     "lcp_resourceLoadDelay": 9.797,
+     "lcp_resourceLoadDuration": 90.858,
+     "lcp_elementRenderDelay": 470.273
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65333/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 162.091,
+     "tbt": 145.04099999999994,
+     "cls": 0.000002993316405451946,
+     "mainthread": 1529.2039999999854
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 987.6865500000001,
+     "cls": 0.002202142252575665,
+     "tbt": 341.07904999999994,
+     "fcp": 572.8694,
+     "mpfid": 338.9999999999999,
+     "bytes": 672878,
+     "bootup": 268.11600000000027,
+     "mainthread": 1747.1840000000007,
+     "dom": 2009,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 559,
+     "observedFirstContentfulPaint": 559,
+     "observedFirstContentfulPaintAllFrames": 559,
+     "observedLargestContentfulPaint": 559,
+     "observedLargestContentfulPaintAllFrames": 559,
+     "observedTraceEnd": 3116,
+     "observedLoad": 502,
+     "observedDomContentLoaded": 376,
+     "observedCumulativeLayoutShift": 0.002202142252575665,
+     "observedCumulativeLayoutShiftMainFrame": 0.002202142252575665,
+     "observedFirstVisualChange": 557,
+     "observedLastVisualChange": 798,
+     "observedSpeedIndex": 587,
+     "lcp_timeToFirstByte": 5.855,
+     "lcp_resourceLoadDelay": 16.979,
+     "lcp_resourceLoadDuration": 63.242,
+     "lcp_elementRenderDelay": 472.582
+    },
+    "lcpElement": {
+     "selector": "div.banner > a > picture > img",
+     "label": "div.banner > a > picture > img",
+     "snippet": "<img src=\"http://127.0.0.1:65333/vuejsde-conf/vuejsdeconf_banner_large.png\" alt=\"\" data-v-3b5b114f=\"\">"
+    },
+    "interaction": {
+     "inp": 178.496,
+     "tbt": 189.10899999999936,
+     "cls": 0.00000199632256369845,
+     "mainthread": 1626.7669999999816
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.59",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*carbonads*",
+   "*buysellads*",
+   "*algolia*",
+   "*bitterbrains*",
+   "*usefathom*",
+   "*automation.vuejs.org*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com",
+   "sponsors.vuejs.org",
+   "vueschool.io"
+  ],
+  "blocked": [
+   "cdn.carbonads.com",
+   "cdn.usefathom.com",
+   "media.bitterbrains.com"
+  ]
+ }
+}

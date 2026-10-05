@@ -1,0 +1,66 @@
+{
+ "schema": 2,
+ "repo": "excalidraw",
+ "sha": "8462bb81fb489630330bf5824f9a404b016ce178",
+ "parent": "ba0387d186b361d8d9a2390f396cb17527073442",
+ "date": "2026-07-08T12:20:30+02:00",
+ "subject": "fix(editor): Very small bindables can blow up fixedPoint -> position ratio (#11607)",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": 35495,
+  "buildMs": 50195,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.57",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": []
+ },
+ "error": "e client\" in \"../node_modules/@radix-ui/react-focus-scope/dist/index.mjs\" was ignored.\n\n\n WARN  ../node_modules/@radix-ui/react-popper/dist/index.mjs (1:0): Module level directives cause errors when bundled, \"use client\" in \"../node_modules/@radix-ui/react-popper/dist/index.mjs\" was ignored.\n\n\n WARN  ../node_modules/@radix-ui/react-roving-focus/dist/index.mjs (1:0): Module level directives cause errors when bundled, \"use client\" in \"../node_modules/@radix-ui/react-roving-focus/dist/index.mjs\" was ignored.\n\n../packages/element/tests/binding.test.tsx(796,26): error TS2345: Argument of type 'ExcalidrawArrowElement' is not assignable to parameter of type 'NonDeleted<ExcalidrawArrowElement>'.\r\n  Type 'ExcalidrawArrowElement' is not assignable to type '{ isDeleted: false; }'.\r\n    Types of property 'isDeleted' are incompatible.\r\n      Type 'boolean' is not assignable to type 'false'.\r\n../packages/element/tests/binding.test.tsx(806,27): error TS2345: Argument of type 'ExcalidrawBindableElement' is not assignable to parameter of type 'NonDeletedExcalidrawElement'.\r\n  Type 'ExcalidrawRectangleElement' is not assignable to type 'NonDeletedExcalidrawElement'.\r\n    Type 'ExcalidrawRectangleElement' is not assignable to type 'Readonly<{ id: string; x: number; y: number; strokeColor: string; backgroundColor: string; fillStyle: FillStyle; strokeWidth: number; strokeStyle: StrokeStyle; roundness: { ...; } | null; ... 16 more ...; customData?: Record<...> | undefined; }> & { ...; } & { ...; }'.\r\n      Type 'ExcalidrawRectangleElement' is not assignable to type '{ isDeleted: false; }'.\r\n        Types of property 'isDeleted' are incompatible.\r\n          Type 'boolean' is not assignable to type 'false'.\r\n\u001b[32m✓\u001b[39m 3056 modules transformed.\nerror Command failed with exit code 2.\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\nerror Command failed with exit code 2.\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n"
+}

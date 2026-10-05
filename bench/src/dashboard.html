@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWV bench</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #fff; --border: #e3e6ea; --text: #16191d; --muted: #68717d;
+    --accent: #2f6fdb; --accent-soft: rgba(47,111,219,.14);
+    --ok: #1f8a4c; --warn: #b7791f; --bad: #c53030; --track: #eceff3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111316; --surface: #1a1d21; --border: #2b3036; --text: #e8eaed; --muted: #9aa3ad;
+      --accent: #6b9cf0; --accent-soft: rgba(107,156,240,.18);
+      --ok: #4cc47f; --warn: #e0a84a; --bad: #f07070; --track: #262a30;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1200px; margin: 0 auto; padding: 20px 16px 48px; }
+  header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  h1 { font-size: 18px; margin: 0; font-weight: 650; }
+  h2 { font-size: 13px; margin: 0 0 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .tabs { display: flex; gap: 6px; }
+  .tabs button { border: 1px solid var(--border); background: var(--surface); color: var(--text);
+    padding: 4px 10px; border-radius: 6px; cursor: pointer; font: inherit; }
+  .tabs button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  .live { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); }
+  .live.on .dot { background: var(--ok); animation: pulse 1.6s infinite; }
+  .live.on { color: var(--ok); }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+  .span2 { grid-column: span 2; }
+  @media (max-width: 640px) { .span2 { grid-column: auto; } }
+  .big { font-size: 28px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .sub { color: var(--muted); }
+  .bar { height: 8px; background: var(--track); border-radius: 4px; overflow: hidden; margin: 10px 0 6px; }
+  .bar > div { height: 100%; background: var(--accent); transition: width .4s; }
+  .pipeline { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+  .step { padding: 3px 9px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+  .step.done { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+  .step.active { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+  .runs { display: flex; gap: 5px; margin-top: 6px; }
+  .runs span { width: 22px; height: 8px; border-radius: 3px; background: var(--track); }
+  .runs span.done { background: var(--ok); }
+  .runs span.active { background: var(--accent); animation: pulse 1.2s infinite; }
+  code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 12.5px; }
+  .counts { display: flex; gap: 18px; flex-wrap: wrap; }
+  .counts div b { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+  .charts { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-top: 14px; }
+  @media (max-width: 400px) { .charts { grid-template-columns: 1fr; } }
+  .chart-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .chart-head b { font-size: 14px; }
+  svg.chart { width: 100%; height: 150px; display: block; margin-top: 8px; overflow: visible; }
+  svg.chart text { fill: var(--muted); font-size: 10px; }
+  svg.chart .grid-line { stroke: var(--border); }
+  svg.chart .band { fill: var(--accent-soft); }
+  svg.chart .line { fill: none; stroke: var(--accent); stroke-width: 1.8; }
+  svg.chart .pt { fill: var(--accent); }
+  svg.chart .fail { fill: var(--bad); }
+  svg.chart .cursor { stroke: var(--muted); stroke-dasharray: 3 3; }
+  .tip { position: fixed; pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.15); max-width: 320px; display: none; z-index: 10; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; }
+  td.num, th.num { text-align: right; }
+  td.subj { max-width: 340px; overflow: hidden; text-overflow: ellipsis; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .badge { font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; }
+  .empty { color: var(--muted); padding: 24px 0; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>CWV bench</h1>
+    <div class="tabs" id="tabs"></div>
+    <div class="live" id="live"><span class="dot"></span><span id="live-text">—</span></div>
+  </header>
+  <div id="app"><div class="empty">Загрузка…</div></div>
+</main>
+<div class="tip" id="tip"></div>
+
+<script>
+const STAGES = [
+  ['checkout', 'Checkout'], ['install', 'Install'], ['build', 'Build'],
+  ['bundle', 'Bundle'], ['warmup', 'Прогрев'], ['measure', 'Прогоны'],
+];
+const FAILED = new Set(['build_failed', 'install_failed', 'measure_failed', 'no_base']);
+const CHARTS = [
+  { key: 'lcp', title: 'LCP', unit: 'ms', hint: 'загрузка' },
+  { key: 'inp', title: 'INP', unit: 'ms', hint: 'сценарий' },
+  { key: 'tbt', title: 'TBT', unit: 'ms', hint: 'загрузка' },
+  { key: 'tbtInteraction', title: 'TBT', unit: 'ms', hint: 'сценарий' },
+  { key: 'cls', title: 'CLS', unit: '', hint: 'загрузка' },
+  { key: 'jsGzip', title: 'JS (gzip)', unit: 'KB', hint: 'бандл' },
+];
+
+let data = null;
+let selected = localStorageGet('repo');
+
+function localStorageGet(k) { try { return localStorage.getItem(k); } catch { return null; } }
+function localStorageSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function fmtDur(sec) {
+  if (sec == null || !isFinite(sec)) return '—';
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = sec % 60;
+  if (h) return `${h} ч ${m} мин`;
+  if (m) return `${m} мин ${String(s).padStart(2, '0')} с`;
+  return `${s} с`;
+}
+function fmtVal(v, unit) {
+  if (v == null) return '—';
+  if (unit === 'KB') return (v / 1024).toFixed(0);
+  if (unit === '') return v.toFixed(3);
+  return v.toFixed(0);
+}
+/** Число со знаком; то, что округляется до нуля, — просто «0» (без «−0» и «+0.000»). */
+function signed(x, digits) {
+  const s = x.toFixed(digits);
+  if (Number(s) === 0) return '0';
+  return (x > 0 ? '+' : '') + s;
+}
+const clock = (ts) => new Date(ts).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+const mean = (xs) => xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
+
+async function poll() {
+  try {
+    const r = await fetch('/api/state');
+    data = await r.json();
+    data.fetchedAt = Date.now();
+    data.skew = data.now - data.fetchedAt;
+  } catch {
+    $('live-text').textContent = 'панель не видит сервер';
+  }
+  render();
+}
+
+function repo() {
+  if (!data?.repos.length) return null;
+  return data.repos.find((r) => r.name === selected) ?? data.repos.find((r) => r.alive) ?? data.repos[0];
+}
+
+function render() {
+  const r = repo();
+  $('tabs').innerHTML = (data?.repos ?? []).map((x) =>
+    `<button aria-pressed="${x === r}" data-repo="${esc(x.name)}">${esc(x.name)}${x.alive ? ' ●' : ''}</button>`).join('');
+  if (!r) { $('app').innerHTML = '<div class="empty">Данных пока нет — запустите сбор: <code>npx tsx src/run.ts --repo …</code></div>'; return; }
+
+  const live = $('live');
+  live.classList.toggle('on', r.alive);
+  $('live-text').textContent = r.alive ? 'идёт сбор'
+    : r.status?.finished ? `запуск завершён в ${clock(r.status.updatedAt)}` : 'сбор не запущен';
+
+  if (!$('top')) {
+    $('app').innerHTML = `<div class="grid" id="top"></div><div class="charts" id="charts"></div>
+      <div class="card" style="margin-top:14px"><h2>Последние измеренные</h2><div id="recent"></div></div>`;
+  }
+  $('top').innerHTML = progressCard(r) + currentCard(r) + countsCard(r);
+
+  // графики и таблицу перестраиваем только при изменении данных, иначе сбивается hover
+  const sig = r.name + '|' + r.commits.map((c) => c.sha + c.measuredAt).join();
+  if (sig !== lastSig) {
+    lastSig = sig;
+    $('charts').innerHTML = CHARTS.map((c) => chartCard(r, c)).join('');
+    $('recent').innerHTML = recentTable(r);
+    bindCharts(r);
+  }
+}
+let lastSig = '';
+
+/** Средняя длительность коммита: по текущему запуску, иначе по сохранённым таймингам. */
+function avgCommitSec(r) {
+  const d = r.status?.durations ?? [];
+  if (d.length) return mean(d.slice(-10));
+  const past = r.commits.filter((c) => c.status === 'ok').slice(-10)
+    .map((c) => (c.seconds.install ?? 0) + (c.seconds.build ?? 0) + (c.seconds.measure ?? 0) + 5);
+  return mean(past);
+}
+
+function progressCard(r) {
+  const s = r.status;
+  const measured = r.commits.length;
+  const total = s?.totalInRange ?? null;
+  let session = '<div class="sub">Нет активного запуска.</div>';
+  if (s && r.alive) {
+    const now = Date.now() + data.skew;
+    const avg = avgCommitSec(r);
+    const curElapsed = s.current ? (now - s.current.commitStartedAt) / 1000 : 0;
+    const left = s.queue - s.done;
+    const eta = avg != null ? Math.max(0, left * avg - curElapsed) : null;
+    const pct = s.queue ? (s.done + (avg ? Math.min(curElapsed / avg, 0.99) : 0)) / s.queue * 100 : 0;
+    session = `
+      <div class="big">${s.done} / ${s.queue}</div>
+      <div class="sub">коммитов в этом запуске · ${s.pairs ? `${s.pairs.initial} пар A/B (до ${s.pairs.extended} при подозрении)` : `${s.runsPerCommit} прогонов на коммит`}</div>
+      <div class="bar"><div style="width:${pct.toFixed(1)}%"></div></div>
+      <div>Осталось <b>${fmtDur(eta)}</b>${eta != null ? ` · окончание ≈ <b>${clock(now + eta * 1000)}</b>` : ''}</div>
+      <div class="sub">≈ ${fmtDur(avg)} на коммит · запуск идёт ${fmtDur((now - s.startedAt) / 1000)}</div>`;
+  }
+  const overall = total ? `
+      <div class="sub" style="margin-top:14px">Весь диапазон репозитория: ${measured} из ${total}</div>
+      <div class="bar"><div style="width:${Math.min(100, measured / total * 100).toFixed(1)}%"></div></div>
+      <div class="sub">до конца всего репозитория ≈ ${fmtDur(Math.max(0, total - measured) * (avgCommitSec(r) ?? NaN))}</div>` : '';
+  return `<div class="card"><h2>Прогресс</h2>${session}${overall}</div>`;
+}
+
+function currentCard(r) {
+  const cur = r.alive ? r.status?.current : null;
+  if (!cur) return `<div class="card"><h2>Сейчас</h2><div class="sub">${r.alive ? 'Переход к следующему коммиту…' : '—'}</div></div>`;
+  const now = Date.now() + data.skew;
+  const idx = STAGES.findIndex(([k]) => k === cur.stage);
+  const commitLink = (sha) => r.url ? `<a href="${esc(r.url)}/commit/${sha}" target="_blank" rel="noopener">${sha.slice(0, 8)}</a>` : sha.slice(0, 8);
+  const building = cur.role === 'base' && ['checkout', 'install', 'build', 'bundle'].includes(cur.stage);
+  const measuring = cur.stage === 'measure' || cur.stage === 'warmup';
+  let runs = '';
+  if (measuring) {
+    const n = cur.total ?? r.status.pairs?.initial ?? 0;
+    const extended = n > (r.status.pairs?.initial ?? n);
+    const who = cur.side === 'A' ? `A — база ${cur.baseSha ? cur.baseSha.slice(0, 8) : ''}` : 'B — коммит';
+    runs = `<div class="sub">${cur.stage === 'warmup' ? 'Прогрев обеих версий'
+        : `Пара ${cur.run} из ${n}${extended ? ' <span class="warn">(расширено: есть подозрение на изменение)</span>' : ''} · сейчас <b>${who}</b>`}
+        ${cur.page ? ` · страница «${esc(cur.page)}»` : ''}</div>
+      <div class="runs">${Array.from({ length: n }, (_, i) => {
+        const cls = cur.stage === 'warmup' ? '' : i + 1 < cur.run ? 'done' : i + 1 === cur.run ? 'active' : '';
+        return `<span class="${cls}"></span>`; }).join('')}</div>`;
+  }
+  return `<div class="card span2"><h2>Сейчас</h2>
+    <div><span class="mono">${commitLink(cur.sha)}</span> ${esc(cur.subject)}</div>
+    ${cur.baseSha ? `<div class="sub">сравнение с базой <span class="mono">${commitLink(cur.baseSha)}</span></div>` : ''}
+    <div class="pipeline">${STAGES.map(([k, label], i) =>
+      `<span class="step ${i < idx ? 'done' : i === idx ? 'active' : ''}">${label}</span>`).join('')}</div>
+    <div class="sub">${building ? '<b>Сборка базы для сравнения</b> · ' : ''}Этап идёт ${fmtDur((now - cur.stageStartedAt) / 1000)} · коммит ${fmtDur((now - cur.commitStartedAt) / 1000)}</div>
+    ${runs}</div>`;
+}
+
+function countsCard(r) {
+  const by = (st) => r.commits.filter((c) => c.status === st).length;
+  const ok = r.commits.filter((c) => c.status === 'ok');
+  const build = mean(ok.map((c) => c.seconds.build).filter((x) => x != null));
+  const measure = mean(ok.map((c) => c.seconds.measure).filter((x) => x != null));
+  const failedRuns = r.commits.reduce((a, c) => a + c.failedRuns, 0);
+  const extended = r.commits.filter((c) => c.extended).length;
+  const aa = r.commits.filter((c) => c.aa).length;
+  const noBase = by('no_base');
+  return `<div class="card"><h2>Итоги</h2>
+    <div class="counts">
+      <div><b class="ok">${by('ok')}</b>измерено</div>
+      <div><b>${by('identical_build')}</b>сборка = база</div>
+      <div><b class="bad">${by('build_failed')}</b>сборка упала</div>
+      <div><b class="warn">${by('install_failed')}</b>install упал</div>
+      <div><b class="bad">${by('measure_failed')}</b>замер упал</div>
+      ${noBase ? `<div><b class="warn">${noBase}</b>нет базы</div>` : ''}
+    </div>
+    <div class="sub" style="margin-top:12px">Сборка в среднем ${fmtDur(build)}, замеры ${fmtDur(measure)}
+      · расширено до полной серии: ${extended} · контрольных A/A: ${aa}${failedRuns ? ` · упавших прогонов: ${failedRuns}` : ''}</div>
+  </div>`;
+}
+
+function seriesOf(r, key) {
+  // A/A «сборка против себя» — отдельный файл того же коммита, на графиках не дублируем
+  return r.commits.filter((c) => !c.selfAA).map((c) => {
+    if (key === 'jsGzip') return { c, q: c.jsGzip != null ? [c.jsGzip, c.jsGzip, c.jsGzip] : null };
+    return { c, q: c.stats[key] };
+  });
+}
+
+const W = 600, H = 150, PAD = { l: 44, r: 8, t: 8, b: 18 };
+
+function chartCard(r, spec) {
+  const pts = seriesOf(r, spec.key);
+  const valid = pts.filter((p) => p.q);
+  const last = valid.at(-1)?.q[1];
+  let body = '<div class="empty">нет данных</div>';
+  if (valid.length) {
+    const lo = Math.min(...valid.map((p) => p.q[0])), hi = Math.max(...valid.map((p) => p.q[2]));
+    const pad = (hi - lo) * 0.1 || Math.abs(hi) * 0.1 || 1;
+    const y0 = Math.max(0, lo - pad), y1 = hi + pad;
+    const n = pts.length;
+    const x = (i) => PAD.l + (n === 1 ? (W - PAD.l - PAD.r) / 2 : i / (n - 1) * (W - PAD.l - PAD.r));
+    const y = (v) => PAD.t + (1 - (v - y0) / (y1 - y0)) * (H - PAD.t - PAD.b);
+    const idx = pts.map((p, i) => [p, i]).filter(([p]) => p.q);
+    const band = idx.map(([p, i]) => `${x(i)},${y(p.q[2])}`).concat(idx.slice().reverse().map(([p, i]) => `${x(i)},${y(p.q[0])}`)).join(' ');
+    const line = idx.map(([p, i]) => `${x(i)},${y(p.q[1])}`).join(' ');
+    const ticks = [y0, (y0 + y1) / 2, y1];
+    const fails = pts.map((p, i) => FAILED.has(p.c.status) ? `<circle class="fail" cx="${x(i)}" cy="${H - PAD.b}" r="2.5"/>` : '').join('');
+    body = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" data-key="${spec.key}">
+      ${ticks.map((t) => `<line class="grid-line" x1="${PAD.l}" x2="${W - PAD.r}" y1="${y(t)}" y2="${y(t)}"/>
+        <text x="${PAD.l - 6}" y="${y(t) + 3}" text-anchor="end">${fmtVal(t, spec.unit)}</text>`).join('')}
+      ${idx.length > 1 ? `<polygon class="band" points="${band}"/><polyline class="line" points="${line}"/>` : ''}
+      ${idx.length <= 40 ? idx.map(([p, i]) => `<circle class="pt" cx="${x(i)}" cy="${y(p.q[1])}" r="2.5"/>`).join('') : ''}
+      ${fails}
+      <line class="cursor" y1="${PAD.t}" y2="${H - PAD.b}" x1="-10" x2="-10"/>
+      <text x="${PAD.l}" y="${H - 4}">старые</text><text x="${W - PAD.r}" y="${H - 4}" text-anchor="end">новые</text>
+    </svg>`;
+  }
+  return `<div class="card"><div class="chart-head"><b>${spec.title} <span class="sub">· ${spec.hint}</span></b>
+    <span class="mono">${fmtVal(last, spec.unit)} ${spec.unit}</span></div>${body}
+    <div class="sub" style="font-size:12px">медиана и межквартильный размах по прогонам</div></div>`;
+}
+
+function bindCharts(r) {
+  const tip = $('tip');
+  document.querySelectorAll('svg.chart').forEach((svg) => {
+    const spec = CHARTS.find((c) => c.key === svg.dataset.key);
+    const pts = seriesOf(r, spec.key);
+    const cursor = svg.querySelector('.cursor');
+    svg.addEventListener('mousemove', (e) => {
+      const box = svg.getBoundingClientRect();
+      const vx = (e.clientX - box.left) / box.width * W;
+      const n = pts.length;
+      const i = n === 1 ? 0 : Math.round((vx - PAD.l) / (W - PAD.l - PAD.r) * (n - 1));
+      const p = pts[Math.max(0, Math.min(n - 1, i))];
+      if (!p) return;
+      const cx = PAD.l + (n === 1 ? (W - PAD.l - PAD.r) / 2 : Math.max(0, Math.min(n - 1, i)) / (n - 1) * (W - PAD.l - PAD.r));
+      cursor.setAttribute('x1', cx); cursor.setAttribute('x2', cx);
+      const val = p.q ? `<b>${fmtVal(p.q[1], spec.unit)} ${spec.unit}</b>${spec.key !== 'jsGzip' ? ` <span class="sub">(IQR ${fmtVal(p.q[0], spec.unit)}–${fmtVal(p.q[2], spec.unit)})</span>` : ''}` : `<span class="bad">${p.c.status}</span>`;
+      tip.innerHTML = `<div class="mono">${p.c.sha.slice(0, 8)} · ${new Date(p.c.date).toLocaleDateString('ru-RU')}</div>
+        <div>${esc(p.c.subject)}</div><div style="margin-top:4px">${val}</div>`;
+      tip.style.display = 'block';
+      const tx = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8);
+      tip.style.left = tx + 'px'; tip.style.top = (e.clientY + 14) + 'px';
+    });
+    svg.addEventListener('mouseleave', () => { tip.style.display = 'none'; cursor.setAttribute('x1', -10); cursor.setAttribute('x2', -10); });
+  });
+}
+
+function recentTable(r) {
+  const rows = r.commits.slice().sort((a, b) => b.measuredAt - a.measuredAt).slice(0, 15);
+  if (!rows.length) return '<div class="empty">Пока ничего не измерено</div>';
+  const cls = { ok: 'ok', identical_build: '', build_failed: 'bad', install_failed: 'warn', measure_failed: 'bad', no_base: 'warn' };
+  const total = (c) => (c.seconds.install ?? 0) + (c.seconds.build ?? 0) + (c.seconds.measure ?? 0);
+  // Δ относительно базы; жирным — p < 0.05 и |Δ| ≥ порога (предварительно, без поправки BH)
+  const delta = (c, t) => {
+    const d = c.deltas?.[t];
+    if (!d) return '<td class="num sub">—</td>';
+    const flagged = d.p < 0.05 && Math.abs(d.delta) >= d.threshold;
+    const color = flagged ? (d.delta > 0 ? 'bad' : 'ok') : '';
+    const v = signed(d.delta, t === 'cls' ? 3 : 0);
+    return `<td class="num ${color}" title="Δ = ${d.delta.toFixed(t === 'cls' ? 4 : 1)}, p = ${d.p.toFixed(3)}, порог ${t === 'cls' ? d.threshold : d.threshold.toFixed(0)}">${flagged ? '<b>' : ''}${v}${flagged ? '</b>' : ''}</td>`;
+  };
+  return `<div class="table-wrap"><table>
+    <tr><th>Измерен</th><th>Коммит</th><th>Сообщение</th><th>Статус</th>
+      <th class="num">ΔLCP</th><th class="num">ΔINP</th><th class="num">ΔTBT</th><th class="num">ΔCLS</th>
+      <th class="num">Пар</th><th class="num">Время</th></tr>
+    ${rows.map((c) => `<tr>
+      <td>${clock(c.measuredAt)}</td>
+      <td class="mono">${r.url ? `<a href="${esc(r.url)}/commit/${c.sha}" target="_blank" rel="noopener">${c.sha.slice(0, 8)}</a>` : c.sha.slice(0, 8)}</td>
+      <td class="subj" title="${esc(c.subject)}">${esc(c.subject)}</td>
+      <td><span class="badge ${cls[c.status] ?? ''}">${c.status}${c.selfAA ? ' · A/A (сам с собой)' : c.aa ? ' · A/A' : ''}</span></td>
+      ${delta(c, 'lcp')}${delta(c, 'inp')}${delta(c, 'tbt')}${delta(c, 'cls')}
+      <td class="num">${c.runs ? c.runs / 2 : '—'}${c.extended ? '*' : ''}</td>
+      <td class="num">${fmtDur(total(c))}</td></tr>`).join('')}
+  </table></div>
+  <div class="sub" style="font-size:12px;margin-top:8px">Δ — медиана коммита минус медиана базы. Цветом — p&nbsp;&lt;&nbsp;0.05 и |Δ| ≥ порога
+    (предварительно; итоговая разметка с поправкой Бенджамини–Хохберга — <code>npm run label</code>). * — серия расширена.</div>`;
+}
+
+$('tabs').addEventListener('click', (e) => {
+  const b = e.target.closest('button[data-repo]');
+  if (!b) return;
+  selected = b.dataset.repo; localStorageSet('repo', selected); render();
+});
+poll();
+setInterval(poll, 3000);
+setInterval(() => data && render(), 1000);
+</script>
+</body>
+</html>

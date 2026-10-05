@@ -1,0 +1,76 @@
+{
+ "schema": 2,
+ "repo": "excalidraw-mutants",
+ "sha": "3d056dbc8a552cf4e66a65e60da93e8e950bde27",
+ "parent": "2d3707b816100ee2734bae2b9efc3f7641ab427b",
+ "date": "2026-09-28T21:06:41+02:00",
+ "subject": "feat(editor): wrap text at 800 and keep it clear of the side panels (#12192)",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": 33315,
+  "buildMs": 58125,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.59",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [],
+  "lang": "en-US"
+ },
+ "mutation": {
+  "op": "bundle_bloat",
+  "metric": "bytes",
+  "level": 800,
+  "unit": "KB",
+  "file": "",
+  "snippet": ""
+ },
+ "error": "hunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\u001b[39m\n\n\n WARN  Browserslist: browsers data (caniuse-lite) is 20 months old. Please run:\n  npx update-browserslist-db@latest\n  Why you should do it regularly: https://github.com/browserslist/update-db#readme\n\n\n ERROR  \u001b[31merror during build:\nError: \n  Configure \"workbox.maximumFileSizeToCacheInBytes\" to change the limit: the default value is 2 MiB.\n  Check https://vite-pwa-org.netlify.app/guide/faq.html#missing-assets-from-sw-precache-manifest for more information.\n  Assets exceeding the limit:\n  - assets/index-COuteetJ.js is 3.05 MB, and won't be precached.\n\n    at logWorkboxResult (file:///E:/diplom/work/repos/excalidraw/node_modules/vite-plugin-pwa/dist/chunk-G4TAN34B.js:44:13)\n    at generateServiceWorker (file:///E:/diplom/work/repos/excalidraw/node_modules/vite-plugin-pwa/dist/index.js:229:3)\n    at async _generateSW (file:///E:/diplom/work/repos/excalidraw/node_modules/vite-plugin-pwa/dist/index.js:362:5)\n    at async Object.handler (file:///E:/diplom/work/repos/excalidraw/node_modules/vite-plugin-pwa/dist/index.js:526:13)\n    at async PluginDriver.hookParallel (file:///E:/diplom/work/repos/excalidraw/node_modules/vite/node_modules/rollup/dist/es/shared/node-entry.js:21757:17)\n    at async Object.close (file:///E:/diplom/work/repos/excalidraw/node_modules/vite/node_modules/rollup/dist/es/shared/node-entry.js:22741:13)\n    at async build (file:///E:/diplom/work/repos/excalidraw/node_modules/vite/dist/node/chunks/dep-9A4-l-43.js:67191:13)\n    at async CAC.<anonymous> (file:///E:/diplom/work/repos/excalidraw/node_modules/vite/dist/node/cli.js:845:9)\u001b[39m\n\nerror Command failed with exit code 1.\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\nerror Command failed with exit code 1.\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n"
+}

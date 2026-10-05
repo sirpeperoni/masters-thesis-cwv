@@ -1,0 +1,484 @@
+{
+ "schema": 2,
+ "repo": "excalidraw",
+ "sha": "2734e646ca8460b1343393416184fa615530abce",
+ "parent": "dfaaff44320a1d18fcb20ffd65391cde39778bfc",
+ "date": "2024-10-30T14:24:12+01:00",
+ "subject": "chore: simplify line-break regexes, separate text wrapping (#8715)",
+ "status": "ok",
+ "base": {
+  "sha": "dfaaff44320a1d18fcb20ffd65391cde39778bfc",
+  "distHash": "1d19cf18e541a0497de3fe6357a343597394d4e2ddb358abc04705f66e773c4a"
+ },
+ "distHash": "537eed185eaff96fe0ef3355b2db25943e29aab30efc6487a053fda0f0c11358",
+ "timings": {
+  "installMs": null,
+  "buildMs": 27986,
+  "measureMs": 145530
+ },
+ "bundle": {
+  "files": 377,
+  "byExt": {
+   ".png": {
+    "files": 14,
+    "raw": 301455,
+    "gzip": 301455
+   },
+   ".js": {
+    "files": 121,
+    "raw": 8356122,
+    "gzip": 2816848
+   },
+   ".css": {
+    "files": 1,
+    "raw": 166146,
+    "gzip": 25582
+   },
+   ".woff2": {
+    "files": 233,
+    "raw": 13194216,
+    "gzip": 13194216
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 1,
+    "raw": 4937,
+    "gzip": 2340
+   },
+   ".html": {
+    "files": 1,
+    "raw": 6552,
+    "gzip": 2234
+   },
+   ".json": {
+    "files": 1,
+    "raw": 1647,
+    "gzip": 514
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 1337,
+    "gzip": 513
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 187,
+    "gzip": 133
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 478,
+    "gzip": 478
+   },
+   "(none)": {
+    "files": 1,
+    "raw": 36,
+    "gzip": 36
+   }
+  },
+  "totalRaw": 22048199,
+  "totalGzip": 16359435
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1061.03095,
+     "cls": 0.0004132811359921782,
+     "tbt": 72.5,
+     "fcp": 752.8591250000001,
+     "mpfid": 101,
+     "bytes": 745262,
+     "bootup": 436.66800000000137,
+     "mainthread": 1151.4600000000073,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 173,
+     "observedFirstContentfulPaint": 173,
+     "observedFirstContentfulPaintAllFrames": 173,
+     "observedLargestContentfulPaint": 524,
+     "observedLargestContentfulPaintAllFrames": 524,
+     "observedTraceEnd": 3637,
+     "observedLoad": 1312,
+     "observedDomContentLoaded": 124,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 170,
+     "observedLastVisualChange": 742,
+     "observedSpeedIndex": 437
+    },
+    "interaction": {
+     "inp": 108.876,
+     "tbt": 0.1209999999999809,
+     "cls": 0,
+     "mainthread": 1652.5039999999847
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1095.3990500000002,
+     "cls": 0.0004132811359921782,
+     "tbt": 70,
+     "fcp": 749.6658750000001,
+     "mpfid": 100,
+     "bytes": 745264,
+     "bootup": 421.2680000000014,
+     "mainthread": 1115.672000000007,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 174,
+     "observedFirstContentfulPaint": 174,
+     "observedFirstContentfulPaintAllFrames": 174,
+     "observedLargestContentfulPaint": 507,
+     "observedLargestContentfulPaintAllFrames": 507,
+     "observedTraceEnd": 3428,
+     "observedLoad": 1091,
+     "observedDomContentLoaded": 124,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 169,
+     "observedLastVisualChange": 689,
+     "observedSpeedIndex": 426
+    },
+    "interaction": {
+     "inp": 103.991,
+     "tbt": 21.687999999999874,
+     "cls": 0,
+     "mainthread": 1596.5709999999845
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1072.5010000000002,
+     "cls": 0.0004132811359921782,
+     "tbt": 63,
+     "fcp": 751.001,
+     "mpfid": 94,
+     "bytes": 745261,
+     "bootup": 413.1960000000005,
+     "mainthread": 1048.6840000000068,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 174,
+     "observedFirstContentfulPaint": 174,
+     "observedFirstContentfulPaintAllFrames": 174,
+     "observedLargestContentfulPaint": 491,
+     "observedLargestContentfulPaintAllFrames": 491,
+     "observedTraceEnd": 3338,
+     "observedLoad": 1000,
+     "observedDomContentLoaded": 118,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 168,
+     "observedLastVisualChange": 706,
+     "observedSpeedIndex": 413
+    },
+    "interaction": {
+     "inp": 123.514,
+     "tbt": 12.15600000000029,
+     "cls": 0,
+     "mainthread": 1543.478999999986
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1055.7482499999999,
+     "cls": 0.0004132811359921782,
+     "tbt": 106.99999999999989,
+     "fcp": 749.74825,
+     "mpfid": 134,
+     "bytes": 745264,
+     "bootup": 470.5000000000013,
+     "mainthread": 1209.0440000000067,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 173,
+     "observedFirstContentfulPaint": 173,
+     "observedFirstContentfulPaintAllFrames": 173,
+     "observedLargestContentfulPaint": 472,
+     "observedLargestContentfulPaintAllFrames": 472,
+     "observedTraceEnd": 3536,
+     "observedLoad": 1196,
+     "observedDomContentLoaded": 119,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 169,
+     "observedLastVisualChange": 654,
+     "observedSpeedIndex": 433
+    },
+    "interaction": {
+     "inp": 105.929,
+     "tbt": 1.3659999999999854,
+     "cls": 0,
+     "mainthread": 1578.0629999999817
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1113.5585,
+     "cls": 0.00041354500481569035,
+     "tbt": 69,
+     "fcp": 751.5585000000001,
+     "mpfid": 99,
+     "bytes": 745264,
+     "bootup": 412.75200000000063,
+     "mainthread": 1051.3080000000073,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 172,
+     "observedFirstContentfulPaint": 172,
+     "observedFirstContentfulPaintAllFrames": 172,
+     "observedLargestContentfulPaint": 610,
+     "observedLargestContentfulPaintAllFrames": 610,
+     "observedTraceEnd": 3370,
+     "observedLoad": 1026,
+     "observedDomContentLoaded": 114,
+     "observedCumulativeLayoutShift": 0.00041354500481569035,
+     "observedCumulativeLayoutShiftMainFrame": 0.00041354500481569035,
+     "observedFirstVisualChange": 166,
+     "observedLastVisualChange": 705,
+     "observedSpeedIndex": 426
+    },
+    "interaction": {
+     "inp": 109.8,
+     "tbt": 13.351000000000454,
+     "cls": 0,
+     "mainthread": 1575.8589999999851
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1100.2382499999999,
+     "cls": 0.0004132811359921782,
+     "tbt": 65,
+     "fcp": 753.0318749999999,
+     "mpfid": 98,
+     "bytes": 744881,
+     "bootup": 426.9320000000017,
+     "mainthread": 1094.9320000000082,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 172,
+     "observedFirstContentfulPaint": 172,
+     "observedFirstContentfulPaintAllFrames": 172,
+     "observedLargestContentfulPaint": 488,
+     "observedLargestContentfulPaintAllFrames": 488,
+     "observedTraceEnd": 3382,
+     "observedLoad": 1047,
+     "observedDomContentLoaded": 120,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 167,
+     "observedLastVisualChange": 689,
+     "observedSpeedIndex": 420
+    },
+    "interaction": {
+     "inp": 115.347,
+     "tbt": 16.85000000000025,
+     "cls": 0,
+     "mainthread": 1605.292999999987
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1097.6689,
+     "cls": 0.0004132811359921782,
+     "tbt": 69,
+     "fcp": 751.8907499999999,
+     "mpfid": 98,
+     "bytes": 744890,
+     "bootup": 408.87600000000083,
+     "mainthread": 1094.6240000000055,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 174,
+     "observedFirstContentfulPaint": 174,
+     "observedFirstContentfulPaintAllFrames": 174,
+     "observedLargestContentfulPaint": 489,
+     "observedLargestContentfulPaintAllFrames": 489,
+     "observedTraceEnd": 3275,
+     "observedLoad": 945,
+     "observedDomContentLoaded": 124,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 169,
+     "observedLastVisualChange": 671,
+     "observedSpeedIndex": 422
+    },
+    "interaction": {
+     "inp": 110.895,
+     "tbt": 30.10900000000038,
+     "cls": 0,
+     "mainthread": 1593.4659999999838
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1098.9634999999998,
+     "cls": 0.0004132811359921782,
+     "tbt": 66,
+     "fcp": 752.63625,
+     "mpfid": 96,
+     "bytes": 744891,
+     "bootup": 413.18800000000067,
+     "mainthread": 1126.1880000000058,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 173,
+     "observedFirstContentfulPaint": 173,
+     "observedFirstContentfulPaintAllFrames": 173,
+     "observedLargestContentfulPaint": 490,
+     "observedLargestContentfulPaintAllFrames": 490,
+     "observedTraceEnd": 3682,
+     "observedLoad": 1344,
+     "observedDomContentLoaded": 124,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 168,
+     "observedLastVisualChange": 654,
+     "observedSpeedIndex": 430
+    },
+    "interaction": {
+     "inp": 109.164,
+     "tbt": 17.705999999999676,
+     "cls": 0,
+     "mainthread": 1588.8789999999858
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1055.6118999999999,
+     "cls": 0.00041354500481569035,
+     "tbt": 70.00000000000011,
+     "fcp": 749.8432499999999,
+     "mpfid": 98,
+     "bytes": 744898,
+     "bootup": 421.7760000000013,
+     "mainthread": 1096.936000000008,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 172,
+     "observedFirstContentfulPaint": 172,
+     "observedFirstContentfulPaintAllFrames": 172,
+     "observedLargestContentfulPaint": 502,
+     "observedLargestContentfulPaintAllFrames": 502,
+     "observedTraceEnd": 3590,
+     "observedLoad": 1252,
+     "observedDomContentLoaded": 115,
+     "observedCumulativeLayoutShift": 0.00041354500481569035,
+     "observedCumulativeLayoutShiftMainFrame": 0.00041354500481569035,
+     "observedFirstVisualChange": 166,
+     "observedLastVisualChange": 683,
+     "observedSpeedIndex": 419
+    },
+    "interaction": {
+     "inp": 115.219,
+     "tbt": 1.73599999999999,
+     "cls": 0,
+     "mainthread": 1561.2209999999866
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1116.875,
+     "cls": 0.0004132811359921782,
+     "tbt": 62,
+     "fcp": 751.875,
+     "mpfid": 94,
+     "bytes": 744897,
+     "bootup": 426.22000000000116,
+     "mainthread": 1057.1040000000069,
+     "dom": 285,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 156,
+     "observedFirstContentfulPaint": 156,
+     "observedFirstContentfulPaintAllFrames": 156,
+     "observedLargestContentfulPaint": 559,
+     "observedLargestContentfulPaintAllFrames": 559,
+     "observedTraceEnd": 3330,
+     "observedLoad": 997,
+     "observedDomContentLoaded": 112,
+     "observedCumulativeLayoutShift": 0.0004132811359921782,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004132811359921782,
+     "observedFirstVisualChange": 149,
+     "observedLastVisualChange": 724,
+     "observedSpeedIndex": 421
+    },
+    "interaction": {
+     "inp": 121.044,
+     "tbt": 3.3870000000000573,
+     "cls": 0,
+     "mainthread": 1542.953999999985
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.57",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  }
+ }
+}
