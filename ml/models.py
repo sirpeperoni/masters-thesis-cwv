@@ -211,7 +211,9 @@ def bootstrap(scores: dict[str, np.ndarray], y: np.ndarray, loc: np.ndarray, B: 
     rng = np.random.default_rng(SEED)
     vals = {n: {k: np.empty(B) for k in CI_KEYS} for n in S}
     for b in range(B):
-        idx = np.concatenate([rng.choice(pos, len(pos)), rng.choice(neg, len(neg))])
+        # перемешиваем: при равных оценках (эвристика без вариации) порядок решает позиция в выборке,
+        # и без перемешивания все регрессии стояли бы первыми — интервал Recall@20% уезжал к 1
+        idx = rng.permutation(np.concatenate([rng.choice(pos, len(pos)), rng.choice(neg, len(neg))]))
         for n, s in S.items():
             m = classification_metrics(s[idx], yy[idx], ll[idx])
             for k in CI_KEYS:

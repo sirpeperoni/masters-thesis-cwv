@@ -1,0 +1,96 @@
+excalidraw+mermaid-live-editor+vuejs-docs+monkeytype: 1202 пар, 115 признаков, 5 блоков по времени (проверка — с 2025-01-17)
+
+КЛАССИФИКАЦИЯ «регрессия / нет» (объединённые проверочные блоки)
+
+[any] регрессий: 25 (в проверочных блоках: 22)
+  PR-AUC случайного ≈ 0.022
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.02 [0.02; 0.03]  0.51 [0.41; 0.62]  0.18 [0.04; 0.36]      0.05
+  bundle         0.13 [0.03; 0.30]  0.57 [0.41; 0.72]  0.45 [0.23; 0.68]      0.18
+  size           0.09 [0.05; 0.19]  0.80 [0.71; 0.88]  0.68 [0.45; 0.86]      0.00
+  logreg         0.12 [0.04; 0.31]  0.58 [0.43; 0.74]  0.41 [0.23; 0.64]      0.27
+  forest         0.14 [0.07; 0.29]  0.86 [0.81; 0.91]  0.68 [0.50; 0.91]      0.09
+  lightgbm       0.11 [0.04; 0.25]  0.69 [0.57; 0.81]  0.50 [0.32; 0.73]      0.14
+  модель − «bundle» (95% интервал разности; доля выборок, где модель не лучше), B=1000:
+    logreg         pr_auc -0.18…+0.21 (48%)   recall@20% -0.32…+0.32 (59%)
+    forest         pr_auc -0.12…+0.16 (41%)   recall@20% -0.05…+0.55 (10%)
+    lightgbm       pr_auc -0.18…+0.13 (57%)   recall@20% -0.27…+0.41 (42%)
+  важные признаки (LightGBM, gain): k_ld, k_ns, k_age_days, pat_async_add, k_commits, k_la, msg_len, msg_type_other
+
+[lcp] регрессий: 11 (в проверочных блоках: 9)
+  PR-AUC случайного ≈ 0.009
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.01               0.64               0.33                   0.00
+  bundle         0.19               0.68               0.67                   0.22
+  size           0.06               0.87               0.78                   0.00
+  logreg         0.06               0.59               0.22                   0.22
+  forest         0.05               0.87               0.78                   0.11
+  lightgbm       0.04               0.83               0.78                   0.00
+  важные признаки (LightGBM, gain): k_la, k_age_days, k_ld, cat_code_lines, msg_len, k_nf, bnd_total_gzip_rel, bnd_js_gzip
+
+[inp] регрессий: 2 (в проверочных блоках: 2)
+  ⚠ меньше 10 положительных примеров — цифры ниже демонстрационные, не выводы
+  PR-AUC случайного ≈ 0.002
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.00               0.33               0.00                   0.00
+  bundle         0.01               0.51               0.50                   0.50
+  size           0.01               0.70               0.50                   0.00
+  logreg         0.00               0.30               0.00                   0.00
+  forest         0.00               0.43               0.00                   0.00
+  lightgbm       0.00               0.35               0.00                   0.00
+  важные признаки (LightGBM, gain): cat_test_files, pat_effect_add, k_nd, cat_other_lines, k_age_days, pat_json_add, bnd_js_gzip, k_nf
+
+[cls] регрессий: 2 (в проверочных блоках: 2)
+  ⚠ меньше 10 положительных примеров — цифры ниже демонстрационные, не выводы
+  PR-AUC случайного ≈ 0.002
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.00               0.61               0.00                   0.00
+  bundle         0.07               0.50               0.50                   0.50
+  size           0.04               0.95               1.00                   0.00
+  logreg         0.00               0.10               0.00                   0.00
+  forest         0.00               0.38               0.00                   0.00
+  lightgbm       0.00               0.10               0.00                   0.00
+  важные признаки (LightGBM, gain): cat_pkg_lines, k_commits, k_ld, cat_lock_lines, bnd_js_gzip, k_ndev, cat_other_lines, bnd_total_gzip
+
+[tbt] регрессий: 10 (в проверочных блоках: 9)
+  PR-AUC случайного ≈ 0.009
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.01               0.38               0.00                   0.00
+  bundle         0.02               0.39               0.11                   0.11
+  size           0.05               0.79               0.78                   0.00
+  logreg         0.14               0.69               0.67                   0.67
+  forest         0.08               0.74               0.56                   0.22
+  lightgbm       0.07               0.66               0.44                   0.33
+  важные признаки (LightGBM, gain): k_ld, pat_async_add, msg_type_other, msg_len, bnd_total_gzip, k_exp, k_la, bnd_js_gzip
+
+[tbtFlow] регрессий: 6 (в проверочных блоках: 6)
+  ⚠ меньше 10 положительных примеров — цифры ниже демонстрационные, не выводы
+  PR-AUC случайного ≈ 0.006
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.01               0.49               0.33                   0.17
+  bundle         0.02               0.52               0.50                   0.17
+  size           0.01               0.73               0.50                   0.00
+  logreg         0.05               0.58               0.33                   0.33
+  forest         0.19               0.75               0.50                   0.50
+  lightgbm       0.19               0.69               0.67                   0.50
+  важные признаки (LightGBM, gain): k_commits, k_age_days, k_exp, cat_pkg_lines, cat_test_files, k_entropy, pat_effect_add, pat_json_add
+
+[lcpObs] регрессий: 6 (в проверочных блоках: 4)
+  ⚠ меньше 10 положительных примеров — цифры ниже демонстрационные, не выводы
+  PR-AUC случайного ≈ 0.004
+  модель         PR-AUC             ROC-AUC            R@20%              R@20%LOC
+  random         0.00               0.49               0.00                   0.00
+  bundle         0.04               0.95               1.00                   0.25
+  size           0.01               0.77               0.50                   0.00
+  logreg         0.03               0.66               0.50                   0.50
+  forest         0.04               0.77               0.75                   0.25
+  lightgbm       0.08               0.76               0.75                   0.50
+  важные признаки (LightGBM, gain): bnd_js_gzip_rel, bnd_js_gzip, bnd_total_gzip, k_age_days, bnd_total_gzip_rel, pat_css_layout_add, k_binary, k_nf
+
+РЕГРЕССИЯ величины Δ (Spearman ρ прогноза с фактом; MAE против прогноза «0»)
+  lcp      zero: ρ=+nan MAE=32.9  ridge: ρ=-0.020 MAE=47.6  lightgbm: ρ=-0.014 MAE=33.1
+  inp      zero: ρ=+nan MAE=4.4  ridge: ρ=-0.015 MAE=6.3  lightgbm: ρ=-0.027 MAE=4.7
+  tbt      zero: ρ=+nan MAE=19.0  ridge: ρ=-0.019 MAE=29.3  lightgbm: ρ=-0.018 MAE=19.2
+  tbtFlow  zero: ρ=+nan MAE=19.0  ridge: ρ=-0.008 MAE=40.7  lightgbm: ρ=-0.051 MAE=19.2
+
+→ E:\diplom\ml\results\excalidraw+mermaid-live-editor+vuejs-docs+monkeytype.json

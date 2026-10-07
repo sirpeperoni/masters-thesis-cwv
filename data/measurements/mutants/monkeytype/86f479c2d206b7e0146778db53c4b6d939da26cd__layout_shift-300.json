@@ -1,0 +1,1446 @@
+{
+ "schema": 2,
+ "repo": "monkeytype-mutants",
+ "sha": "86f479c2d206b7e0146778db53c4b6d939da26cd",
+ "parent": "bcf4e74754c93a1b7573b4938b543d491580e3d7",
+ "date": "2026-10-02T13:59:26+02:00",
+ "subject": "perf(file storage): make hasFile not request the whole file",
+ "status": "ok",
+ "base": {
+  "sha": "bcf4e74754c93a1b7573b4938b543d491580e3d7",
+  "distHash": "a993f12ace1f9b84af6cdeff8ba2ef6eec13003b66634f986a2e0cb202e58c64"
+ },
+ "distHash": "739e548a6b0217fb80670cecc73ecdd0d8a3d46e90512b24f824fc179c5d4259",
+ "timings": {
+  "installMs": null,
+  "buildMs": 34149,
+  "measureMs": 547402
+ },
+ "bundle": {
+  "files": 1162,
+  "byExt": {
+   ".txt": {
+    "files": 15,
+    "raw": 1234383,
+    "gzip": 298318
+   },
+   ".html": {
+    "files": 6,
+    "raw": 77733,
+    "gzip": 25397
+   },
+   ".json": {
+    "files": 776,
+    "raw": 111456689,
+    "gzip": 26502737
+   },
+   ".css": {
+    "files": 69,
+    "raw": 276289,
+    "gzip": 59664
+   },
+   ".png": {
+    "files": 31,
+    "raw": 535572,
+    "gzip": 535572
+   },
+   ".xml": {
+    "files": 2,
+    "raw": 1333,
+    "gzip": 1333
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 2,
+    "raw": 2145,
+    "gzip": 1209
+   },
+   ".jpg": {
+    "files": 1,
+    "raw": 5981,
+    "gzip": 5981
+   },
+   ".webp": {
+    "files": 1,
+    "raw": 808,
+    "gzip": 808
+   },
+   ".js": {
+    "files": 18,
+    "raw": 2682086,
+    "gzip": 806273
+   },
+   ".wav": {
+    "files": 155,
+    "raw": 5374430,
+    "gzip": 5374430
+   },
+   ".woff2": {
+    "files": 85,
+    "raw": 4738760,
+    "gzip": 4738760
+   }
+  },
+  "totalRaw": 126401295,
+  "totalGzip": 38365568
+ },
+ "runs": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1750.4624999999999,
+     "cls": 0.2222222222222222,
+     "tbt": 364.0000000000001,
+     "fcp": 1261.4699999999998,
+     "mpfid": 275,
+     "bytes": 1108708,
+     "bootup": 848.2280000000085,
+     "mainthread": 1877.632000000011,
+     "dom": 894,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 69,
+     "observedFirstContentfulPaint": 553,
+     "observedFirstContentfulPaintAllFrames": 553,
+     "observedLargestContentfulPaint": 553,
+     "observedLargestContentfulPaintAllFrames": 553,
+     "observedTraceEnd": 3599,
+     "observedLoad": 251,
+     "observedDomContentLoaded": 243,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 64,
+     "observedLastVisualChange": 3578,
+     "observedSpeedIndex": 224,
+     "lcp_timeToFirstByte": 3.88,
+     "lcp_elementRenderDelay": 548.664
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 113.665,
+     "tbt": 408.5019999999983,
+     "cls": 0,
+     "mainthread": 5154.911999999974
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1639.9912000000004,
+     "cls": 0.2222222222222222,
+     "tbt": 347.6577000000002,
+     "fcp": 1271.7885,
+     "mpfid": 286,
+     "bytes": 1108511,
+     "bootup": 933.9880000000126,
+     "mainthread": 1900.4240000000145,
+     "dom": 903,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 561,
+     "observedFirstContentfulPaintAllFrames": 561,
+     "observedLargestContentfulPaint": 561,
+     "observedLargestContentfulPaintAllFrames": 561,
+     "observedTraceEnd": 3615,
+     "observedLoad": 246,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 54,
+     "observedLastVisualChange": 3612,
+     "observedSpeedIndex": 213,
+     "lcp_timeToFirstByte": 4.237,
+     "lcp_elementRenderDelay": 556.381
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 164.093,
+     "tbt": 445.14199999999926,
+     "cls": 0,
+     "mainthread": 5481.799999999975
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1639.6191,
+     "cls": 0.2222222222222222,
+     "tbt": 345.4999999999999,
+     "fcp": 1262.5461249999998,
+     "mpfid": 277,
+     "bytes": 1108711,
+     "bootup": 898.952000000007,
+     "mainthread": 1860.3040000000071,
+     "dom": 894,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 561,
+     "observedFirstContentfulPaintAllFrames": 561,
+     "observedLargestContentfulPaint": 561,
+     "observedLargestContentfulPaintAllFrames": 561,
+     "observedTraceEnd": 3595,
+     "observedLoad": 253,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 57,
+     "observedLastVisualChange": 3592,
+     "observedSpeedIndex": 215,
+     "lcp_timeToFirstByte": 4.873,
+     "lcp_elementRenderDelay": 556.083
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 114.286,
+     "tbt": 400.73299999999983,
+     "cls": 0,
+     "mainthread": 4846.959999999974
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1638.8941999999997,
+     "cls": 0,
+     "tbt": 366.9151999999998,
+     "fcp": 1274.076,
+     "mpfid": 287,
+     "bytes": 1108657,
+     "bootup": 904.0920000000134,
+     "mainthread": 1896.7560000000167,
+     "dom": 900,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 613,
+     "observedFirstContentfulPaintAllFrames": 613,
+     "observedLargestContentfulPaint": 613,
+     "observedLargestContentfulPaintAllFrames": 613,
+     "observedTraceEnd": 3593,
+     "observedLoad": 249,
+     "observedDomContentLoaded": 239,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 57,
+     "observedLastVisualChange": 3575,
+     "observedSpeedIndex": 226,
+     "lcp_timeToFirstByte": 3.877,
+     "lcp_elementRenderDelay": 609.147
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 121.986,
+     "tbt": 446.3760000000001,
+     "cls": 0,
+     "mainthread": 5713.947999999978
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1639.692,
+     "cls": 0,
+     "tbt": 324.6386249999998,
+     "fcp": 1284.693125,
+     "mpfid": 299,
+     "bytes": 1108717,
+     "bootup": 899.3160000000165,
+     "mainthread": 1925.3720000000174,
+     "dom": 900,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 69,
+     "observedFirstContentfulPaint": 619,
+     "observedFirstContentfulPaintAllFrames": 619,
+     "observedLargestContentfulPaint": 619,
+     "observedLargestContentfulPaintAllFrames": 619,
+     "observedTraceEnd": 3615,
+     "observedLoad": 265,
+     "observedDomContentLoaded": 258,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 67,
+     "observedLastVisualChange": 3613,
+     "observedSpeedIndex": 234,
+     "lcp_timeToFirstByte": 4.046,
+     "lcp_elementRenderDelay": 614.965
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 121.201,
+     "tbt": 419.4890000000007,
+     "cls": 0,
+     "mainthread": 5439.02299999997
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 1688.6366999999998,
+     "cls": 0.2222222222222222,
+     "tbt": 347.26365,
+     "fcp": 1322.3182499999998,
+     "mpfid": 336,
+     "bytes": 1108582,
+     "bootup": 972.8680000000121,
+     "mainthread": 1980.7960000000116,
+     "dom": 906,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 67,
+     "observedFirstContentfulPaint": 584,
+     "observedFirstContentfulPaintAllFrames": 584,
+     "observedLargestContentfulPaint": 584,
+     "observedLargestContentfulPaintAllFrames": 584,
+     "observedTraceEnd": 3635,
+     "observedLoad": 280,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 62,
+     "observedLastVisualChange": 3634,
+     "observedSpeedIndex": 225,
+     "lcp_timeToFirstByte": 4.332999938964844,
+     "lcp_elementRenderDelay": 579.1670000610352
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 112.981,
+     "tbt": 395.0179999999989,
+     "cls": 0,
+     "mainthread": 4976.807999999977
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 1642.6059000000005,
+     "cls": 0.2222222222222222,
+     "tbt": 357.00000000000045,
+     "fcp": 1248.881375,
+     "mpfid": 262,
+     "bytes": 1108571,
+     "bootup": 879.9560000000096,
+     "mainthread": 1797.3800000000115,
+     "dom": 910,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 51,
+     "observedFirstContentfulPaint": 551,
+     "observedFirstContentfulPaintAllFrames": 551,
+     "observedLargestContentfulPaint": 551,
+     "observedLargestContentfulPaintAllFrames": 551,
+     "observedTraceEnd": 3591,
+     "observedLoad": 235,
+     "observedDomContentLoaded": 229,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 46,
+     "observedLastVisualChange": 3589,
+     "observedSpeedIndex": 205,
+     "lcp_timeToFirstByte": 4.083,
+     "lcp_elementRenderDelay": 546.903
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 124.111,
+     "tbt": 423.8990000000017,
+     "cls": 0,
+     "mainthread": 5390.129999999976
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 1639.8414,
+     "cls": 0.2222222222222222,
+     "tbt": 353.5,
+     "fcp": 1253.942,
+     "mpfid": 268,
+     "bytes": 1108672,
+     "bootup": 854.7440000000105,
+     "mainthread": 1841.2880000000116,
+     "dom": 903,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 561,
+     "observedFirstContentfulPaintAllFrames": 561,
+     "observedLargestContentfulPaint": 561,
+     "observedLargestContentfulPaintAllFrames": 561,
+     "observedTraceEnd": 3594,
+     "observedLoad": 241,
+     "observedDomContentLoaded": 234,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 55,
+     "observedLastVisualChange": 3592,
+     "observedSpeedIndex": 212,
+     "lcp_timeToFirstByte": 3.918,
+     "lcp_elementRenderDelay": 557.454
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 157.492,
+     "tbt": 460.70500000000027,
+     "cls": 0,
+     "mainthread": 5134.71299999998
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 1623.6403999999998,
+     "cls": 0.2222222222222222,
+     "tbt": 352.132525,
+     "fcp": 1272.162625,
+     "mpfid": 284,
+     "bytes": 1108647,
+     "bootup": 874.1200000000082,
+     "mainthread": 1931.0240000000101,
+     "dom": 912,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 72,
+     "observedFirstContentfulPaint": 572,
+     "observedFirstContentfulPaintAllFrames": 572,
+     "observedLargestContentfulPaint": 572,
+     "observedLargestContentfulPaintAllFrames": 572,
+     "observedTraceEnd": 3598,
+     "observedLoad": 265,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 68,
+     "observedLastVisualChange": 3595,
+     "observedSpeedIndex": 227,
+     "lcp_timeToFirstByte": 4.241,
+     "lcp_elementRenderDelay": 568.215
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 118.003,
+     "tbt": 382.49899999999826,
+     "cls": 0,
+     "mainthread": 4856.83299999997
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 1641.6968,
+     "cls": 0.2222222222222222,
+     "tbt": 369.3279249999998,
+     "fcp": 1279.639625,
+     "mpfid": 293,
+     "bytes": 1108648,
+     "bootup": 980.6160000000195,
+     "mainthread": 1934.9280000000208,
+     "dom": 916,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 577,
+     "observedFirstContentfulPaintAllFrames": 577,
+     "observedLargestContentfulPaint": 577,
+     "observedLargestContentfulPaintAllFrames": 577,
+     "observedTraceEnd": 3623,
+     "observedLoad": 260,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 59,
+     "observedLastVisualChange": 3620,
+     "observedSpeedIndex": 222,
+     "lcp_timeToFirstByte": 4.042,
+     "lcp_elementRenderDelay": 573.13
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 124.087,
+     "tbt": 447.6809999999996,
+     "cls": 0,
+     "mainthread": 4821.501999999984
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 1680.5902,
+     "cls": 0.2222222222222222,
+     "tbt": 346.50290000000007,
+     "fcp": 1297.0145,
+     "mpfid": 312,
+     "bytes": 1108674,
+     "bootup": 917.7800000000157,
+     "mainthread": 1952.224000000014,
+     "dom": 910,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 576,
+     "observedFirstContentfulPaintAllFrames": 576,
+     "observedLargestContentfulPaint": 576,
+     "observedLargestContentfulPaintAllFrames": 576,
+     "observedTraceEnd": 3600,
+     "observedLoad": 265,
+     "observedDomContentLoaded": 258,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 3582,
+     "observedSpeedIndex": 217,
+     "lcp_timeToFirstByte": 3.971,
+     "lcp_elementRenderDelay": 572.111
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 114.566,
+     "tbt": 454.16799999999967,
+     "cls": 0,
+     "mainthread": 5518.962999999969
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 1638.7159,
+     "cls": 0.2222222222222222,
+     "tbt": 376.5,
+     "fcp": 1256.67825,
+     "mpfid": 270,
+     "bytes": 1108685,
+     "bootup": 850.6880000000085,
+     "mainthread": 1952.336000000008,
+     "dom": 931,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 64,
+     "observedFirstContentfulPaint": 564,
+     "observedFirstContentfulPaintAllFrames": 564,
+     "observedLargestContentfulPaint": 564,
+     "observedLargestContentfulPaintAllFrames": 564,
+     "observedTraceEnd": 3588,
+     "observedLoad": 252,
+     "observedDomContentLoaded": 245,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 3586,
+     "observedSpeedIndex": 218,
+     "lcp_timeToFirstByte": 3.802,
+     "lcp_elementRenderDelay": 560.111
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 125.899,
+     "tbt": 422.43299999999937,
+     "cls": 0,
+     "mainthread": 5320.856999999967
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 1754.7755000000004,
+     "cls": 0.2222222222222222,
+     "tbt": 329.66342500000064,
+     "fcp": 1254.8171249999998,
+     "mpfid": 269,
+     "bytes": 1108764,
+     "bootup": 840.9520000000097,
+     "mainthread": 1813.2800000000113,
+     "dom": 916,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 542,
+     "observedFirstContentfulPaintAllFrames": 542,
+     "observedLargestContentfulPaint": 542,
+     "observedLargestContentfulPaintAllFrames": 542,
+     "observedTraceEnd": 3600,
+     "observedLoad": 242,
+     "observedDomContentLoaded": 234,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 54,
+     "observedLastVisualChange": 3580,
+     "observedSpeedIndex": 210,
+     "lcp_timeToFirstByte": 4.241,
+     "lcp_elementRenderDelay": 538.208
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 119.622,
+     "tbt": 432.88300000000004,
+     "cls": 0,
+     "mainthread": 5452.44199999997
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 1637.1650000000002,
+     "cls": 0,
+     "tbt": 377,
+     "fcp": 1265.65375,
+     "mpfid": 278,
+     "bytes": 1108560,
+     "bootup": 874.6920000000085,
+     "mainthread": 1869.9920000000106,
+     "dom": 926,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 51,
+     "observedFirstContentfulPaint": 584,
+     "observedFirstContentfulPaintAllFrames": 584,
+     "observedLargestContentfulPaint": 584,
+     "observedLargestContentfulPaintAllFrames": 584,
+     "observedTraceEnd": 3594,
+     "observedLoad": 244,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 52,
+     "observedLastVisualChange": 3577,
+     "observedSpeedIndex": 215,
+     "lcp_timeToFirstByte": 4.317,
+     "lcp_elementRenderDelay": 580.036
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 122.837,
+     "tbt": 490.8390000000006,
+     "cls": 0,
+     "mainthread": 5333.19399999997
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 1639.4807,
+     "cls": 0.2222222222222222,
+     "tbt": 329.11995,
+     "fcp": 1273.09975,
+     "mpfid": 285,
+     "bytes": 1108812,
+     "bootup": 867.844000000014,
+     "mainthread": 1833.4520000000166,
+     "dom": 895,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 54,
+     "observedFirstContentfulPaint": 570,
+     "observedFirstContentfulPaintAllFrames": 570,
+     "observedLargestContentfulPaint": 570,
+     "observedLargestContentfulPaintAllFrames": 570,
+     "observedTraceEnd": 3603,
+     "observedLoad": 246,
+     "observedDomContentLoaded": 240,
+     "observedCumulativeLayoutShift": 0.2222222222222222,
+     "observedCumulativeLayoutShiftMainFrame": 0.2222222222222222,
+     "observedFirstVisualChange": 50,
+     "observedLastVisualChange": 3601,
+     "observedSpeedIndex": 212,
+     "lcp_timeToFirstByte": 4.138000061035156,
+     "lcp_elementRenderDelay": 566.1419999389649
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 116.825,
+     "tbt": 442.2400000000015,
+     "cls": 0,
+     "mainthread": 5196.053999999973
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "test": [
+   {
+    "navigation": {
+     "lcp": 1751.719,
+     "cls": 0,
+     "tbt": 356,
+     "fcp": 1252.2305000000001,
+     "mpfid": 265,
+     "bytes": 1108630,
+     "bootup": 828.3240000000085,
+     "mainthread": 1857.86000000001,
+     "dom": 923,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 67,
+     "observedFirstContentfulPaint": 551,
+     "observedFirstContentfulPaintAllFrames": 551,
+     "observedLargestContentfulPaint": 551,
+     "observedLargestContentfulPaintAllFrames": 551,
+     "observedTraceEnd": 3595,
+     "observedLoad": 246,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 61,
+     "observedLastVisualChange": 3576,
+     "observedSpeedIndex": 216,
+     "lcp_timeToFirstByte": 4.412,
+     "lcp_elementRenderDelay": 546.404
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 131.218,
+     "tbt": 429.8589999999989,
+     "cls": 0,
+     "mainthread": 4782.410999999976
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1644.3649,
+     "cls": 0,
+     "tbt": 332.5,
+     "fcp": 1255.86075,
+     "mpfid": 265,
+     "bytes": 1108659,
+     "bootup": 874.6000000000098,
+     "mainthread": 1823.620000000011,
+     "dom": 890,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 68,
+     "observedFirstContentfulPaint": 568,
+     "observedFirstContentfulPaintAllFrames": 568,
+     "observedLargestContentfulPaint": 568,
+     "observedLargestContentfulPaintAllFrames": 568,
+     "observedTraceEnd": 3604,
+     "observedLoad": 250,
+     "observedDomContentLoaded": 244,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 65,
+     "observedLastVisualChange": 3602,
+     "observedSpeedIndex": 225,
+     "lcp_timeToFirstByte": 5.397,
+     "lcp_elementRenderDelay": 562.96
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 115.924,
+     "tbt": 476.5419999999996,
+     "cls": 0,
+     "mainthread": 4731.976999999973
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1946.5,
+     "cls": 0,
+     "tbt": 153.795075,
+     "fcp": 1426.343425,
+     "mpfid": 238.5,
+     "bytes": 1011336,
+     "bootup": 848.6920000000075,
+     "mainthread": 1845.3560000000093,
+     "dom": 906,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 70,
+     "observedFirstContentfulPaint": 570,
+     "observedFirstContentfulPaintAllFrames": 570,
+     "observedLargestContentfulPaint": 570,
+     "observedLargestContentfulPaintAllFrames": 570,
+     "observedTraceEnd": 3602,
+     "observedLoad": 253,
+     "observedDomContentLoaded": 246,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 64,
+     "observedLastVisualChange": 3599,
+     "observedSpeedIndex": 222,
+     "lcp_timeToFirstByte": 4.153,
+     "lcp_elementRenderDelay": 565.63
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 122.81,
+     "tbt": 421.35399999999845,
+     "cls": 0,
+     "mainthread": 4927.0809999999765
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1632.8081,
+     "cls": 0,
+     "tbt": 374.5000000000001,
+     "fcp": 1260.7067499999998,
+     "mpfid": 274,
+     "bytes": 1108604,
+     "bootup": 873.568000000009,
+     "mainthread": 1867.968000000009,
+     "dom": 902,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 60,
+     "observedFirstContentfulPaint": 560,
+     "observedFirstContentfulPaintAllFrames": 560,
+     "observedLargestContentfulPaint": 560,
+     "observedLargestContentfulPaintAllFrames": 560,
+     "observedTraceEnd": 3591,
+     "observedLoad": 241,
+     "observedDomContentLoaded": 233,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 64,
+     "observedLastVisualChange": 3588,
+     "observedSpeedIndex": 221,
+     "lcp_timeToFirstByte": 4.055,
+     "lcp_elementRenderDelay": 555.552
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 125.871,
+     "tbt": 448.6730000000017,
+     "cls": 0,
+     "mainthread": 5225.534999999967
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1638.1936999999998,
+     "cls": 0,
+     "tbt": 329.5,
+     "fcp": 1248.3541249999998,
+     "mpfid": 261,
+     "bytes": 1108486,
+     "bootup": 820.5760000000087,
+     "mainthread": 1785.3160000000114,
+     "dom": 908,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 50,
+     "observedFirstContentfulPaint": 549,
+     "observedFirstContentfulPaintAllFrames": 549,
+     "observedLargestContentfulPaint": 549,
+     "observedLargestContentfulPaintAllFrames": 549,
+     "observedTraceEnd": 3602,
+     "observedLoad": 235,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 45,
+     "observedLastVisualChange": 3596,
+     "observedSpeedIndex": 203,
+     "lcp_timeToFirstByte": 4.352,
+     "lcp_elementRenderDelay": 545.133
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 130.404,
+     "tbt": 424.0490000000003,
+     "cls": 0,
+     "mainthread": 4990.398999999966
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 1637.9450000000002,
+     "cls": 0,
+     "tbt": 337.30475,
+     "fcp": 1282.52375,
+     "mpfid": 296,
+     "bytes": 1108613,
+     "bootup": 877.7040000000203,
+     "mainthread": 1845.6440000000234,
+     "dom": 886,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 65,
+     "observedFirstContentfulPaint": 582,
+     "observedFirstContentfulPaintAllFrames": 582,
+     "observedLargestContentfulPaint": 582,
+     "observedLargestContentfulPaintAllFrames": 582,
+     "observedTraceEnd": 3618,
+     "observedLoad": 257,
+     "observedDomContentLoaded": 251,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 60,
+     "observedLastVisualChange": 3616,
+     "observedSpeedIndex": 223,
+     "lcp_timeToFirstByte": 4.614,
+     "lcp_elementRenderDelay": 577.254
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 127.285,
+     "tbt": 404.3650000000006,
+     "cls": 0,
+     "mainthread": 5195.330999999971
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 1638.8434,
+     "cls": 0,
+     "tbt": 337.1354,
+     "fcp": 1260.6770000000001,
+     "mpfid": 275,
+     "bytes": 1108364,
+     "bootup": 864.8080000000105,
+     "mainthread": 1866.7320000000104,
+     "dom": 910,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 563,
+     "observedFirstContentfulPaintAllFrames": 563,
+     "observedLargestContentfulPaint": 563,
+     "observedLargestContentfulPaintAllFrames": 563,
+     "observedTraceEnd": 3596,
+     "observedLoad": 251,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 58,
+     "observedLastVisualChange": 3594,
+     "observedSpeedIndex": 218,
+     "lcp_timeToFirstByte": 3.874,
+     "lcp_elementRenderDelay": 558.675
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 131.179,
+     "tbt": 434.6820000000001,
+     "cls": 0,
+     "mainthread": 5412.241999999975
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 1749.3450000000003,
+     "cls": 0,
+     "tbt": 352.50000000000034,
+     "fcp": 1259.1953749999998,
+     "mpfid": 273,
+     "bytes": 1108430,
+     "bootup": 837.5280000000082,
+     "mainthread": 1825.5480000000089,
+     "dom": 907,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 530,
+     "observedFirstContentfulPaintAllFrames": 530,
+     "observedLargestContentfulPaint": 530,
+     "observedLargestContentfulPaintAllFrames": 530,
+     "observedTraceEnd": 3599,
+     "observedLoad": 245,
+     "observedDomContentLoaded": 239,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 59,
+     "observedLastVisualChange": 3597,
+     "observedSpeedIndex": 211,
+     "lcp_timeToFirstByte": 4.010999938964844,
+     "lcp_elementRenderDelay": 525.9950000610352
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 121.987,
+     "tbt": 428.55599999999987,
+     "cls": 0,
+     "mainthread": 5639.474999999965
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 1640.9018,
+     "cls": 0,
+     "tbt": 325.9999999999999,
+     "fcp": 1249.760875,
+     "mpfid": 262,
+     "bytes": 1108757,
+     "bootup": 812.8800000000087,
+     "mainthread": 1858.7160000000106,
+     "dom": 872,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 79,
+     "observedFirstContentfulPaint": 579,
+     "observedFirstContentfulPaintAllFrames": 579,
+     "observedLargestContentfulPaint": 579,
+     "observedLargestContentfulPaintAllFrames": 579,
+     "observedTraceEnd": 3603,
+     "observedLoad": 253,
+     "observedDomContentLoaded": 246,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 66,
+     "observedLastVisualChange": 3601,
+     "observedSpeedIndex": 226,
+     "lcp_timeToFirstByte": 5.621000061035156,
+     "lcp_elementRenderDelay": 573.5549999389649
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 128.342,
+     "tbt": 406.1209999999992,
+     "cls": 0,
+     "mainthread": 4617.825999999981
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 1639.3966,
+     "cls": 0,
+     "tbt": 345.5000000000001,
+     "fcp": 1267.4455,
+     "mpfid": 281,
+     "bytes": 1108565,
+     "bootup": 908.1800000000089,
+     "mainthread": 1857.5880000000118,
+     "dom": 891,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 61,
+     "observedFirstContentfulPaint": 577,
+     "observedFirstContentfulPaintAllFrames": 577,
+     "observedLargestContentfulPaint": 577,
+     "observedLargestContentfulPaintAllFrames": 577,
+     "observedTraceEnd": 3585,
+     "observedLoad": 252,
+     "observedDomContentLoaded": 243,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 57,
+     "observedLastVisualChange": 3583,
+     "observedSpeedIndex": 222,
+     "lcp_timeToFirstByte": 4.160000061035157,
+     "lcp_elementRenderDelay": 573.2369999389648
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 170.561,
+     "tbt": 429.8049999999989,
+     "cls": 0,
+     "mainthread": 4903.132999999972
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 1639.24,
+     "cls": 0,
+     "tbt": 329.5,
+     "fcp": 1248.603125,
+     "mpfid": 261,
+     "bytes": 1108622,
+     "bootup": 826.2320000000083,
+     "mainthread": 1797.5960000000118,
+     "dom": 920,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 62,
+     "observedFirstContentfulPaint": 546,
+     "observedFirstContentfulPaintAllFrames": 546,
+     "observedLargestContentfulPaint": 546,
+     "observedLargestContentfulPaintAllFrames": 546,
+     "observedTraceEnd": 3582,
+     "observedLoad": 234,
+     "observedDomContentLoaded": 227,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 56,
+     "observedLastVisualChange": 3580,
+     "observedSpeedIndex": 213,
+     "lcp_timeToFirstByte": 4.152000061035157,
+     "lcp_elementRenderDelay": 541.3749999389648
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 117.633,
+     "tbt": 446.50399999999803,
+     "cls": 0,
+     "mainthread": 5094.28099999997
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 1641.7844,
+     "cls": 0,
+     "tbt": 332.9999999999999,
+     "fcp": 1258.490125,
+     "mpfid": 272,
+     "bytes": 1108628,
+     "bootup": 886.3800000000077,
+     "mainthread": 1813.6880000000094,
+     "dom": 932,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 58,
+     "observedFirstContentfulPaint": 558,
+     "observedFirstContentfulPaintAllFrames": 558,
+     "observedLargestContentfulPaint": 558,
+     "observedLargestContentfulPaintAllFrames": 558,
+     "observedTraceEnd": 3577,
+     "observedLoad": 240,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 54,
+     "observedLastVisualChange": 3575,
+     "observedSpeedIndex": 214,
+     "lcp_timeToFirstByte": 4.3269999389648435,
+     "lcp_elementRenderDelay": 553.4250000610351
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 135.162,
+     "tbt": 480.7819999999997,
+     "cls": 0,
+     "mainthread": 5188.352999999969
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 1752.5964999999999,
+     "cls": 0,
+     "tbt": 354.9999999999999,
+     "fcp": 1257.3520000000003,
+     "mpfid": 270,
+     "bytes": 1108602,
+     "bootup": 845.0680000000087,
+     "mainthread": 1831.528000000009,
+     "dom": 881,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 54,
+     "observedFirstContentfulPaint": 537,
+     "observedFirstContentfulPaintAllFrames": 537,
+     "observedLargestContentfulPaint": 537,
+     "observedLargestContentfulPaintAllFrames": 537,
+     "observedTraceEnd": 3580,
+     "observedLoad": 242,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 51,
+     "observedLastVisualChange": 3563,
+     "observedSpeedIndex": 207,
+     "lcp_timeToFirstByte": 3.851,
+     "lcp_elementRenderDelay": 532.95
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 116.741,
+     "tbt": 457.9550000000004,
+     "cls": 0,
+     "mainthread": 4898.395999999978
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 1634.5462,
+     "cls": 0,
+     "tbt": 378,
+     "fcp": 1254.43725,
+     "mpfid": 270,
+     "bytes": 1108442,
+     "bootup": 872.1320000000085,
+     "mainthread": 1851.6080000000106,
+     "dom": 893,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 559,
+     "observedFirstContentfulPaintAllFrames": 559,
+     "observedLargestContentfulPaint": 559,
+     "observedLargestContentfulPaintAllFrames": 559,
+     "observedTraceEnd": 3595,
+     "observedLoad": 240,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 55,
+     "observedLastVisualChange": 3593,
+     "observedSpeedIndex": 216,
+     "lcp_timeToFirstByte": 3.8459999389648436,
+     "lcp_elementRenderDelay": 554.7420000610351
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 113.57,
+     "tbt": 410.8980000000012,
+     "cls": 0,
+     "mainthread": 5368.81699999997
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 1636.163,
+     "cls": 0,
+     "tbt": 350.3943750000002,
+     "fcp": 1294.9718749999997,
+     "mpfid": 308.0000000000002,
+     "bytes": 1108589,
+     "bootup": 921.2920000000157,
+     "mainthread": 1893.6000000000172,
+     "dom": 913,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 58,
+     "observedFirstContentfulPaint": 591,
+     "observedFirstContentfulPaintAllFrames": 591,
+     "observedLargestContentfulPaint": 591,
+     "observedLargestContentfulPaintAllFrames": 591,
+     "observedTraceEnd": 3611,
+     "observedLoad": 266,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 55,
+     "observedLastVisualChange": 3609,
+     "observedSpeedIndex": 218,
+     "lcp_timeToFirstByte": 3.994,
+     "lcp_elementRenderDelay": 587.401
+    },
+    "lcpElement": {
+     "selector": "header.flex > a.-m-2 > div.hidden > h1.-mt-[0.11em]",
+     "label": "monkeytype",
+     "snippet": "<h1 data-ui-element=\"logoText\" class=\"-mt-[0.11em] text-text transition-colors duration-250\">"
+    },
+    "interaction": {
+     "inp": 117.82,
+     "tbt": 448.9520000000005,
+     "cls": 0,
+     "mainthread": 5562.872999999967
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.93",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*api.monkeytype.com*",
+   "*instatus.com*",
+   "*nitropay*",
+   "*playwire*",
+   "*pubgalaxy*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*googletagmanager*",
+   "*google-analytics*",
+   "*sentry.io*",
+   "*identitytoolkit.googleapis.com*",
+   "*securetoken.googleapis.com*",
+   "*firebaseinstallations.googleapis.com*",
+   "*bench-fake.firebaseapp.com*",
+   "*intergient*",
+   "*amazon-adsystem*",
+   "*confiant*",
+   "*fixedfold*",
+   "*api.github.com*",
+   "*raw.githubusercontent.com*",
+   "*www.google.com*",
+   "*www.gstatic.com*"
+  ],
+  "lang": "en-US"
+ },
+ "mutation": {
+  "op": "layout_shift",
+  "metric": "cls",
+  "level": 300,
+  "unit": "px",
+  "file": "frontend/src/ts/index.ts",
+  "snippet": "\n/* mutant:layout_shift */\nif (typeof window !== 'undefined') {\n  setTimeout(function () {\n    var d = document.createElement('div'); d.style.height = '300px'; document.body.prepend(d);\n  }, 300);\n}\n"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.github.com",
+   "cdn.intergient.com",
+   "www.google.com"
+  ]
+ }
+}

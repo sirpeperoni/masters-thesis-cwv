@@ -126,13 +126,16 @@ const anyReg = real.filter((r) => overall(r) === 'regression').length;
 console.log(`\nКоммитов с регрессией хотя бы по одной основной метрике: ${anyReg} из ${real.length}`);
 
 if (aa.length) {
-  const fp = aa.filter((r) => overall(r) !== 'none').length;
+  // ложное срабатывание — только настоящая метка; сравнение без замеров (метка '') ложным не считается
+  const unmeasured = aa.filter((r) => overall(r) === '').length;
+  const fp = aa.filter((r) => overall(r) === 'regression' || overall(r) === 'improvement').length;
   const rawP = aa.flatMap((r) => PRIMARY_TARGETS.map((t) => r.cmp[t]?.p)).filter((p): p is number => p !== undefined);
   const extra = targets.filter((t) => !TARGETS[t].primary);
   const fpExtra = extra.map((t) => `${TARGETS[t].label}: ${aa.filter((r) => r.label[t] && r.label[t] !== 'none').length}`).join(', ');
   console.log(
     `\nКонтроль A/A (одинаковый код): ${aa.length} сравнений (из них «сборка сама с собой»: ${aa.filter((r) => r.c.selfAA).length})\n` +
-      `  ложных срабатываний по итоговой разметке: ${fp} (${((fp / aa.length) * 100).toFixed(1)}%)` +
+      (unmeasured ? `  без замеров (сбой прогонов, не входят в долю): ${unmeasured}\n` : '') +
+      `  ложных срабатываний по итоговой разметке: ${fp} (${((fp / Math.max(aa.length - unmeasured, 1)) * 100).toFixed(1)}%)` +
       (extra.length ? `; по дополнительным метрикам — ${fpExtra}` : '') +
       `\n  доля p < 0.05 без поправки: ${((rawP.filter((p) => p < 0.05).length / rawP.length) * 100).toFixed(1)}% ` +
       `(основные метрики; ожидается ≈5% при отсутствии дрейфа)`,

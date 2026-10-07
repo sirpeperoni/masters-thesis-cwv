@@ -42,7 +42,9 @@ export default {
   name: 'mermaid-live-editor',
   url: 'https://github.com/mermaid-js/mermaid-live-editor.git',
   branch: 'develop',
-  since: '2024-09-01',
+  // 06.10.2026: диапазон продлён назад с 2024-09-01, чтобы добрать регрессий (у mermaid их больше всего, 7%).
+  // Раньше 04.2022 не берём: SvelteKit 1.0.0-next.<300, нет `svelte-kit sync`, наша команда сборки не подходит.
+  since: '2022-04-01',
   pathsFilter: [
     'src',
     'static',

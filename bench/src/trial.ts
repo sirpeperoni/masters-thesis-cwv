@@ -21,6 +21,7 @@ import type { PageRun, RepoConfig } from './types.ts';
 import { compare, mean, median, quartiles, sd, TARGETS, valuesOf, type TargetName } from './stats.ts';
 import { LighthouseWorker } from './worker-client.ts';
 import { Progress } from './progress.ts';
+import { shoot } from './shots.ts';
 
 const ROOT = resolve(import.meta.dirname, '..', '..');
 const { values: args } = parseArgs({
@@ -32,6 +33,10 @@ const { values: args } = parseArgs({
     clean: { type: 'boolean', default: false },
     // A/A-проверка шума: N пар «сборка против самой себя» на каждой точке
     aa: { type: 'string' },
+    // коммиты пилотной выборки аннотаций (annotations/text-diff/pilot-key.csv): все «после» + «до» у регрессий
+    pilot: { type: 'boolean', default: false },
+    // скриншот первого экрана и предразметка → annotations/images/raw/<repo>/ (лаб. «Разметка изображений»)
+    shots: { type: 'boolean', default: false },
   },
 });
 if (!args.repo) throw new Error('--repo is required');
@@ -46,9 +51,27 @@ await ensureClone(cfg, repoDir);
 const commits = await listCommits(cfg, repoDir);
 console.log(`${cfg.name}: ${commits.length} коммитов в диапазоне (${commits[0]?.date.slice(0, 10)} … ${commits.at(-1)?.date.slice(0, 10)})`);
 
-const points = args.sha?.length
-  ? args.sha.map((s) => commits.find((c) => c.sha.startsWith(s)) ?? { sha: s, date: '?', subject: '(вне диапазона)', parent: null })
+/** Коммиты пилота этого проекта, в порядке истории (меньше переустановок зависимостей). */
+function pilotShas(): string[] {
+  const rows = readFileSync(join(ROOT, 'annotations', 'text-diff', 'pilot-key.csv'), 'utf8').trim().split('\n');
+  const head = rows[0].split(',');
+  const col = (r: string[], name: string) => r[head.indexOf(name)];
+  const shas = new Set<string>();
+  for (const line of rows.slice(1)) {
+    const r = line.split(',');
+    if (col(r, 'repo') !== cfg.name) continue;
+    shas.add(col(r, 'sha'));
+    if (col(r, 'label') === 'regression') shas.add(col(r, 'base_sha'));
+  }
+  const order = (s: string) => { const i = commits.findIndex((c) => c.sha === s); return i < 0 ? Infinity : i; };
+  return [...shas].sort((a, b) => order(a) - order(b));
+}
+
+const wanted = args.pilot ? pilotShas() : args.sha;
+const points = wanted?.length
+  ? wanted.map((s) => commits.find((c) => c.sha.startsWith(s)) ?? { sha: s, date: '?', subject: '(вне диапазона)', parent: null })
   : [...new Set([0, Math.floor(commits.length / 2), commits.length - 1])].map((i) => commits[i]);
+const shotsDir = join(ROOT, 'annotations', 'images', 'raw', cfg.name);
 
 const AA_PAIRS = Number(args.aa ?? 0);
 const worker = args.measure || AA_PAIRS ? new LighthouseWorker(cfg.name, 3 * 60_000) : null;
@@ -131,6 +154,16 @@ for (const c of points) {
         }
       } finally {
         await server.close();
+      }
+    }
+
+    if (args.shots) {
+      progress.stage('measure', { page: cfg.pages[0].name, run: 1, total: 1, side: 'B' });
+      try {
+        const m = await shoot(cfg, dist, c.sha, shotsDir);
+        console.log(`   скриншот: ${m.file}; LCP — ${m.lcp ? `<${m.lcp.tag}> «${m.lcp.text.slice(0, 50)}»` : 'не найден'}; рамок ${m.boxes.length}; сдвигов вёрстки ${m.layoutShifts.length}`);
+      } catch (e) {
+        console.log(`   скриншот НЕ СНЯТ: ${String(e).split('\n')[0].slice(0, 200)}`);
       }
     }
 
