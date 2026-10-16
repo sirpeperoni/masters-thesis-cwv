@@ -1,0 +1,1441 @@
+{
+ "schema": 2,
+ "repo": "pdfjs",
+ "sha": "d946de904c874af10ec0d2feb841a2155be956fe",
+ "parent": "2a93ade1973c4bba008c171cf73a63b5ce1fb068",
+ "date": "2025-09-07T20:59:36+02:00",
+ "subject": "Merge pull request #20238 from timvandermeij/fix-freetext-permafail",
+ "status": "ok",
+ "base": {
+  "sha": "2a93ade1973c4bba008c171cf73a63b5ce1fb068",
+  "distHash": "f47397ad402a2bcc8757f2e01ec5a2a7d45551ebd374579379683281f251a6f2"
+ },
+ "distHash": "c3f43431e66f4ba8e82eb0681374912448b3a947a4d41cc298b1703d1d4943f6",
+ "timings": {
+  "installMs": null,
+  "buildMs": 13575,
+  "measureMs": 395980
+ },
+ "bundle": {
+  "files": 390,
+  "byExt": {
+   ".mjs": {
+    "files": 5,
+    "raw": 3950469,
+    "gzip": 942803
+   },
+   ".html": {
+    "files": 2,
+    "raw": 106576,
+    "gzip": 13686
+   },
+   "(none)": {
+    "files": 9,
+    "raw": 31103,
+    "gzip": 31103
+   },
+   ".bcmap": {
+    "files": 168,
+    "raw": 1165667,
+    "gzip": 1165667
+   },
+   ".pdf": {
+    "files": 1,
+    "raw": 1016315,
+    "gzip": 1016315
+   },
+   ".css": {
+    "files": 2,
+    "raw": 253554,
+    "gzip": 31887
+   },
+   ".icc": {
+    "files": 1,
+    "raw": 8464,
+    "gzip": 8464
+   },
+   ".svg": {
+    "files": 71,
+    "raw": 73211,
+    "gzip": 36191
+   },
+   ".gif": {
+    "files": 1,
+    "raw": 2545,
+    "gzip": 2545
+   },
+   ".ftl": {
+    "files": 112,
+    "raw": 2201922,
+    "gzip": 2201922
+   },
+   ".json": {
+    "files": 1,
+    "raw": 2519,
+    "gzip": 677
+   },
+   ".pfb": {
+    "files": 10,
+    "raw": 200615,
+    "gzip": 200615
+   },
+   ".ttf": {
+    "files": 4,
+    "raw": 573724,
+    "gzip": 573724
+   },
+   ".wasm": {
+    "files": 2,
+    "raw": 351901,
+    "gzip": 351901
+   },
+   ".js": {
+    "files": 1,
+    "raw": 462316,
+    "gzip": 120014
+   }
+  },
+  "totalRaw": 10400901,
+  "totalGzip": 6697514
+ },
+ "runs": {
+  "viewer": [
+   {
+    "navigation": {
+     "lcp": 748.6348999999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 16,
+     "fcp": 525.7565999999999,
+     "mpfid": 70,
+     "bytes": 1472712,
+     "bootup": 517.4720000000002,
+     "mainthread": 1349.4280000000026,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 108,
+     "observedFirstContentfulPaint": 108,
+     "observedFirstContentfulPaintAllFrames": 108,
+     "observedLargestContentfulPaint": 158,
+     "observedLargestContentfulPaintAllFrames": 158,
+     "observedTraceEnd": 2578,
+     "observedLoad": 115,
+     "observedDomContentLoaded": 112,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 99,
+     "observedLastVisualChange": 370,
+     "observedSpeedIndex": 220,
+     "lcp_timeToFirstByte": 4.598,
+     "lcp_elementRenderDelay": 153.612
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 45.7,
+     "tbt": 444.65799999999876,
+     "cls": 0,
+     "mainthread": 1957.1629999999973
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 748.6016000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 10,
+     "fcp": 525.7344,
+     "mpfid": 63,
+     "bytes": 1472712,
+     "bootup": 481.9040000000001,
+     "mainthread": 1233.6120000000024,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 74,
+     "observedFirstContentfulPaint": 74,
+     "observedFirstContentfulPaintAllFrames": 74,
+     "observedLargestContentfulPaint": 140,
+     "observedLargestContentfulPaintAllFrames": 140,
+     "observedTraceEnd": 2561,
+     "observedLoad": 99,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 68,
+     "observedLastVisualChange": 345,
+     "observedSpeedIndex": 192,
+     "lcp_timeToFirstByte": 4.652000061035157,
+     "lcp_elementRenderDelay": 135.72499993896486
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 43.248,
+     "tbt": 424.03300000000036,
+     "cls": 0,
+     "mainthread": 2008.1839999999945
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 743.2437500000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 17,
+     "fcp": 525.1625,
+     "mpfid": 74,
+     "bytes": 1472712,
+     "bootup": 477.64800000000025,
+     "mainthread": 1264.6840000000027,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 95,
+     "observedFirstContentfulPaint": 95,
+     "observedFirstContentfulPaintAllFrames": 95,
+     "observedLargestContentfulPaint": 162,
+     "observedLargestContentfulPaintAllFrames": 162,
+     "observedTraceEnd": 2636,
+     "observedLoad": 114,
+     "observedDomContentLoaded": 113,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 85,
+     "observedLastVisualChange": 362,
+     "observedSpeedIndex": 209,
+     "lcp_timeToFirstByte": 4.394,
+     "lcp_elementRenderDelay": 157.472
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 51.282,
+     "tbt": 411.2760000000003,
+     "cls": 0,
+     "mainthread": 2035.8699999999942
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 744.42805,
+     "cls": 0.00002966465283250153,
+     "tbt": 16,
+     "fcp": 525.6187,
+     "mpfid": 68,
+     "bytes": 1472712,
+     "bootup": 507.08400000000023,
+     "mainthread": 1320.8559999999998,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 92,
+     "observedFirstContentfulPaint": 92,
+     "observedFirstContentfulPaintAllFrames": 92,
+     "observedLargestContentfulPaint": 159,
+     "observedLargestContentfulPaintAllFrames": 159,
+     "observedTraceEnd": 2611,
+     "observedLoad": 111,
+     "observedDomContentLoaded": 110,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 83,
+     "observedLastVisualChange": 365,
+     "observedSpeedIndex": 209,
+     "lcp_timeToFirstByte": 4.153999938964843,
+     "lcp_elementRenderDelay": 154.94800006103515
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 49.723,
+     "tbt": 468.595,
+     "cls": 0,
+     "mainthread": 2088.075999999997
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 748.6553000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 10.5,
+     "fcp": 525.7701999999999,
+     "mpfid": 63,
+     "bytes": 1472712,
+     "bootup": 504.0040000000006,
+     "mainthread": 1268.9200000000033,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 90,
+     "observedFirstContentfulPaint": 90,
+     "observedFirstContentfulPaintAllFrames": 90,
+     "observedLargestContentfulPaint": 140,
+     "observedLargestContentfulPaintAllFrames": 140,
+     "observedTraceEnd": 2585,
+     "observedLoad": 105,
+     "observedDomContentLoaded": 103,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 86,
+     "observedLastVisualChange": 388,
+     "observedSpeedIndex": 221,
+     "lcp_timeToFirstByte": 4.201,
+     "lcp_elementRenderDelay": 136.111
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 45.139,
+     "tbt": 433.8029999999999,
+     "cls": 0,
+     "mainthread": 2115.3959999999956
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 747.7415000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 11,
+     "fcp": 525.1610000000001,
+     "mpfid": 70,
+     "bytes": 1472712,
+     "bootup": 559.9920000000005,
+     "mainthread": 1405.9920000000022,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 111,
+     "observedFirstContentfulPaint": 111,
+     "observedFirstContentfulPaintAllFrames": 111,
+     "observedLargestContentfulPaint": 161,
+     "observedLargestContentfulPaintAllFrames": 161,
+     "observedTraceEnd": 2593,
+     "observedLoad": 115,
+     "observedDomContentLoaded": 113,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 101,
+     "observedLastVisualChange": 371,
+     "observedSpeedIndex": 221,
+     "lcp_timeToFirstByte": 4.636,
+     "lcp_elementRenderDelay": 156.192
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 58.299,
+     "tbt": 497.9360000000004,
+     "cls": 0,
+     "mainthread": 2161.9539999999965
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 748.1121499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 11,
+     "fcp": 525.4081,
+     "mpfid": 62,
+     "bytes": 1472712,
+     "bootup": 487.77999999999986,
+     "mainthread": 1274.6280000000024,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 87,
+     "observedFirstContentfulPaint": 87,
+     "observedFirstContentfulPaintAllFrames": 87,
+     "observedLargestContentfulPaint": 154,
+     "observedLargestContentfulPaintAllFrames": 154,
+     "observedTraceEnd": 2593,
+     "observedLoad": 106,
+     "observedDomContentLoaded": 103,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 71,
+     "observedLastVisualChange": 354,
+     "observedSpeedIndex": 198,
+     "lcp_timeToFirstByte": 3.741,
+     "lcp_elementRenderDelay": 150.139
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 62.979,
+     "tbt": 493.0810000000008,
+     "cls": 0,
+     "mainthread": 2227.5149999999962
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 773.4744499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 35.5,
+     "fcp": 526.3163,
+     "mpfid": 121,
+     "bytes": 1472712,
+     "bootup": 523.0360000000006,
+     "mainthread": 1368.4320000000002,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 108,
+     "observedFirstContentfulPaint": 108,
+     "observedFirstContentfulPaintAllFrames": 108,
+     "observedLargestContentfulPaint": 174,
+     "observedLargestContentfulPaintAllFrames": 174,
+     "observedTraceEnd": 2640,
+     "observedLoad": 132,
+     "observedDomContentLoaded": 130,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 95,
+     "observedLastVisualChange": 391,
+     "observedSpeedIndex": 228,
+     "lcp_timeToFirstByte": 5.704,
+     "lcp_elementRenderDelay": 168.667
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 50.569,
+     "tbt": 438.0599999999988,
+     "cls": 0,
+     "mainthread": 2036.4679999999955
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 749.1560000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 8.5,
+     "fcp": 526.104,
+     "mpfid": 59,
+     "bytes": 1472712,
+     "bootup": 491.05600000000004,
+     "mainthread": 1248.2760000000028,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 94,
+     "observedFirstContentfulPaint": 94,
+     "observedFirstContentfulPaintAllFrames": 94,
+     "observedLargestContentfulPaint": 160,
+     "observedLargestContentfulPaintAllFrames": 160,
+     "observedTraceEnd": 2574,
+     "observedLoad": 112,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 90,
+     "observedLastVisualChange": 360,
+     "observedSpeedIndex": 211,
+     "lcp_timeToFirstByte": 4.301,
+     "lcp_elementRenderDelay": 155.927
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 46.776,
+     "tbt": 420.09700000000043,
+     "cls": 0,
+     "mainthread": 2052.260999999995
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 763.54,
+     "cls": 0.00002966465283250153,
+     "tbt": 9,
+     "fcp": 525.36,
+     "mpfid": 62,
+     "bytes": 1472712,
+     "bootup": 485.9800000000002,
+     "mainthread": 1240.5520000000017,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 63,
+     "observedFirstContentfulPaint": 63,
+     "observedFirstContentfulPaintAllFrames": 63,
+     "observedLargestContentfulPaint": 130,
+     "observedLargestContentfulPaintAllFrames": 130,
+     "observedTraceEnd": 2585,
+     "observedLoad": 96,
+     "observedDomContentLoaded": 94,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 64,
+     "observedLastVisualChange": 350,
+     "observedSpeedIndex": 192,
+     "lcp_timeToFirstByte": 3.9,
+     "lcp_elementRenderDelay": 126.082
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 53.017,
+     "tbt": 454.7819999999999,
+     "cls": 0,
+     "mainthread": 2103.3279999999963
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 774.8949,
+     "cls": 0.00002966465283250153,
+     "tbt": 37.49999999999994,
+     "fcp": 528.5966000000001,
+     "mpfid": 79.99999999999989,
+     "bytes": 1472712,
+     "bootup": 764.0440000000008,
+     "mainthread": 2080.0959999999914,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 124,
+     "observedFirstContentfulPaint": 124,
+     "observedFirstContentfulPaintAllFrames": 124,
+     "observedLargestContentfulPaint": 240,
+     "observedLargestContentfulPaintAllFrames": 240,
+     "observedTraceEnd": 2775,
+     "observedLoad": 174,
+     "observedDomContentLoaded": 170,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 113,
+     "observedLastVisualChange": 557,
+     "observedSpeedIndex": 312,
+     "lcp_timeToFirstByte": 5.818,
+     "lcp_elementRenderDelay": 234.656
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 41.613,
+     "tbt": 439.79799999999886,
+     "cls": 0,
+     "mainthread": 2126.451999999996
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 749.8540999999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 11.5,
+     "fcp": 526.5694,
+     "mpfid": 62,
+     "bytes": 1472712,
+     "bootup": 558.152000000001,
+     "mainthread": 1460.1680000000026,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 84,
+     "observedFirstContentfulPaint": 84,
+     "observedFirstContentfulPaintAllFrames": 84,
+     "observedLargestContentfulPaint": 167,
+     "observedLargestContentfulPaintAllFrames": 167,
+     "observedTraceEnd": 2662,
+     "observedLoad": 114,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 79,
+     "observedLastVisualChange": 411,
+     "observedSpeedIndex": 228,
+     "lcp_timeToFirstByte": 4.809,
+     "lcp_elementRenderDelay": 162.394
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 49.711,
+     "tbt": 497.74599999999964,
+     "cls": 0,
+     "mainthread": 2219.909999999995
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 747.54935,
+     "cls": 0.00002966465283250153,
+     "tbt": 7.5,
+     "fcp": 525.0328999999999,
+     "mpfid": 65,
+     "bytes": 1472712,
+     "bootup": 489.68400000000037,
+     "mainthread": 1255.468000000001,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 68,
+     "observedFirstContentfulPaint": 68,
+     "observedFirstContentfulPaintAllFrames": 68,
+     "observedLargestContentfulPaint": 151,
+     "observedLargestContentfulPaintAllFrames": 151,
+     "observedTraceEnd": 2586,
+     "observedLoad": 102,
+     "observedDomContentLoaded": 100,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 67,
+     "observedLastVisualChange": 352,
+     "observedSpeedIndex": 194,
+     "lcp_timeToFirstByte": 5.361,
+     "lcp_elementRenderDelay": 146.119
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 37.655,
+     "tbt": 462.72700000000077,
+     "cls": 0,
+     "mainthread": 2064.0089999999964
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 751.25765,
+     "cls": 0.00002966465283250153,
+     "tbt": 12.5,
+     "fcp": 525.5051000000001,
+     "mpfid": 63,
+     "bytes": 1472712,
+     "bootup": 554.6320000000003,
+     "mainthread": 1400.2920000000022,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 107,
+     "observedFirstContentfulPaint": 107,
+     "observedFirstContentfulPaintAllFrames": 107,
+     "observedLargestContentfulPaint": 174,
+     "observedLargestContentfulPaintAllFrames": 174,
+     "observedTraceEnd": 2610,
+     "observedLoad": 121,
+     "observedDomContentLoaded": 119,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 99,
+     "observedLastVisualChange": 407,
+     "observedSpeedIndex": 237,
+     "lcp_timeToFirstByte": 4.576,
+     "lcp_elementRenderDelay": 169.059
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 40.319,
+     "tbt": 442.8490000000006,
+     "cls": 0,
+     "mainthread": 2065.0099999999966
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 748.6370000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 9.5,
+     "fcp": 525.758,
+     "mpfid": 63,
+     "bytes": 1472712,
+     "bootup": 500.50400000000093,
+     "mainthread": 1334.3240000000021,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 87,
+     "observedFirstContentfulPaint": 87,
+     "observedFirstContentfulPaintAllFrames": 87,
+     "observedLargestContentfulPaint": 154,
+     "observedLargestContentfulPaintAllFrames": 154,
+     "observedTraceEnd": 2619,
+     "observedLoad": 115,
+     "observedDomContentLoaded": 113,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 84,
+     "observedLastVisualChange": 361,
+     "observedSpeedIndex": 208,
+     "lcp_timeToFirstByte": 4.598,
+     "lcp_elementRenderDelay": 149.106
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 42.222,
+     "tbt": 462.0840000000005,
+     "cls": 0,
+     "mainthread": 2098.0449999999946
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "viewer": [
+   {
+    "navigation": {
+     "lcp": 747.61595,
+     "cls": 0.00002966465283250153,
+     "tbt": 7.5,
+     "fcp": 525.0772999999999,
+     "mpfid": 61,
+     "bytes": 1472710,
+     "bootup": 512.6480000000008,
+     "mainthread": 1345.5120000000043,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 82,
+     "observedFirstContentfulPaint": 82,
+     "observedFirstContentfulPaintAllFrames": 82,
+     "observedLargestContentfulPaint": 149,
+     "observedLargestContentfulPaintAllFrames": 149,
+     "observedTraceEnd": 2607,
+     "observedLoad": 107,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 74,
+     "observedLastVisualChange": 373,
+     "observedSpeedIndex": 208,
+     "lcp_timeToFirstByte": 4.171000061035156,
+     "lcp_elementRenderDelay": 144.99199993896485
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 52.845,
+     "tbt": 495.27100000000155,
+     "cls": 0,
+     "mainthread": 2370.017999999995
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 759.0810999999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 10.5,
+     "fcp": 525.3874000000001,
+     "mpfid": 62,
+     "bytes": 1472710,
+     "bootup": 529.1000000000003,
+     "mainthread": 1319.9880000000019,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 81,
+     "observedFirstContentfulPaint": 81,
+     "observedFirstContentfulPaintAllFrames": 81,
+     "observedLargestContentfulPaint": 148,
+     "observedLargestContentfulPaintAllFrames": 148,
+     "observedTraceEnd": 2578,
+     "observedLoad": 101,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 70,
+     "observedLastVisualChange": 388,
+     "observedSpeedIndex": 211,
+     "lcp_timeToFirstByte": 4.313,
+     "lcp_elementRenderDelay": 143.418
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 52.544,
+     "tbt": 457.60300000000075,
+     "cls": 0,
+     "mainthread": 2113.4429999999948
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 748.4436499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 6.5,
+     "fcp": 525.6291,
+     "mpfid": 59,
+     "bytes": 1472710,
+     "bootup": 500.5440000000005,
+     "mainthread": 1317.788000000003,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 89,
+     "observedFirstContentfulPaint": 89,
+     "observedFirstContentfulPaintAllFrames": 89,
+     "observedLargestContentfulPaint": 156,
+     "observedLargestContentfulPaintAllFrames": 156,
+     "observedTraceEnd": 2607,
+     "observedLoad": 108,
+     "observedDomContentLoaded": 106,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 74,
+     "observedLastVisualChange": 373,
+     "observedSpeedIndex": 208,
+     "lcp_timeToFirstByte": 4.571,
+     "lcp_elementRenderDelay": 151.215
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 54.092,
+     "tbt": 457.0900000000004,
+     "cls": 0,
+     "mainthread": 2123.6199999999963
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 748.6815499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 13,
+     "fcp": 525.7877,
+     "mpfid": 67,
+     "bytes": 1472710,
+     "bootup": 496.7240000000005,
+     "mainthread": 1303.9520000000002,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 93,
+     "observedFirstContentfulPaint": 93,
+     "observedFirstContentfulPaintAllFrames": 93,
+     "observedLargestContentfulPaint": 159,
+     "observedLargestContentfulPaintAllFrames": 159,
+     "observedTraceEnd": 2571,
+     "observedLoad": 112,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 87,
+     "observedLastVisualChange": 360,
+     "observedSpeedIndex": 209,
+     "lcp_timeToFirstByte": 4.672,
+     "lcp_elementRenderDelay": 154.814
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 56.122,
+     "tbt": 601.5979999999997,
+     "cls": 0,
+     "mainthread": 2408.891999999996
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 750.86355,
+     "cls": 0.00002966465283250153,
+     "tbt": 9.5,
+     "fcp": 527.5757,
+     "mpfid": 60,
+     "bytes": 1472710,
+     "bootup": 513.4440000000002,
+     "mainthread": 1330.7040000000034,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 88,
+     "observedFirstContentfulPaint": 88,
+     "observedFirstContentfulPaintAllFrames": 88,
+     "observedLargestContentfulPaint": 171,
+     "observedLargestContentfulPaintAllFrames": 171,
+     "observedTraceEnd": 2625,
+     "observedLoad": 119,
+     "observedDomContentLoaded": 117,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 83,
+     "observedLastVisualChange": 392,
+     "observedSpeedIndex": 221,
+     "lcp_timeToFirstByte": 5.895,
+     "lcp_elementRenderDelay": 164.974
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 44.589,
+     "tbt": 438.4879999999989,
+     "cls": 0,
+     "mainthread": 2066.2879999999955
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 746.9777000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 19,
+     "fcp": 524.6518,
+     "mpfid": 78,
+     "bytes": 1472710,
+     "bootup": 483.5320000000008,
+     "mainthread": 1243.0640000000021,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 89,
+     "observedFirstContentfulPaint": 89,
+     "observedFirstContentfulPaintAllFrames": 89,
+     "observedLargestContentfulPaint": 156,
+     "observedLargestContentfulPaintAllFrames": 156,
+     "observedTraceEnd": 2578,
+     "observedLoad": 112,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 84,
+     "observedLastVisualChange": 356,
+     "observedSpeedIndex": 206,
+     "lcp_timeToFirstByte": 4.123999938964844,
+     "lcp_elementRenderDelay": 151.94900006103515
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 49.023,
+     "tbt": 467.53600000000006,
+     "cls": 0,
+     "mainthread": 2068.210999999994
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 749.6514500000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 6.5,
+     "fcp": 526.4343,
+     "mpfid": 62,
+     "bytes": 1472710,
+     "bootup": 485.70400000000035,
+     "mainthread": 1284.8560000000016,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 79,
+     "observedFirstContentfulPaint": 79,
+     "observedFirstContentfulPaintAllFrames": 79,
+     "observedLargestContentfulPaint": 146,
+     "observedLargestContentfulPaintAllFrames": 146,
+     "observedTraceEnd": 2604,
+     "observedLoad": 108,
+     "observedDomContentLoaded": 106,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 77,
+     "observedLastVisualChange": 363,
+     "observedSpeedIndex": 205,
+     "lcp_timeToFirstByte": 5.622000061035156,
+     "lcp_elementRenderDelay": 140.20099993896486
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 53.008,
+     "tbt": 465.2710000000013,
+     "cls": 0,
+     "mainthread": 2087.368999999996
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 748.3274,
+     "cls": 0.00002966465283250153,
+     "tbt": 15.5,
+     "fcp": 525.5516,
+     "mpfid": 68,
+     "bytes": 1472710,
+     "bootup": 478.1800000000005,
+     "mainthread": 1244.6240000000018,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 77,
+     "observedFirstContentfulPaint": 77,
+     "observedFirstContentfulPaintAllFrames": 77,
+     "observedLargestContentfulPaint": 144,
+     "observedLargestContentfulPaintAllFrames": 144,
+     "observedTraceEnd": 2591,
+     "observedLoad": 98,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 68,
+     "observedLastVisualChange": 344,
+     "observedSpeedIndex": 192,
+     "lcp_timeToFirstByte": 4.204,
+     "lcp_elementRenderDelay": 139.774
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 47.57,
+     "tbt": 406.9640000000006,
+     "cls": 0,
+     "mainthread": 2044.3099999999956
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 747.4307,
+     "cls": 0.00002966465283250153,
+     "tbt": 13.5,
+     "fcp": 524.9538,
+     "mpfid": 67,
+     "bytes": 1472710,
+     "bootup": 528.6320000000005,
+     "mainthread": 1341.496000000002,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 90,
+     "observedFirstContentfulPaint": 90,
+     "observedFirstContentfulPaintAllFrames": 90,
+     "observedLargestContentfulPaint": 140,
+     "observedLargestContentfulPaintAllFrames": 140,
+     "observedTraceEnd": 2597,
+     "observedLoad": 104,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 83,
+     "observedLastVisualChange": 364,
+     "observedSpeedIndex": 209,
+     "lcp_timeToFirstByte": 4.106,
+     "lcp_elementRenderDelay": 135.697
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 44.519,
+     "tbt": 464.43899999999917,
+     "cls": 0,
+     "mainthread": 2057.372999999997
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 748.2139999999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 7,
+     "fcp": 525.476,
+     "mpfid": 61,
+     "bytes": 1472710,
+     "bootup": 491.2640000000001,
+     "mainthread": 1262.8480000000034,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 75,
+     "observedFirstContentfulPaint": 75,
+     "observedFirstContentfulPaintAllFrames": 75,
+     "observedLargestContentfulPaint": 141,
+     "observedLargestContentfulPaintAllFrames": 141,
+     "observedTraceEnd": 2608,
+     "observedLoad": 103,
+     "observedDomContentLoaded": 101,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 72,
+     "observedLastVisualChange": 358,
+     "observedSpeedIndex": 200,
+     "lcp_timeToFirstByte": 4.384,
+     "lcp_elementRenderDelay": 137.038
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 45.11,
+     "tbt": 417.98099999999954,
+     "cls": 0,
+     "mainthread": 1862.730999999996
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 749.2449499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 9.5,
+     "fcp": 526.1632999999999,
+     "mpfid": 62,
+     "bytes": 1472710,
+     "bootup": 475.43600000000043,
+     "mainthread": 1186.8320000000026,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 92,
+     "observedFirstContentfulPaint": 92,
+     "observedFirstContentfulPaintAllFrames": 92,
+     "observedLargestContentfulPaint": 142,
+     "observedLargestContentfulPaintAllFrames": 142,
+     "observedTraceEnd": 2618,
+     "observedLoad": 108,
+     "observedDomContentLoaded": 106,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 88,
+     "observedLastVisualChange": 342,
+     "observedSpeedIndex": 202,
+     "lcp_timeToFirstByte": 4.579000061035156,
+     "lcp_elementRenderDelay": 137.79599993896485
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 43.897,
+     "tbt": 437.029,
+     "cls": 0,
+     "mainthread": 2099.003999999996
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 747.4110499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 11.5,
+     "fcp": 524.9407,
+     "mpfid": 64,
+     "bytes": 1472710,
+     "bootup": 483.1360000000005,
+     "mainthread": 1313.4960000000021,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 88,
+     "observedFirstContentfulPaint": 88,
+     "observedFirstContentfulPaintAllFrames": 88,
+     "observedLargestContentfulPaint": 154,
+     "observedLargestContentfulPaintAllFrames": 154,
+     "observedTraceEnd": 2627,
+     "observedLoad": 117,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 80,
+     "observedLastVisualChange": 384,
+     "observedSpeedIndex": 216,
+     "lcp_timeToFirstByte": 3.999,
+     "lcp_elementRenderDelay": 150.305
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 47.509,
+     "tbt": 475.05899999999906,
+     "cls": 0,
+     "mainthread": 2126.3999999999955
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 747.3037999999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 8.5,
+     "fcp": 524.8692,
+     "mpfid": 59,
+     "bytes": 1472710,
+     "bootup": 504.28000000000037,
+     "mainthread": 1305.324000000002,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 84,
+     "observedFirstContentfulPaint": 84,
+     "observedFirstContentfulPaintAllFrames": 84,
+     "observedLargestContentfulPaint": 151,
+     "observedLargestContentfulPaintAllFrames": 151,
+     "observedTraceEnd": 2616,
+     "observedLoad": 103,
+     "observedDomContentLoaded": 101,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 70,
+     "observedLastVisualChange": 385,
+     "observedSpeedIndex": 211,
+     "lcp_timeToFirstByte": 4.892,
+     "lcp_elementRenderDelay": 146.124
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 46.028,
+     "tbt": 459.2589999999998,
+     "cls": 0,
+     "mainthread": 2200.498999999997
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 748.1501000000001,
+     "cls": 0.00002966465283250153,
+     "tbt": 12,
+     "fcp": 525.4334,
+     "mpfid": 64,
+     "bytes": 1472710,
+     "bootup": 493.79200000000026,
+     "mainthread": 1290.604000000002,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 89,
+     "observedFirstContentfulPaint": 89,
+     "observedFirstContentfulPaintAllFrames": 89,
+     "observedLargestContentfulPaint": 156,
+     "observedLargestContentfulPaintAllFrames": 156,
+     "observedTraceEnd": 2626,
+     "observedLoad": 117,
+     "observedDomContentLoaded": 115,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 87,
+     "observedLastVisualChange": 369,
+     "observedSpeedIndex": 213,
+     "lcp_timeToFirstByte": 5.61,
+     "lcp_elementRenderDelay": 150.442
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 45.686,
+     "tbt": 428.5140000000006,
+     "cls": 0,
+     "mainthread": 1891.5209999999956
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 748.9437499999999,
+     "cls": 0.00002966465283250153,
+     "tbt": 9,
+     "fcp": 525.9625,
+     "mpfid": 60,
+     "bytes": 1472710,
+     "bootup": 526.2840000000002,
+     "mainthread": 1328.5080000000037,
+     "dom": 1170,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 112,
+     "observedFirstContentfulPaint": 112,
+     "observedFirstContentfulPaintAllFrames": 112,
+     "observedLargestContentfulPaint": 162,
+     "observedLargestContentfulPaintAllFrames": 162,
+     "observedTraceEnd": 2649,
+     "observedLoad": 116,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00002966465283250153,
+     "observedCumulativeLayoutShiftMainFrame": 0.00002966465283250153,
+     "observedFirstVisualChange": 99,
+     "observedLastVisualChange": 385,
+     "observedSpeedIndex": 226,
+     "lcp_timeToFirstByte": 4.067,
+     "lcp_elementRenderDelay": 158.072
+    },
+    "lcpElement": {
+     "selector": "div",
+     "label": "Automatic Zoom",
+     "snippet": "<div aria-hidden=\"true\" pseudo=\"-internal-select-inner-element\">"
+    },
+    "interaction": {
+     "inp": 50.685,
+     "tbt": 471.39400000000023,
+     "cls": 0,
+     "mainthread": 2076.574999999996
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": []
+ }
+}

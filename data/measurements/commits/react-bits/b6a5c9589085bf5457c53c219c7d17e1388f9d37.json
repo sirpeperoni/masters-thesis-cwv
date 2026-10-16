@@ -1,0 +1,1457 @@
+{
+ "schema": 2,
+ "repo": "react-bits",
+ "sha": "b6a5c9589085bf5457c53c219c7d17e1388f9d37",
+ "parent": "15c5539a2d9284bb1524df5a2f99abc15c69d46e",
+ "date": "2026-01-20T22:51:51+02:00",
+ "subject": "Completely rewrite MetallicPaint component: - new original shader - easier image handling - 20 customization props - extensive demo update",
+ "status": "ok",
+ "base": {
+  "sha": "15c5539a2d9284bb1524df5a2f99abc15c69d46e",
+  "distHash": "ab2f57307e84365d1bea5514dd91368714ca9fa3d4d7cc8daa7fdbcdd90b0867"
+ },
+ "distHash": "494e03e92434d4c068de4d0fd1c322e3f82caf389041d6ba8053acf17e0f9421",
+ "timings": {
+  "installMs": null,
+  "buildMs": 26393,
+  "measureMs": 529569
+ },
+ "bundle": {
+  "files": 1089,
+  "byExt": {
+   ".png": {
+    "files": 10,
+    "raw": 1265140,
+    "gzip": 1265140
+   },
+   ".glb": {
+    "files": 4,
+    "raw": 2529408,
+    "gzip": 2529408
+   },
+   ".js": {
+    "files": 217,
+    "raw": 13093632,
+    "gzip": 3186088
+   },
+   ".css": {
+    "files": 100,
+    "raw": 230357,
+    "gzip": 61786
+   },
+   ".webp": {
+    "files": 16,
+    "raw": 4519128,
+    "gzip": 4519128
+   },
+   ".ttf": {
+    "files": 1,
+    "raw": 40276,
+    "gzip": 40276
+   },
+   ".gif": {
+    "files": 3,
+    "raw": 8468075,
+    "gzip": 8468075
+   },
+   ".svg": {
+    "files": 10,
+    "raw": 222575,
+    "gzip": 89562
+   },
+   ".mp4": {
+    "files": 120,
+    "raw": 6973905,
+    "gzip": 6973905
+   },
+   ".webm": {
+    "files": 120,
+    "raw": 6979663,
+    "gzip": 6979663
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 1,
+    "raw": 5314,
+    "gzip": 1612
+   },
+   ".txt": {
+    "files": 2,
+    "raw": 21112,
+    "gzip": 6365
+   },
+   ".json": {
+    "files": 481,
+    "raw": 28557784,
+    "gzip": 9263788
+   },
+   ".md": {
+    "files": 1,
+    "raw": 290,
+    "gzip": 290
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 263,
+    "gzip": 163
+   },
+   ".jpg": {
+    "files": 1,
+    "raw": 585800,
+    "gzip": 585800
+   }
+  },
+  "totalRaw": 73508128,
+  "totalGzip": 43986455
+ },
+ "runs": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1723.1989500000002,
+     "cls": 0.1252489352216677,
+     "tbt": 447.1207999999998,
+     "fcp": 1458.19895,
+     "mpfid": 355,
+     "bytes": 798604,
+     "bootup": 1442.0960000000043,
+     "mainthread": 3904.17999999999,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 536,
+     "observedFirstContentfulPaint": 1070,
+     "observedFirstContentfulPaintAllFrames": 1070,
+     "observedLargestContentfulPaint": 1503,
+     "observedLargestContentfulPaintAllFrames": 1503,
+     "observedTraceEnd": 3621,
+     "observedLoad": 698,
+     "observedDomContentLoaded": 696,
+     "observedCumulativeLayoutShift": 0.1252489352216677,
+     "observedCumulativeLayoutShiftMainFrame": 0.1252489352216677,
+     "observedFirstVisualChange": 537,
+     "observedLastVisualChange": 3620,
+     "observedSpeedIndex": 871,
+     "lcp_timeToFirstByte": 3.443,
+     "lcp_elementRenderDelay": 1499.455
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 871.587,
+     "tbt": 989.0769999999998,
+     "cls": 0.003303434462831626,
+     "mainthread": 3027.375999999968
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1947.4589999999998,
+     "cls": 0.1090795902285264,
+     "tbt": 50.80849999999998,
+     "fcp": 1865.6572999999999,
+     "mpfid": 262,
+     "bytes": 798498,
+     "bootup": 1455.831999999928,
+     "mainthread": 3834.991999999917,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 703,
+     "observedFirstContentfulPaint": 1253,
+     "observedFirstContentfulPaintAllFrames": 1253,
+     "observedLargestContentfulPaint": 1470,
+     "observedLargestContentfulPaintAllFrames": 1470,
+     "observedTraceEnd": 3640,
+     "observedLoad": 680,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1090795902285264,
+     "observedCumulativeLayoutShiftMainFrame": 0.1090795902285264,
+     "observedFirstVisualChange": 704,
+     "observedLastVisualChange": 3637,
+     "observedSpeedIndex": 1020,
+     "lcp_timeToFirstByte": 3.541,
+     "lcp_elementRenderDelay": 1465.974
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 868.492,
+     "tbt": 952.6820000000016,
+     "cls": 0.003303434462831626,
+     "mainthread": 2960.237999999975
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1722.7195000000002,
+     "cls": 0.0871946414499606,
+     "tbt": 404.16099999999983,
+     "fcp": 1453.75825,
+     "mpfid": 375,
+     "bytes": 798475,
+     "bootup": 1478.2039999999336,
+     "mainthread": 3896.419999999914,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 479,
+     "observedFirstContentfulPaint": 1262,
+     "observedFirstContentfulPaintAllFrames": 1262,
+     "observedLargestContentfulPaint": 1429,
+     "observedLargestContentfulPaintAllFrames": 1429,
+     "observedTraceEnd": 3666,
+     "observedLoad": 659,
+     "observedDomContentLoaded": 657,
+     "observedCumulativeLayoutShift": 0.0871946414499606,
+     "observedCumulativeLayoutShiftMainFrame": 0.0871946414499606,
+     "observedFirstVisualChange": 479,
+     "observedLastVisualChange": 3663,
+     "observedSpeedIndex": 877,
+     "lcp_timeToFirstByte": 3.643,
+     "lcp_elementRenderDelay": 1425.079
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 823.557,
+     "tbt": 880.638999999999,
+     "cls": 0.003303434462831626,
+     "mainthread": 2901.577999999968
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1903.2887,
+     "cls": 0.1253025832348306,
+     "tbt": 288.4674,
+     "fcp": 1814.2887,
+     "mpfid": 363,
+     "bytes": 798613,
+     "bootup": 1451.9519999999968,
+     "mainthread": 4129.519999999984,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 730,
+     "observedFirstContentfulPaint": 1096,
+     "observedFirstContentfulPaintAllFrames": 1096,
+     "observedLargestContentfulPaint": 1530,
+     "observedLargestContentfulPaintAllFrames": 1530,
+     "observedTraceEnd": 3715,
+     "observedLoad": 725,
+     "observedDomContentLoaded": 724,
+     "observedCumulativeLayoutShift": 0.1253025832348306,
+     "observedCumulativeLayoutShiftMainFrame": 0.1253025832348306,
+     "observedFirstVisualChange": 730,
+     "observedLastVisualChange": 3712,
+     "observedSpeedIndex": 994,
+     "lcp_timeToFirstByte": 3.5,
+     "lcp_elementRenderDelay": 1526.04
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 789.29,
+     "tbt": 899.3809999999996,
+     "cls": 0.003303434462831626,
+     "mainthread": 2921.738999999969
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1878.3823000000002,
+     "cls": 0.1254225744425473,
+     "tbt": 4,
+     "fcp": 1814.4176500000003,
+     "mpfid": 45.5,
+     "bytes": 798728,
+     "bootup": 1416.0759999999982,
+     "mainthread": 2870.4480000000044,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 707,
+     "observedFirstContentfulPaint": 1040,
+     "observedFirstContentfulPaintAllFrames": 1040,
+     "observedLargestContentfulPaint": 1040,
+     "observedLargestContentfulPaintAllFrames": 1040,
+     "observedTraceEnd": 3627,
+     "observedLoad": 676,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1254225744425473,
+     "observedCumulativeLayoutShiftMainFrame": 0.1254225744425473,
+     "observedFirstVisualChange": 706,
+     "observedLastVisualChange": 3625,
+     "observedSpeedIndex": 950,
+     "lcp_timeToFirstByte": 3.72,
+     "lcp_elementRenderDelay": 1036.512
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 807.204,
+     "tbt": 904.5570000000005,
+     "cls": 0.003303434462831626,
+     "mainthread": 2904.6329999999684
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 1915.64925,
+     "cls": 0.0004958339900183871,
+     "tbt": 8.5,
+     "fcp": 1869.579725,
+     "mpfid": 64,
+     "bytes": 798342,
+     "bootup": 1427.4559999999935,
+     "mainthread": 3535.895999999979,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 902,
+     "observedFirstContentfulPaint": 1252,
+     "observedFirstContentfulPaintAllFrames": 1252,
+     "observedLargestContentfulPaint": 1252,
+     "observedLargestContentfulPaintAllFrames": 1252,
+     "observedTraceEnd": 3645,
+     "observedLoad": 889,
+     "observedDomContentLoaded": 888,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 899,
+     "observedLastVisualChange": 3642,
+     "observedSpeedIndex": 1149,
+     "lcp_timeToFirstByte": 3.8529999389648437,
+     "lcp_elementRenderDelay": 1248.3200000610352
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 790.008,
+     "tbt": 888.7749999999999,
+     "cls": 0.003303434462831626,
+     "mainthread": 2841.0879999999706
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 1963.3633,
+     "cls": 0.14162365206272073,
+     "tbt": 45.34945000000005,
+     "fcp": 1896.521675,
+     "mpfid": 159,
+     "bytes": 798662,
+     "bootup": 1488.9039999999366,
+     "mainthread": 3916.1319999999264,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 657,
+     "observedFirstContentfulPaint": 1024,
+     "observedFirstContentfulPaintAllFrames": 1024,
+     "observedLargestContentfulPaint": 1441,
+     "observedLargestContentfulPaintAllFrames": 1441,
+     "observedTraceEnd": 3629,
+     "observedLoad": 650,
+     "observedDomContentLoaded": 648,
+     "observedCumulativeLayoutShift": 0.14162365206272073,
+     "observedCumulativeLayoutShiftMainFrame": 0.14162365206272073,
+     "observedFirstVisualChange": 660,
+     "observedLastVisualChange": 3613,
+     "observedSpeedIndex": 926,
+     "lcp_timeToFirstByte": 3.497,
+     "lcp_elementRenderDelay": 1437.113
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 807.108,
+     "tbt": 888.1119999999992,
+     "cls": 0.003303434462831626,
+     "mainthread": 2873.1019999999703
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 1910.1898,
+     "cls": 0.0004958339900183871,
+     "tbt": 6.5,
+     "fcp": 1829.4825,
+     "mpfid": 49,
+     "bytes": 798788,
+     "bootup": 1473.075999999928,
+     "mainthread": 3583.1999999999125,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 676,
+     "observedFirstContentfulPaint": 1226,
+     "observedFirstContentfulPaintAllFrames": 1226,
+     "observedLargestContentfulPaint": 1393,
+     "observedLargestContentfulPaintAllFrames": 1393,
+     "observedTraceEnd": 3597,
+     "observedLoad": 644,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 674,
+     "observedLastVisualChange": 3593,
+     "observedSpeedIndex": 978,
+     "lcp_timeToFirstByte": 3.446,
+     "lcp_elementRenderDelay": 1389.185
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 823.82,
+     "tbt": 980.6819999999998,
+     "cls": 0.003303434462831626,
+     "mainthread": 2935.2819999999697
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 1892.5068,
+     "cls": 0.09605081500087558,
+     "tbt": 4,
+     "fcp": 1825.0068,
+     "mpfid": 58,
+     "bytes": 798605,
+     "bootup": 1441.6239999999473,
+     "mainthread": 2820.1159999999513,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 653,
+     "observedFirstContentfulPaint": 1020,
+     "observedFirstContentfulPaintAllFrames": 1020,
+     "observedLargestContentfulPaint": 1020,
+     "observedLargestContentfulPaintAllFrames": 1020,
+     "observedTraceEnd": 3574,
+     "observedLoad": 648,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.09605081500087558,
+     "observedCumulativeLayoutShiftMainFrame": 0.09605081500087558,
+     "observedFirstVisualChange": 654,
+     "observedLastVisualChange": 3558,
+     "observedSpeedIndex": 904,
+     "lcp_timeToFirstByte": 3.593,
+     "lcp_elementRenderDelay": 1016.406
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 806.233,
+     "tbt": 918.0009999999995,
+     "cls": 0.003303434462831626,
+     "mainthread": 2919.5209999999674
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 1964.1613499999999,
+     "cls": 0.0966729708431836,
+     "tbt": 73.58420000000001,
+     "fcp": 1883.8663499999998,
+     "mpfid": 272,
+     "bytes": 798355,
+     "bootup": 1447.0839999999669,
+     "mainthread": 3910.983999999952,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 694,
+     "observedFirstContentfulPaint": 1261,
+     "observedFirstContentfulPaintAllFrames": 1261,
+     "observedLargestContentfulPaint": 1444,
+     "observedLargestContentfulPaintAllFrames": 1444,
+     "observedTraceEnd": 3664,
+     "observedLoad": 663,
+     "observedDomContentLoaded": 661,
+     "observedCumulativeLayoutShift": 0.0966729708431836,
+     "observedCumulativeLayoutShiftMainFrame": 0.0966729708431836,
+     "observedFirstVisualChange": 695,
+     "observedLastVisualChange": 3661,
+     "observedSpeedIndex": 1016,
+     "lcp_timeToFirstByte": 3.3240000610351563,
+     "lcp_elementRenderDelay": 1440.8799999389648
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 1020.858,
+     "tbt": 1230.0530000000015,
+     "cls": 0.003303434462831626,
+     "mainthread": 3350.2439999999688
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 1914.07125,
+     "cls": 0.0004958339900183871,
+     "tbt": 11,
+     "fcp": 1868.171725,
+     "mpfid": 50,
+     "bytes": 798422,
+     "bootup": 1423.4199999999987,
+     "mainthread": 3629.4439999999868,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 963,
+     "observedFirstContentfulPaint": 1329,
+     "observedFirstContentfulPaintAllFrames": 1329,
+     "observedLargestContentfulPaint": 1329,
+     "observedLargestContentfulPaintAllFrames": 1329,
+     "observedTraceEnd": 3732,
+     "observedLoad": 952,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 962,
+     "observedLastVisualChange": 3729,
+     "observedSpeedIndex": 1220,
+     "lcp_timeToFirstByte": 3.168,
+     "lcp_elementRenderDelay": 1326.149
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 825.306,
+     "tbt": 1014.0859999999998,
+     "cls": 0.003303434462831626,
+     "mainthread": 2972.31299999997
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 2018.4757,
+     "cls": 0.1593451533724426,
+     "tbt": 361.7586000000001,
+     "fcp": 1942.53035,
+     "mpfid": 367,
+     "bytes": 798490,
+     "bootup": 1567.0559999999402,
+     "mainthread": 4504.491999999929,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 723,
+     "observedFirstContentfulPaint": 1123,
+     "observedFirstContentfulPaintAllFrames": 1123,
+     "observedLargestContentfulPaint": 1590,
+     "observedLargestContentfulPaintAllFrames": 1590,
+     "observedTraceEnd": 3707,
+     "observedLoad": 707,
+     "observedDomContentLoaded": 705,
+     "observedCumulativeLayoutShift": 0.1593451533724426,
+     "observedCumulativeLayoutShiftMainFrame": 0.1593451533724426,
+     "observedFirstVisualChange": 717,
+     "observedLastVisualChange": 3705,
+     "observedSpeedIndex": 1013,
+     "lcp_timeToFirstByte": 3.543,
+     "lcp_elementRenderDelay": 1586.121
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 806.188,
+     "tbt": 890.7400000000005,
+     "cls": 0.003303434462831626,
+     "mainthread": 2899.5779999999636
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 1941.1524999999997,
+     "cls": 0.1253696371450252,
+     "tbt": 5.5,
+     "fcp": 1872.0149499999998,
+     "mpfid": 48.5,
+     "bytes": 798712,
+     "bootup": 1450.163999999991,
+     "mainthread": 3670.227999999982,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 665,
+     "observedFirstContentfulPaint": 999,
+     "observedFirstContentfulPaintAllFrames": 999,
+     "observedLargestContentfulPaint": 1448,
+     "observedLargestContentfulPaintAllFrames": 1448,
+     "observedTraceEnd": 3601,
+     "observedLoad": 640,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1253696371450252,
+     "observedCumulativeLayoutShiftMainFrame": 0.1253696371450252,
+     "observedFirstVisualChange": 666,
+     "observedLastVisualChange": 3600,
+     "observedSpeedIndex": 937,
+     "lcp_timeToFirstByte": 3.278,
+     "lcp_elementRenderDelay": 1445.146
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 806.43,
+     "tbt": 917.1169999999988,
+     "cls": 0.003303434462831626,
+     "mainthread": 2927.8089999999693
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 1961.9718,
+     "cls": 0.0004958339900183871,
+     "tbt": 4.5,
+     "fcp": 1892.0935,
+     "mpfid": 46.5,
+     "bytes": 798596,
+     "bootup": 1460.835999999945,
+     "mainthread": 3046.1279999999533,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 724,
+     "observedFirstContentfulPaint": 1074,
+     "observedFirstContentfulPaintAllFrames": 1074,
+     "observedLargestContentfulPaint": 1424,
+     "observedLargestContentfulPaintAllFrames": 1424,
+     "observedTraceEnd": 3477,
+     "observedLoad": 699,
+     "observedDomContentLoaded": 698,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 724,
+     "observedLastVisualChange": 3475,
+     "observedSpeedIndex": 964,
+     "lcp_timeToFirstByte": 3.096,
+     "lcp_elementRenderDelay": 1420.82
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 788.894,
+     "tbt": 884.3689999999995,
+     "cls": 0.003303434462831626,
+     "mainthread": 2844.9429999999707
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 2084.6012499999997,
+     "cls": 0.002973375361176779,
+     "tbt": 915.7192500000002,
+     "fcp": 1932.9634999999998,
+     "mpfid": 1894,
+     "bytes": 798307,
+     "bootup": 1673.7959999999512,
+     "mainthread": 5276.943999999854,
+     "dom": 577,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 772,
+     "observedFirstContentfulPaint": 1455,
+     "observedFirstContentfulPaintAllFrames": 1455,
+     "observedLargestContentfulPaint": 1705,
+     "observedLargestContentfulPaintAllFrames": 1705,
+     "observedTraceEnd": 3857,
+     "observedLoad": 770,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.002973375361176779,
+     "observedCumulativeLayoutShiftMainFrame": 0.002973375361176779,
+     "observedFirstVisualChange": 780,
+     "observedLastVisualChange": 3853,
+     "observedSpeedIndex": 1156,
+     "lcp_timeToFirstByte": 5.047,
+     "lcp_elementRenderDelay": 1699.94
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 806.217,
+     "tbt": 915.2740000000001,
+     "cls": 0.003303434462831626,
+     "mainthread": 2922.8919999999707
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1908.9292500000001,
+     "cls": 0.09602560398607828,
+     "tbt": 86.98909999999978,
+     "fcp": 1822.4292500000001,
+     "mpfid": 261,
+     "bytes": 798698,
+     "bootup": 1458.6639999999345,
+     "mainthread": 3886.3559999999243,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 657,
+     "observedFirstContentfulPaint": 1007,
+     "observedFirstContentfulPaintAllFrames": 1007,
+     "observedLargestContentfulPaint": 1424,
+     "observedLargestContentfulPaintAllFrames": 1424,
+     "observedTraceEnd": 3627,
+     "observedLoad": 639,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.09602560398607828,
+     "observedCumulativeLayoutShiftMainFrame": 0.09602560398607828,
+     "observedFirstVisualChange": 642,
+     "observedLastVisualChange": 3624,
+     "observedSpeedIndex": 906,
+     "lcp_timeToFirstByte": 3.491,
+     "lcp_elementRenderDelay": 1420.072
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 806.406,
+     "tbt": 921.8090000000004,
+     "cls": 0.003303434462831626,
+     "mainthread": 2830.8379999999725
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1923.0007500000002,
+     "cls": 0.0020515762630242537,
+     "tbt": 572.7628,
+     "fcp": 1859.9071500000002,
+     "mpfid": 997.5,
+     "bytes": 798349,
+     "bootup": 1451.1399999999787,
+     "mainthread": 4465.167999999934,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 1002,
+     "observedFirstContentfulPaint": 1569,
+     "observedFirstContentfulPaintAllFrames": 1569,
+     "observedLargestContentfulPaint": 1569,
+     "observedLargestContentfulPaintAllFrames": 1569,
+     "observedTraceEnd": 3950,
+     "observedLoad": 987,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0020515762630242537,
+     "observedCumulativeLayoutShiftMainFrame": 0.0020515762630242537,
+     "observedFirstVisualChange": 997,
+     "observedLastVisualChange": 3947,
+     "observedSpeedIndex": 1329,
+     "lcp_timeToFirstByte": 3.596,
+     "lcp_elementRenderDelay": 1565.161
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 805.962,
+     "tbt": 910.2299999999991,
+     "cls": 0.003303434462831626,
+     "mainthread": 2898.361999999968
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1913.2493999999997,
+     "cls": 0.1250342149877419,
+     "tbt": 168.23007500000028,
+     "fcp": 1825.2494,
+     "mpfid": 315.5,
+     "bytes": 798579,
+     "bootup": 1459.0999999999644,
+     "mainthread": 3988.3359999999534,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 709,
+     "observedFirstContentfulPaint": 1075,
+     "observedFirstContentfulPaintAllFrames": 1075,
+     "observedLargestContentfulPaint": 1509,
+     "observedLargestContentfulPaintAllFrames": 1509,
+     "observedTraceEnd": 3679,
+     "observedLoad": 703,
+     "observedDomContentLoaded": 702,
+     "observedCumulativeLayoutShift": 0.1250342149877419,
+     "observedCumulativeLayoutShiftMainFrame": 0.1250342149877419,
+     "observedFirstVisualChange": 709,
+     "observedLastVisualChange": 3677,
+     "observedSpeedIndex": 982,
+     "lcp_timeToFirstByte": 3.345,
+     "lcp_elementRenderDelay": 1505.482
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 773.779,
+     "tbt": 880.1529999999998,
+     "cls": 0.003303434462831626,
+     "mainthread": 2848.37599999997
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1923.2627,
+     "cls": 0.07033482393544056,
+     "tbt": 8.5,
+     "fcp": 1851.2627,
+     "mpfid": 67,
+     "bytes": 798862,
+     "bootup": 1429.9759999999992,
+     "mainthread": 3102.112000000007,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 724,
+     "observedFirstContentfulPaint": 1091,
+     "observedFirstContentfulPaintAllFrames": 1091,
+     "observedLargestContentfulPaint": 1091,
+     "observedLargestContentfulPaintAllFrames": 1091,
+     "observedTraceEnd": 3677,
+     "observedLoad": 721,
+     "observedDomContentLoaded": 720,
+     "observedCumulativeLayoutShift": 0.07033482393544056,
+     "observedCumulativeLayoutShiftMainFrame": 0.07033482393544056,
+     "observedFirstVisualChange": 725,
+     "observedLastVisualChange": 3674,
+     "observedSpeedIndex": 984,
+     "lcp_timeToFirstByte": 3.494,
+     "lcp_elementRenderDelay": 1087.126
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 788.959,
+     "tbt": 894.8300000000006,
+     "cls": 0.003303434462831626,
+     "mainthread": 2879.794999999968
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 2015.8336249999998,
+     "cls": 0.035200325715786705,
+     "tbt": 323.21855000000016,
+     "fcp": 1909.3336250000002,
+     "mpfid": 376,
+     "bytes": 798503,
+     "bootup": 1530.2359999999376,
+     "mainthread": 4420.835999999933,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 740,
+     "observedFirstContentfulPaint": 1306,
+     "observedFirstContentfulPaintAllFrames": 1306,
+     "observedLargestContentfulPaint": 1506,
+     "observedLargestContentfulPaintAllFrames": 1506,
+     "observedTraceEnd": 3727,
+     "observedLoad": 717,
+     "observedDomContentLoaded": 715,
+     "observedCumulativeLayoutShift": 0.035200325715786705,
+     "observedCumulativeLayoutShiftMainFrame": 0.035200325715786705,
+     "observedFirstVisualChange": 741,
+     "observedLastVisualChange": 3722,
+     "observedSpeedIndex": 1062,
+     "lcp_timeToFirstByte": 3.571,
+     "lcp_elementRenderDelay": 1502.744
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 807.197,
+     "tbt": 979.7810000000004,
+     "cls": 0.003303434462831626,
+     "mainthread": 2963.714999999967
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 1910.6909,
+     "cls": 0.0004958339900183871,
+     "tbt": 5,
+     "fcp": 1827.2231500000003,
+     "mpfid": 49,
+     "bytes": 798685,
+     "bootup": 1468.5639999999407,
+     "mainthread": 3629.291999999927,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 653,
+     "observedFirstContentfulPaint": 1220,
+     "observedFirstContentfulPaintAllFrames": 1220,
+     "observedLargestContentfulPaint": 1387,
+     "observedLargestContentfulPaintAllFrames": 1387,
+     "observedTraceEnd": 3575,
+     "observedLoad": 640,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 645,
+     "observedLastVisualChange": 3571,
+     "observedSpeedIndex": 961,
+     "lcp_timeToFirstByte": 3.5279999389648435,
+     "lcp_elementRenderDelay": 1383.0200000610353
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 790.053,
+     "tbt": 889.5400000000006,
+     "cls": 0.003303434462831626,
+     "mainthread": 2862.8629999999694
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 1753.7765000000002,
+     "cls": 0.1252955249284943,
+     "tbt": 534.7194499999999,
+     "fcp": 1512.6030500000002,
+     "mpfid": 791.0000000000002,
+     "bytes": 798717,
+     "bootup": 1444.8639999999998,
+     "mainthread": 4087.115999999986,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 548,
+     "observedFirstContentfulPaint": 1081,
+     "observedFirstContentfulPaintAllFrames": 1081,
+     "observedLargestContentfulPaint": 1531,
+     "observedLargestContentfulPaintAllFrames": 1531,
+     "observedTraceEnd": 3701,
+     "observedLoad": 716,
+     "observedDomContentLoaded": 715,
+     "observedCumulativeLayoutShift": 0.1252955249284943,
+     "observedCumulativeLayoutShiftMainFrame": 0.1252955249284943,
+     "observedFirstVisualChange": 547,
+     "observedLastVisualChange": 3698,
+     "observedSpeedIndex": 886,
+     "lcp_timeToFirstByte": 2.985,
+     "lcp_elementRenderDelay": 1528.49
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 822.02,
+     "tbt": 950.7040000000006,
+     "cls": 0.003303434462831626,
+     "mainthread": 2905.2899999999686
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 1945.5019,
+     "cls": 0.1594989698253218,
+     "tbt": 161.79127499999993,
+     "fcp": 1818.3969499999998,
+     "mpfid": 313,
+     "bytes": 798865,
+     "bootup": 1471.291999999941,
+     "mainthread": 3975.4159999999265,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 708,
+     "observedFirstContentfulPaint": 1075,
+     "observedFirstContentfulPaintAllFrames": 1075,
+     "observedLargestContentfulPaint": 1509,
+     "observedLargestContentfulPaintAllFrames": 1509,
+     "observedTraceEnd": 3676,
+     "observedLoad": 700,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1594989698253218,
+     "observedCumulativeLayoutShiftMainFrame": 0.1594989698253218,
+     "observedFirstVisualChange": 709,
+     "observedLastVisualChange": 3673,
+     "observedSpeedIndex": 974,
+     "lcp_timeToFirstByte": 3.411,
+     "lcp_elementRenderDelay": 1505.216
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 823.843,
+     "tbt": 915.9979999999994,
+     "cls": 0.003303434462831626,
+     "mainthread": 2894.4099999999657
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 1875.3783000000003,
+     "cls": 0.002007341228146981,
+     "tbt": 604.0739,
+     "fcp": 1811.8744500000003,
+     "mpfid": 1599,
+     "bytes": 798406,
+     "bootup": 1445.6359999999906,
+     "mainthread": 4488.579999999937,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 978,
+     "observedFirstContentfulPaint": 1528,
+     "observedFirstContentfulPaintAllFrames": 1528,
+     "observedLargestContentfulPaint": 1528,
+     "observedLargestContentfulPaintAllFrames": 1528,
+     "observedTraceEnd": 3915,
+     "observedLoad": 964,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.002007341228146981,
+     "observedCumulativeLayoutShiftMainFrame": 0.002007341228146981,
+     "observedFirstVisualChange": 973,
+     "observedLastVisualChange": 3907,
+     "observedSpeedIndex": 1301,
+     "lcp_timeToFirstByte": 3.378,
+     "lcp_elementRenderDelay": 1524.856
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 823.749,
+     "tbt": 934.6289999999988,
+     "cls": 0.003303434462831626,
+     "mainthread": 2928.198999999967
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 1932.0534999999995,
+     "cls": 0.0960319067397776,
+     "tbt": 5.5,
+     "fcp": 1886.1845499999997,
+     "mpfid": 47,
+     "bytes": 798271,
+     "bootup": 1444.0679999999475,
+     "mainthread": 2933.731999999945,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 712,
+     "observedFirstContentfulPaint": 1062,
+     "observedFirstContentfulPaintAllFrames": 1062,
+     "observedLargestContentfulPaint": 1062,
+     "observedLargestContentfulPaintAllFrames": 1062,
+     "observedTraceEnd": 3648,
+     "observedLoad": 693,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0960319067397776,
+     "observedCumulativeLayoutShiftMainFrame": 0.0960319067397776,
+     "observedFirstVisualChange": 704,
+     "observedLastVisualChange": 3647,
+     "observedSpeedIndex": 961,
+     "lcp_timeToFirstByte": 3.223,
+     "lcp_elementRenderDelay": 1059.276
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 823.783,
+     "tbt": 969.1469999999995,
+     "cls": 0.003303434462831626,
+     "mainthread": 2913.8149999999687
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 1963.1797499999996,
+     "cls": 0.0004958339900183871,
+     "tbt": 4.499999999999886,
+     "fcp": 1894.8792749999998,
+     "mpfid": 46.499999999999886,
+     "bytes": 798555,
+     "bootup": 1476.11599999994,
+     "mainthread": 3077.843999999938,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 722,
+     "observedFirstContentfulPaint": 1089,
+     "observedFirstContentfulPaintAllFrames": 1089,
+     "observedLargestContentfulPaint": 1472,
+     "observedLargestContentfulPaintAllFrames": 1472,
+     "observedTraceEnd": 3509,
+     "observedLoad": 715,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0004958339900183871,
+     "observedCumulativeLayoutShiftMainFrame": 0.0004958339900183871,
+     "observedFirstVisualChange": 723,
+     "observedLastVisualChange": 3507,
+     "observedSpeedIndex": 977,
+     "lcp_timeToFirstByte": 3.523,
+     "lcp_elementRenderDelay": 1468.468
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 821.53,
+     "tbt": 1003.6360000000006,
+     "cls": 0.003303434462831626,
+     "mainthread": 3053.017999999968
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 1971.4020249999999,
+     "cls": 0.02279370633044392,
+     "tbt": 457.916375,
+     "fcp": 1874.402025,
+     "mpfid": 914.5,
+     "bytes": 798623,
+     "bootup": 1467.5079999999512,
+     "mainthread": 4399.699999999926,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 789,
+     "observedFirstContentfulPaint": 1373,
+     "observedFirstContentfulPaintAllFrames": 1373,
+     "observedLargestContentfulPaint": 1573,
+     "observedLargestContentfulPaintAllFrames": 1573,
+     "observedTraceEnd": 3808,
+     "observedLoad": 781,
+     "observedDomContentLoaded": 779,
+     "observedCumulativeLayoutShift": 0.02279370633044392,
+     "observedCumulativeLayoutShiftMainFrame": 0.02279370633044392,
+     "observedFirstVisualChange": 791,
+     "observedLastVisualChange": 3805,
+     "observedSpeedIndex": 1115,
+     "lcp_timeToFirstByte": 3.209,
+     "lcp_elementRenderDelay": 1569.558
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 822.626,
+     "tbt": 917.5969999999995,
+     "cls": 0.003303434462831626,
+     "mainthread": 2917.670999999967
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 1931.8189000000007,
+     "cls": 0.1985822988902023,
+     "tbt": 37.954475,
+     "fcp": 1850.8521500000002,
+     "mpfid": 171,
+     "bytes": 798384,
+     "bootup": 1507.4319999999382,
+     "mainthread": 3860.119999999929,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 663,
+     "observedFirstContentfulPaint": 1047,
+     "observedFirstContentfulPaintAllFrames": 1047,
+     "observedLargestContentfulPaint": 1413,
+     "observedLargestContentfulPaintAllFrames": 1413,
+     "observedTraceEnd": 3633,
+     "observedLoad": 645,
+     "observedDomContentLoaded": 643,
+     "observedCumulativeLayoutShift": 0.1985822988902023,
+     "observedCumulativeLayoutShiftMainFrame": 0.1985822988902023,
+     "observedFirstVisualChange": 655,
+     "observedLastVisualChange": 3630,
+     "observedSpeedIndex": 922,
+     "lcp_timeToFirstByte": 4.307,
+     "lcp_elementRenderDelay": 1409.09
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 805.746,
+     "tbt": 900.0659999999996,
+     "cls": 0.003303434462831626,
+     "mainthread": 2914.0549999999685
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 1963.1620999999998,
+     "cls": 0.1593412371034352,
+     "tbt": 4.999999999999886,
+     "fcp": 1895.44045,
+     "mpfid": 46.999999999999886,
+     "bytes": 798617,
+     "bootup": 1459.7719999999406,
+     "mainthread": 2955.9039999999427,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 689,
+     "observedFirstContentfulPaint": 1039,
+     "observedFirstContentfulPaintAllFrames": 1039,
+     "observedLargestContentfulPaint": 1439,
+     "observedLargestContentfulPaintAllFrames": 1439,
+     "observedTraceEnd": 3443,
+     "observedLoad": 664,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1593412371034352,
+     "observedCumulativeLayoutShiftMainFrame": 0.1593412371034352,
+     "observedFirstVisualChange": 689,
+     "observedLastVisualChange": 3440,
+     "observedSpeedIndex": 937,
+     "lcp_timeToFirstByte": 3.269,
+     "lcp_elementRenderDelay": 1435.333
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 822.265,
+     "tbt": 948.865,
+     "cls": 0.003303434462831626,
+     "mainthread": 2921.4319999999707
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 1963.303375,
+     "cls": 0.0966729708431836,
+     "tbt": 286.39419999999996,
+     "fcp": 1882.6161749999999,
+     "mpfid": 372,
+     "bytes": 798469,
+     "bootup": 1458.5319999999247,
+     "mainthread": 4178.267999999916,
+     "dom": 576,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 763,
+     "observedFirstContentfulPaint": 1313,
+     "observedFirstContentfulPaintAllFrames": 1313,
+     "observedLargestContentfulPaint": 1529,
+     "observedLargestContentfulPaintAllFrames": 1529,
+     "observedTraceEnd": 3700,
+     "observedLoad": 735,
+     "observedDomContentLoaded": 734,
+     "observedCumulativeLayoutShift": 0.0966729708431836,
+     "observedCumulativeLayoutShiftMainFrame": 0.0966729708431836,
+     "observedFirstVisualChange": 763,
+     "observedLastVisualChange": 3697,
+     "observedSpeedIndex": 1078,
+     "lcp_timeToFirstByte": 3.406,
+     "lcp_elementRenderDelay": 1525.955
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r5» > div#tabs:«r5»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 807.407,
+     "tbt": 918.7590000000009,
+     "cls": 0.003303434462831626,
+     "mainthread": 2890.62099999997
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com",
+   "fonts.gstatic.com"
+  ],
+  "blocked": [
+   "api.github.com",
+   "www.googletagmanager.com"
+  ]
+ }
+}

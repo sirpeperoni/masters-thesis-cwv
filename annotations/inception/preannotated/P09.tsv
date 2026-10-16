@@ -1,0 +1,217 @@
+#FORMAT=WebAnno TSV 3.3
+#T_SP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS|PosValue
+#T_SP=de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity|value
+
+
+#Text=Merge pull request #1798 from junqwoopark/bug/1797_fix_export_background_color
+1-1	0-5	Merge	NOUN	_	
+1-2	6-10	pull	NOUN	_	
+1-3	11-18	request	NOUN	_	
+1-4	19-24	#1798	NOUN	ISSUE	
+1-5	25-29	from	ADP	_	
+1-6	30-78	junqwoopark/bug/1797_fix_export_background_color	NOUN	_	
+
+#Text=fix(export): Remove redundant hsl() from background color
+2-1	80-83	fix	NOUN	FIX	
+2-2	83-84	(	.	_	
+2-3	84-90	export	NOUN	_	
+2-4	90-91	)	.	_	
+2-5	91-92	:	.	_	
+2-6	93-99	Remove	VERB	REMOVE	
+2-7	100-109	redundant	NOUN	_	
+2-8	110-113	hsl	NOUN	_	
+2-9	113-114	(	.	_	
+2-10	114-115	)	.	_	
+2-11	116-120	from	ADP	_	
+2-12	121-131	background	NOUN	_	
+2-13	132-137	color	NOUN	_	
+
+#Text=## :bookmark_tabs: Summary
+3-1	139-140	#	.	_	
+3-2	140-141	#	.	_	
+3-3	142-143	:	.	_	
+3-4	143-156	bookmark_tabs	NOUN	_	
+3-5	156-157	:	.	_	
+3-6	158-165	Summary	ADJ	_	
+
+#Text=This PR fixes an issue where exported Images have an incorrect background color.
+4-1	167-171	This	DET	_	
+4-2	172-174	PR	NOUN	_	
+4-3	175-180	fixes	VERB	_	
+4-4	181-183	an	DET	_	
+4-5	184-189	issue	NOUN	_	
+4-6	190-195	where	ADV	_	
+4-7	196-204	exported	VERB	_	
+4-8	205-211	Images	NOUN	_	
+4-9	212-216	have	VERB	_	
+4-10	217-219	an	DET	_	
+4-11	220-229	incorrect	NOUN	_	
+4-12	230-240	background	NOUN	_	
+4-13	241-246	color	NOUN	_	
+4-14	246-247	.	.	_	
+
+#Text=- Copied Image incorrectly had a black background.
+5-1	251-252	-	.	_	
+5-2	253-259	Copied	VERB	_	
+5-3	260-265	Image	NOUN	_	
+5-4	266-277	incorrectly	ADV	_	
+5-5	278-281	had	VERB	_	
+5-6	282-283	a	DET	_	
+5-7	284-289	black	ADJ	_	
+5-8	290-300	background	NOUN	_	
+5-9	300-301	.	.	_	
+
+#Text=- Downloaded SVGs incorrectly had a white background.
+6-1	305-306	-	.	_	
+6-2	307-317	Downloaded	VERB	_	
+6-3	318-322	SVGs	NOUN	_	
+6-4	323-334	incorrectly	ADV	_	
+6-5	335-338	had	VERB	_	
+6-6	339-340	a	DET	_	
+6-7	341-346	white	ADJ	_	
+6-8	347-357	background	NOUN	_	
+6-9	357-358	.	.	_	
+
+#Text=This change ensures that the background color of the exported SVG respects the current theme of the editor.
+7-1	359-363	This	DET	_	
+7-2	364-370	change	NOUN	_	
+7-3	371-378	ensures	VERB	_	
+7-4	379-383	that	ADP	_	
+7-5	384-387	the	DET	_	
+7-6	388-398	background	NOUN	_	
+7-7	399-404	color	NOUN	_	
+7-8	405-407	of	ADP	_	
+7-9	408-411	the	DET	_	
+7-10	412-420	exported	ADJ	_	
+7-11	421-424	SVG	NOUN	_	
+7-12	425-433	respects	VERB	_	
+7-13	434-437	the	DET	_	
+7-14	438-445	current	ADJ	_	
+7-15	446-451	theme	NOUN	UI_COMPONENT	
+7-16	452-454	of	ADP	_	
+7-17	455-458	the	DET	_	
+7-18	459-465	editor	NOUN	UI_COMPONENT	
+7-19	465-466	.	.	_	
+
+#Text=Resolves #1797
+8-1	468-476	Resolves	NOUN	FIX	
+8-2	477-482	#1797	VERB	ISSUE	
+
+#Text=## :straight_ruler: Design Decisions
+9-1	485-486	#	.	_	
+9-2	486-487	#	.	_	
+9-3	488-489	:	.	_	
+9-4	489-503	straight_ruler	NOUN	_	
+9-5	503-504	:	.	_	
+9-6	505-511	Design	NOUN	_	
+9-7	512-521	Decisions	NOUN	_	
+
+#Text=The code incorrectly wrapped a color value from a CSS variable with an hsl() function, creating an invalid color. The fix removes the redundant hsl() wrapper, ensuring the background color value from the CSS variable is used directly and correctly.
+10-1	523-526	The	DET	_	
+10-2	527-531	code	NOUN	_	
+10-3	532-543	incorrectly	ADV	_	
+10-4	544-551	wrapped	VERB	_	
+10-5	552-553	a	DET	_	
+10-6	554-559	color	NOUN	_	
+10-7	560-565	value	NOUN	_	
+10-8	566-570	from	ADP	_	
+10-9	571-572	a	DET	_	
+10-10	573-576	CSS	NOUN	_	
+10-11	577-585	variable	NOUN	_	
+10-12	586-590	with	ADP	_	
+10-13	591-593	an	DET	_	
+10-14	594-597	hsl	NOUN	_	
+10-15	597-598	(	.	_	
+10-16	598-599	)	.	_	
+10-17	600-608	function	NOUN	_	
+10-18	608-609	,	.	_	
+10-19	610-618	creating	VERB	_	
+10-20	619-621	an	DET	_	
+10-21	622-629	invalid	ADJ	_	
+10-22	630-635	color	NOUN	_	
+10-23	635-636	.	.	_	
+10-24	637-640	The	DET	_	
+10-25	641-644	fix	NOUN	_	
+10-26	645-652	removes	VERB	_	
+10-27	653-656	the	DET	_	
+10-28	657-666	redundant	ADJ	_	
+10-29	667-670	hsl	NOUN	_	
+10-30	670-671	(	.	_	
+10-31	671-672	)	.	_	
+10-32	673-680	wrapper	NOUN	_	
+10-33	680-681	,	.	_	
+10-34	682-690	ensuring	VERB	_	
+10-35	691-694	the	DET	_	
+10-36	695-705	background	NOUN	_	
+10-37	706-711	color	NOUN	_	
+10-38	712-717	value	NOUN	_	
+10-39	718-722	from	ADP	_	
+10-40	723-726	the	DET	_	
+10-41	727-730	CSS	NOUN	_	
+10-42	731-739	variable	NOUN	_	
+10-43	740-742	is	VERB	_	
+10-44	743-747	used	VERB	_	
+10-45	748-756	directly	ADV	_	
+10-46	757-760	and	CONJ	_	
+10-47	761-770	correctly	ADV	_	
+10-48	770-771	.	.	_	
+
+#Text=### :clipboard: Tasks
+11-1	773-774	#	.	_	
+11-2	774-775	#	.	_	
+11-3	775-776	#	.	_	
+11-4	777-778	:	.	_	
+11-5	778-787	clipboard	NOUN	_	
+11-6	787-788	:	.	_	
+11-7	789-794	Tasks	NOUN	_	
+
+#Text=Make sure you
+12-1	796-800	Make	NOUN	_	
+12-2	801-805	sure	NOUN	_	
+12-3	806-809	you	PRON	_	
+
+#Text=- [x] :book: have read the contribution guidelines
+13-1	811-812	-	.	_	
+13-2	813-814	[	NOUN	_	
+13-3	814-815	x	ADJ	_	
+13-4	815-816	]	NOUN	_	
+13-5	817-818	:	.	_	
+13-6	818-822	book	NOUN	_	
+13-7	822-823	:	.	_	
+13-8	824-828	have	VERB	_	
+13-9	829-833	read	VERB	_	
+13-10	834-837	the	DET	_	
+13-11	838-850	contribution	NOUN	_	
+13-12	851-861	guidelines	NOUN	_	
+
+#Text=- [x] :computer: have added unit/e2e tests (if appropriate)
+14-1	862-863	-	.	_	
+14-2	864-865	[	NOUN	_	
+14-3	865-866	x	ADJ	_	
+14-4	866-867	]	NOUN	_	
+14-5	868-869	:	.	_	
+14-6	869-877	computer	NOUN	_	
+14-7	877-878	:	.	_	
+14-8	879-883	have	VERB	_	
+14-9	884-889	added	VERB	_	
+14-10	890-898	unit/e2e	ADJ	_	
+14-11	899-904	tests	NOUN	_	
+14-12	905-906	(	.	_	
+14-13	906-908	if	ADP	_	
+14-14	909-920	appropriate	NOUN	_	
+14-15	920-921	)	.	_	
+
+#Text=- [x] :bookmark: targeted `develop` branch
+15-1	922-923	-	.	_	
+15-2	924-925	[	NOUN	_	
+15-3	925-926	x	ADJ	_	
+15-4	926-927	]	NOUN	_	
+15-5	928-929	:	.	_	
+15-6	929-937	bookmark	NOUN	_	
+15-7	937-938	:	.	_	
+15-8	939-947	targeted	VERB	_	
+15-9	948-949	`	.	CODE[8]	
+15-10	949-956	develop	VERB	CODE[8]	
+15-11	956-957	`	.	CODE[8]	
+15-12	958-964	branch	NOUN	_	
+

@@ -1,0 +1,543 @@
+{
+ "schema": 2,
+ "repo": "drawdb",
+ "sha": "a5718f83590023dabea2932599826cc888aa04f7",
+ "parent": "47caa29f78ce51a7e4937e68110bdf3b106ffa07",
+ "date": "2025-07-05T22:37:58+04:00",
+ "subject": "Refactor dragging logic (#523)",
+ "status": "ok",
+ "base": {
+  "sha": "47caa29f78ce51a7e4937e68110bdf3b106ffa07",
+  "distHash": "07bc440d9047c8ea988dd90e36c19129eb984cde1884bfa94ede977fa165cd59"
+ },
+ "distHash": "9b53d9db671461369c6b24c3df625490daf82bea4c0875c1ffd4d19ca35677a9",
+ "timings": {
+  "installMs": null,
+  "buildMs": 50321,
+  "measureMs": 153103
+ },
+ "bundle": {
+  "files": 31,
+  "byExt": {
+   ".png": {
+    "files": 23,
+    "raw": 1041558,
+    "gzip": 1041558
+   },
+   ".js": {
+    "files": 4,
+    "raw": 13598471,
+    "gzip": 2685344
+   },
+   ".css": {
+    "files": 1,
+    "raw": 433822,
+    "gzip": 54330
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 3327,
+    "gzip": 3327
+   },
+   ".html": {
+    "files": 1,
+    "raw": 2313,
+    "gzip": 903
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 127,
+    "gzip": 112
+   }
+  },
+  "totalRaw": 15079618,
+  "totalGzip": 3785574
+ },
+ "runs": {
+  "templates": [
+   {
+    "navigation": {
+     "lcp": 2705.2173000000003,
+     "cls": 0,
+     "tbt": 8.5,
+     "fcp": 2563.4782,
+     "mpfid": 67,
+     "bytes": 2952976,
+     "bootup": 848.5560000000145,
+     "mainthread": 2152.8840000000105,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 753,
+     "observedFirstContentfulPaint": 753,
+     "observedFirstContentfulPaintAllFrames": 753,
+     "observedLargestContentfulPaint": 853,
+     "observedLargestContentfulPaintAllFrames": 853,
+     "observedTraceEnd": 3227,
+     "observedLoad": 705,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 754,
+     "observedLastVisualChange": 919,
+     "observedSpeedIndex": 842,
+     "lcp_timeToFirstByte": 3.616,
+     "lcp_elementRenderDelay": 849.785
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 95.106,
+     "tbt": 118.30399999999975,
+     "cls": 0,
+     "mainthread": 642.3169999999993
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 2663.4731,
+     "cls": 0,
+     "tbt": 8,
+     "fcp": 2562.3154,
+     "mpfid": 66,
+     "bytes": 2952960,
+     "bootup": 870.7240000000127,
+     "mainthread": 2052.0480000000257,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 734,
+     "observedFirstContentfulPaint": 734,
+     "observedFirstContentfulPaintAllFrames": 734,
+     "observedLargestContentfulPaint": 834,
+     "observedLargestContentfulPaintAllFrames": 834,
+     "observedTraceEnd": 3210,
+     "observedLoad": 674,
+     "observedDomContentLoaded": 674,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 735,
+     "observedLastVisualChange": 893,
+     "observedSpeedIndex": 824,
+     "lcp_timeToFirstByte": 4.002,
+     "lcp_elementRenderDelay": 829.821
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 88.688,
+     "tbt": 124.98200000000008,
+     "cls": 0,
+     "mainthread": 648.1049999999999
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 2663.723,
+     "cls": 0,
+     "tbt": 7.5,
+     "fcp": 2522.482,
+     "mpfid": 65,
+     "bytes": 2952972,
+     "bootup": 841.4960000000144,
+     "mainthread": 2055.232000000023,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 748,
+     "observedFirstContentfulPaint": 748,
+     "observedFirstContentfulPaintAllFrames": 748,
+     "observedLargestContentfulPaint": 848,
+     "observedLargestContentfulPaintAllFrames": 848,
+     "observedTraceEnd": 3226,
+     "observedLoad": 693,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 746,
+     "observedLastVisualChange": 887,
+     "observedSpeedIndex": 836,
+     "lcp_timeToFirstByte": 4.536,
+     "lcp_elementRenderDelay": 843.682
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 88.656,
+     "tbt": 123.94500000000005,
+     "cls": 0,
+     "mainthread": 654.7859999999989
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 2625.4775500000005,
+     "cls": 0,
+     "tbt": 7.5,
+     "fcp": 2523.6517000000003,
+     "mpfid": 65,
+     "bytes": 2952972,
+     "bootup": 853.2280000000146,
+     "mainthread": 2081.0000000000223,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 741,
+     "observedFirstContentfulPaint": 741,
+     "observedFirstContentfulPaintAllFrames": 741,
+     "observedLargestContentfulPaint": 841,
+     "observedLargestContentfulPaintAllFrames": 841,
+     "observedTraceEnd": 3211,
+     "observedLoad": 684,
+     "observedDomContentLoaded": 684,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 741,
+     "observedLastVisualChange": 887,
+     "observedSpeedIndex": 830,
+     "lcp_timeToFirstByte": 3.999,
+     "lcp_elementRenderDelay": 836.72
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 94.2,
+     "tbt": 122.99200000000008,
+     "cls": 0,
+     "mainthread": 647.6739999999991
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 2663.9633,
+     "cls": 0,
+     "tbt": 9.5,
+     "fcp": 2562.6422000000002,
+     "mpfid": 69,
+     "bytes": 2952970,
+     "bootup": 911.300000000013,
+     "mainthread": 2122.5840000000208,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 765,
+     "observedFirstContentfulPaint": 765,
+     "observedFirstContentfulPaintAllFrames": 765,
+     "observedLargestContentfulPaint": 865,
+     "observedLargestContentfulPaintAllFrames": 865,
+     "observedTraceEnd": 3239,
+     "observedLoad": 706,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 756,
+     "observedLastVisualChange": 927,
+     "observedSpeedIndex": 853,
+     "lcp_timeToFirstByte": 4.142999992370606,
+     "lcp_elementRenderDelay": 860.9190000076294
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 87.266,
+     "tbt": 83.18700000000001,
+     "cls": 0,
+     "mainthread": 595.6009999999989
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "templates": [
+   {
+    "navigation": {
+     "lcp": 2664.0294500000005,
+     "cls": 0,
+     "tbt": 9,
+     "fcp": 2562.6863000000003,
+     "mpfid": 68,
+     "bytes": 2953047,
+     "bootup": 861.7960000000137,
+     "mainthread": 2041.3560000000182,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 749,
+     "observedFirstContentfulPaint": 749,
+     "observedFirstContentfulPaintAllFrames": 749,
+     "observedLargestContentfulPaint": 849,
+     "observedLargestContentfulPaintAllFrames": 849,
+     "observedTraceEnd": 3237,
+     "observedLoad": 701,
+     "observedDomContentLoaded": 701,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 750,
+     "observedLastVisualChange": 893,
+     "observedSpeedIndex": 839,
+     "lcp_timeToFirstByte": 3.922,
+     "lcp_elementRenderDelay": 845.235
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 96.267,
+     "tbt": 100.16900000000021,
+     "cls": 0,
+     "mainthread": 625.3819999999989
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 2624.4479499999998,
+     "cls": 0,
+     "tbt": 8,
+     "fcp": 2522.9653,
+     "mpfid": 66,
+     "bytes": 2953055,
+     "bootup": 832.484000000014,
+     "mainthread": 2039.1600000000196,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 741,
+     "observedFirstContentfulPaint": 741,
+     "observedFirstContentfulPaintAllFrames": 741,
+     "observedLargestContentfulPaint": 841,
+     "observedLargestContentfulPaintAllFrames": 841,
+     "observedTraceEnd": 3202,
+     "observedLoad": 682,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 742,
+     "observedLastVisualChange": 881,
+     "observedSpeedIndex": 829,
+     "lcp_timeToFirstByte": 3.501,
+     "lcp_elementRenderDelay": 837.859
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 92.655,
+     "tbt": 96.66200000000003,
+     "cls": 0,
+     "mainthread": 635.9849999999994
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 2663.6715499999996,
+     "cls": 0,
+     "tbt": 7.5,
+     "fcp": 2562.4476999999997,
+     "mpfid": 65,
+     "bytes": 2953045,
+     "bootup": 863.7200000000132,
+     "mainthread": 2039.608000000022,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 740,
+     "observedFirstContentfulPaint": 740,
+     "observedFirstContentfulPaintAllFrames": 740,
+     "observedLargestContentfulPaint": 823,
+     "observedLargestContentfulPaintAllFrames": 823,
+     "observedTraceEnd": 3203,
+     "observedLoad": 682,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 730,
+     "observedLastVisualChange": 884,
+     "observedSpeedIndex": 814,
+     "lcp_timeToFirstByte": 3.804,
+     "lcp_elementRenderDelay": 819.112
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 93.232,
+     "tbt": 108.64100000000008,
+     "cls": 0,
+     "mainthread": 662.1789999999988
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 2663.8754,
+     "cls": 0,
+     "tbt": 6.5,
+     "fcp": 2562.5836,
+     "mpfid": 63,
+     "bytes": 2953049,
+     "bootup": 839.6280000000137,
+     "mainthread": 2065.3400000000256,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 752,
+     "observedFirstContentfulPaint": 752,
+     "observedFirstContentfulPaintAllFrames": 752,
+     "observedLargestContentfulPaint": 852,
+     "observedLargestContentfulPaintAllFrames": 852,
+     "observedTraceEnd": 3241,
+     "observedLoad": 708,
+     "observedDomContentLoaded": 708,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 752,
+     "observedLastVisualChange": 903,
+     "observedSpeedIndex": 839,
+     "lcp_timeToFirstByte": 4.115,
+     "lcp_elementRenderDelay": 847.414
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 91.735,
+     "tbt": 112.40699999999981,
+     "cls": 0,
+     "mainthread": 636.3069999999992
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 2664.5368999999996,
+     "cls": 0,
+     "tbt": 9.5,
+     "fcp": 2523.0245999999997,
+     "mpfid": 69,
+     "bytes": 2953049,
+     "bootup": 937.5920000000142,
+     "mainthread": 2121.2400000000275,
+     "dom": 1034,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 758,
+     "observedFirstContentfulPaint": 758,
+     "observedFirstContentfulPaintAllFrames": 758,
+     "observedLargestContentfulPaint": 858,
+     "observedLargestContentfulPaintAllFrames": 858,
+     "observedTraceEnd": 3235,
+     "observedLoad": 698,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 746,
+     "observedLastVisualChange": 918,
+     "observedSpeedIndex": 844,
+     "lcp_timeToFirstByte": 3.6090000076293944,
+     "lcp_elementRenderDelay": 854.4119999923706
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.bg-gray-100 > div.px-4 > div",
+     "label": "A blog database including tables such as posts, users, comments, and tags to fa…",
+     "snippet": "<div>"
+    },
+    "interaction": {
+     "inp": 90.751,
+     "tbt": 114.50900000000001,
+     "cls": 0,
+     "mainthread": 639.592999999999
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "cdn.jsdelivr.net",
+   "cdnjs.cloudflare.com"
+  ],
+  "blocked": []
+ }
+}

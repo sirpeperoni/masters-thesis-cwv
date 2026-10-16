@@ -1,0 +1,595 @@
+{
+ "schema": 2,
+ "repo": "chartdb",
+ "sha": "79b885502e3385e996a52093a3ccd5f6e469993a",
+ "parent": "745bdee86d07f1e9c3a2d24237c48c25b9a8eeea",
+ "date": "2025-07-25T19:16:35+03:00",
+ "subject": "fix(sql-server): improvment for sql-server import via sql script (#789)",
+ "status": "ok",
+ "base": {
+  "sha": "745bdee86d07f1e9c3a2d24237c48c25b9a8eeea",
+  "distHash": "05409c683f021a78d88c210ce6dfb609c56c8d192052d3163897afc2c2c00d05"
+ },
+ "distHash": "07f9937d7dacf37f715ae2069f3f2c2d434bdf57b40a13df6e7f69abe8e43c47",
+ "timings": {
+  "installMs": null,
+  "buildMs": 53973,
+  "measureMs": 213456
+ },
+ "bundle": {
+  "files": 281,
+  "byExt": {
+   ".js": {
+    "files": 129,
+    "raw": 26039685,
+    "gzip": 5604216
+   },
+   ".png": {
+    "files": 140,
+    "raw": 44893404,
+    "gzip": 44893404
+   },
+   ".css": {
+    "files": 3,
+    "raw": 231533,
+    "gzip": 37801
+   },
+   ".ttf": {
+    "files": 1,
+    "raw": 80340,
+    "gzip": 80340
+   },
+   ".gif": {
+    "files": 4,
+    "raw": 9427768,
+    "gzip": 9427768
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 1,
+    "raw": 1914,
+    "gzip": 822
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 72,
+    "gzip": 88
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 372,
+    "gzip": 372
+   }
+  },
+  "totalRaw": 80690494,
+  "totalGzip": 60060217
+ },
+ "runs": {
+  "examples": [
+   {
+    "navigation": {
+     "lcp": 2185.7599999999998,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 652.8,
+     "mpfid": 32,
+     "bytes": 2255036,
+     "bootup": 159.06400000000042,
+     "mainthread": 469.0079999999998,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 483,
+     "observedFirstContentfulPaint": 650,
+     "observedFirstContentfulPaintAllFrames": 650,
+     "observedLargestContentfulPaint": 650,
+     "observedLargestContentfulPaintAllFrames": 650,
+     "observedTraceEnd": 3002,
+     "observedLoad": 525,
+     "observedDomContentLoaded": 464,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 635,
+     "observedLastVisualChange": 650,
+     "observedSpeedIndex": 638,
+     "lcp_timeToFirstByte": 3.645000061035156,
+     "lcp_resourceLoadDelay": 492.0629999389648,
+     "lcp_resourceLoadDuration": 8.461,
+     "lcp_elementRenderDelay": 145.824
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 81.659,
+     "tbt": 2205.3060000000005,
+     "cls": 0.0008246700887254475,
+     "mainthread": 5004.938999999931
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 2327.1895000000004,
+     "cls": 0.00008964407670081429,
+     "tbt": 0,
+     "fcp": 699.99125,
+     "mpfid": 35,
+     "bytes": 2255130,
+     "bootup": 176.96800000000036,
+     "mainthread": 488.10399999999964,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 537,
+     "observedFirstContentfulPaint": 687,
+     "observedFirstContentfulPaintAllFrames": 687,
+     "observedLargestContentfulPaint": 704,
+     "observedLargestContentfulPaintAllFrames": 704,
+     "observedTraceEnd": 3046,
+     "observedLoad": 598,
+     "observedDomContentLoaded": 533,
+     "observedCumulativeLayoutShift": 0.00008964407670081429,
+     "observedCumulativeLayoutShiftMainFrame": 0.00008964407670081429,
+     "observedFirstVisualChange": 677,
+     "observedLastVisualChange": 704,
+     "observedSpeedIndex": 686,
+     "lcp_timeToFirstByte": 3.412,
+     "lcp_resourceLoadDelay": 565.983,
+     "lcp_resourceLoadDuration": 9.156,
+     "lcp_elementRenderDelay": 125.203
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 84.635,
+     "tbt": 2229.4530000000013,
+     "cls": 0.0008246700887254475,
+     "mainthread": 5055.977999999932
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 2186.40125,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 655.3343749999999,
+     "mpfid": 33,
+     "bytes": 2255122,
+     "bootup": 167.0520000000002,
+     "mainthread": 468.844,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 462,
+     "observedFirstContentfulPaint": 629,
+     "observedFirstContentfulPaintAllFrames": 629,
+     "observedLargestContentfulPaint": 645,
+     "observedLargestContentfulPaintAllFrames": 645,
+     "observedTraceEnd": 2968,
+     "observedLoad": 524,
+     "observedDomContentLoaded": 463,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 628,
+     "observedLastVisualChange": 645,
+     "observedSpeedIndex": 631,
+     "lcp_timeToFirstByte": 3.328,
+     "lcp_resourceLoadDelay": 488.753,
+     "lcp_resourceLoadDuration": 10.212,
+     "lcp_elementRenderDelay": 143.118
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 79.29,
+     "tbt": 2202.2119999999995,
+     "cls": 0.0008246700887254475,
+     "mainthread": 4970.447999999929
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 2026.9653999999998,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 692.8045,
+     "mpfid": 31.5,
+     "bytes": 2255010,
+     "bootup": 157.33600000000047,
+     "mainthread": 494.95199999999994,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 826,
+     "observedFirstContentfulPaint": 993,
+     "observedFirstContentfulPaintAllFrames": 993,
+     "observedLargestContentfulPaint": 993,
+     "observedLargestContentfulPaintAllFrames": 993,
+     "observedTraceEnd": 3341,
+     "observedLoad": 865,
+     "observedDomContentLoaded": 806,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 984,
+     "observedLastVisualChange": 994,
+     "observedSpeedIndex": 986,
+     "lcp_timeToFirstByte": 3.057,
+     "lcp_resourceLoadDelay": 834.18,
+     "lcp_resourceLoadDuration": 7.544,
+     "lcp_elementRenderDelay": 148.341
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 81.95,
+     "tbt": 2219.554999999999,
+     "cls": 0.0008246700887254475,
+     "mainthread": 5004.079999999929
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1019.6365999999998,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 652.2652499999999,
+     "mpfid": 42.5,
+     "bytes": 2255189,
+     "bootup": 152.86000000000038,
+     "mainthread": 430.39599999999984,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 440,
+     "observedFirstContentfulPaint": 623,
+     "observedFirstContentfulPaintAllFrames": 623,
+     "observedLargestContentfulPaint": 623,
+     "observedLargestContentfulPaintAllFrames": 623,
+     "observedTraceEnd": 2963,
+     "observedLoad": 489,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 620,
+     "observedLastVisualChange": 620,
+     "observedSpeedIndex": 620,
+     "lcp_timeToFirstByte": 3.53,
+     "lcp_resourceLoadDelay": 473.295,
+     "lcp_resourceLoadDuration": 8.368,
+     "lcp_elementRenderDelay": 138.019
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 79.521,
+     "tbt": 2193.5590000000007,
+     "cls": 0.0011217281396842076,
+     "mainthread": 5008.355999999921
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "examples": [
+   {
+    "navigation": {
+     "lcp": 2326.693,
+     "cls": 0.00008964407670081429,
+     "tbt": 0,
+     "fcp": 691.5775,
+     "mpfid": 31,
+     "bytes": 2255016,
+     "bootup": 162.86400000000032,
+     "mainthread": 480.14799999999957,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 562,
+     "observedFirstContentfulPaint": 712,
+     "observedFirstContentfulPaintAllFrames": 712,
+     "observedLargestContentfulPaint": 729,
+     "observedLargestContentfulPaintAllFrames": 729,
+     "observedTraceEnd": 3076,
+     "observedLoad": 608,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00008964407670081429,
+     "observedCumulativeLayoutShiftMainFrame": 0.00008964407670081429,
+     "observedFirstVisualChange": 699,
+     "observedLastVisualChange": 728,
+     "observedSpeedIndex": 708,
+     "lcp_timeToFirstByte": 3.379,
+     "lcp_resourceLoadDelay": 573.673,
+     "lcp_resourceLoadDuration": 11.062,
+     "lcp_elementRenderDelay": 140.61
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 80.069,
+     "tbt": 2224.6040000000003,
+     "cls": 0.0008246700887254475,
+     "mainthread": 4967.518999999915
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1023.4932999999999,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 656.788875,
+     "mpfid": 44,
+     "bytes": 2255016,
+     "bootup": 161.37600000000043,
+     "mainthread": 613.6320000000005,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 979,
+     "observedFirstContentfulPaint": 1129,
+     "observedFirstContentfulPaintAllFrames": 1129,
+     "observedLargestContentfulPaint": 1129,
+     "observedLargestContentfulPaintAllFrames": 1129,
+     "observedTraceEnd": 3460,
+     "observedLoad": 1010,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 1128,
+     "observedLastVisualChange": 1128,
+     "observedSpeedIndex": 1129,
+     "lcp_timeToFirstByte": 3.467,
+     "lcp_resourceLoadDelay": 997.939,
+     "lcp_resourceLoadDuration": 6.689,
+     "lcp_elementRenderDelay": 121.147
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 74.796,
+     "tbt": 2186.215,
+     "cls": 0.0008246700887254475,
+     "mainthread": 4962.259999999925
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1019.6998000000001,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 653.4582499999999,
+     "mpfid": 42.5,
+     "bytes": 2255225,
+     "bootup": 156.40800000000007,
+     "mainthread": 427.3400000000005,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 457,
+     "observedFirstContentfulPaint": 640,
+     "observedFirstContentfulPaintAllFrames": 640,
+     "observedLargestContentfulPaint": 640,
+     "observedLargestContentfulPaintAllFrames": 640,
+     "observedTraceEnd": 2966,
+     "observedLoad": 504,
+     "observedDomContentLoaded": 465,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 639,
+     "observedLastVisualChange": 639,
+     "observedSpeedIndex": 639,
+     "lcp_timeToFirstByte": 3.332,
+     "lcp_resourceLoadDelay": 492.243,
+     "lcp_resourceLoadDuration": 5.917,
+     "lcp_elementRenderDelay": 138.726
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 79.521,
+     "tbt": 2193.5930000000008,
+     "cls": 0.0008246700887254475,
+     "mainthread": 4954.267999999928
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1046.4542999999999,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 698.022625,
+     "mpfid": 45,
+     "bytes": 2255145,
+     "bootup": 162.4640000000004,
+     "mainthread": 453.3240000000003,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 555,
+     "observedFirstContentfulPaint": 738,
+     "observedFirstContentfulPaintAllFrames": 738,
+     "observedLargestContentfulPaint": 738,
+     "observedLargestContentfulPaintAllFrames": 738,
+     "observedTraceEnd": 3080,
+     "observedLoad": 585,
+     "observedDomContentLoaded": 545,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 729,
+     "observedLastVisualChange": 729,
+     "observedSpeedIndex": 730,
+     "lcp_timeToFirstByte": 3.1990000610351563,
+     "lcp_resourceLoadDelay": 569.2529999389649,
+     "lcp_resourceLoadDuration": 9.61,
+     "lcp_elementRenderDelay": 156.211
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 81.322,
+     "tbt": 2233.653,
+     "cls": 0.0008246700887254475,
+     "mainthread": 5025.1779999999235
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 2185.7488999999996,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 652.7907500000001,
+     "mpfid": 32,
+     "bytes": 2255215,
+     "bootup": 158.32400000000038,
+     "mainthread": 438.7079999999998,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 489,
+     "observedFirstContentfulPaint": 639,
+     "observedFirstContentfulPaintAllFrames": 639,
+     "observedLargestContentfulPaint": 656,
+     "observedLargestContentfulPaintAllFrames": 656,
+     "observedTraceEnd": 2973,
+     "observedLoad": 529,
+     "observedDomContentLoaded": 469,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 637,
+     "observedLastVisualChange": 642,
+     "observedSpeedIndex": 639,
+     "lcp_timeToFirstByte": 3.375,
+     "lcp_resourceLoadDelay": 497.679,
+     "lcp_resourceLoadDuration": 6.356,
+     "lcp_elementRenderDelay": 148.24
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-CozIM4DA.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 75.439,
+     "tbt": 2245.4039999999995,
+     "cls": 0.0008246700887254475,
+     "mainthread": 5032.18599999992
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com"
+  ],
+  "blocked": [
+   "cdn.usefathom.com"
+  ]
+ }
+}

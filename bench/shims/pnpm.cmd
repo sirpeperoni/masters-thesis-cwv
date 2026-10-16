@@ -1,1 +1,1 @@
-@corepack pnpm --config.engine-strict=false --config.confirm-modules-purge=false %*
+@node "%~dp0pnpm-select.mjs" --config.engine-strict=false --config.confirm-modules-purge=false %*

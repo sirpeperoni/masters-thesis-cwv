@@ -1,0 +1,11 @@
+feat: do not delete frame children on frame delete (#9011)
+
+feat: do not delete frame children on frame delete
+
+This PR changes how frame deletion works. Previously, we deleted the frame and its children. Now we're only deleting the frame and keeping the children, selecting them instead.
+
+This way it's much easier to remove children from the frame instead of having to do it through context menu in two steps.
+
+If people want to delete both the frame and its children both, they can just hit delete twice.
+
+(Un)related, fixed (or rather, improved, as a proper fix will take more work) selection on removing the last group member when editing a group.

@@ -1,0 +1,113 @@
+# GitHub Action: оценка риска регрессии Core Web Vitals для pull request.
+# В публичном репозитории диссертации лежит в корне (scripts/export-repo.mjs копирует его туда), поэтому подключается так:
+#
+#   on: pull_request
+#   permissions: { contents: read, pull-requests: write }
+#   jobs:
+#     cwv-risk:
+#       runs-on: ubuntu-latest
+#       steps:
+#         - uses: actions/checkout@v4
+#           with: { fetch-depth: 0 }          # нужна история основной ветки — шкала проекта
+#         - uses: sirpeperoni/masters-thesis-cwv@main
+#           with:
+#             paths: src package.json         # необязательно: только фронтенд-пути в истории
+name: cwv-risk
+description: Оценка риска регрессии Core Web Vitals по изменению фронтенд-кода в pull request (без сборки и замеров)
+author: sirpeperoni
+branding:
+  icon: activity
+  color: orange
+
+inputs:
+  github-token:
+    description: токен для комментария в PR
+    default: ${{ github.token }}
+  history:
+    description: сколько последних коммитов основной ветки брать за шкалу проекта
+    default: "300"
+  paths:
+    description: пути через пробел — учитывать в истории только их (например, src package.json)
+    default: ""
+  comment:
+    description: писать (и обновлять) комментарий с оценкой в pull request
+    default: "true"
+  fail-on:
+    description: "провалить проверку при уровне: high | elevated (пусто — не проваливать)"
+    default: ""
+
+outputs:
+  level:
+    description: "уровень риска: high | elevated | low"
+    value: ${{ steps.score.outputs.level }}
+  place:
+    description: доля коммитов истории с более высоким риском (0 — самый рискованный)
+    value: ${{ steps.score.outputs.place }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    # модель сохранена joblib — версии библиотек как при обучении
+    - shell: bash
+      run: python -m pip install --quiet "scikit-learn==1.7.2" "pandas==2.3.3" "numpy==2.3.5" "joblib==1.5.2" "typer==0.20.0"
+
+    # признаки истории проекта считаются один раз на базовый коммит, дальше — из кеша
+    - uses: actions/cache@v4
+      with:
+        path: ${{ github.workspace }}/.cwv-risk
+        key: cwv-risk-${{ runner.os }}-${{ github.event.pull_request.base.sha || github.sha }}
+        restore-keys: cwv-risk-${{ runner.os }}-
+
+    - id: score
+      shell: bash
+      env:
+        BASE: ${{ github.event.pull_request.base.sha }}
+        HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        HISTORY: ${{ inputs.history }}
+        PATHS: ${{ inputs.paths }}
+      run: |
+        set -euo pipefail
+        if [ -z "$BASE" ]; then BASE="$(git -C "$GITHUB_WORKSPACE" rev-parse "$HEAD^")"; fi  # не PR — последний коммит
+        ARGS=(--repo "$GITHUB_WORKSPACE" --base "$BASE" --head "$HEAD" --history "$HISTORY")
+        for p in $PATHS; do ARGS+=(--path "$p"); done
+        cd "$GITHUB_ACTION_PATH/system"
+        python -m cwv_risk score "${ARGS[@]}" --format json > "$RUNNER_TEMP/cwv-risk.json"
+        python -m cwv_risk score "${ARGS[@]}" --format markdown > "$RUNNER_TEMP/cwv-risk.md"
+        python -m cwv_risk score "${ARGS[@]}" --format text
+        python - <<'EOF' >> "$GITHUB_OUTPUT"
+        import json, os
+        r = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "cwv-risk.json"), encoding="utf-8"))
+        print(f"level={r['level']}")
+        print(f"place={r['place']:.4f}")
+        EOF
+        cat "$RUNNER_TEMP/cwv-risk.md" >> "$GITHUB_STEP_SUMMARY"
+
+    # один комментарий на PR: найти свой по метке <!-- cwv-risk --> и обновить, иначе создать
+    - if: inputs.comment == 'true' && github.event.pull_request.number
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        PR: ${{ github.event.pull_request.number }}
+      run: |
+        set -euo pipefail
+        ID="$(gh api "repos/$GITHUB_REPOSITORY/issues/$PR/comments" --paginate \
+          --jq '.[] | select(.body | startswith("<!-- cwv-risk -->")) | .id' | head -n1)"
+        if [ -n "$ID" ]; then
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$ID" -F body=@"$RUNNER_TEMP/cwv-risk.md" > /dev/null
+        else
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/cwv-risk.md"
+        fi
+
+    - if: inputs.fail-on != ''
+      shell: bash
+      env:
+        LEVEL: ${{ steps.score.outputs.level }}
+        FAIL_ON: ${{ inputs.fail-on }}
+      run: |
+        case "$FAIL_ON:$LEVEL" in
+          high:high|elevated:high|elevated:elevated) echo "::error::Риск регрессии CWV: $LEVEL"; exit 1 ;;
+        esac

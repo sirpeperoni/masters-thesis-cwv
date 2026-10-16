@@ -1,0 +1,596 @@
+{
+ "schema": 2,
+ "repo": "chartdb",
+ "sha": "68474e75d56ed4b4b445cc9b7f59cca96a4ca5db",
+ "parent": "eaf75cedb0e024236c7684bb533856d7f80074da",
+ "date": "2024-11-16T16:57:13+02:00",
+ "subject": "fix(export image): Add support for displaying cardinality relationships + background (#407)",
+ "status": "ok",
+ "base": {
+  "sha": "fe8b9f9e91481d8a3272113b6f4be4da8d61ad04",
+  "distHash": "81e7bf25f98590dcc6ea3d034d6e591be1171c0b5cfa99b33f9caf696ded012a"
+ },
+ "distHash": "3ef77009b65aa5b01fff29a44e99a47556c73f98035a0b79026fbf6975807169",
+ "timings": {
+  "installMs": null,
+  "buildMs": 39599,
+  "measureMs": 194691
+ },
+ "bundle": {
+  "files": 198,
+  "byExt": {
+   ".js": {
+    "files": 116,
+    "raw": 16821196,
+    "gzip": 4052025
+   },
+   ".png": {
+    "files": 71,
+    "raw": 20303857,
+    "gzip": 20303857
+   },
+   ".css": {
+    "files": 3,
+    "raw": 201477,
+    "gzip": 33468
+   },
+   ".ttf": {
+    "files": 1,
+    "raw": 80340,
+    "gzip": 80340
+   },
+   ".gif": {
+    "files": 3,
+    "raw": 9013902,
+    "gzip": 9013902
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 1,
+    "raw": 1269,
+    "gzip": 577
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 72,
+    "gzip": 88
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 372,
+    "gzip": 372
+   }
+  },
+  "totalRaw": 46437891,
+  "totalGzip": 33500035
+ },
+ "runs": {
+  "examples": [
+   {
+    "navigation": {
+     "lcp": 2052.3694000000005,
+     "cls": 0.0001378513265038088,
+     "tbt": 1,
+     "fcp": 589.4247,
+     "mpfid": 49.99999999999994,
+     "bytes": 1912653,
+     "bootup": 142.10000000000053,
+     "mainthread": 431.984,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 450,
+     "observedFirstContentfulPaint": 550,
+     "observedFirstContentfulPaintAllFrames": 550,
+     "observedLargestContentfulPaint": 567,
+     "observedLargestContentfulPaintAllFrames": 567,
+     "observedTraceEnd": 3019,
+     "observedLoad": 429,
+     "observedDomContentLoaded": 427,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 547,
+     "observedLastVisualChange": 685,
+     "observedSpeedIndex": 554,
+     "lcp_timeToFirstByte": 3.755,
+     "lcp_resourceLoadDelay": 454.428,
+     "lcp_resourceLoadDuration": 8.687,
+     "lcp_elementRenderDelay": 99.967
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 124.004,
+     "tbt": 1095.7139999999997,
+     "cls": 0.001093482510288066,
+     "mainthread": 3511.9799999999213
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 2049.4778,
+     "cls": 0.0001378513265038088,
+     "tbt": 1.5,
+     "fcp": 589.8094500000001,
+     "mpfid": 50.5,
+     "bytes": 1912736,
+     "bootup": 141.66800000000063,
+     "mainthread": 410.19600000000077,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 484,
+     "observedFirstContentfulPaint": 584,
+     "observedFirstContentfulPaintAllFrames": 584,
+     "observedLargestContentfulPaint": 600,
+     "observedLargestContentfulPaintAllFrames": 600,
+     "observedTraceEnd": 3033,
+     "observedLoad": 462,
+     "observedDomContentLoaded": 460,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 579,
+     "observedLastVisualChange": 704,
+     "observedSpeedIndex": 586,
+     "lcp_timeToFirstByte": 3.651,
+     "lcp_resourceLoadDelay": 487.851,
+     "lcp_resourceLoadDuration": 9.394,
+     "lcp_elementRenderDelay": 99.505
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 125.978,
+     "tbt": 1055.7230000000004,
+     "cls": 0.001093482510288066,
+     "mainthread": 3504.589999999925
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 2051.8672,
+     "cls": 0.0001378513265038088,
+     "tbt": 0,
+     "fcp": 589.4886,
+     "mpfid": 49,
+     "bytes": 1912623,
+     "bootup": 142.9360000000006,
+     "mainthread": 424.9479999999998,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 466,
+     "observedFirstContentfulPaint": 582,
+     "observedFirstContentfulPaintAllFrames": 582,
+     "observedLargestContentfulPaint": 599,
+     "observedLargestContentfulPaintAllFrames": 599,
+     "observedTraceEnd": 3051,
+     "observedLoad": 460,
+     "observedDomContentLoaded": 460,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 577,
+     "observedLastVisualChange": 718,
+     "observedSpeedIndex": 584,
+     "lcp_timeToFirstByte": 3.714,
+     "lcp_resourceLoadDelay": 485.769,
+     "lcp_resourceLoadDuration": 8.235,
+     "lcp_elementRenderDelay": 101.174
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 138.217,
+     "tbt": 1108.7799999999995,
+     "cls": 0.001093482510288066,
+     "mainthread": 3542.9359999999288
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 2051.4028000000003,
+     "cls": 0.0001378513265038088,
+     "tbt": 0.5,
+     "fcp": 589.7462000000002,
+     "mpfid": 49,
+     "bytes": 1912692,
+     "bootup": 144.6640000000006,
+     "mainthread": 468.72400000000056,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 465,
+     "observedFirstContentfulPaint": 582,
+     "observedFirstContentfulPaintAllFrames": 582,
+     "observedLargestContentfulPaint": 598,
+     "observedLargestContentfulPaintAllFrames": 598,
+     "observedTraceEnd": 3044,
+     "observedLoad": 457,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 573,
+     "observedLastVisualChange": 734,
+     "observedSpeedIndex": 582,
+     "lcp_timeToFirstByte": 3.901,
+     "lcp_resourceLoadDelay": 481.993,
+     "lcp_resourceLoadDuration": 8.792,
+     "lcp_elementRenderDelay": 103.612
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 129.59,
+     "tbt": 1074.8980000000001,
+     "cls": 0.001093482510288066,
+     "mainthread": 3520.6389999999283
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 2052.7574000000004,
+     "cls": 0.0001378513265038088,
+     "tbt": 0,
+     "fcp": 593.0587500000001,
+     "mpfid": 48.5,
+     "bytes": 1912902,
+     "bootup": 142.61600000000067,
+     "mainthread": 466.0319999999999,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 492,
+     "observedFirstContentfulPaint": 592,
+     "observedFirstContentfulPaintAllFrames": 592,
+     "observedLargestContentfulPaint": 608,
+     "observedLargestContentfulPaintAllFrames": 608,
+     "observedTraceEnd": 3061,
+     "observedLoad": 468,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 584,
+     "observedLastVisualChange": 759,
+     "observedSpeedIndex": 592,
+     "lcp_timeToFirstByte": 4.11,
+     "lcp_resourceLoadDelay": 492.912,
+     "lcp_resourceLoadDuration": 8.936,
+     "lcp_elementRenderDelay": 102.235
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 127.085,
+     "tbt": 1094.5939999999998,
+     "cls": 0.001093482510288066,
+     "mainthread": 3555.7669999999252
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "examples": [
+   {
+    "navigation": {
+     "lcp": 1933.1182,
+     "cls": 0.0001378513265038088,
+     "tbt": 0.5,
+     "fcp": 568.58845,
+     "mpfid": 51,
+     "bytes": 1912694,
+     "bootup": 148.49200000000053,
+     "mainthread": 460.9519999999995,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 487,
+     "observedFirstContentfulPaint": 587,
+     "observedFirstContentfulPaintAllFrames": 587,
+     "observedLargestContentfulPaint": 604,
+     "observedLargestContentfulPaintAllFrames": 604,
+     "observedTraceEnd": 3016,
+     "observedLoad": 460,
+     "observedDomContentLoaded": 458,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 578,
+     "observedLastVisualChange": 720,
+     "observedSpeedIndex": 586,
+     "lcp_timeToFirstByte": 3.892,
+     "lcp_resourceLoadDelay": 484.682,
+     "lcp_resourceLoadDuration": 9.657,
+     "lcp_elementRenderDelay": 105.416
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 120.655,
+     "tbt": 1042.2290000000003,
+     "cls": 0.001093482510288066,
+     "mainthread": 3479.2409999999304
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 2050.8869,
+     "cls": 0.0001378513265038088,
+     "tbt": 0.5,
+     "fcp": 589.7927,
+     "mpfid": 48.99999999999994,
+     "bytes": 1912706,
+     "bootup": 137.66800000000057,
+     "mainthread": 407.7399999999999,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 491,
+     "observedFirstContentfulPaint": 591,
+     "observedFirstContentfulPaintAllFrames": 591,
+     "observedLargestContentfulPaint": 608,
+     "observedLargestContentfulPaintAllFrames": 608,
+     "observedTraceEnd": 3039,
+     "observedLoad": 469,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 586,
+     "observedLastVisualChange": 711,
+     "observedSpeedIndex": 594,
+     "lcp_timeToFirstByte": 3.255,
+     "lcp_resourceLoadDelay": 494.725,
+     "lcp_resourceLoadDuration": 9.174,
+     "lcp_elementRenderDelay": 100.883
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 129.51,
+     "tbt": 1072.5710000000001,
+     "cls": 0.001093482510288066,
+     "mainthread": 3551.332999999929
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 2048.1507,
+     "cls": 0.0001378513265038088,
+     "tbt": 1.5,
+     "fcp": 586.6507,
+     "mpfid": 50.5,
+     "bytes": 1912612,
+     "bootup": 151.5920000000006,
+     "mainthread": 459.84399999999863,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 480,
+     "observedFirstContentfulPaint": 597,
+     "observedFirstContentfulPaintAllFrames": 597,
+     "observedLargestContentfulPaint": 613,
+     "observedLargestContentfulPaintAllFrames": 613,
+     "observedTraceEnd": 3123,
+     "observedLoad": 460,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 582,
+     "observedLastVisualChange": 797,
+     "observedSpeedIndex": 592,
+     "lcp_timeToFirstByte": 3.766,
+     "lcp_resourceLoadDelay": 488.035,
+     "lcp_resourceLoadDuration": 9.658,
+     "lcp_elementRenderDelay": 111.883
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 124.145,
+     "tbt": 1134.0759999999998,
+     "cls": 0.001093482510288066,
+     "mainthread": 3578.502999999927
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 2052.2926,
+     "cls": 0.0001378513265038088,
+     "tbt": 0,
+     "fcp": 591.6031999999999,
+     "mpfid": 49,
+     "bytes": 1912838,
+     "bootup": 142.92800000000057,
+     "mainthread": 451.15200000000004,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 482,
+     "observedFirstContentfulPaint": 582,
+     "observedFirstContentfulPaintAllFrames": 582,
+     "observedLargestContentfulPaint": 599,
+     "observedLargestContentfulPaintAllFrames": 599,
+     "observedTraceEnd": 3039,
+     "observedLoad": 456,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 573,
+     "observedLastVisualChange": 718,
+     "observedSpeedIndex": 579,
+     "lcp_timeToFirstByte": 3.752,
+     "lcp_resourceLoadDelay": 480.122,
+     "lcp_resourceLoadDuration": 8.623,
+     "lcp_elementRenderDelay": 106.211
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 127.481,
+     "tbt": 1028.1829999999993,
+     "cls": 0.001093482510288066,
+     "mainthread": 3463.7009999999223
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 2048.697,
+     "cls": 0.0001378513265038088,
+     "tbt": 0.5,
+     "fcp": 590.197,
+     "mpfid": 51,
+     "bytes": 1912738,
+     "bootup": 148.95600000000059,
+     "mainthread": 456.73999999999876,
+     "dom": 64,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 6248,
+     "observedFirstContentfulPaint": 6365,
+     "observedFirstContentfulPaintAllFrames": 6365,
+     "observedLargestContentfulPaint": 6398,
+     "observedLargestContentfulPaintAllFrames": 6398,
+     "observedTraceEnd": 8830,
+     "observedLoad": 6242,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.0001378513265038088,
+     "observedCumulativeLayoutShiftMainFrame": 0.0001378513265038088,
+     "observedFirstVisualChange": 6381,
+     "observedLastVisualChange": 6501,
+     "observedSpeedIndex": 6387,
+     "lcp_timeToFirstByte": 3.9509999389648436,
+     "lcp_resourceLoadDelay": 6267.597000061035,
+     "lcp_resourceLoadDuration": 12.196,
+     "lcp_elementRenderDelay": 114.564
+    },
+    "lcpElement": {
+     "selector": "div.mt-6 > div.flex > div.grow > img.w-fit",
+     "label": "Bike stores schema",
+     "snippet": "<img src=\"/assets/bike_stores_example-D-Ea5ysi.png\" alt=\"Bike stores schema\" class=\"w-fit object-cover\">"
+    },
+    "interaction": {
+     "inp": 112.971,
+     "tbt": 1201.3989999999988,
+     "cls": 0.001093482510288066,
+     "mainthread": 3692.5369999999302
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com",
+   "fonts.gstatic.com"
+  ],
+  "blocked": [
+   "cdn.usefathom.com"
+  ]
+ }
+}

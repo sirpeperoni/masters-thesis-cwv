@@ -156,7 +156,11 @@ def changed_lines(repo: Path, base: str, head: str, paths: list[str]) -> dict[st
     """Для каждого файла — (добавленные строки, удалённые строки)."""
     if not paths:
         return {}
-    out = git(repo, "diff", "-U0", "--no-color", "-M", base, head, "--", *paths)
+    # пачками: у огромных коммитов (тысячи файлов) список путей не помещается в командную строку Windows
+    # (WinError 206); у обычных коммитов — одна пачка, результат прежний
+    chunk = 200
+    out = "\n".join(git(repo, "diff", "-U0", "--no-color", "-M", base, head, "--", *paths[i:i + chunk])
+                    for i in range(0, len(paths), chunk))
     result: dict[str, tuple[list[str], list[str]]] = {}
     current: tuple[list[str], list[str]] | None = None
     for line in out.splitlines():

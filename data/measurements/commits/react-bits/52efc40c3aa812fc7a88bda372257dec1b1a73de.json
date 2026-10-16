@@ -1,0 +1,586 @@
+{
+ "schema": 2,
+ "repo": "react-bits",
+ "sha": "52efc40c3aa812fc7a88bda372257dec1b1a73de",
+ "parent": "a9bb1ee57659ac1d389ec5d32eedf5c4090a7fd3",
+ "date": "2025-06-09T22:53:29+03:00",
+ "subject": "Refactor DotGrid component to use canvas for rendering dots and improve performance",
+ "status": "ok",
+ "base": {
+  "sha": "a9bb1ee57659ac1d389ec5d32eedf5c4090a7fd3",
+  "distHash": "6605c29d78dc27396cf40792ec8a43b76d1bd85d5100f77f93a45046150c4f91"
+ },
+ "distHash": "e8a4252087f0c6b38d90342dc4072f64c61c162e560bc466f47bbb08e8f582ac",
+ "timings": {
+  "installMs": null,
+  "buildMs": 18419,
+  "measureMs": 232541
+ },
+ "bundle": {
+  "files": 188,
+  "byExt": {
+   ".png": {
+    "files": 9,
+    "raw": 10114760,
+    "gzip": 10114760
+   },
+   ".js": {
+    "files": 106,
+    "raw": 8419343,
+    "gzip": 2301152
+   },
+   ".css": {
+    "files": 63,
+    "raw": 149838,
+    "gzip": 40097
+   },
+   ".glb": {
+    "files": 1,
+    "raw": 2457784,
+    "gzip": 2457784
+   },
+   ".gif": {
+    "files": 3,
+    "raw": 8468075,
+    "gzip": 8468075
+   },
+   ".webp": {
+    "files": 1,
+    "raw": 59244,
+    "gzip": 59244
+   },
+   ".svg": {
+    "files": 1,
+    "raw": 12576,
+    "gzip": 5333
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 1,
+    "raw": 5122,
+    "gzip": 1582
+   },
+   ".md": {
+    "files": 1,
+    "raw": 332,
+    "gzip": 332
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 263,
+    "gzip": 163
+   }
+  },
+  "totalRaw": 29702743,
+  "totalGzip": 23463928
+ },
+ "runs": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1536.0565000000001,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 1434.7137500000001,
+     "mpfid": 98.5,
+     "bytes": 631482,
+     "bootup": 1350.7919999999951,
+     "mainthread": 2351.599999999998,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5341,
+     "observedFirstContentfulPaint": 5558,
+     "observedFirstContentfulPaintAllFrames": 5558,
+     "observedLargestContentfulPaint": 5558,
+     "observedLargestContentfulPaintAllFrames": 5558,
+     "observedTraceEnd": 7928,
+     "observedLoad": 5336,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5346,
+     "observedLastVisualChange": 7925,
+     "observedSpeedIndex": 5461,
+     "lcp_timeToFirstByte": 3.36,
+     "lcp_elementRenderDelay": 5554.638
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 127.667,
+     "tbt": 501.79299999999944,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2082.8889999999833
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1530.88805,
+     "cls": 0,
+     "tbt": 3.5,
+     "fcp": 1429.573375,
+     "mpfid": 97.5,
+     "bytes": 631482,
+     "bootup": 1334.2279999999978,
+     "mainthread": 2343.7279999999973,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5347,
+     "observedFirstContentfulPaint": 5564,
+     "observedFirstContentfulPaintAllFrames": 5564,
+     "observedLargestContentfulPaint": 5564,
+     "observedLargestContentfulPaintAllFrames": 5564,
+     "observedTraceEnd": 7932,
+     "observedLoad": 5334,
+     "observedDomContentLoaded": 5332,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5344,
+     "observedLastVisualChange": 7931,
+     "observedSpeedIndex": 5453,
+     "lcp_timeToFirstByte": 3.379000061035156,
+     "lcp_elementRenderDelay": 5560.453999938964
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 136.2,
+     "tbt": 519.9639999999995,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2113.446999999985
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1537.586,
+     "cls": 0,
+     "tbt": 1,
+     "fcp": 1429.905,
+     "mpfid": 95.5,
+     "bytes": 631482,
+     "bootup": 1329.767999999994,
+     "mainthread": 2304.079999999993,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5369,
+     "observedFirstContentfulPaint": 5569,
+     "observedFirstContentfulPaintAllFrames": 5569,
+     "observedLargestContentfulPaint": 5818,
+     "observedLargestContentfulPaintAllFrames": 5818,
+     "observedTraceEnd": 7937,
+     "observedLoad": 5339,
+     "observedDomContentLoaded": 5338,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5368,
+     "observedLastVisualChange": 7936,
+     "observedSpeedIndex": 5475,
+     "lcp_timeToFirstByte": 2.885,
+     "lcp_elementRenderDelay": 5815.609
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r4» > div#tabs:«r4»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent overflow-hidden inline-block whitespace-normal split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow-wrap: break-word;\">"
+    },
+    "interaction": {
+     "inp": 127.938,
+     "tbt": 511.7560000000001,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2121.0039999999867
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1632.8843,
+     "cls": 0,
+     "tbt": 8.5,
+     "fcp": 1531.57025,
+     "mpfid": 121.49999999999989,
+     "bytes": 631482,
+     "bootup": 1593.7199999999618,
+     "mainthread": 2657.1759999999595,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 11390,
+     "observedFirstContentfulPaint": 11657,
+     "observedFirstContentfulPaintAllFrames": 11657,
+     "observedLargestContentfulPaint": 11657,
+     "observedLargestContentfulPaintAllFrames": 11657,
+     "observedTraceEnd": 14043,
+     "observedLoad": 11383,
+     "observedDomContentLoaded": 11381,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 11390,
+     "observedLastVisualChange": 14032,
+     "observedSpeedIndex": 11508,
+     "lcp_timeToFirstByte": 2.963,
+     "lcp_elementRenderDelay": 11653.73
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 111.322,
+     "tbt": 509.12700000000063,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2116.5179999999864
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1526.4366,
+     "cls": 0,
+     "tbt": 1.5,
+     "fcp": 1425.0304999999998,
+     "mpfid": 97,
+     "bytes": 631482,
+     "bootup": 1324.2360000000047,
+     "mainthread": 2311.436000000006,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5350,
+     "observedFirstContentfulPaint": 5567,
+     "observedFirstContentfulPaintAllFrames": 5567,
+     "observedLargestContentfulPaint": 5567,
+     "observedLargestContentfulPaintAllFrames": 5567,
+     "observedTraceEnd": 7929,
+     "observedLoad": 5337,
+     "observedDomContentLoaded": 5335,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5348,
+     "observedLastVisualChange": 7928,
+     "observedSpeedIndex": 5457,
+     "lcp_timeToFirstByte": 4.146,
+     "lcp_elementRenderDelay": 5562.68
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 143.022,
+     "tbt": 508.80899999999974,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2108.358999999985
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1624.7621,
+     "cls": 0,
+     "tbt": 1,
+     "fcp": 1523.80175,
+     "mpfid": 117,
+     "bytes": 631170,
+     "bootup": 1566.431999999963,
+     "mainthread": 2589.323999999962,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 6353,
+     "observedFirstContentfulPaint": 6603,
+     "observedFirstContentfulPaintAllFrames": 6603,
+     "observedLargestContentfulPaint": 6603,
+     "observedLargestContentfulPaintAllFrames": 6603,
+     "observedTraceEnd": 8956,
+     "observedLoad": 6342,
+     "observedDomContentLoaded": 6340,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 6354,
+     "observedLastVisualChange": 8949,
+     "observedSpeedIndex": 6477,
+     "lcp_timeToFirstByte": 3.252,
+     "lcp_elementRenderDelay": 6600.005
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 125.524,
+     "tbt": 522.2620000000002,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2149.582999999983
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1575.9362,
+     "cls": 0,
+     "tbt": 1,
+     "fcp": 1474.6135,
+     "mpfid": 117,
+     "bytes": 631170,
+     "bootup": 1485.5599999999902,
+     "mainthread": 2533.9919999999943,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 6356,
+     "observedFirstContentfulPaint": 6622,
+     "observedFirstContentfulPaintAllFrames": 6622,
+     "observedLargestContentfulPaint": 6622,
+     "observedLargestContentfulPaintAllFrames": 6622,
+     "observedTraceEnd": 8992,
+     "observedLoad": 6347,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 6358,
+     "observedLastVisualChange": 8982,
+     "observedSpeedIndex": 6479,
+     "lcp_timeToFirstByte": 3.009,
+     "lcp_elementRenderDelay": 6619.3
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 137.178,
+     "tbt": 500.0609999999988,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2090.1879999999846
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1535.2684,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 1433.5570000000002,
+     "mpfid": 98.5,
+     "bytes": 631170,
+     "bootup": 1326.444,
+     "mainthread": 2302.832000000003,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5334,
+     "observedFirstContentfulPaint": 5551,
+     "observedFirstContentfulPaintAllFrames": 5551,
+     "observedLargestContentfulPaint": 5551,
+     "observedLargestContentfulPaintAllFrames": 5551,
+     "observedTraceEnd": 7920,
+     "observedLoad": 5324,
+     "observedDomContentLoaded": 5323,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5335,
+     "observedLastVisualChange": 7911,
+     "observedSpeedIndex": 5450,
+     "lcp_timeToFirstByte": 3.34,
+     "lcp_elementRenderDelay": 5547.455
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 117.99,
+     "tbt": 513.261,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2089.2819999999842
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1541.60015,
+     "cls": 0,
+     "tbt": 354.1499749999998,
+     "fcp": 1433.750125,
+     "mpfid": 160.4999999999999,
+     "bytes": 631170,
+     "bootup": 1593.6519999999973,
+     "mainthread": 2968.671999999998,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5375,
+     "observedFirstContentfulPaint": 5591,
+     "observedFirstContentfulPaintAllFrames": 5591,
+     "observedLargestContentfulPaint": 5841,
+     "observedLargestContentfulPaintAllFrames": 5841,
+     "observedTraceEnd": 8009,
+     "observedLoad": 5363,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5373,
+     "observedLastVisualChange": 7932,
+     "observedSpeedIndex": 5484,
+     "lcp_timeToFirstByte": 3.171,
+     "lcp_elementRenderDelay": 5838.093
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r4» > div#tabs:«r4»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent overflow-hidden inline-block whitespace-normal split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow-wrap: break-word;\">"
+    },
+    "interaction": {
+     "inp": 120.658,
+     "tbt": 512.6020000000003,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2115.0839999999853
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1534.35095,
+     "cls": 0,
+     "tbt": 2.5,
+     "fcp": 1432.9591249999999,
+     "mpfid": 96.5,
+     "bytes": 631170,
+     "bootup": 1336.2599999999895,
+     "mainthread": 2350.655999999989,
+     "dom": 379,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 5368,
+     "observedFirstContentfulPaint": 5568,
+     "observedFirstContentfulPaintAllFrames": 5568,
+     "observedLargestContentfulPaint": 5568,
+     "observedLargestContentfulPaintAllFrames": 5568,
+     "observedTraceEnd": 7925,
+     "observedLoad": 5349,
+     "observedDomContentLoaded": 5347,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 5369,
+     "observedLastVisualChange": 7921,
+     "observedSpeedIndex": 5473,
+     "lcp_timeToFirstByte": 3.921,
+     "lcp_elementRenderDelay": 5563.809
+    },
+    "lcpElement": {
+     "selector": "main.app-container > section.category-wrapper > div.category-page > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 128.078,
+     "tbt": 506.5229999999999,
+     "cls": 0.00008013308817091322,
+     "mainthread": 2107.728999999988
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com"
+  ],
+  "blocked": [
+   "api.github.com",
+   "www.googletagmanager.com"
+  ]
+ }
+}

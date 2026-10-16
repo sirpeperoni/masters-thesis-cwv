@@ -1,0 +1,88 @@
+{
+ "schema": 2,
+ "repo": "react-bits",
+ "sha": "fe6a2416f24a01d1dd1056cc5dab76d5e7a4457f",
+ "parent": "2c77c6d5c3f89673cb8e1e7e15010441a637300a",
+ "date": "2026-01-18T11:38:48+02:00",
+ "subject": "ASCIIText refactoring",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": null,
+  "buildMs": 6506,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "error": "npm warn Unknown env config \"network-concurrency\". This will stop working in the next major version of npm.\n\u001b[36mvite v5.4.21 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\n\u001b[32m✓\u001b[39m 1714 modules transformed.\n\u001b[31mx\u001b[39m Build failed in 5.16s\n\u001b[31merror during build:\n\u001b[31m[vite:esbuild] Transform failed with 1 error:\nE:/diplom/work/repos/react-bits/src/demo/Animations/ElectricBorderDemo.jsx:96:8: ERROR: The symbol \"activeProps\" has already been declared\u001b[31m\nfile: \u001b[36mE:/diplom/work/repos/react-bits/src/demo/Animations/ElectricBorderDemo.jsx:96:8\u001b[31m\n\u001b[33m\n\u001b[33mThe symbol \"activeProps\" has already been declared\u001b[33m\n94 |    const updateActiveProps = updates => updateProp(activePropsKey, { ...activeProps, ...updates });\n95 |  \n96 |    const activeProps = example === 'card' ? cardProps : example === 'button' ? buttonProps : circleProps;\n   |          ^\n97 |  \n98 |    return (\n\u001b[31m\n    at failureErrorWithLog (E:\\diplom\\work\\repos\\react-bits\\node_modules\\esbuild\\lib\\main.js:1472:15)\n    at E:\\diplom\\work\\repos\\react-bits\\node_modules\\esbuild\\lib\\main.js:755:50\n    at responseCallbacks.<computed> (E:\\diplom\\work\\repos\\react-bits\\node_modules\\esbuild\\lib\\main.js:622:9)\n    at handleIncomingPacket (E:\\diplom\\work\\repos\\react-bits\\node_modules\\esbuild\\lib\\main.js:677:12)\n    at Socket.readFromStdout (E:\\diplom\\work\\repos\\react-bits\\node_modules\\esbuild\\lib\\main.js:600:7)\n    at Socket.emit (node:events:519:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)\u001b[39m\n"
+}

@@ -1,0 +1,609 @@
+{
+ "schema": 2,
+ "repo": "cobalt",
+ "sha": "a998a5720cda9ba374de5119014e5bc9cbcf0c18",
+ "parent": "2c0a1b699061b0cb78434c5177b7310d798df800",
+ "date": "2025-06-22T15:35:04+06:00",
+ "subject": "web/queue: refactor media icon selection",
+ "status": "ok",
+ "base": {
+  "sha": "17ab8dd709d2fdabe0ab3df6881d73f25addef9e",
+  "distHash": "bf86b38b0d36462baf1d1a0be1d4ceb615dae793ac7e94f306ec44c8945f77fc"
+ },
+ "distHash": "4fc73860772f40c37ae51a3a987b8dcb0a69e6c0c7deba94fdb08002b22ff369",
+ "timings": {
+  "installMs": 1745,
+  "buildMs": 15548,
+  "measureMs": 155608
+ },
+ "bundle": {
+  "files": 324,
+  "byExt": {
+   ".html": {
+    "files": 22,
+    "raw": 712455,
+    "gzip": 132303
+   },
+   ".png": {
+    "files": 17,
+    "raw": 58158,
+    "gzip": 58158
+   },
+   ".woff2": {
+    "files": 17,
+    "raw": 282532,
+    "gzip": 282532
+   },
+   ".json": {
+    "files": 3,
+    "raw": 2247,
+    "gzip": 564
+   },
+   ".webp": {
+    "files": 31,
+    "raw": 10758340,
+    "gzip": 10758340
+   },
+   ".js": {
+    "files": 170,
+    "raw": 27347634,
+    "gzip": 7057125
+   },
+   ".css": {
+    "files": 32,
+    "raw": 155175,
+    "gzip": 37773
+   },
+   ".woff": {
+    "files": 16,
+    "raw": 316704,
+    "gzip": 316704
+   },
+   "(none)": {
+    "files": 1,
+    "raw": 93,
+    "gzip": 93
+   },
+   ".mjs": {
+    "files": 10,
+    "raw": 26779561,
+    "gzip": 6824409
+   },
+   ".wasm": {
+    "files": 4,
+    "raw": 26455391,
+    "gzip": 26455391
+   },
+   ".ts": {
+    "files": 1,
+    "raw": 204792,
+    "gzip": 204792
+   }
+  },
+  "totalRaw": 93073082,
+  "totalGzip": 52128184
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1037.9931000000017,
+     "cls": 0,
+     "tbt": 12.500000000000057,
+     "fcp": 685.1539000000005,
+     "mpfid": 45.50000000000006,
+     "bytes": 241701,
+     "bootup": 196.6280000000001,
+     "mainthread": 892.2960000000023,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 497,
+     "observedFirstContentfulPaint": 497,
+     "observedFirstContentfulPaintAllFrames": 497,
+     "observedLargestContentfulPaint": 497,
+     "observedLargestContentfulPaintAllFrames": 497,
+     "observedTraceEnd": 2867,
+     "observedLoad": 146,
+     "observedDomContentLoaded": 119,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 484,
+     "observedLastVisualChange": 572,
+     "observedSpeedIndex": 552,
+     "lcp_timeToFirstByte": 6.163,
+     "lcp_resourceLoadDelay": 65.481,
+     "lcp_resourceLoadDuration": 30.924,
+     "lcp_elementRenderDelay": 394.131
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 35.152,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 787.0239999999993
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1024.3235499999998,
+     "cls": 0,
+     "tbt": 18.5,
+     "fcp": 742.4326749999999,
+     "mpfid": 51.5,
+     "bytes": 241701,
+     "bootup": 220.6920000000004,
+     "mainthread": 892.6480000000005,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 494,
+     "observedFirstContentfulPaint": 494,
+     "observedFirstContentfulPaintAllFrames": 494,
+     "observedLargestContentfulPaint": 494,
+     "observedLargestContentfulPaintAllFrames": 494,
+     "observedTraceEnd": 2891,
+     "observedLoad": 134,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 475,
+     "observedLastVisualChange": 562,
+     "observedSpeedIndex": 553,
+     "lcp_timeToFirstByte": 5.907,
+     "lcp_resourceLoadDelay": 59.733,
+     "lcp_resourceLoadDuration": 32.85,
+     "lcp_elementRenderDelay": 395.064
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 34.009,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 795.3609999999989
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1025.503449999998,
+     "cls": 0,
+     "tbt": 12.499999999999886,
+     "fcp": 677.9230499999991,
+     "mpfid": 45.499999999999886,
+     "bytes": 241701,
+     "bootup": 194.19600000000003,
+     "mainthread": 894.4800000000007,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 503,
+     "observedFirstContentfulPaint": 503,
+     "observedFirstContentfulPaintAllFrames": 503,
+     "observedLargestContentfulPaint": 503,
+     "observedLargestContentfulPaintAllFrames": 503,
+     "observedTraceEnd": 2906,
+     "observedLoad": 154,
+     "observedDomContentLoaded": 133,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 492,
+     "observedLastVisualChange": 567,
+     "observedSpeedIndex": 551,
+     "lcp_timeToFirstByte": 6.233,
+     "lcp_resourceLoadDelay": 75.678,
+     "lcp_resourceLoadDuration": 17.961,
+     "lcp_elementRenderDelay": 403.189
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 36.065,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 779.6129999999984
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1024.235200000002,
+     "cls": 0,
+     "tbt": 14.000000000000114,
+     "fcp": 737.879200000001,
+     "mpfid": 47.000000000000114,
+     "bytes": 241701,
+     "bootup": 206.45199999999994,
+     "mainthread": 893.5680000000023,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 510,
+     "observedFirstContentfulPaint": 510,
+     "observedFirstContentfulPaintAllFrames": 510,
+     "observedLargestContentfulPaint": 510,
+     "observedLargestContentfulPaintAllFrames": 510,
+     "observedTraceEnd": 2887,
+     "observedLoad": 152,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 500,
+     "observedLastVisualChange": 597,
+     "observedSpeedIndex": 522,
+     "lcp_timeToFirstByte": 4.139,
+     "lcp_resourceLoadDelay": 82.404,
+     "lcp_resourceLoadDuration": 4.408,
+     "lcp_elementRenderDelay": 419.175
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 31.144,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 844.605999999999
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1028.3040500000016,
+     "cls": 0,
+     "tbt": 16.000000000000114,
+     "fcp": 742.3419250000005,
+     "mpfid": 49.000000000000114,
+     "bytes": 241701,
+     "bootup": 211.28399999999996,
+     "mainthread": 887.6600000000026,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 515,
+     "observedFirstContentfulPaint": 515,
+     "observedFirstContentfulPaintAllFrames": 515,
+     "observedLargestContentfulPaint": 515,
+     "observedLargestContentfulPaintAllFrames": 515,
+     "observedTraceEnd": 2911,
+     "observedLoad": 145,
+     "observedDomContentLoaded": 124,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 485,
+     "observedLastVisualChange": 574,
+     "observedSpeedIndex": 552,
+     "lcp_timeToFirstByte": 7.342,
+     "lcp_resourceLoadDelay": 68.153,
+     "lcp_resourceLoadDuration": 19.474,
+     "lcp_elementRenderDelay": 420.33
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 33.069,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 793.6279999999991
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1037.8851000000002,
+     "cls": 0,
+     "tbt": 19,
+     "fcp": 751.5964500000002,
+     "mpfid": 52,
+     "bytes": 241203,
+     "bootup": 230.9480000000006,
+     "mainthread": 981.0000000000022,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 528,
+     "observedFirstContentfulPaint": 528,
+     "observedFirstContentfulPaintAllFrames": 528,
+     "observedLargestContentfulPaint": 528,
+     "observedLargestContentfulPaintAllFrames": 528,
+     "observedTraceEnd": 2893,
+     "observedLoad": 162,
+     "observedDomContentLoaded": 142,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 523,
+     "observedLastVisualChange": 615,
+     "observedSpeedIndex": 605,
+     "lcp_timeToFirstByte": 5.248,
+     "lcp_resourceLoadDelay": 86.785,
+     "lcp_resourceLoadDuration": 19.573,
+     "lcp_elementRenderDelay": 416.35
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 36.025,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 847.0439999999986
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1024.0799999999977,
+     "cls": 0,
+     "tbt": 12.99999999999983,
+     "fcp": 737.1599999999985,
+     "mpfid": 45.99999999999983,
+     "bytes": 241203,
+     "bootup": 196.636,
+     "mainthread": 840.8160000000014,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 498,
+     "observedFirstContentfulPaint": 498,
+     "observedFirstContentfulPaintAllFrames": 498,
+     "observedLargestContentfulPaint": 498,
+     "observedLargestContentfulPaintAllFrames": 498,
+     "observedTraceEnd": 2850,
+     "observedLoad": 146,
+     "observedDomContentLoaded": 120,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 484,
+     "observedLastVisualChange": 571,
+     "observedSpeedIndex": 549,
+     "lcp_timeToFirstByte": 4.576,
+     "lcp_resourceLoadDelay": 76.452,
+     "lcp_resourceLoadDuration": 12.575,
+     "lcp_elementRenderDelay": 404.733
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 36.807,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 779.8409999999978
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1018.7007000000015,
+     "cls": 0,
+     "tbt": 15.000000000000114,
+     "fcp": 735.8726500000006,
+     "mpfid": 48.000000000000114,
+     "bytes": 241203,
+     "bootup": 195.32399999999996,
+     "mainthread": 901.920000000003,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 533,
+     "observedFirstContentfulPaint": 533,
+     "observedFirstContentfulPaintAllFrames": 533,
+     "observedLargestContentfulPaint": 533,
+     "observedLargestContentfulPaintAllFrames": 533,
+     "observedTraceEnd": 2924,
+     "observedLoad": 151,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 497,
+     "observedLastVisualChange": 585,
+     "observedSpeedIndex": 563,
+     "lcp_timeToFirstByte": 4.184,
+     "lcp_resourceLoadDelay": 91.154,
+     "lcp_resourceLoadDuration": 3.223,
+     "lcp_elementRenderDelay": 434.21
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 35.48,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 777.4779999999988
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1013.639100000002,
+     "cls": 0,
+     "tbt": 26.000000000000114,
+     "fcp": 671.2894750000011,
+     "mpfid": 59.000000000000114,
+     "bytes": 241203,
+     "bootup": 253.98000000000044,
+     "mainthread": 1014.9560000000027,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 570,
+     "observedFirstContentfulPaint": 570,
+     "observedFirstContentfulPaintAllFrames": 570,
+     "observedLargestContentfulPaint": 570,
+     "observedLargestContentfulPaintAllFrames": 570,
+     "observedTraceEnd": 2950,
+     "observedLoad": 164,
+     "observedDomContentLoaded": 150,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 547,
+     "observedLastVisualChange": 634,
+     "observedSpeedIndex": 625,
+     "lcp_timeToFirstByte": 6.857999992370606,
+     "lcp_resourceLoadDelay": 92.8990000076294,
+     "lcp_resourceLoadDuration": 3.671,
+     "lcp_elementRenderDelay": 467.059
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 34.286,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 824.9559999999991
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1026.1455000000003,
+     "cls": 0,
+     "tbt": 16.5,
+     "fcp": 741.9222500000003,
+     "mpfid": 49.5,
+     "bytes": 241203,
+     "bootup": 210.23200000000014,
+     "mainthread": 903.1400000000019,
+     "dom": 125,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 523,
+     "observedFirstContentfulPaint": 523,
+     "observedFirstContentfulPaintAllFrames": 523,
+     "observedLargestContentfulPaint": 523,
+     "observedLargestContentfulPaintAllFrames": 523,
+     "observedTraceEnd": 2932,
+     "observedLoad": 153,
+     "observedDomContentLoaded": 137,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 491,
+     "observedLastVisualChange": 579,
+     "observedSpeedIndex": 559,
+     "lcp_timeToFirstByte": 4.325000007629394,
+     "lcp_resourceLoadDelay": 83.4609999923706,
+     "lcp_resourceLoadDuration": 6.67,
+     "lcp_elementRenderDelay": 428.404
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-185gdbn loaded\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 33.641,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 781.6719999999989
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*api.cobalt.tools*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.cobalt.tools"
+  ]
+ }
+}

@@ -1,0 +1,601 @@
+{
+ "schema": 2,
+ "repo": "cobalt",
+ "sha": "5e92b649a33dcff0553dd03f61eacf304adc9da5",
+ "parent": "0508c2305cb8f7b418cffcaf97816bbc15ce16f8",
+ "date": "2024-10-30T18:59:20Z",
+ "subject": "api: add `API_REDIS_URL` env",
+ "status": "ok",
+ "base": {
+  "sha": "904e5aa9187d2902604121c90db39f0c112248c1",
+  "distHash": "13192dbc594adf5a4d839a209c5d4ea3bd80824d484f4682fabf05f49b97e612"
+ },
+ "distHash": "031feafc9084970654cb661dd46ce8cc08aee2caab20903e39109ae2f9f9e0d4",
+ "timings": {
+  "installMs": 3181,
+  "buildMs": 14944,
+  "measureMs": 164514
+ },
+ "bundle": {
+  "files": 287,
+  "byExt": {
+   ".html": {
+    "files": 20,
+    "raw": 482039,
+    "gzip": 105013
+   },
+   ".png": {
+    "files": 17,
+    "raw": 98724,
+    "gzip": 98724
+   },
+   ".json": {
+    "files": 3,
+    "raw": 2247,
+    "gzip": 564
+   },
+   ".webp": {
+    "files": 28,
+    "raw": 10593590,
+    "gzip": 10593590
+   },
+   ".js": {
+    "files": 139,
+    "raw": 5676774,
+    "gzip": 1515592
+   },
+   ".css": {
+    "files": 31,
+    "raw": 132998,
+    "gzip": 32517
+   },
+   ".woff": {
+    "files": 16,
+    "raw": 316704,
+    "gzip": 316704
+   },
+   ".woff2": {
+    "files": 23,
+    "raw": 556512,
+    "gzip": 556512
+   },
+   "(none)": {
+    "files": 1,
+    "raw": 93,
+    "gzip": 93
+   },
+   ".mjs": {
+    "files": 6,
+    "raw": 4904041,
+    "gzip": 1230169
+   },
+   ".wasm": {
+    "files": 2,
+    "raw": 4364334,
+    "gzip": 4364334
+   },
+   ".ts": {
+    "files": 1,
+    "raw": 188470,
+    "gzip": 188470
+   }
+  },
+  "totalRaw": 27316526,
+  "totalGzip": 19002282
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 978.6956999999999,
+     "cls": 0,
+     "tbt": 12,
+     "fcp": 637.73295,
+     "mpfid": 45,
+     "bytes": 253724,
+     "bootup": 240.21200000000027,
+     "mainthread": 1741.6199999999988,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 279,
+     "observedFirstContentfulPaint": 504,
+     "observedFirstContentfulPaintAllFrames": 504,
+     "observedLargestContentfulPaint": 504,
+     "observedLargestContentfulPaintAllFrames": 504,
+     "observedTraceEnd": 2858,
+     "observedLoad": 159,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 436,
+     "observedLastVisualChange": 503,
+     "observedSpeedIndex": 493,
+     "lcp_timeToFirstByte": 8.479999992370605,
+     "lcp_elementRenderDelay": 495.3920000076294
+    },
+    "lcpElement": {
+     "selector": "nav#sidebar > div#sidebar-tabs > div#sidebar-actions > a#sidebar-tab-save",
+     "label": "save",
+     "snippet": "<a id=\"sidebar-tab-save\" class=\"sidebar-tab svelte-9r57ym active\" href=\"/\" role=\"tab\" aria-selected=\"true\">"
+    },
+    "interaction": {
+     "inp": 45.686,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 3201.285
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1030.3595000000003,
+     "cls": 0,
+     "tbt": 10.500000000000057,
+     "fcp": 678.3584000000001,
+     "mpfid": 84.50000000000003,
+     "bytes": 253724,
+     "bootup": 256.79600000000005,
+     "mainthread": 1818.3519999999976,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 508,
+     "observedFirstContentfulPaint": 508,
+     "observedFirstContentfulPaintAllFrames": 508,
+     "observedLargestContentfulPaint": 508,
+     "observedLargestContentfulPaintAllFrames": 508,
+     "observedTraceEnd": 2866,
+     "observedLoad": 217,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 498,
+     "observedLastVisualChange": 554,
+     "observedSpeedIndex": 545,
+     "lcp_timeToFirstByte": 8.883,
+     "lcp_resourceLoadDelay": 71.637,
+     "lcp_resourceLoadDuration": 70.916,
+     "lcp_elementRenderDelay": 356.577
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 46.312,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 2744.720999999993
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 982.8620999999996,
+     "cls": 0,
+     "tbt": 6.999999999999943,
+     "fcp": 640.4113499999999,
+     "mpfid": 39.99999999999994,
+     "bytes": 253724,
+     "bootup": 213.42799999999994,
+     "mainthread": 1635.520000000002,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 462,
+     "observedFirstContentfulPaint": 462,
+     "observedFirstContentfulPaintAllFrames": 462,
+     "observedLargestContentfulPaint": 462,
+     "observedLargestContentfulPaintAllFrames": 462,
+     "observedTraceEnd": 2833,
+     "observedLoad": 151,
+     "observedDomContentLoaded": 120,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 445,
+     "observedLastVisualChange": 500,
+     "observedSpeedIndex": 492,
+     "lcp_timeToFirstByte": 4.811,
+     "lcp_resourceLoadDelay": 66.293,
+     "lcp_resourceLoadDuration": 25.971,
+     "lcp_elementRenderDelay": 365.145
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 45.659,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 3689.917999999987
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 975.7171999999995,
+     "cls": 0,
+     "tbt": 11,
+     "fcp": 635.8181999999998,
+     "mpfid": 44,
+     "bytes": 253724,
+     "bootup": 229.40400000000017,
+     "mainthread": 1632.0920000000028,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 276,
+     "observedFirstContentfulPaint": 500,
+     "observedFirstContentfulPaintAllFrames": 500,
+     "observedLargestContentfulPaint": 500,
+     "observedLargestContentfulPaintAllFrames": 500,
+     "observedTraceEnd": 2859,
+     "observedLoad": 171,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 438,
+     "observedLastVisualChange": 490,
+     "observedSpeedIndex": 475,
+     "lcp_timeToFirstByte": 8.393,
+     "lcp_elementRenderDelay": 491.618
+    },
+    "lcpElement": {
+     "selector": "nav#sidebar > div#sidebar-tabs > div#sidebar-actions > a#sidebar-tab-save",
+     "label": "save",
+     "snippet": "<a id=\"sidebar-tab-save\" class=\"sidebar-tab svelte-9r57ym active\" href=\"/\" role=\"tab\" aria-selected=\"true\">"
+    },
+    "interaction": {
+     "inp": 45.683,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 3207.0989999999924
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 994.5199000000001,
+     "cls": 0,
+     "tbt": 12.5,
+     "fcp": 647.90565,
+     "mpfid": 45.5,
+     "bytes": 253724,
+     "bootup": 243.8120000000004,
+     "mainthread": 1787.2160000000056,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 500,
+     "observedFirstContentfulPaint": 500,
+     "observedFirstContentfulPaintAllFrames": 500,
+     "observedLargestContentfulPaint": 500,
+     "observedLargestContentfulPaintAllFrames": 500,
+     "observedTraceEnd": 2867,
+     "observedLoad": 194,
+     "observedDomContentLoaded": 149,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 482,
+     "observedLastVisualChange": 552,
+     "observedSpeedIndex": 499,
+     "lcp_timeToFirstByte": 7.789,
+     "lcp_resourceLoadDelay": 81.114,
+     "lcp_resourceLoadDuration": 27.355,
+     "lcp_elementRenderDelay": 383.266
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 33.937,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 3153.161999999991
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 992.0628999999996,
+     "cls": 0,
+     "tbt": 9.5,
+     "fcp": 646.3261499999999,
+     "mpfid": 42.5,
+     "bytes": 253727,
+     "bootup": 224.68400000000017,
+     "mainthread": 1596.204000000008,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 289,
+     "observedFirstContentfulPaint": 530,
+     "observedFirstContentfulPaintAllFrames": 530,
+     "observedLargestContentfulPaint": 530,
+     "observedLargestContentfulPaintAllFrames": 530,
+     "observedTraceEnd": 2894,
+     "observedLoad": 174,
+     "observedDomContentLoaded": 140,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 470,
+     "observedLastVisualChange": 520,
+     "observedSpeedIndex": 512,
+     "lcp_timeToFirstByte": 8.051,
+     "lcp_elementRenderDelay": 522.273
+    },
+    "lcpElement": {
+     "selector": "nav#sidebar > div#sidebar-tabs > div#sidebar-actions > a#sidebar-tab-save",
+     "label": "save",
+     "snippet": "<a id=\"sidebar-tab-save\" class=\"sidebar-tab svelte-9r57ym active\" href=\"/\" role=\"tab\" aria-selected=\"true\">"
+    },
+    "interaction": {
+     "inp": 69.757,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 2773.86599999999
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 985.6207999999993,
+     "cls": 0,
+     "tbt": 5.999999999999943,
+     "fcp": 642.1847999999998,
+     "mpfid": 38.99999999999994,
+     "bytes": 253727,
+     "bootup": 209.59200000000018,
+     "mainthread": 1542.0000000000023,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 273,
+     "observedFirstContentfulPaint": 511,
+     "observedFirstContentfulPaintAllFrames": 511,
+     "observedLargestContentfulPaint": 511,
+     "observedLargestContentfulPaintAllFrames": 511,
+     "observedTraceEnd": 2858,
+     "observedLoad": 194,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 444,
+     "observedLastVisualChange": 507,
+     "observedSpeedIndex": 480,
+     "lcp_timeToFirstByte": 6.048,
+     "lcp_elementRenderDelay": 505.251
+    },
+    "lcpElement": {
+     "selector": "nav#sidebar > div#sidebar-tabs > div#sidebar-actions > a#sidebar-tab-save",
+     "label": "save",
+     "snippet": "<a id=\"sidebar-tab-save\" class=\"sidebar-tab svelte-9r57ym active\" href=\"/\" role=\"tab\" aria-selected=\"true\">"
+    },
+    "interaction": {
+     "inp": 44.096,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 2530.703999999992
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 985.2203999999997,
+     "cls": 0,
+     "tbt": 4.499999999999972,
+     "fcp": 641.9273999999998,
+     "mpfid": 37.49999999999997,
+     "bytes": 253727,
+     "bootup": 205.04399999999998,
+     "mainthread": 1421.7319999999997,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 407,
+     "observedFirstContentfulPaint": 407,
+     "observedFirstContentfulPaintAllFrames": 407,
+     "observedLargestContentfulPaint": 407,
+     "observedLargestContentfulPaintAllFrames": 407,
+     "observedTraceEnd": 2755,
+     "observedLoad": 146,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 394,
+     "observedLastVisualChange": 465,
+     "observedSpeedIndex": 408,
+     "lcp_timeToFirstByte": 4.812,
+     "lcp_resourceLoadDelay": 61.179,
+     "lcp_resourceLoadDuration": 24.477,
+     "lcp_elementRenderDelay": 316.963
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 44.919,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 3290.5289999999995
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 974.1869999999999,
+     "cls": 0,
+     "tbt": 2,
+     "fcp": 634.8344999999999,
+     "mpfid": 35,
+     "bytes": 253727,
+     "bootup": 176.3599999999999,
+     "mainthread": 1262.5960000000043,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 356,
+     "observedFirstContentfulPaint": 356,
+     "observedFirstContentfulPaintAllFrames": 356,
+     "observedLargestContentfulPaint": 356,
+     "observedLargestContentfulPaintAllFrames": 356,
+     "observedTraceEnd": 2708,
+     "observedLoad": 125,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 350,
+     "observedLastVisualChange": 446,
+     "observedSpeedIndex": 379,
+     "lcp_timeToFirstByte": 4.315,
+     "lcp_resourceLoadDelay": 52.759,
+     "lcp_resourceLoadDuration": 18.319,
+     "lcp_elementRenderDelay": 280.445
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 38.882,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 2185.9549999999685
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 976.3443999999995,
+     "cls": 0,
+     "tbt": 1.9999999999999432,
+     "fcp": 636.2213999999999,
+     "mpfid": 34.99999999999994,
+     "bytes": 253727,
+     "bootup": 167.75599999999991,
+     "mainthread": 1306.600000000004,
+     "dom": 117,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 366,
+     "observedFirstContentfulPaint": 366,
+     "observedFirstContentfulPaintAllFrames": 366,
+     "observedLargestContentfulPaint": 366,
+     "observedLargestContentfulPaintAllFrames": 366,
+     "observedTraceEnd": 2726,
+     "observedLoad": 131,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 354,
+     "observedLastVisualChange": 436,
+     "observedSpeedIndex": 377,
+     "lcp_timeToFirstByte": 4.684,
+     "lcp_resourceLoadDelay": 56.782,
+     "lcp_resourceLoadDuration": 27.844,
+     "lcp_elementRenderDelay": 277.15
+    },
+    "lcpElement": {
+     "selector": "div#content > div#cobalt-save-container > main#cobalt-save > img.meowbalt",
+     "label": "meowbalt",
+     "snippet": "<img class=\"meowbalt smile svelte-1juppb4\" src=\"/meowbalt/smile.png\" height=\"152\" alt=\"meowbalt\" aria-hidden=\"true\">"
+    },
+    "interaction": {
+     "inp": 58.71,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 2684.260999999987
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*api.cobalt.tools*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.cobalt.tools"
+  ]
+ }
+}

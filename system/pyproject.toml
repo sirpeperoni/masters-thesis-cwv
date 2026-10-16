@@ -1,0 +1,16 @@
+[project]
+name = "cwv-risk"
+version = "0.1.0"
+description = "Оценка риска регрессии Core Web Vitals для изменения фронтенд-кода (коммита или pull request)"
+requires-python = ">=3.10"
+dependencies = ["pandas", "numpy", "scikit-learn", "joblib", "typer"]
+
+[project.scripts]
+cwv-risk = "cwv_risk.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["cwv_risk"]

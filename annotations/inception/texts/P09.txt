@@ -1,0 +1,24 @@
+Merge pull request #1798 from junqwoopark/bug/1797_fix_export_background_color
+
+fix(export): Remove redundant hsl() from background color
+
+## :bookmark_tabs: Summary
+
+This PR fixes an issue where exported Images have an incorrect background color.
+   - Copied Image incorrectly had a black background.
+   - Downloaded SVGs incorrectly had a white background.
+This change ensures that the background color of the exported SVG respects the current theme of the editor.
+
+Resolves #1797 
+
+## :straight_ruler: Design Decisions
+
+The code incorrectly wrapped a color value from a CSS variable with an hsl() function, creating an invalid color. The fix removes the redundant hsl() wrapper, ensuring the background color value from the CSS variable is used directly and correctly.
+
+### :clipboard: Tasks
+
+Make sure you
+
+- [x] :book: have read the contribution guidelines
+- [x] :computer: have added unit/e2e tests (if appropriate)
+- [x] :bookmark: targeted `develop` branch

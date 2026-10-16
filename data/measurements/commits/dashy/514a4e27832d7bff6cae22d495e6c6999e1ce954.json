@@ -1,0 +1,1450 @@
+{
+ "schema": 2,
+ "repo": "dashy",
+ "sha": "514a4e27832d7bff6cae22d495e6c6999e1ce954",
+ "parent": "8298de65d3434fc6855e7014980f0dcef8748c86",
+ "date": "2026-05-22T18:41:59+01:00",
+ "subject": "🔀 Merge pull request #2165 from lissy93/fix/search-performance",
+ "status": "ok",
+ "base": {
+  "sha": "8298de65d3434fc6855e7014980f0dcef8748c86",
+  "distHash": "5f4b930fa213f26babab8bcc98291c300e722703b8ab8473c22240d6adeb7d67"
+ },
+ "distHash": "477c869544a71599a4e30199e7a4dd15c8520915ecc3c3c35fbfc0ea94f64091",
+ "timings": {
+  "installMs": null,
+  "buildMs": 21746,
+  "measureMs": 451167
+ },
+ "bundle": {
+  "files": 289,
+  "byExt": {
+   "(none)": {
+    "files": 2,
+    "raw": 195,
+    "gzip": 195
+   },
+   ".js": {
+    "files": 152,
+    "raw": 8142188,
+    "gzip": 3120981
+   },
+   ".css": {
+    "files": 101,
+    "raw": 467406,
+    "gzip": 86312
+   },
+   ".ttf": {
+    "files": 13,
+    "raw": 1550784,
+    "gzip": 1550784
+   },
+   ".yml": {
+    "files": 1,
+    "raw": 1671,
+    "gzip": 1671
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 2,
+    "raw": 11851,
+    "gzip": 3909
+   },
+   ".json": {
+    "files": 1,
+    "raw": 852,
+    "gzip": 315
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 459,
+    "gzip": 228
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 26,
+    "gzip": 46
+   },
+   ".png": {
+    "files": 10,
+    "raw": 174457,
+    "gzip": 174457
+   },
+   ".eot": {
+    "files": 1,
+    "raw": 5908,
+    "gzip": 5908
+   },
+   ".svg": {
+    "files": 1,
+    "raw": 37142,
+    "gzip": 11159
+   },
+   ".woff": {
+    "files": 1,
+    "raw": 3624,
+    "gzip": 3624
+   },
+   ".woff2": {
+    "files": 1,
+    "raw": 3028,
+    "gzip": 3028
+   }
+  },
+  "totalRaw": 10414997,
+  "totalGzip": 4978023
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 616.3263999999999,
+     "cls": 0.004512138449274727,
+     "tbt": 899.7933999999996,
+     "fcp": 487.8264,
+     "mpfid": 558.9999999999995,
+     "bytes": 3278152,
+     "bootup": 898.1200000000008,
+     "mainthread": 2710.687999999995,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 125,
+     "observedFirstContentfulPaint": 125,
+     "observedFirstContentfulPaintAllFrames": 125,
+     "observedLargestContentfulPaint": 125,
+     "observedLargestContentfulPaintAllFrames": 125,
+     "observedTraceEnd": 3165,
+     "observedLoad": 186,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 127,
+     "observedLastVisualChange": 942,
+     "observedSpeedIndex": 484,
+     "lcp_timeToFirstByte": 6.462,
+     "lcp_elementRenderDelay": 118.995
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 176.783,
+     "tbt": 140.83300000000008,
+     "cls": 0,
+     "mainthread": 1152.7889999999984
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 612.5161,
+     "cls": 0.004512138449274727,
+     "tbt": 1066.4999999999998,
+     "fcp": 486.5161,
+     "mpfid": 638,
+     "bytes": 3278152,
+     "bootup": 973.6040000000002,
+     "mainthread": 3003.5919999999946,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 114,
+     "observedFirstContentfulPaint": 114,
+     "observedFirstContentfulPaintAllFrames": 114,
+     "observedLargestContentfulPaint": 114,
+     "observedLargestContentfulPaintAllFrames": 114,
+     "observedTraceEnd": 3226,
+     "observedLoad": 182,
+     "observedDomContentLoaded": 182,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 111,
+     "observedLastVisualChange": 932,
+     "observedSpeedIndex": 545,
+     "lcp_timeToFirstByte": 5.127,
+     "lcp_elementRenderDelay": 109.366
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 177.137,
+     "tbt": 142.62800000000016,
+     "cls": 0,
+     "mainthread": 1116.853999999999
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 613.0068,
+     "cls": 0.004512138449274727,
+     "tbt": 932.5,
+     "fcp": 488.0068,
+     "mpfid": 585,
+     "bytes": 3278152,
+     "bootup": 937.6080000000012,
+     "mainthread": 2892.895999999997,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 110,
+     "observedFirstContentfulPaint": 110,
+     "observedFirstContentfulPaintAllFrames": 110,
+     "observedLargestContentfulPaint": 110,
+     "observedLargestContentfulPaintAllFrames": 110,
+     "observedTraceEnd": 3221,
+     "observedLoad": 177,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 124,
+     "observedLastVisualChange": 914,
+     "observedSpeedIndex": 506,
+     "lcp_timeToFirstByte": 6.030000007629394,
+     "lcp_elementRenderDelay": 103.8179999923706
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 152.518,
+     "tbt": 105.38300000000004,
+     "cls": 0,
+     "mainthread": 934.225999999999
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 602.5794000000001,
+     "cls": 0.004512138449274727,
+     "tbt": 747.8551500000001,
+     "fcp": 525.5794000000001,
+     "mpfid": 466,
+     "bytes": 3278152,
+     "bootup": 806.7959999999994,
+     "mainthread": 2500.1439999999966,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 118,
+     "observedFirstContentfulPaint": 118,
+     "observedFirstContentfulPaintAllFrames": 118,
+     "observedLargestContentfulPaint": 118,
+     "observedLargestContentfulPaintAllFrames": 118,
+     "observedTraceEnd": 3096,
+     "observedLoad": 170,
+     "observedDomContentLoaded": 169,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 119,
+     "observedLastVisualChange": 874,
+     "observedSpeedIndex": 460,
+     "lcp_timeToFirstByte": 6.526,
+     "lcp_elementRenderDelay": 111.646
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 162.503,
+     "tbt": 103.78499999999985,
+     "cls": 0,
+     "mainthread": 1046.2409999999988
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 623.8215,
+     "cls": 0.004512138449274727,
+     "tbt": 828.9999999999995,
+     "fcp": 486.3215,
+     "mpfid": 460.99999999999955,
+     "bytes": 3278080,
+     "bootup": 977.1040000000002,
+     "mainthread": 2578.179999999976,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 124,
+     "observedFirstContentfulPaint": 124,
+     "observedFirstContentfulPaintAllFrames": 124,
+     "observedLargestContentfulPaint": 124,
+     "observedLargestContentfulPaintAllFrames": 124,
+     "observedTraceEnd": 3357,
+     "observedLoad": 193,
+     "observedDomContentLoaded": 192,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 113,
+     "observedLastVisualChange": 1053,
+     "observedSpeedIndex": 493,
+     "lcp_timeToFirstByte": 4.34,
+     "lcp_elementRenderDelay": 119.423
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 136.212,
+     "tbt": 84.45399999999995,
+     "cls": 0,
+     "mainthread": 1073.7599999999995
+    },
+    "seq": 9
+   },
+   {
+    "navigation": {
+     "lcp": 632.2795,
+     "cls": 0.004512138449274727,
+     "tbt": 878,
+     "fcp": 485.7795,
+     "mpfid": 461,
+     "bytes": 3278160,
+     "bootup": 1051.3920000000007,
+     "mainthread": 2760.1839999999893,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 130,
+     "observedFirstContentfulPaint": 130,
+     "observedFirstContentfulPaintAllFrames": 130,
+     "observedLargestContentfulPaint": 130,
+     "observedLargestContentfulPaintAllFrames": 130,
+     "observedTraceEnd": 3168,
+     "observedLoad": 213,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 131,
+     "observedLastVisualChange": 950,
+     "observedSpeedIndex": 550,
+     "lcp_timeToFirstByte": 7.193999992370605,
+     "lcp_elementRenderDelay": 122.6610000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 155.692,
+     "tbt": 111.78799999999978,
+     "cls": 0,
+     "mainthread": 1146.0969999999988
+    },
+    "seq": 10
+   },
+   {
+    "navigation": {
+     "lcp": 614.0823,
+     "cls": 0.004512138449274727,
+     "tbt": 757.7294250000002,
+     "fcp": 489.0823,
+     "mpfid": 465.00000000000045,
+     "bytes": 3278160,
+     "bootup": 852.3719999999998,
+     "mainthread": 2437.1999999999935,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 123,
+     "observedFirstContentfulPaint": 123,
+     "observedFirstContentfulPaintAllFrames": 123,
+     "observedLargestContentfulPaint": 123,
+     "observedLargestContentfulPaintAllFrames": 123,
+     "observedTraceEnd": 3097,
+     "observedLoad": 179,
+     "observedDomContentLoaded": 179,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 140,
+     "observedLastVisualChange": 884,
+     "observedSpeedIndex": 463,
+     "lcp_timeToFirstByte": 7.493999992370606,
+     "lcp_elementRenderDelay": 115.0190000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 161.626,
+     "tbt": 124.76699999999994,
+     "cls": 0,
+     "mainthread": 1077.7649999999999
+    },
+    "seq": 13
+   },
+   {
+    "navigation": {
+     "lcp": 621.0572999999999,
+     "cls": 0.004512138449274727,
+     "tbt": 931.2356750000004,
+     "fcp": 489.0573,
+     "mpfid": 609.0000000000005,
+     "bytes": 3278160,
+     "bootup": 934.5880000000006,
+     "mainthread": 2773.7799999999916,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 131,
+     "observedFirstContentfulPaint": 131,
+     "observedFirstContentfulPaintAllFrames": 131,
+     "observedLargestContentfulPaint": 131,
+     "observedLargestContentfulPaintAllFrames": 131,
+     "observedTraceEnd": 3178,
+     "observedLoad": 190,
+     "observedDomContentLoaded": 190,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 131,
+     "observedLastVisualChange": 983,
+     "observedSpeedIndex": 493,
+     "lcp_timeToFirstByte": 5.153,
+     "lcp_elementRenderDelay": 125.387
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 170.927,
+     "tbt": 117.54100000000005,
+     "cls": 0,
+     "mainthread": 1079.9379999999987
+    },
+    "seq": 14
+   },
+   {
+    "navigation": {
+     "lcp": 651.0695000000001,
+     "cls": 0.004512138449274727,
+     "tbt": 839.9826250000001,
+     "fcp": 526.0695000000001,
+     "mpfid": 511,
+     "bytes": 3278160,
+     "bootup": 877.7320000000003,
+     "mainthread": 2707.255999999992,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 114,
+     "observedFirstContentfulPaint": 114,
+     "observedFirstContentfulPaintAllFrames": 114,
+     "observedLargestContentfulPaint": 114,
+     "observedLargestContentfulPaintAllFrames": 114,
+     "observedTraceEnd": 3166,
+     "observedLoad": 181,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 129,
+     "observedLastVisualChange": 851,
+     "observedSpeedIndex": 495,
+     "lcp_timeToFirstByte": 5.451999992370605,
+     "lcp_elementRenderDelay": 108.34400000762939
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 143.076,
+     "tbt": 102.97600000000011,
+     "cls": 0,
+     "mainthread": 1005.4369999999988
+    },
+    "seq": 17
+   },
+   {
+    "navigation": {
+     "lcp": 607.5453,
+     "cls": 0.004512138449274727,
+     "tbt": 909.9999999999995,
+     "fcp": 484.0453,
+     "mpfid": 479.99999999999955,
+     "bytes": 3278151,
+     "bootup": 935.5600000000006,
+     "mainthread": 2646.8679999999663,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 117,
+     "observedFirstContentfulPaint": 117,
+     "observedFirstContentfulPaintAllFrames": 117,
+     "observedLargestContentfulPaint": 117,
+     "observedLargestContentfulPaintAllFrames": 117,
+     "observedTraceEnd": 3247,
+     "observedLoad": 173,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 117,
+     "observedLastVisualChange": 924,
+     "observedSpeedIndex": 471,
+     "lcp_timeToFirstByte": 6.691999992370605,
+     "lcp_elementRenderDelay": 110.3000000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 169.093,
+     "tbt": 106.36199999999997,
+     "cls": 0,
+     "mainthread": 1118.1029999999985
+    },
+    "seq": 18
+   },
+   {
+    "navigation": {
+     "lcp": 621.6086,
+     "cls": 0.004512138449274727,
+     "tbt": 780,
+     "fcp": 484.1086,
+     "mpfid": 502.99999999999955,
+     "bytes": 3278160,
+     "bootup": 859.5039999999999,
+     "mainthread": 2516.3439999999973,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 129,
+     "observedFirstContentfulPaint": 129,
+     "observedFirstContentfulPaintAllFrames": 129,
+     "observedLargestContentfulPaint": 129,
+     "observedLargestContentfulPaintAllFrames": 129,
+     "observedTraceEnd": 3133,
+     "observedLoad": 218,
+     "observedDomContentLoaded": 218,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 130,
+     "observedLastVisualChange": 913,
+     "observedSpeedIndex": 478,
+     "lcp_timeToFirstByte": 5.712,
+     "lcp_elementRenderDelay": 123.606
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 138.557,
+     "tbt": 95.68900000000008,
+     "cls": 0,
+     "mainthread": 1059.1459999999981
+    },
+    "seq": 21
+   },
+   {
+    "navigation": {
+     "lcp": 612.7698,
+     "cls": 0.004512138449274727,
+     "tbt": 956.5000000000002,
+     "fcp": 486.2698,
+     "mpfid": 623.0000000000005,
+     "bytes": 3278160,
+     "bootup": 893.9399999999996,
+     "mainthread": 2801.311999999998,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 138,
+     "observedFirstContentfulPaint": 138,
+     "observedFirstContentfulPaintAllFrames": 138,
+     "observedLargestContentfulPaint": 138,
+     "observedLargestContentfulPaintAllFrames": 138,
+     "observedTraceEnd": 3180,
+     "observedLoad": 186,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 127,
+     "observedLastVisualChange": 886,
+     "observedSpeedIndex": 483,
+     "lcp_timeToFirstByte": 5.971,
+     "lcp_elementRenderDelay": 132.147
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 157.024,
+     "tbt": 116.80500000000006,
+     "cls": 0,
+     "mainthread": 1119.632999999999
+    },
+    "seq": 22
+   },
+   {
+    "navigation": {
+     "lcp": 611.7084,
+     "cls": 0.004512138449274727,
+     "tbt": 888.5,
+     "fcp": 484.7084,
+     "mpfid": 588,
+     "bytes": 3278160,
+     "bootup": 847.1840000000011,
+     "mainthread": 2703.4199999999973,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 127,
+     "observedFirstContentfulPaint": 127,
+     "observedFirstContentfulPaintAllFrames": 127,
+     "observedLargestContentfulPaint": 127,
+     "observedLargestContentfulPaintAllFrames": 127,
+     "observedTraceEnd": 3166,
+     "observedLoad": 187,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 127,
+     "observedLastVisualChange": 844,
+     "observedSpeedIndex": 475,
+     "lcp_timeToFirstByte": 6.641,
+     "lcp_elementRenderDelay": 120.157
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 141.8,
+     "tbt": 90.57900000000006,
+     "cls": 0,
+     "mainthread": 1035.4969999999987
+    },
+    "seq": 25
+   },
+   {
+    "navigation": {
+     "lcp": 627.4688,
+     "cls": 0.004512138449274727,
+     "tbt": 806.6328000000001,
+     "fcp": 526.4688,
+     "mpfid": 443,
+     "bytes": 3278160,
+     "bootup": 976.2279999999984,
+     "mainthread": 2562.571999999988,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 134,
+     "observedFirstContentfulPaint": 134,
+     "observedFirstContentfulPaintAllFrames": 134,
+     "observedLargestContentfulPaint": 134,
+     "observedLargestContentfulPaintAllFrames": 134,
+     "observedTraceEnd": 3118,
+     "observedLoad": 200,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 135,
+     "observedLastVisualChange": 901,
+     "observedSpeedIndex": 504,
+     "lcp_timeToFirstByte": 5.744,
+     "lcp_elementRenderDelay": 128.188
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 148.637,
+     "tbt": 98.60699999999997,
+     "cls": 0,
+     "mainthread": 1014.5339999999985
+    },
+    "seq": 26
+   },
+   {
+    "navigation": {
+     "lcp": 611.2991,
+     "cls": 0.004512138449274727,
+     "tbt": 742.175225,
+     "fcp": 488.2991,
+     "mpfid": 466,
+     "bytes": 3278160,
+     "bootup": 810.4359999999989,
+     "mainthread": 2456.7959999999994,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 122,
+     "observedFirstContentfulPaint": 122,
+     "observedFirstContentfulPaintAllFrames": 122,
+     "observedLargestContentfulPaint": 122,
+     "observedLargestContentfulPaintAllFrames": 122,
+     "observedTraceEnd": 3099,
+     "observedLoad": 177,
+     "observedDomContentLoaded": 177,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 119,
+     "observedLastVisualChange": 873,
+     "observedSpeedIndex": 456,
+     "lcp_timeToFirstByte": 7.394999992370606,
+     "lcp_elementRenderDelay": 114.54400000762939
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 160.39,
+     "tbt": 94.09000000000003,
+     "cls": 0,
+     "mainthread": 885.0469999999989
+    },
+    "seq": 29
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 628.716,
+     "cls": 0.004512138449274727,
+     "tbt": 955.5710000000004,
+     "fcp": 489.716,
+     "mpfid": 588.0000000000005,
+     "bytes": 3277577,
+     "bootup": 1032.7120000000007,
+     "mainthread": 3004.84799999999,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 131,
+     "observedFirstContentfulPaint": 131,
+     "observedFirstContentfulPaintAllFrames": 131,
+     "observedLargestContentfulPaint": 131,
+     "observedLargestContentfulPaintAllFrames": 131,
+     "observedTraceEnd": 3393,
+     "observedLoad": 209,
+     "observedDomContentLoaded": 1,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 129,
+     "observedLastVisualChange": 1058,
+     "observedSpeedIndex": 543,
+     "lcp_timeToFirstByte": 5.828999992370606,
+     "lcp_elementRenderDelay": 125.2770000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 197.998,
+     "tbt": 151.34199999999942,
+     "cls": 0,
+     "mainthread": 1280.2309999999993
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 623.2871,
+     "cls": 0.004512138449274727,
+     "tbt": 932,
+     "fcp": 485.7871,
+     "mpfid": 526.0000000000005,
+     "bytes": 3277598,
+     "bootup": 1007.3439999999989,
+     "mainthread": 2845.799999999997,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 111,
+     "observedFirstContentfulPaint": 111,
+     "observedFirstContentfulPaintAllFrames": 111,
+     "observedLargestContentfulPaint": 111,
+     "observedLargestContentfulPaintAllFrames": 111,
+     "observedTraceEnd": 3228,
+     "observedLoad": 187,
+     "observedDomContentLoaded": 187,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 112,
+     "observedLastVisualChange": 890,
+     "observedSpeedIndex": 518,
+     "lcp_timeToFirstByte": 6.0520000076293945,
+     "lcp_elementRenderDelay": 105.4219999923706
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 186.501,
+     "tbt": 146.04599999999982,
+     "cls": 0,
+     "mainthread": 1281.4749999999988
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 649.3134,
+     "cls": 0.004512138449274727,
+     "tbt": 943.1716500000005,
+     "fcp": 498.3134,
+     "mpfid": 508.00000000000045,
+     "bytes": 3277593,
+     "bootup": 1131.5760000000005,
+     "mainthread": 2913.655999999991,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 139,
+     "observedFirstContentfulPaint": 139,
+     "observedFirstContentfulPaintAllFrames": 139,
+     "observedLargestContentfulPaint": 139,
+     "observedLargestContentfulPaintAllFrames": 139,
+     "observedTraceEnd": 3219,
+     "observedLoad": 228,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 138,
+     "observedLastVisualChange": 999,
+     "observedSpeedIndex": 563,
+     "lcp_timeToFirstByte": 8.818000007629395,
+     "lcp_elementRenderDelay": 130.2299999923706
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 198.026,
+     "tbt": 172.8110000000005,
+     "cls": 0,
+     "mainthread": 1378.849
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 601.9049,
+     "cls": 0.00230053409472317,
+     "tbt": 797.5000000000005,
+     "fcp": 485.4049,
+     "mpfid": 528.0000000000005,
+     "bytes": 3277536,
+     "bootup": 825.2440000000004,
+     "mainthread": 2471.7159999999876,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 119,
+     "observedFirstContentfulPaint": 119,
+     "observedFirstContentfulPaintAllFrames": 119,
+     "observedLargestContentfulPaint": 119,
+     "observedLargestContentfulPaintAllFrames": 119,
+     "observedTraceEnd": 2959,
+     "observedLoad": 165,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.00230053409472317,
+     "observedCumulativeLayoutShiftMainFrame": 0.00230053409472317,
+     "observedFirstVisualChange": 115,
+     "observedLastVisualChange": 2489,
+     "observedSpeedIndex": 497,
+     "lcp_timeToFirstByte": 4.171,
+     "lcp_elementRenderDelay": 115.309
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 187.497,
+     "tbt": 122.57600000000036,
+     "cls": 0,
+     "mainthread": 1219.2129999999977
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 609.9298,
+     "cls": 0.004512138449274727,
+     "tbt": 869.5175500000003,
+     "fcp": 524.9298,
+     "mpfid": 532.0000000000005,
+     "bytes": 3277606,
+     "bootup": 879.3039999999995,
+     "mainthread": 2617.7879999999964,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 117,
+     "observedFirstContentfulPaint": 117,
+     "observedFirstContentfulPaintAllFrames": 117,
+     "observedLargestContentfulPaint": 117,
+     "observedLargestContentfulPaintAllFrames": 117,
+     "observedTraceEnd": 3121,
+     "observedLoad": 184,
+     "observedDomContentLoaded": 183,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 118,
+     "observedLastVisualChange": 905,
+     "observedSpeedIndex": 471,
+     "lcp_timeToFirstByte": 8.505,
+     "lcp_elementRenderDelay": 108.888
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 167.289,
+     "tbt": 114.33000000000038,
+     "cls": 0,
+     "mainthread": 1185.346999999998
+    },
+    "seq": 8
+   },
+   {
+    "navigation": {
+     "lcp": 609.4072,
+     "cls": 0.004512138449274727,
+     "tbt": 860.4999999999998,
+     "fcp": 485.4072,
+     "mpfid": 522,
+     "bytes": 3277606,
+     "bootup": 936.6640000000007,
+     "mainthread": 2738.1359999999945,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 124,
+     "observedFirstContentfulPaint": 124,
+     "observedFirstContentfulPaintAllFrames": 124,
+     "observedLargestContentfulPaint": 124,
+     "observedLargestContentfulPaintAllFrames": 124,
+     "observedTraceEnd": 3178,
+     "observedLoad": 183,
+     "observedDomContentLoaded": 183,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 125,
+     "observedLastVisualChange": 858,
+     "observedSpeedIndex": 492,
+     "lcp_timeToFirstByte": 5.969999984741211,
+     "lcp_elementRenderDelay": 118.29400001525879
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 201.134,
+     "tbt": 131.351,
+     "cls": 0,
+     "mainthread": 1290.7299999999984
+    },
+    "seq": 11
+   },
+   {
+    "navigation": {
+     "lcp": 608.4259,
+     "cls": 0.004512138449274727,
+     "tbt": 789,
+     "fcp": 485.4259,
+     "mpfid": 477,
+     "bytes": 3277601,
+     "bootup": 884.6479999999998,
+     "mainthread": 2530.9919999999943,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 114,
+     "observedFirstContentfulPaint": 114,
+     "observedFirstContentfulPaintAllFrames": 114,
+     "observedLargestContentfulPaint": 114,
+     "observedLargestContentfulPaintAllFrames": 114,
+     "observedTraceEnd": 3093,
+     "observedLoad": 172,
+     "observedDomContentLoaded": 172,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 125,
+     "observedLastVisualChange": 875,
+     "observedSpeedIndex": 479,
+     "lcp_timeToFirstByte": 5.549,
+     "lcp_elementRenderDelay": 108.396
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 161.264,
+     "tbt": 72.30899999999986,
+     "cls": 0,
+     "mainthread": 1194.4219999999993
+    },
+    "seq": 12
+   },
+   {
+    "navigation": {
+     "lcp": 622.8276000000001,
+     "cls": 0.004512138449274727,
+     "tbt": 960,
+     "fcp": 485.8276,
+     "mpfid": 539,
+     "bytes": 3277601,
+     "bootup": 1032.6120000000012,
+     "mainthread": 2857.2839999999974,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 115,
+     "observedFirstContentfulPaint": 115,
+     "observedFirstContentfulPaintAllFrames": 115,
+     "observedLargestContentfulPaint": 115,
+     "observedLargestContentfulPaintAllFrames": 115,
+     "observedTraceEnd": 3202,
+     "observedLoad": 190,
+     "observedDomContentLoaded": 190,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 112,
+     "observedLastVisualChange": 858,
+     "observedSpeedIndex": 531,
+     "lcp_timeToFirstByte": 6.819,
+     "lcp_elementRenderDelay": 108.099
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 190.687,
+     "tbt": 133.1769999999999,
+     "cls": 0,
+     "mainthread": 1301.4519999999995
+    },
+    "seq": 15
+   },
+   {
+    "navigation": {
+     "lcp": 621.918,
+     "cls": 0.004512138449274727,
+     "tbt": 923.5205000000001,
+     "fcp": 493.918,
+     "mpfid": 567,
+     "bytes": 3277606,
+     "bootup": 926.2359999999994,
+     "mainthread": 2877.7359999999962,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 142,
+     "observedFirstContentfulPaint": 142,
+     "observedFirstContentfulPaintAllFrames": 142,
+     "observedLargestContentfulPaint": 142,
+     "observedLargestContentfulPaintAllFrames": 142,
+     "observedTraceEnd": 3141,
+     "observedLoad": 204,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 143,
+     "observedLastVisualChange": 943,
+     "observedSpeedIndex": 511,
+     "lcp_timeToFirstByte": 7.2940000076293945,
+     "lcp_elementRenderDelay": 134.7289999923706
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 192.397,
+     "tbt": 134.87199999999984,
+     "cls": 0,
+     "mainthread": 1332.7769999999998
+    },
+    "seq": 16
+   },
+   {
+    "navigation": {
+     "lcp": 614.5254,
+     "cls": 0.004512138449274727,
+     "tbt": 995.8686499999999,
+     "fcp": 489.5254,
+     "mpfid": 635,
+     "bytes": 3277601,
+     "bootup": 934.5680000000008,
+     "mainthread": 2849.3759999999997,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 121,
+     "observedFirstContentfulPaint": 121,
+     "observedFirstContentfulPaintAllFrames": 121,
+     "observedLargestContentfulPaint": 121,
+     "observedLargestContentfulPaintAllFrames": 121,
+     "observedTraceEnd": 3207,
+     "observedLoad": 187,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 122,
+     "observedLastVisualChange": 907,
+     "observedSpeedIndex": 494,
+     "lcp_timeToFirstByte": 7.480000015258789,
+     "lcp_elementRenderDelay": 113.34699998474122
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 161.62,
+     "tbt": 95.202,
+     "cls": 0,
+     "mainthread": 1172.3349999999982
+    },
+    "seq": 19
+   },
+   {
+    "navigation": {
+     "lcp": 605.3954,
+     "cls": 0.004512138449274727,
+     "tbt": 860,
+     "fcp": 484.8954,
+     "mpfid": 547,
+     "bytes": 3277606,
+     "bootup": 890.7120000000002,
+     "mainthread": 2684.0799999999963,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 136,
+     "observedFirstContentfulPaint": 136,
+     "observedFirstContentfulPaintAllFrames": 136,
+     "observedLargestContentfulPaint": 136,
+     "observedLargestContentfulPaintAllFrames": 136,
+     "observedTraceEnd": 3157,
+     "observedLoad": 185,
+     "observedDomContentLoaded": 185,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 133,
+     "observedLastVisualChange": 839,
+     "observedSpeedIndex": 481,
+     "lcp_timeToFirstByte": 5.427999992370605,
+     "lcp_elementRenderDelay": 130.9870000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 181.616,
+     "tbt": 108.10500000000013,
+     "cls": 0,
+     "mainthread": 1206.6509999999985
+    },
+    "seq": 20
+   },
+   {
+    "navigation": {
+     "lcp": 602.5024000000001,
+     "cls": 0.004512138449274727,
+     "tbt": 755.4999999999995,
+     "fcp": 484.0024,
+     "mpfid": 467.99999999999955,
+     "bytes": 3277601,
+     "bootup": 841.564,
+     "mainthread": 2423.771999999994,
+     "dom": 176,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 117,
+     "observedFirstContentfulPaint": 117,
+     "observedFirstContentfulPaintAllFrames": 117,
+     "observedLargestContentfulPaint": 117,
+     "observedLargestContentfulPaintAllFrames": 117,
+     "observedTraceEnd": 3055,
+     "observedLoad": 165,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 120,
+     "observedLastVisualChange": 858,
+     "observedSpeedIndex": 463,
+     "lcp_timeToFirstByte": 5.902,
+     "lcp_elementRenderDelay": 111.326
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 166.364,
+     "tbt": 107.9889999999998,
+     "cls": 0,
+     "mainthread": 1141.5679999999988
+    },
+    "seq": 23
+   },
+   {
+    "navigation": {
+     "lcp": 610.2596,
+     "cls": 0.004512138449274727,
+     "tbt": 761.5,
+     "fcp": 484.2596,
+     "mpfid": 469,
+     "bytes": 3277606,
+     "bootup": 851.4680000000002,
+     "mainthread": 2503.7759999999953,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 149,
+     "observedFirstContentfulPaint": 149,
+     "observedFirstContentfulPaintAllFrames": 149,
+     "observedLargestContentfulPaint": 149,
+     "observedLargestContentfulPaintAllFrames": 149,
+     "observedTraceEnd": 3118,
+     "observedLoad": 203,
+     "observedDomContentLoaded": 203,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 149,
+     "observedLastVisualChange": 882,
+     "observedSpeedIndex": 474,
+     "lcp_timeToFirstByte": 6.905999992370606,
+     "lcp_elementRenderDelay": 142.0270000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 194.41,
+     "tbt": 124.47100000000012,
+     "cls": 0,
+     "mainthread": 1286.650999999999
+    },
+    "seq": 24
+   },
+   {
+    "navigation": {
+     "lcp": 628.1473,
+     "cls": 0.004512138449274727,
+     "tbt": 892.4631749999996,
+     "fcp": 528.1473,
+     "mpfid": 469.99999999999955,
+     "bytes": 3277592,
+     "bootup": 979.6399999999994,
+     "mainthread": 2681.4159999999706,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 134,
+     "observedFirstContentfulPaint": 134,
+     "observedFirstContentfulPaintAllFrames": 134,
+     "observedLargestContentfulPaint": 134,
+     "observedLargestContentfulPaintAllFrames": 134,
+     "observedTraceEnd": 3244,
+     "observedLoad": 205,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 135,
+     "observedLastVisualChange": 938,
+     "observedSpeedIndex": 524,
+     "lcp_timeToFirstByte": 7.817999992370606,
+     "lcp_elementRenderDelay": 125.8540000076294
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 177.464,
+     "tbt": 93.75400000000013,
+     "cls": 0,
+     "mainthread": 1148.5819999999987
+    },
+    "seq": 27
+   },
+   {
+    "navigation": {
+     "lcp": 606.4573,
+     "cls": 0.004512138449274727,
+     "tbt": 740.135675,
+     "fcp": 526.4573,
+     "mpfid": 434,
+     "bytes": 3277600,
+     "bootup": 831.5199999999992,
+     "mainthread": 2383.5079999999766,
+     "dom": 175,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 117,
+     "observedFirstContentfulPaint": 117,
+     "observedFirstContentfulPaintAllFrames": 117,
+     "observedLargestContentfulPaint": 117,
+     "observedLargestContentfulPaintAllFrames": 117,
+     "observedTraceEnd": 3191,
+     "observedLoad": 176,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.004512138449274727,
+     "observedCumulativeLayoutShiftMainFrame": 0.004512138449274727,
+     "observedFirstVisualChange": 128,
+     "observedLastVisualChange": 868,
+     "observedSpeedIndex": 451,
+     "lcp_timeToFirstByte": 7.222,
+     "lcp_elementRenderDelay": 109.955
+    },
+    "lcpElement": {
+     "selector": "div#loader > h1",
+     "label": "Dashy",
+     "snippet": "<h1>"
+    },
+    "interaction": {
+     "inp": 173.833,
+     "tbt": 91.1959999999998,
+     "cls": 0,
+     "mainthread": 1119.6769999999979
+    },
+    "seq": 28
+   }
+  ]
+ },
+ "extended": true,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*rss2json.com*",
+   "*readme-contribs.as93.net*",
+   "*avatars.githubusercontent.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "ka-p.fontawesome.com",
+   "kit.fontawesome.com"
+  ],
+  "blocked": [
+   "api.rss2json.com",
+   "readme-contribs.as93.net"
+  ]
+ }
+}

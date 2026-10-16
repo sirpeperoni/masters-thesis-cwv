@@ -1,0 +1,90 @@
+{
+ "schema": 2,
+ "repo": "jsoncrack",
+ "sha": "6e8a1d9eb7d07a77630671a0abcd76d41e8a3e04",
+ "parent": "eb409d29c50385b9cb5a12c88aa9a11eec354325",
+ "date": "2025-12-12T01:29:04+03:00",
+ "subject": "chore: remove unused packages and upgrade packages to latest",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": 561898,
+  "buildMs": 45595,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*supabase.co*",
+   "*lemonsqueezy*"
+  ],
+  "lang": "en-US"
+ },
+ "error": " error: Cannot find module 'jsonwebtoken' or its corresponding type declarations.\n\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m type { \u001b[33mModalProps\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@mantine/core\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mModal\u001b[39m\u001b[33m,\u001b[39m \u001b[33mButton\u001b[39m\u001b[33m,\u001b[39m \u001b[33mTextarea\u001b[39m\u001b[33m,\u001b[39m \u001b[33mGroup\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@mantine/core\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { decode } \u001b[36mfrom\u001b[39m \u001b[32m\"jsonwebtoken\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m { event \u001b[36mas\u001b[39m gaEvent } \u001b[36mfrom\u001b[39m \u001b[32m\"nextjs-google-analytics\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m \u001b[36mimport\u001b[39m useFile \u001b[36mfrom\u001b[39m \u001b[32m\"../../../store/useFile\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m\u001b[0m\nNext.js build worker exited with code: 1 and signal: null\n  ▲ Next.js 14.2.34\n  - Environments: .env\n\n   Linting and checking validity of types ...\nFailed to compile.\n\n./src/features/modals/JWTModal/index.tsx:4:24\nType error: Cannot find module 'jsonwebtoken' or its corresponding type declarations.\n\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m type { \u001b[33mModalProps\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@mantine/core\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \u001b[36mimport\u001b[39m { \u001b[33mModal\u001b[39m\u001b[33m,\u001b[39m \u001b[33mButton\u001b[39m\u001b[33m,\u001b[39m \u001b[33mTextarea\u001b[39m\u001b[33m,\u001b[39m \u001b[33mGroup\u001b[39m } \u001b[36mfrom\u001b[39m \u001b[32m\"@mantine/core\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m \u001b[36mimport\u001b[39m { decode } \u001b[36mfrom\u001b[39m \u001b[32m\"jsonwebtoken\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \u001b[36mimport\u001b[39m { event \u001b[36mas\u001b[39m gaEvent } \u001b[36mfrom\u001b[39m \u001b[32m\"nextjs-google-analytics\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m \u001b[36mimport\u001b[39m useFile \u001b[36mfrom\u001b[39m \u001b[32m\"../../../store/useFile\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m\u001b[0m\nNext.js build worker exited with code: 1 and signal: null\n"
+}

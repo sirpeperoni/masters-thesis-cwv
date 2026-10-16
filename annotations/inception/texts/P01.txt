@@ -1,0 +1,29 @@
+Merge pull request #1980 from mermaid-js/chore/update-all-deps
+
+chore: update all dependencies to latest versions
+
+## Summary
+- Bump the full dependency tree to latest versions, including Vite 8, Vitest 4, ESLint 10, TypeScript 6, Svelte 5.56, and `@sveltejs/kit` 2.63
+- Migrate `mode-watcher` 0.x → 1.x (`$mode` store → `mode.current` rune) across layout, editors, and theme components
+- Fix ESLint `svelte/no-navigation-without-resolve` violations and upgrade Playwright CI image to `v1.60.0-jammy` for Node 24 compatibility
+
+## Notable bumps
+| Package | Before | After |
+|---------|--------|-------|
+| vite | 7.x | 8.0.16 |
+| vitest | 3.x | 4.1.8 |
+| eslint | 9.x | 10.4.1 |
+| typescript | 5.9 | 6.0.3 |
+| mode-watcher | 0.5 | 1.1.0 |
+| monaco-editor | 0.52 | 0.55.1 |
+| uuid | 9 | 14.0.0 |
+| husky | 8 | 9.1.7 |
+
+## Test plan
+- [x] `pnpm build`
+- [x] `pnpm lint`
+- [x] `pnpm test:unit run` (20 tests)
+- [x] `CI=true pnpm test:e2e` (23 passed, 7 skipped)
+- [ ] CI passes on GitHub Actions
+
+Made with Cursor

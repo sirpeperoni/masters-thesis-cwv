@@ -1,0 +1,626 @@
+{
+ "schema": 2,
+ "repo": "react-bits",
+ "sha": "415df745053a540bcf76bd1dbb96a6a4593f1b0d",
+ "parent": "98cf9d97b7f6e7d4b6b8562df7c73a8450a1c2b7",
+ "date": "2026-07-23T23:55:42+03:00",
+ "subject": "Merge pull request #1007 from elias4044/fix/plasma-performance",
+ "status": "ok",
+ "base": {
+  "sha": "98cf9d97b7f6e7d4b6b8562df7c73a8450a1c2b7",
+  "distHash": "d2976cc1dd7aa1277a959ca2ff2d8cc3c23de9d8421332db39c446ca97f759ff"
+ },
+ "distHash": "a038851e408fb673c238e78ac93dff6613116ace069e0551936edf754e5a5b2b",
+ "timings": {
+  "installMs": null,
+  "buildMs": 25448,
+  "measureMs": 182467
+ },
+ "bundle": {
+  "files": 1258,
+  "byExt": {
+   ".png": {
+    "files": 10,
+    "raw": 3614028,
+    "gzip": 3614028
+   },
+   ".glb": {
+    "files": 4,
+    "raw": 2529408,
+    "gzip": 2529408
+   },
+   ".js": {
+    "files": 249,
+    "raw": 14094166,
+    "gzip": 3318992
+   },
+   ".css": {
+    "files": 121,
+    "raw": 295600,
+    "gzip": 74582
+   },
+   ".webp": {
+    "files": 18,
+    "raw": 4543874,
+    "gzip": 4543874
+   },
+   ".ttf": {
+    "files": 1,
+    "raw": 40276,
+    "gzip": 40276
+   },
+   ".gif": {
+    "files": 3,
+    "raw": 8468075,
+    "gzip": 8468075
+   },
+   ".svg": {
+    "files": 13,
+    "raw": 248624,
+    "gzip": 99141
+   },
+   ".mp3": {
+    "files": 3,
+    "raw": 6814,
+    "gzip": 6814
+   },
+   ".mp4": {
+    "files": 135,
+    "raw": 8478464,
+    "gzip": 8478464
+   },
+   ".webm": {
+    "files": 136,
+    "raw": 8536110,
+    "gzip": 8536110
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".html": {
+    "files": 1,
+    "raw": 5327,
+    "gzip": 1650
+   },
+   ".txt": {
+    "files": 2,
+    "raw": 24258,
+    "gzip": 7282
+   },
+   ".json": {
+    "files": 557,
+    "raw": 6323072,
+    "gzip": 1755353
+   },
+   ".md": {
+    "files": 1,
+    "raw": 290,
+    "gzip": 290
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 263,
+    "gzip": 163
+   },
+   ".xml": {
+    "files": 1,
+    "raw": 26704,
+    "gzip": 26704
+   },
+   ".jpg": {
+    "files": 1,
+    "raw": 585800,
+    "gzip": 585800
+   }
+  },
+  "totalRaw": 57836559,
+  "totalGzip": 42102412
+ },
+ "runs": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1605.1457500000001,
+     "cls": 0.1293628964188775,
+     "tbt": 737.6771250000003,
+     "fcp": 1492.038125,
+     "mpfid": 793,
+     "bytes": 1878914,
+     "bootup": 1468.9639999999558,
+     "mainthread": 4225.303999999924,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 758,
+     "observedFirstContentfulPaint": 1174,
+     "observedFirstContentfulPaintAllFrames": 1174,
+     "observedLargestContentfulPaint": 1358,
+     "observedLargestContentfulPaintAllFrames": 1358,
+     "observedTraceEnd": 3648,
+     "observedLoad": 735,
+     "observedDomContentLoaded": 732,
+     "observedCumulativeLayoutShift": 0.1293628964188775,
+     "observedCumulativeLayoutShiftMainFrame": 0.1293628964188775,
+     "observedFirstVisualChange": 751,
+     "observedLastVisualChange": 3645,
+     "observedSpeedIndex": 2344,
+     "lcp_timeToFirstByte": 3.335,
+     "lcp_elementRenderDelay": 1354.341
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 571.649,
+     "tbt": 508.95300000000066,
+     "cls": 0.004446125558182296,
+     "mainthread": 3328.431999999923
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1618.9889,
+     "cls": 0.19648248730408896,
+     "tbt": 1050.7555499999999,
+     "fcp": 1505.24075,
+     "mpfid": 1401,
+     "bytes": 1212054,
+     "bootup": 1423.211999999991,
+     "mainthread": 4632.791999999952,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 861,
+     "observedFirstContentfulPaint": 1278,
+     "observedFirstContentfulPaintAllFrames": 1278,
+     "observedLargestContentfulPaint": 1494,
+     "observedLargestContentfulPaintAllFrames": 1494,
+     "observedTraceEnd": 3744,
+     "observedLoad": 844,
+     "observedDomContentLoaded": 840,
+     "observedCumulativeLayoutShift": 0.19648248730408896,
+     "observedCumulativeLayoutShiftMainFrame": 0.19648248730408896,
+     "observedFirstVisualChange": 855,
+     "observedLastVisualChange": 3732,
+     "observedSpeedIndex": 2412,
+     "lcp_timeToFirstByte": 3.334000061035156,
+     "lcp_elementRenderDelay": 1490.8529999389648
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 553.04,
+     "tbt": 477.93299999999954,
+     "cls": 0.004446125558182296,
+     "mainthread": 3213.355999999922
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1570.0606999999995,
+     "cls": 0,
+     "tbt": 525.1565500000002,
+     "fcp": 1436.7172499999997,
+     "mpfid": 725,
+     "bytes": 992006,
+     "bootup": 1367.6239999999934,
+     "mainthread": 3741.295999999985,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 709,
+     "observedFirstContentfulPaint": 1126,
+     "observedFirstContentfulPaintAllFrames": 1126,
+     "observedLargestContentfulPaint": 1326,
+     "observedLargestContentfulPaintAllFrames": 1326,
+     "observedTraceEnd": 3529,
+     "observedLoad": 702,
+     "observedDomContentLoaded": 699,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 710,
+     "observedLastVisualChange": 3513,
+     "observedSpeedIndex": 2248,
+     "lcp_timeToFirstByte": 3.256,
+     "lcp_elementRenderDelay": 1322.786
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 539.057,
+     "tbt": 459.7040000000002,
+     "cls": 0.004446125558182296,
+     "mainthread": 3213.1639999999225
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1546.748,
+     "cls": 0.1291052517292706,
+     "tbt": 716.157,
+     "fcp": 1433.4049999999997,
+     "mpfid": 741,
+     "bytes": 1048858,
+     "bootup": 1383.7599999999973,
+     "mainthread": 4087.6919999999686,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 744,
+     "observedFirstContentfulPaint": 1161,
+     "observedFirstContentfulPaintAllFrames": 1161,
+     "observedLargestContentfulPaint": 1344,
+     "observedLargestContentfulPaintAllFrames": 1344,
+     "observedTraceEnd": 3624,
+     "observedLoad": 727,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1291052517292706,
+     "observedCumulativeLayoutShiftMainFrame": 0.1291052517292706,
+     "observedFirstVisualChange": 730,
+     "observedLastVisualChange": 3615,
+     "observedSpeedIndex": 2270,
+     "lcp_timeToFirstByte": 3.883,
+     "lcp_elementRenderDelay": 1340.469
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 555.666,
+     "tbt": 477.7419999999995,
+     "cls": 0.004446125558182296,
+     "mainthread": 3229.3359999999257
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1529.96965,
+     "cls": 0.1141252060166944,
+     "tbt": 815.265175,
+     "fcp": 1462.3913749999997,
+     "mpfid": 807,
+     "bytes": 974332,
+     "bootup": 1528.343999999961,
+     "mainthread": 4390.8239999999405,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 773,
+     "observedFirstContentfulPaint": 1223,
+     "observedFirstContentfulPaintAllFrames": 1223,
+     "observedLargestContentfulPaint": 1223,
+     "observedLargestContentfulPaintAllFrames": 1223,
+     "observedTraceEnd": 3625,
+     "observedLoad": 757,
+     "observedDomContentLoaded": 753,
+     "observedCumulativeLayoutShift": 0.1141252060166944,
+     "observedCumulativeLayoutShiftMainFrame": 0.1141252060166944,
+     "observedFirstVisualChange": 763,
+     "observedLastVisualChange": 3611,
+     "observedSpeedIndex": 2340,
+     "lcp_timeToFirstByte": 4.173,
+     "lcp_elementRenderDelay": 1219.091
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 555.233,
+     "tbt": 473.6229999999998,
+     "cls": 0.004446125558182296,
+     "mainthread": 3212.460999999924
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "split-text": [
+   {
+    "navigation": {
+     "lcp": 1614.8957000000005,
+     "cls": 0.02536261273093424,
+     "tbt": 514.1840499999994,
+     "fcp": 1486.5797500000003,
+     "mpfid": 714,
+     "bytes": 1372259,
+     "bootup": 1391.0559999999903,
+     "mainthread": 3918.675999999965,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 707,
+     "observedFirstContentfulPaint": 1157,
+     "observedFirstContentfulPaintAllFrames": 1157,
+     "observedLargestContentfulPaint": 1341,
+     "observedLargestContentfulPaintAllFrames": 1341,
+     "observedTraceEnd": 3535,
+     "observedLoad": 699,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.02536261273093424,
+     "observedCumulativeLayoutShiftMainFrame": 0.02536261273093424,
+     "observedFirstVisualChange": 710,
+     "observedLastVisualChange": 3429,
+     "observedSpeedIndex": 2255,
+     "lcp_timeToFirstByte": 3.2950000610351564,
+     "lcp_elementRenderDelay": 1337.3689999389649
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 554.335,
+     "tbt": 477.1819999999998,
+     "cls": 0.004446125558182296,
+     "mainthread": 3340.9739999999188
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1495.83545,
+     "cls": 0.1291402839068383,
+     "tbt": 533.332275,
+     "fcp": 1429.112875,
+     "mpfid": 713,
+     "bytes": 1100773,
+     "bootup": 1341.4400000000028,
+     "mainthread": 3882.9999999999795,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 763,
+     "observedFirstContentfulPaint": 1180,
+     "observedFirstContentfulPaintAllFrames": 1180,
+     "observedLargestContentfulPaint": 1180,
+     "observedLargestContentfulPaintAllFrames": 1180,
+     "observedTraceEnd": 3550,
+     "observedLoad": 758,
+     "observedDomContentLoaded": 755,
+     "observedCumulativeLayoutShift": 0.1291402839068383,
+     "observedCumulativeLayoutShiftMainFrame": 0.1291402839068383,
+     "observedFirstVisualChange": 764,
+     "observedLastVisualChange": 3534,
+     "observedSpeedIndex": 2310,
+     "lcp_timeToFirstByte": 3.5570000610351564,
+     "lcp_elementRenderDelay": 1176.3969999389649
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 538.213,
+     "tbt": 457.97000000000025,
+     "cls": 0.004446125558182296,
+     "mainthread": 3197.6639999999247
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1543.1388500000003,
+     "cls": 0.1418799057292123,
+     "tbt": 1059.9305749999999,
+     "fcp": 1431.7823750000002,
+     "mpfid": 1350,
+     "bytes": 1130588,
+     "bootup": 1331.999999999997,
+     "mainthread": 4469.163999999955,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 841,
+     "observedFirstContentfulPaint": 1257,
+     "observedFirstContentfulPaintAllFrames": 1257,
+     "observedLargestContentfulPaint": 1457,
+     "observedLargestContentfulPaintAllFrames": 1457,
+     "observedTraceEnd": 3694,
+     "observedLoad": 838,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.1418799057292123,
+     "observedCumulativeLayoutShiftMainFrame": 0.1418799057292123,
+     "observedFirstVisualChange": 847,
+     "observedLastVisualChange": 3678,
+     "observedSpeedIndex": 2387,
+     "lcp_timeToFirstByte": 3.3430000610351565,
+     "lcp_elementRenderDelay": 1453.9489999389648
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 538.942,
+     "tbt": 474.6050000000005,
+     "cls": 0.004446125558182296,
+     "mainthread": 3185.616999999929
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1548.95455,
+     "cls": 0.02536261273093424,
+     "tbt": 517.757575,
+     "fcp": 1434.212125,
+     "mpfid": 717,
+     "bytes": 1187689,
+     "bootup": 1358.2839999999965,
+     "mainthread": 3550.4199999999933,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 659,
+     "observedFirstContentfulPaint": 1059,
+     "observedFirstContentfulPaintAllFrames": 1059,
+     "observedLargestContentfulPaint": 1059,
+     "observedLargestContentfulPaintAllFrames": 1059,
+     "observedTraceEnd": 3496,
+     "observedLoad": 643,
+     "observedDomContentLoaded": 640,
+     "observedCumulativeLayoutShift": 0.02536261273093424,
+     "observedCumulativeLayoutShiftMainFrame": 0.02536261273093424,
+     "observedFirstVisualChange": 653,
+     "observedLastVisualChange": 3430,
+     "observedSpeedIndex": 2195,
+     "lcp_timeToFirstByte": 4.104,
+     "lcp_elementRenderDelay": 1054.741
+    },
+    "lcpElement": {
+     "selector": "section.category-wrapper > div.category-page > div.page-transition-fade > h2.sub-category",
+     "label": "Split Text",
+     "snippet": "<h2 class=\"sub-category\">"
+    },
+    "interaction": {
+     "inp": 538.023,
+     "tbt": 466.64399999999955,
+     "cls": 0.004446125558182296,
+     "mainthread": 3225.719999999931
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1553.0520500000002,
+     "cls": 0.02536261273093424,
+     "tbt": 519.2413249999998,
+     "fcp": 1436.2933750000002,
+     "mpfid": 719,
+     "bytes": 1092954,
+     "bootup": 1366.34,
+     "mainthread": 3800.6199999999667,
+     "dom": 666,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 681,
+     "observedFirstContentfulPaint": 1081,
+     "observedFirstContentfulPaintAllFrames": 1081,
+     "observedLargestContentfulPaint": 1281,
+     "observedLargestContentfulPaintAllFrames": 1281,
+     "observedTraceEnd": 3552,
+     "observedLoad": 664,
+     "observedDomContentLoaded": 661,
+     "observedCumulativeLayoutShift": 0.02536261273093424,
+     "observedCumulativeLayoutShiftMainFrame": 0.02536261273093424,
+     "observedFirstVisualChange": 674,
+     "observedLastVisualChange": 3536,
+     "observedSpeedIndex": 2205,
+     "lcp_timeToFirstByte": 3.5559999389648436,
+     "lcp_elementRenderDelay": 1277.634000061035
+    },
+    "lcpElement": {
+     "selector": "div#tabs:«r3» > div#tabs:«r3»:content-preview > div.demo-container > p.split-parent",
+     "label": "Hello, you!",
+     "snippet": "<p class=\"split-parent split-text-demo\" aria-label=\"Hello, you!\" style=\"text-align: center; overflow: hidden; display: inline-block;\">"
+    },
+    "interaction": {
+     "inp": 539.313,
+     "tbt": 463.5799999999995,
+     "cls": 0.004446125558182296,
+     "mainthread": 3205.289999999931
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com"
+  ],
+  "blocked": [
+   "api.github.com",
+   "www.googletagmanager.com"
+  ]
+ }
+}

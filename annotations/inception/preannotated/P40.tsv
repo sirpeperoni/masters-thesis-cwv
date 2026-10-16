@@ -1,0 +1,150 @@
+#FORMAT=WebAnno TSV 3.3
+#T_SP=de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS|PosValue
+#T_SP=de.tudarmstadt.ukp.dkpro.core.api.ner.type.NamedEntity|value
+
+
+#Text=feat: do not delete frame children on frame delete (#9011)
+1-1	0-4	feat	NOUN	_	
+1-2	4-5	:	.	_	
+1-3	6-8	do	VERB	_	
+1-4	9-12	not	ADV	_	
+1-5	13-19	delete	VERB	_	
+1-6	20-25	frame	NOUN	DOMAIN_OBJECT	
+1-7	26-34	children	NOUN	_	
+1-8	35-37	on	ADP	_	
+1-9	38-43	frame	NOUN	DOMAIN_OBJECT	
+1-10	44-50	delete	NOUN	_	
+1-11	51-52	(	.	_	
+1-12	52-57	#9011	NUM	ISSUE	
+1-13	57-58	)	.	_	
+
+#Text=feat: do not delete frame children on frame delete
+2-1	60-64	feat	NOUN	_	
+2-2	64-65	:	.	_	
+2-3	66-68	do	VERB	_	
+2-4	69-72	not	ADV	_	
+2-5	73-79	delete	VERB	_	
+2-6	80-85	frame	NOUN	DOMAIN_OBJECT	
+2-7	86-94	children	NOUN	_	
+2-8	95-97	on	ADP	_	
+2-9	98-103	frame	NOUN	DOMAIN_OBJECT	
+2-10	104-110	delete	NOUN	_	
+
+#Text=This PR changes how frame deletion works. Previously, we deleted the frame and its children. Now we're only deleting the frame and keeping the children, selecting them instead.
+3-1	112-116	This	DET	_	
+3-2	117-119	PR	NOUN	_	
+3-3	120-127	changes	VERB	_	
+3-4	128-131	how	ADV	_	
+3-5	132-137	frame	ADJ	DOMAIN_OBJECT	
+3-6	138-146	deletion	NOUN	_	
+3-7	147-152	works	NOUN	_	
+3-8	152-153	.	.	_	
+3-9	154-164	Previously	ADV	_	
+3-10	164-165	,	.	_	
+3-11	166-168	we	PRON	_	
+3-12	169-176	deleted	VERB	_	
+3-13	177-180	the	DET	_	
+3-14	181-186	frame	NOUN	DOMAIN_OBJECT	
+3-15	187-190	and	CONJ	_	
+3-16	191-194	its	PRON	_	
+3-17	195-203	children	NOUN	_	
+3-18	203-204	.	.	_	
+3-19	205-208	Now	ADV	_	
+3-20	209-214	we're	VERB	_	
+3-21	215-219	only	ADV	_	
+3-22	220-228	deleting	VERB	_	
+3-23	229-232	the	DET	_	
+3-24	233-238	frame	NOUN	DOMAIN_OBJECT	
+3-25	239-242	and	CONJ	_	
+3-26	243-250	keeping	VERB	_	
+3-27	251-254	the	DET	_	
+3-28	255-263	children	NOUN	_	
+3-29	263-264	,	.	_	
+3-30	265-274	selecting	VERB	_	
+3-31	275-279	them	PRON	_	
+3-32	280-287	instead	ADV	_	
+3-33	287-288	.	.	_	
+
+#Text=This way it's much easier to remove children from the frame instead of having to do it through context menu in two steps.
+4-1	290-294	This	DET	_	
+4-2	295-298	way	NOUN	_	
+4-3	299-303	it's	ADV	_	
+4-4	304-308	much	ADV	_	
+4-5	309-315	easier	ADJ	_	
+4-6	316-318	to	PRT	_	
+4-7	319-325	remove	VERB	_	
+4-8	326-334	children	NOUN	_	
+4-9	335-339	from	ADP	_	
+4-10	340-343	the	DET	_	
+4-11	344-349	frame	NOUN	DOMAIN_OBJECT	
+4-12	350-357	instead	ADV	_	
+4-13	358-360	of	ADP	_	
+4-14	361-367	having	VERB	_	
+4-15	368-370	to	PRT	_	
+4-16	371-373	do	VERB	_	
+4-17	374-376	it	PRON	_	
+4-18	377-384	through	ADP	_	
+4-19	385-392	context	NOUN	_	
+4-20	393-397	menu	NOUN	UI_COMPONENT	
+4-21	398-400	in	ADP	_	
+4-22	401-404	two	NUM	_	
+4-23	405-410	steps	NOUN	_	
+4-24	410-411	.	.	_	
+
+#Text=If people want to delete both the frame and its children both, they can just hit delete twice.
+5-1	413-415	If	ADP	_	
+5-2	416-422	people	NOUN	_	
+5-3	423-427	want	VERB	_	
+5-4	428-430	to	PRT	_	
+5-5	431-437	delete	VERB	_	
+5-6	438-442	both	DET	_	
+5-7	443-446	the	DET	_	
+5-8	447-452	frame	NOUN	DOMAIN_OBJECT	
+5-9	453-456	and	CONJ	_	
+5-10	457-460	its	PRON	_	
+5-11	461-469	children	NOUN	_	
+5-12	470-474	both	DET	_	
+5-13	474-475	,	.	_	
+5-14	476-480	they	PRON	_	
+5-15	481-484	can	VERB	_	
+5-16	485-489	just	ADV	_	
+5-17	490-493	hit	VERB	_	
+5-18	494-500	delete	ADJ	_	
+5-19	501-506	twice	ADV	_	
+5-20	506-507	.	.	_	
+
+#Text=(Un)related, fixed (or rather, improved, as a proper fix will take more work) selection on removing the last group member when editing a group.
+6-1	509-510	(	.	_	
+6-2	510-512	Un	NOUN	_	
+6-3	512-513	)	.	_	
+6-4	513-520	related	VERB	_	
+6-5	520-521	,	.	_	
+6-6	522-527	fixed	VERB	_	
+6-7	528-529	(	.	_	
+6-8	529-531	or	CONJ	_	
+6-9	532-538	rather	ADV	_	
+6-10	538-539	,	.	_	
+6-11	540-548	improved	VERB	_	
+6-12	548-549	,	.	_	
+6-13	550-552	as	ADP	_	
+6-14	553-554	a	DET	_	
+6-15	555-561	proper	ADJ	_	
+6-16	562-565	fix	NOUN	_	
+6-17	566-570	will	VERB	_	
+6-18	571-575	take	VERB	_	
+6-19	576-580	more	ADJ	_	
+6-20	581-585	work	NOUN	_	
+6-21	585-586	)	.	_	
+6-22	587-596	selection	NOUN	_	
+6-23	597-599	on	ADP	_	
+6-24	600-608	removing	VERB	_	
+6-25	609-612	the	DET	_	
+6-26	613-617	last	ADJ	_	
+6-27	618-623	group	NOUN	_	
+6-28	624-630	member	NOUN	_	
+6-29	631-635	when	ADV	_	
+6-30	636-643	editing	VERB	_	
+6-31	644-645	a	DET	_	
+6-32	646-651	group	NOUN	_	
+6-33	651-652	.	.	_	
+

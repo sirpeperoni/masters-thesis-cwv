@@ -1,0 +1,548 @@
+{
+ "schema": 2,
+ "repo": "drawdb",
+ "sha": "9256c75621a5b910676ee6ff8baf86eaadaa0f83",
+ "parent": "f870c213ae3276eb1b34b64a459cce42560ce7a0",
+ "date": "2024-01-12T04:10:49+02:00",
+ "subject": "Handle undo for collab",
+ "status": "ok",
+ "base": {
+  "sha": "f870c213ae3276eb1b34b64a459cce42560ce7a0",
+  "distHash": "5e051f0ca29541c590fdb06b006be0fb2cf7f4e3ff450ea9f30cdfef0abf5b9a"
+ },
+ "distHash": "9fe73aa928b448f94f107f1a18e154c1c1df6092efecf2da603cd42023ec7e34",
+ "timings": {
+  "installMs": null,
+  "buildMs": 13099,
+  "measureMs": 138308
+ },
+ "bundle": {
+  "files": 23,
+  "byExt": {
+   ".png": {
+    "files": 12,
+    "raw": 110514,
+    "gzip": 110514
+   },
+   ".js": {
+    "files": 4,
+    "raw": 2443143,
+    "gzip": 734323
+   },
+   ".css": {
+    "files": 1,
+    "raw": 349744,
+    "gzip": 43759
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 3327,
+    "gzip": 3327
+   },
+   ".md": {
+    "files": 2,
+    "raw": 271,
+    "gzip": 271
+   },
+   ".svg": {
+    "files": 2,
+    "raw": 1180,
+    "gzip": 640
+   },
+   ".html": {
+    "files": 1,
+    "raw": 1415,
+    "gzip": 720
+   }
+  },
+  "totalRaw": 2909594,
+  "totalGzip": 893554
+ },
+ "runs": {
+  "templates": [
+   {
+    "navigation": {
+     "lcp": 1043.6519,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 1002.4346,
+     "mpfid": 48,
+     "bytes": 699305,
+     "bootup": 363.29599999999994,
+     "mainthread": 798.2600000000018,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 857,
+     "observedFirstContentfulPaint": 857,
+     "observedFirstContentfulPaintAllFrames": 857,
+     "observedLargestContentfulPaint": 857,
+     "observedLargestContentfulPaintAllFrames": 857,
+     "observedTraceEnd": 3214,
+     "observedLoad": 811,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 858,
+     "observedLastVisualChange": 1020,
+     "observedSpeedIndex": 1010,
+     "lcp_timeToFirstByte": 3.64,
+     "lcp_elementRenderDelay": 853.448
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 172.723,
+     "tbt": 70.81500000000005,
+     "cls": 0,
+     "mainthread": 549.4869999999993
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1043.7161,
+     "cls": 0,
+     "tbt": 1.5,
+     "fcp": 1002.4774,
+     "mpfid": 53,
+     "bytes": 699305,
+     "bootup": 383.2919999999998,
+     "mainthread": 798.5800000000007,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 660,
+     "observedFirstContentfulPaint": 660,
+     "observedFirstContentfulPaintAllFrames": 660,
+     "observedLargestContentfulPaint": 660,
+     "observedLargestContentfulPaintAllFrames": 660,
+     "observedTraceEnd": 3035,
+     "observedLoad": 605,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 661,
+     "observedLastVisualChange": 818,
+     "observedSpeedIndex": 809,
+     "lcp_timeToFirstByte": 3.522,
+     "lcp_elementRenderDelay": 656.758
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 125.582,
+     "tbt": 38.874999999999886,
+     "cls": 0,
+     "mainthread": 520.4910000000001
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1045.58555,
+     "cls": 0,
+     "tbt": 3,
+     "fcp": 1003.7237,
+     "mpfid": 56,
+     "bytes": 699305,
+     "bootup": 398.6120000000012,
+     "mainthread": 892.1760000000025,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 691,
+     "observedFirstContentfulPaint": 691,
+     "observedFirstContentfulPaintAllFrames": 691,
+     "observedLargestContentfulPaint": 691,
+     "observedLargestContentfulPaintAllFrames": 691,
+     "observedTraceEnd": 3048,
+     "observedLoad": 635,
+     "observedDomContentLoaded": 635,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 675,
+     "observedLastVisualChange": 859,
+     "observedSpeedIndex": 848,
+     "lcp_timeToFirstByte": 4.126,
+     "lcp_elementRenderDelay": 686.918
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 136.565,
+     "tbt": 51.12099999999987,
+     "cls": 0,
+     "mainthread": 587.1849999999998
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1168.7851,
+     "cls": 0,
+     "tbt": 1.5,
+     "fcp": 1168.7851,
+     "mpfid": 53,
+     "bytes": 699305,
+     "bootup": 443.41200000000214,
+     "mainthread": 1064.4600000000028,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 886,
+     "observedFirstContentfulPaint": 886,
+     "observedFirstContentfulPaintAllFrames": 886,
+     "observedLargestContentfulPaint": 886,
+     "observedLargestContentfulPaintAllFrames": 886,
+     "observedTraceEnd": 3264,
+     "observedLoad": 842,
+     "observedDomContentLoaded": 842,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 887,
+     "observedLastVisualChange": 1059,
+     "observedSpeedIndex": 1049,
+     "lcp_timeToFirstByte": 5.914,
+     "lcp_elementRenderDelay": 880.463
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 153.98,
+     "tbt": 69.58100000000002,
+     "cls": 0,
+     "mainthread": 589.7059999999998
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1044.84215,
+     "cls": 0,
+     "tbt": 1,
+     "fcp": 1003.2281,
+     "mpfid": 52,
+     "bytes": 699200,
+     "bootup": 372.8480000000001,
+     "mainthread": 788.2960000000018,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 669,
+     "observedFirstContentfulPaint": 669,
+     "observedFirstContentfulPaintAllFrames": 669,
+     "observedLargestContentfulPaint": 669,
+     "observedLargestContentfulPaintAllFrames": 669,
+     "observedTraceEnd": 3029,
+     "observedLoad": 618,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 667,
+     "observedLastVisualChange": 818,
+     "observedSpeedIndex": 809,
+     "lcp_timeToFirstByte": 3.822,
+     "lcp_elementRenderDelay": 664.715
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 124.888,
+     "tbt": 38.40100000000007,
+     "cls": 0,
+     "mainthread": 492.11100000000044
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "templates": [
+   {
+    "navigation": {
+     "lcp": 1043.81555,
+     "cls": 0,
+     "tbt": 1.5,
+     "fcp": 1002.5437,
+     "mpfid": 53,
+     "bytes": 698987,
+     "bootup": 370.05599999999964,
+     "mainthread": 826.9280000000016,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 653,
+     "observedFirstContentfulPaint": 653,
+     "observedFirstContentfulPaintAllFrames": 653,
+     "observedLargestContentfulPaint": 653,
+     "observedLargestContentfulPaintAllFrames": 653,
+     "observedTraceEnd": 3015,
+     "observedLoad": 613,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 654,
+     "observedLastVisualChange": 830,
+     "observedSpeedIndex": 820,
+     "lcp_timeToFirstByte": 4.017,
+     "lcp_elementRenderDelay": 649.01
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 134.642,
+     "tbt": 44.83600000000001,
+     "cls": 0,
+     "mainthread": 544.4429999999992
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1043.56835,
+     "cls": 0,
+     "tbt": 1,
+     "fcp": 1002.3788999999999,
+     "mpfid": 52,
+     "bytes": 698987,
+     "bootup": 375.12800000000016,
+     "mainthread": 824.4440000000028,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 650,
+     "observedFirstContentfulPaint": 650,
+     "observedFirstContentfulPaintAllFrames": 650,
+     "observedLargestContentfulPaint": 650,
+     "observedLargestContentfulPaintAllFrames": 650,
+     "observedTraceEnd": 3000,
+     "observedLoad": 608,
+     "observedDomContentLoaded": 608,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 651,
+     "observedLastVisualChange": 815,
+     "observedSpeedIndex": 806,
+     "lcp_timeToFirstByte": 4.242,
+     "lcp_elementRenderDelay": 646.217
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 141.083,
+     "tbt": 41.95500000000004,
+     "cls": 0,
+     "mainthread": 548.7849999999996
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1045.43495,
+     "cls": 0,
+     "tbt": 0,
+     "fcp": 1003.6233,
+     "mpfid": 49,
+     "bytes": 698987,
+     "bootup": 414.4600000000012,
+     "mainthread": 861.9880000000031,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 664,
+     "observedFirstContentfulPaint": 664,
+     "observedFirstContentfulPaintAllFrames": 664,
+     "observedLargestContentfulPaint": 664,
+     "observedLargestContentfulPaintAllFrames": 664,
+     "observedTraceEnd": 3020,
+     "observedLoad": 617,
+     "observedDomContentLoaded": 617,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 664,
+     "observedLastVisualChange": 835,
+     "observedSpeedIndex": 825,
+     "lcp_timeToFirstByte": 5.8790000038146975,
+     "lcp_elementRenderDelay": 658.4039999961853
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 162.713,
+     "tbt": 75.05600000000015,
+     "cls": 0,
+     "mainthread": 644.7819999999999
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1043.83535,
+     "cls": 0,
+     "tbt": 3,
+     "fcp": 1002.5569,
+     "mpfid": 56,
+     "bytes": 698987,
+     "bootup": 381.58399999999995,
+     "mainthread": 792.6120000000026,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 694,
+     "observedFirstContentfulPaint": 694,
+     "observedFirstContentfulPaintAllFrames": 694,
+     "observedLargestContentfulPaint": 694,
+     "observedLargestContentfulPaintAllFrames": 694,
+     "observedTraceEnd": 3037,
+     "observedLoad": 643,
+     "observedDomContentLoaded": 643,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 695,
+     "observedLastVisualChange": 862,
+     "observedSpeedIndex": 853,
+     "lcp_timeToFirstByte": 3.714,
+     "lcp_elementRenderDelay": 690.694
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 128.115,
+     "tbt": 45.388000000000034,
+     "cls": 0,
+     "mainthread": 559.6959999999997
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1043.9684,
+     "cls": 0,
+     "tbt": 0.5000000000000568,
+     "fcp": 1002.6456000000001,
+     "mpfid": 51.000000000000114,
+     "bytes": 698874,
+     "bootup": 382.86000000000024,
+     "mainthread": 787.3680000000021,
+     "dom": 939,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 677,
+     "observedFirstContentfulPaint": 677,
+     "observedFirstContentfulPaintAllFrames": 677,
+     "observedLargestContentfulPaint": 677,
+     "observedLargestContentfulPaintAllFrames": 677,
+     "observedTraceEnd": 3057,
+     "observedLoad": 621,
+     "observedDomContentLoaded": 621,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 661,
+     "observedLastVisualChange": 830,
+     "observedSpeedIndex": 820,
+     "lcp_timeToFirstByte": 3.362,
+     "lcp_elementRenderDelay": 673.238
+    },
+    "lcpElement": {
+     "selector": "div.min-h-screen > div.xl:px-20 > div.w-full > div.text-sm",
+     "label": "A compilation of database entity relationship diagrams to give you a quick star…",
+     "snippet": "<div class=\"text-sm text-neutral-700\">"
+    },
+    "interaction": {
+     "inp": 122.474,
+     "tbt": 37.952999999999975,
+     "cls": 0,
+     "mainthread": 498.1740000000001
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "cdn.jsdelivr.net",
+   "kit.fontawesome.com"
+  ],
+  "blocked": []
+ }
+}

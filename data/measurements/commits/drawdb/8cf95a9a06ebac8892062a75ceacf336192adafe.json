@@ -1,0 +1,72 @@
+{
+ "schema": 2,
+ "repo": "drawdb",
+ "sha": "8cf95a9a06ebac8892062a75ceacf336192adafe",
+ "parent": "9036a96a22a87e2e5b1a873f5024784de502f108",
+ "date": "2024-04-05T05:12:50+03:00",
+ "subject": "Fix imports for hooks",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": 80955,
+  "buildMs": 10493,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*"
+  ],
+  "lang": "en-US"
+ },
+ "error": "et due to the position of the comment. The comment will be removed to avoid issues.\nnode_modules/@douyinfe/semi-ui/lib/es/typography/copyable.js (69:6) A comment\n\n\"/*#__PURE__*/\"\n\nin \"node_modules/@douyinfe/semi-ui/lib/es/typography/copyable.js\" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.\n\u001b[32m✓\u001b[39m 3634 modules transformed.\n\u001b[31merror during build:\nRollupError: \u001b[31m\"useLayout\" is not exported by \"src/hooks/useLayout.js\", imported by \"src/components/Workspace.jsx\".\u001b[31m\nfile: \u001b[36mE:/diplom/work/repos/drawdb/src/components/Workspace.jsx:8:2\u001b[31m\n\u001b[33m 6: import { db } from \"../data/db\";\r\n 7: import {\r\n 8:   useLayout,\r\n      ^\n 9:   useSettings,\r\n10:   useTransform,\r\u001b[31m\n    at error (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/parseAst.js:337:30)\n    at Module.error (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:12753:16)\n    at Module.traceVariable (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:13190:29)\n    at ModuleScope.findVariable (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:11607:39)\n    at FunctionScope.findVariable (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:5911:38)\n    at FunctionBodyScope.findVariable (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:5911:38)\n    at Identifier.bind (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:7193:40)\n    at CallExpression.bind (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:4639:23)\n    at CallExpression.bind (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:8828:15)\n    at VariableDeclarator.bind (file:///E:/diplom/work/repos/drawdb/node_modules/rollup/dist/es/shared/node-entry.js:4639:23)\u001b[39m\n"
+}

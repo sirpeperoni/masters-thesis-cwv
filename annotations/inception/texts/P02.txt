@@ -1,0 +1,28 @@
+feat: transparent link background, scale link icon when zooming to below 100% (#9520)
+* Do not set link background color, dynamically scale down link icon size with zoom.
+
+* removed unnecessary change
+
+* use canvas bg color & reduce size and stroke width
+
+---------
+
+Co-authored-by: dwelle <5153846+dwelle@users.noreply.github.com>
+
+feat: transparent link background, scale link icon when zooming to below 100%
+
+Functionally, the icons are fine—but visually, they’re a bit distracting. At low zoom levels or with non-white backgrounds, the icons remain relatively large and stand out too much.
+
+This PR implements two minor visual improvements:
+   – Made the icon background transparent
+   – Gradually reduced icon size when zooming below 100%
+
+sample: https://excalidraw-79ex37zp9-excalidraw.vercel.app/#json=HThLaW9fjg39IzWjMma4e,2WBzrLbSFLWoevVWy_bzzQ
+
+Before/after with a non-white scene color:
+
+[изображение]
+
+Before / after zooming to 10%:
+
+[изображение]

@@ -1,0 +1,588 @@
+{
+ "schema": 2,
+ "repo": "lexical",
+ "sha": "9588e94f9990dcaafcfad7f89614426fc6e0b6ae",
+ "parent": "3ffad5d22dc9d4ba6f76363f555bbf7b708b91a3",
+ "date": "2026-04-17T04:49:19Z",
+ "subject": "[Breaking Change][lexical-code] Bug Fix: move code block escape logic to KEY_ENTER_COMMAND listener (#8360)",
+ "status": "ok",
+ "base": {
+  "sha": "3ffad5d22dc9d4ba6f76363f555bbf7b708b91a3",
+  "distHash": "e7c2afaad0c2585089118bec4b52fc12d03ea2ff4a268964f326d98a89b575c2"
+ },
+ "distHash": "9d25bafb6c8c93d822f7913954c4a3f86acb598ac762ef7dd83acb1fec0611f8",
+ "timings": {
+  "installMs": 4743,
+  "buildMs": 42549,
+  "measureMs": 157844
+ },
+ "bundle": {
+  "files": 482,
+  "byExt": {
+   ".png": {
+    "files": 6,
+    "raw": 8662,
+    "gzip": 8662
+   },
+   ".js": {
+    "files": 158,
+    "raw": 19919408,
+    "gzip": 4922917
+   },
+   ".woff2": {
+    "files": 257,
+    "raw": 13444380,
+    "gzip": 13444380
+   },
+   ".css": {
+    "files": 11,
+    "raw": 331890,
+    "gzip": 69483
+   },
+   ".gif": {
+    "files": 1,
+    "raw": 1165927,
+    "gzip": 1165927
+   },
+   ".woff": {
+    "files": 20,
+    "raw": 303116,
+    "gzip": 303116
+   },
+   ".ttf": {
+    "files": 20,
+    "raw": 513664,
+    "gzip": 513664
+   },
+   ".jpg": {
+    "files": 2,
+    "raw": 446550,
+    "gzip": 446550
+   },
+   ".html": {
+    "files": 3,
+    "raw": 6556,
+    "gzip": 2114
+   },
+   ".mjs": {
+    "files": 2,
+    "raw": 2832,
+    "gzip": 1292
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15086,
+    "gzip": 15086
+   },
+   ".svg": {
+    "files": 1,
+    "raw": 3188,
+    "gzip": 1390
+   }
+  },
+  "totalRaw": 36161259,
+  "totalGzip": 20894581
+ },
+ "runs": {
+  "playground": [
+   {
+    "navigation": {
+     "lcp": 2814.12135,
+     "cls": 0,
+     "tbt": 101.5,
+     "fcp": 2637.601125,
+     "mpfid": 190,
+     "bytes": 2360414,
+     "bootup": 435.78800000000456,
+     "mainthread": 1728.3039999999846,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 488,
+     "observedFirstContentfulPaint": 638,
+     "observedFirstContentfulPaintAllFrames": 638,
+     "observedLargestContentfulPaint": 638,
+     "observedLargestContentfulPaintAllFrames": 638,
+     "observedTraceEnd": 2988,
+     "observedLoad": 458,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 489,
+     "observedLastVisualChange": 630,
+     "observedSpeedIndex": 538,
+     "lcp_timeToFirstByte": 3.4410000076293947,
+     "lcp_elementRenderDelay": 634.7209999923706
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 62.084,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1387.9599999999796
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 2813.1956,
+     "cls": 0,
+     "tbt": 101,
+     "fcp": 2636.663,
+     "mpfid": 190,
+     "bytes": 2360214,
+     "bootup": 440.4320000000041,
+     "mainthread": 1737.8439999999907,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 462,
+     "observedFirstContentfulPaint": 646,
+     "observedFirstContentfulPaintAllFrames": 646,
+     "observedLargestContentfulPaint": 646,
+     "observedLargestContentfulPaintAllFrames": 646,
+     "observedTraceEnd": 2996,
+     "observedLoad": 458,
+     "observedDomContentLoaded": 454,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 464,
+     "observedLastVisualChange": 636,
+     "observedSpeedIndex": 524,
+     "lcp_timeToFirstByte": 3.262,
+     "lcp_elementRenderDelay": 642.813
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 61.217,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1431.2889999999757
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 2839.85785,
+     "cls": 0,
+     "tbt": 104,
+     "fcp": 2643.2148749999997,
+     "mpfid": 190,
+     "bytes": 2360331,
+     "bootup": 436.58000000000357,
+     "mainthread": 1765.3879999999879,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 596,
+     "observedFirstContentfulPaint": 762,
+     "observedFirstContentfulPaintAllFrames": 762,
+     "observedLargestContentfulPaint": 762,
+     "observedLargestContentfulPaintAllFrames": 762,
+     "observedTraceEnd": 3129,
+     "observedLoad": 583,
+     "observedDomContentLoaded": 578,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 596,
+     "observedLastVisualChange": 754,
+     "observedSpeedIndex": 651,
+     "lcp_timeToFirstByte": 3.3310000076293944,
+     "lcp_elementRenderDelay": 758.9269999923706
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 49.001,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1412.6539999999761
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 2858.0504,
+     "cls": 0,
+     "tbt": 112.50000000000023,
+     "fcp": 2653.0419999999995,
+     "mpfid": 207,
+     "bytes": 2360370,
+     "bootup": 450.74000000000365,
+     "mainthread": 1801.3719999999857,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 597,
+     "observedFirstContentfulPaint": 780,
+     "observedFirstContentfulPaintAllFrames": 780,
+     "observedLargestContentfulPaint": 780,
+     "observedLargestContentfulPaintAllFrames": 780,
+     "observedTraceEnd": 3134,
+     "observedLoad": 595,
+     "observedDomContentLoaded": 591,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 598,
+     "observedLastVisualChange": 771,
+     "observedSpeedIndex": 659,
+     "lcp_timeToFirstByte": 3.176,
+     "lcp_elementRenderDelay": 776.923
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 61.675,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1422.2379999999773
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 2814.67915,
+     "cls": 0,
+     "tbt": 102,
+     "fcp": 2638.7326250000006,
+     "mpfid": 189,
+     "bytes": 2360328,
+     "bootup": 431.4400000000033,
+     "mainthread": 1728.1719999999868,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 765,
+     "observedFirstContentfulPaint": 915,
+     "observedFirstContentfulPaintAllFrames": 915,
+     "observedLargestContentfulPaint": 915,
+     "observedLargestContentfulPaintAllFrames": 915,
+     "observedTraceEnd": 3275,
+     "observedLoad": 739,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 754,
+     "observedLastVisualChange": 909,
+     "observedSpeedIndex": 808,
+     "lcp_timeToFirstByte": 3.411,
+     "lcp_elementRenderDelay": 911.717
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 62.338,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1399.0699999999786
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "playground": [
+   {
+    "navigation": {
+     "lcp": 2829.33075,
+     "cls": 0,
+     "tbt": 98.5,
+     "fcp": 2633.2756249999993,
+     "mpfid": 188,
+     "bytes": 2360184,
+     "bootup": 432.8040000000036,
+     "mainthread": 1751.9559999999874,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 568,
+     "observedFirstContentfulPaint": 785,
+     "observedFirstContentfulPaintAllFrames": 785,
+     "observedLargestContentfulPaint": 785,
+     "observedLargestContentfulPaintAllFrames": 785,
+     "observedTraceEnd": 3142,
+     "observedLoad": 613,
+     "observedDomContentLoaded": 612,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 570,
+     "observedLastVisualChange": 788,
+     "observedSpeedIndex": 646,
+     "lcp_timeToFirstByte": 3.946,
+     "lcp_elementRenderDelay": 780.885
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 52.05,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1423.0869999999786
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 2819.4414499999993,
+     "cls": 0,
+     "tbt": 104.99999999999977,
+     "fcp": 2638.367875,
+     "mpfid": 198.99999999999955,
+     "bytes": 2360135,
+     "bootup": 445.7760000000044,
+     "mainthread": 1740.0719999999922,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 660,
+     "observedFirstContentfulPaint": 894,
+     "observedFirstContentfulPaintAllFrames": 894,
+     "observedLargestContentfulPaint": 894,
+     "observedLargestContentfulPaintAllFrames": 894,
+     "observedTraceEnd": 3258,
+     "observedLoad": 713,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 661,
+     "observedLastVisualChange": 886,
+     "observedSpeedIndex": 740,
+     "lcp_timeToFirstByte": 3.173,
+     "lcp_elementRenderDelay": 890.629
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 59.479,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1398.1689999999805
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 2822.3950999999997,
+     "cls": 0,
+     "tbt": 105.5,
+     "fcp": 2642.8292500000002,
+     "mpfid": 196,
+     "bytes": 2360059,
+     "bootup": 443.5880000000037,
+     "mainthread": 1748.519999999988,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 838,
+     "observedFirstContentfulPaint": 1005,
+     "observedFirstContentfulPaintAllFrames": 1005,
+     "observedLargestContentfulPaint": 1021,
+     "observedLargestContentfulPaintAllFrames": 1021,
+     "observedTraceEnd": 3358,
+     "observedLoad": 829,
+     "observedDomContentLoaded": 824,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 838,
+     "observedLastVisualChange": 1006,
+     "observedSpeedIndex": 897,
+     "lcp_timeToFirstByte": 3.3330000076293946,
+     "lcp_elementRenderDelay": 1018.0619999923706
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 60.127,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1428.6099999999815
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 2815.67725,
+     "cls": 0,
+     "tbt": 102,
+     "fcp": 2640.064375,
+     "mpfid": 188,
+     "bytes": 2360108,
+     "bootup": 439.848000000004,
+     "mainthread": 1749.4239999999857,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 583,
+     "observedFirstContentfulPaint": 733,
+     "observedFirstContentfulPaintAllFrames": 733,
+     "observedLargestContentfulPaint": 733,
+     "observedLargestContentfulPaintAllFrames": 733,
+     "observedTraceEnd": 3089,
+     "observedLoad": 551,
+     "observedDomContentLoaded": 547,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 582,
+     "observedLastVisualChange": 722,
+     "observedSpeedIndex": 631,
+     "lcp_timeToFirstByte": 3.3820000076293946,
+     "lcp_elementRenderDelay": 729.1389999923706
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 60.756,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1427.1379999999767
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 3044.31225,
+     "cls": 0,
+     "tbt": 68.5,
+     "fcp": 2909.426875,
+     "mpfid": 101.5,
+     "bytes": 2360278,
+     "bootup": 429.44400000000417,
+     "mainthread": 1736.3439999999878,
+     "dom": 118,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 1386,
+     "observedFirstContentfulPaint": 1586,
+     "observedFirstContentfulPaintAllFrames": 1586,
+     "observedLargestContentfulPaint": 1586,
+     "observedLargestContentfulPaintAllFrames": 1586,
+     "observedTraceEnd": 3945,
+     "observedLoad": 1413,
+     "observedDomContentLoaded": 1411,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 1375,
+     "observedLastVisualChange": 1586,
+     "observedSpeedIndex": 1448,
+     "lcp_timeToFirstByte": 3.2990000076293944,
+     "lcp_elementRenderDelay": 1582.9819999923707
+    },
+    "lcpElement": {
+     "selector": "div#root > div.editor-shell > div.tree-view-output > pre",
+     "label": " root\n  └ (1) paragraph \n\n selection: range  \n  ├ anchor { key: 1, offset: 0, t…",
+     "snippet": "<pre>"
+    },
+    "interaction": {
+     "inp": 58.629,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1393.5019999999786
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "fonts.googleapis.com"
+  ],
+  "blocked": []
+ }
+}

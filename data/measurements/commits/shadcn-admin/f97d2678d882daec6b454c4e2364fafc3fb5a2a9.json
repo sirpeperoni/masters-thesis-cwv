@@ -1,0 +1,88 @@
+{
+ "schema": 2,
+ "repo": "shadcn-admin",
+ "sha": "f97d2678d882daec6b454c4e2364fafc3fb5a2a9",
+ "parent": "d16afd49eed41942e2a9d655c15798511e115483",
+ "date": "2024-12-09T18:56:44+07:00",
+ "subject": "build: replace react-router with tanstack packages",
+ "status": "build_failed",
+ "base": null,
+ "distHash": null,
+ "timings": {
+  "installMs": 8982,
+  "buildMs": 2660,
+  "measureMs": null
+ },
+ "bundle": null,
+ "runs": {},
+ "baseRuns": {},
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "error": "er-plugin@1.79.0_vite@5.4.11_@types+node@22.9.0_/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:47:7)\n    at async configResolved (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/@tanstack+router-plugin@1.79.0_vite@5.4.11_@types+node@22.9.0_/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:61:9)\n    at async Promise.all (index 1)\n    at async resolveConfig (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/vite@5.4.11_@types+node@22.9.0/node_modules/vite/dist/node/chunks/dep-CB_7IfJ-.js:66404:3)\n    at async build (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/vite@5.4.11_@types+node@22.9.0/node_modules/vite/dist/node/chunks/dep-CB_7IfJ-.js:65237:18) {\n  errno: -4058,\n  code: 'ENOENT',\n  syscall: 'scandir',\n  path: 'E:\\\\diplom\\\\work\\\\repos\\\\shadcn-admin\\\\src\\\\routes'\n}\n\n\u001b[36mvite v5.4.11 \u001b[32mbuilding for production...\u001b[36m\u001b[39m\ntransforming...\nBrowserslist: browsers data (caniuse-lite) is 24 months old. Please run:\n  npx update-browserslist-db@latest\n  Why you should do it regularly: https://github.com/browserslist/update-db#readme\n\u001b[32m✓\u001b[39m 6 modules transformed.\n\u001b[31mx\u001b[39m Build failed in 1.06s\n\u001b[31merror during build:\n\u001b[31mCould not resolve \"./context/theme-context\" from \"src/main.tsx\"\u001b[31m\nfile: \u001b[36mE:/diplom/work/repos/shadcn-admin/src/main.tsx\u001b[31m\n    at getRollupError (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/rollup@4.26.0/node_modules/rollup/dist/es/shared/parseAst.js:396:41)\n    at error (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/rollup@4.26.0/node_modules/rollup/dist/es/shared/parseAst.js:392:42)\n    at ModuleLoader.handleInvalidResolvedId (file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/rollup@4.26.0/node_modules/rollup/dist/es/shared/node-entry.js:20083:24)\n    at file:///E:/diplom/work/repos/shadcn-admin/node_modules/.pnpm/rollup@4.26.0/node_modules/rollup/dist/es/shared/node-entry.js:20043:26\u001b[39m\n"
+}

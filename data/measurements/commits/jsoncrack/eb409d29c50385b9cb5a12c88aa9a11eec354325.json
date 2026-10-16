@@ -1,0 +1,595 @@
+{
+ "schema": 2,
+ "repo": "jsoncrack",
+ "sha": "eb409d29c50385b9cb5a12c88aa9a11eec354325",
+ "parent": "04bf32e10212c05b3f7a86b84b78bebb5451227b",
+ "date": "2025-10-15T00:39:02+03:00",
+ "subject": "refactor: remove unnecessary arrow func",
+ "status": "ok",
+ "base": {
+  "sha": "04bf32e10212c05b3f7a86b84b78bebb5451227b",
+  "distHash": "baff4dfaf9416c2711408c8e40c7c1ccacc6a229a0eab865b7b1c85cf10d853e"
+ },
+ "distHash": "f4e43318a196a1e0999d48bc131c04fdae9e4f70d7c9dc1a8f66fdaf432f77f5",
+ "timings": {
+  "installMs": 178566,
+  "buildMs": 103570,
+  "measureMs": 196258
+ },
+ "bundle": {
+  "files": 176,
+  "byExt": {
+   "(none)": {
+    "files": 2,
+    "raw": 13,
+    "gzip": 13
+   },
+   ".html": {
+    "files": 36,
+    "raw": 1523107,
+    "gzip": 301784
+   },
+   ".png": {
+    "files": 10,
+    "raw": 717759,
+    "gzip": 717759
+   },
+   ".svg": {
+    "files": 2,
+    "raw": 627928,
+    "gzip": 149557
+   },
+   ".webp": {
+    "files": 5,
+    "raw": 383716,
+    "gzip": 383716
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 15406,
+    "gzip": 15406
+   },
+   ".json": {
+    "files": 2,
+    "raw": 656,
+    "gzip": 391
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 68,
+    "gzip": 84
+   },
+   ".xml": {
+    "files": 2,
+    "raw": 4543,
+    "gzip": 4543
+   },
+   ".js": {
+    "files": 100,
+    "raw": 9948835,
+    "gzip": 2977998
+   },
+   ".css": {
+    "files": 4,
+    "raw": 224468,
+    "gzip": 33825
+   },
+   ".woff2": {
+    "files": 10,
+    "raw": 369240,
+    "gzip": 369240
+   },
+   ".wasm": {
+    "files": 1,
+    "raw": 1065871,
+    "gzip": 1065871
+   }
+  },
+  "totalRaw": 14881610,
+  "totalGzip": 6020187
+ },
+ "runs": {
+  "editor": [
+   {
+    "navigation": {
+     "lcp": 1373.4168,
+     "cls": 0.009189015556139277,
+     "tbt": 1126.1041999999995,
+     "fcp": 245.6042,
+     "mpfid": 504,
+     "bytes": 3089077,
+     "bootup": 2143.4840000000077,
+     "mainthread": 3482.655999999924,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 117,
+     "observedFirstContentfulPaint": 117,
+     "observedFirstContentfulPaintAllFrames": 117,
+     "observedLargestContentfulPaint": 117,
+     "observedLargestContentfulPaintAllFrames": 117,
+     "observedTraceEnd": 3800,
+     "observedLoad": 197,
+     "observedDomContentLoaded": 196,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 107,
+     "observedLastVisualChange": 1432,
+     "observedSpeedIndex": 1156,
+     "lcp_timeToFirstByte": 4.337,
+     "lcp_elementRenderDelay": 112.38
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 106.969,
+     "tbt": 47.98600000000033,
+     "cls": 0,
+     "mainthread": 1713.0859999999634
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1372.1716000000001,
+     "cls": 0.009189015556139277,
+     "tbt": 1141,
+     "fcp": 245.54289999999997,
+     "mpfid": 457,
+     "bytes": 3089077,
+     "bootup": 2197.224000000013,
+     "mainthread": 3432.779999999917,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 116,
+     "observedFirstContentfulPaint": 116,
+     "observedFirstContentfulPaintAllFrames": 116,
+     "observedLargestContentfulPaint": 116,
+     "observedLargestContentfulPaintAllFrames": 116,
+     "observedTraceEnd": 3775,
+     "observedLoad": 183,
+     "observedDomContentLoaded": 181,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 104,
+     "observedLastVisualChange": 1408,
+     "observedSpeedIndex": 1143,
+     "lcp_timeToFirstByte": 3.948,
+     "lcp_elementRenderDelay": 111.899
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 99.242,
+     "tbt": 22.521999999999935,
+     "cls": 0,
+     "mainthread": 1760.8789999999638
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1371.1824000000004,
+     "cls": 0.009189015556139277,
+     "tbt": 1176.4772000000005,
+     "fcp": 245.04559999999998,
+     "mpfid": 516.0000000000005,
+     "bytes": 3089087,
+     "bootup": 2182.336000000011,
+     "mainthread": 3497.275999999923,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 119,
+     "observedFirstContentfulPaint": 119,
+     "observedFirstContentfulPaintAllFrames": 119,
+     "observedLargestContentfulPaint": 119,
+     "observedLargestContentfulPaintAllFrames": 119,
+     "observedTraceEnd": 3771,
+     "observedLoad": 189,
+     "observedDomContentLoaded": 188,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 110,
+     "observedLastVisualChange": 1404,
+     "observedSpeedIndex": 1132,
+     "lcp_timeToFirstByte": 3.4,
+     "lcp_elementRenderDelay": 116.062
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 100.803,
+     "tbt": 37.423,
+     "cls": 0,
+     "mainthread": 1727.0949999999632
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1370.8236000000004,
+     "cls": 0.009189015556139277,
+     "tbt": 1200.9999999999998,
+     "fcp": 245.45589999999999,
+     "mpfid": 444,
+     "bytes": 3089083,
+     "bootup": 2158.2400000000093,
+     "mainthread": 3501.331999999923,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 116,
+     "observedFirstContentfulPaint": 116,
+     "observedFirstContentfulPaintAllFrames": 116,
+     "observedLargestContentfulPaint": 116,
+     "observedLargestContentfulPaintAllFrames": 116,
+     "observedTraceEnd": 3740,
+     "observedLoad": 176,
+     "observedDomContentLoaded": 175,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 100,
+     "observedLastVisualChange": 1369,
+     "observedSpeedIndex": 1128,
+     "lcp_timeToFirstByte": 3.507,
+     "lcp_elementRenderDelay": 112.053
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 102.009,
+     "tbt": 13.394000000000005,
+     "cls": 0,
+     "mainthread": 1731.1289999999672
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1373.0316000000003,
+     "cls": 0.009189015556139277,
+     "tbt": 1252.0000000000002,
+     "fcp": 245.0079,
+     "mpfid": 560,
+     "bytes": 3089091,
+     "bootup": 2209.324000000014,
+     "mainthread": 3545.519999999925,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 121,
+     "observedFirstContentfulPaint": 121,
+     "observedFirstContentfulPaintAllFrames": 121,
+     "observedLargestContentfulPaint": 121,
+     "observedLargestContentfulPaintAllFrames": 121,
+     "observedTraceEnd": 3767,
+     "observedLoad": 197,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 116,
+     "observedLastVisualChange": 1421,
+     "observedSpeedIndex": 1148,
+     "lcp_timeToFirstByte": 3.369,
+     "lcp_elementRenderDelay": 117.171
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 101.453,
+     "tbt": 39.08199999999988,
+     "cls": 0,
+     "mainthread": 1723.6579999999606
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "editor": [
+   {
+    "navigation": {
+     "lcp": 1346.6549999999997,
+     "cls": 0.009189015556139277,
+     "tbt": 1115.1312499999995,
+     "fcp": 411.531,
+     "mpfid": 475,
+     "bytes": 3089089,
+     "bootup": 2223.832000000009,
+     "mainthread": 3491.9759999999183,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 127,
+     "observedFirstContentfulPaint": 127,
+     "observedFirstContentfulPaintAllFrames": 127,
+     "observedLargestContentfulPaint": 127,
+     "observedLargestContentfulPaintAllFrames": 127,
+     "observedTraceEnd": 3797,
+     "observedLoad": 209,
+     "observedDomContentLoaded": 207,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 118,
+     "observedLastVisualChange": 1427,
+     "observedSpeedIndex": 1146,
+     "lcp_timeToFirstByte": 5.449,
+     "lcp_elementRenderDelay": 121.597
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 97.112,
+     "tbt": 29.576999999999998,
+     "cls": 0,
+     "mainthread": 1757.6719999999643
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1372.8712000000003,
+     "cls": 0.009189015556139277,
+     "tbt": 1175.2661000000003,
+     "fcp": 245.4678,
+     "mpfid": 467.00000000000045,
+     "bytes": 3089107,
+     "bootup": 2199.0040000000145,
+     "mainthread": 3478.5159999999164,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 122,
+     "observedFirstContentfulPaint": 122,
+     "observedFirstContentfulPaintAllFrames": 122,
+     "observedLargestContentfulPaint": 122,
+     "observedLargestContentfulPaintAllFrames": 122,
+     "observedTraceEnd": 3782,
+     "observedLoad": 189,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 114,
+     "observedLastVisualChange": 1435,
+     "observedSpeedIndex": 1157,
+     "lcp_timeToFirstByte": 3.592000061035156,
+     "lcp_elementRenderDelay": 118.53099993896484
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 107.288,
+     "tbt": 18.024000000000115,
+     "cls": 0,
+     "mainthread": 1797.3589999999638
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1369.2080000000003,
+     "cls": 0.009189015556139277,
+     "tbt": 1136.3020000000001,
+     "fcp": 245.30200000000002,
+     "mpfid": 473,
+     "bytes": 3089091,
+     "bootup": 2208.8440000000105,
+     "mainthread": 3503.2399999999166,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 108,
+     "observedFirstContentfulPaint": 108,
+     "observedFirstContentfulPaintAllFrames": 108,
+     "observedLargestContentfulPaint": 108,
+     "observedLargestContentfulPaintAllFrames": 108,
+     "observedTraceEnd": 3786,
+     "observedLoad": 184,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 105,
+     "observedLastVisualChange": 1439,
+     "observedSpeedIndex": 1163,
+     "lcp_timeToFirstByte": 3.345,
+     "lcp_elementRenderDelay": 104.716
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 96.277,
+     "tbt": 16.286999999999807,
+     "cls": 0,
+     "mainthread": 1718.6889999999637
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1371.0724,
+     "cls": 0.009189015556139277,
+     "tbt": 1210.0000000000005,
+     "fcp": 367.5181,
+     "mpfid": 537,
+     "bytes": 3089089,
+     "bootup": 2207.2240000000147,
+     "mainthread": 3522.1879999999182,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 121,
+     "observedFirstContentfulPaint": 121,
+     "observedFirstContentfulPaintAllFrames": 121,
+     "observedLargestContentfulPaint": 121,
+     "observedLargestContentfulPaintAllFrames": 121,
+     "observedTraceEnd": 3787,
+     "observedLoad": 188,
+     "observedDomContentLoaded": 186,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 112,
+     "observedLastVisualChange": 1433,
+     "observedSpeedIndex": 1163,
+     "lcp_timeToFirstByte": 3.562,
+     "lcp_elementRenderDelay": 117.923
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 105.265,
+     "tbt": 39.55599999999981,
+     "cls": 0,
+     "mainthread": 1708.603999999966
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1371.4072,
+     "cls": 0.009189015556139277,
+     "tbt": 1197,
+     "fcp": 245.60180000000003,
+     "mpfid": 533,
+     "bytes": 3089095,
+     "bootup": 2256.8800000000138,
+     "mainthread": 3543.2839999999187,
+     "dom": 921,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 113,
+     "observedFirstContentfulPaint": 113,
+     "observedFirstContentfulPaintAllFrames": 113,
+     "observedLargestContentfulPaint": 113,
+     "observedLargestContentfulPaintAllFrames": 113,
+     "observedTraceEnd": 3812,
+     "observedLoad": 191,
+     "observedDomContentLoaded": 189,
+     "observedCumulativeLayoutShift": 0.009189015556139277,
+     "observedCumulativeLayoutShiftMainFrame": 0.009189015556139277,
+     "observedFirstVisualChange": 100,
+     "observedLastVisualChange": 1434,
+     "observedSpeedIndex": 1164,
+     "lcp_timeToFirstByte": 3.4909999389648436,
+     "lcp_elementRenderDelay": 109.10000006103516
+    },
+    "lcpElement": {
+     "selector": "div.sc-66b11a3d-0 > a.mantine-focus-auto > div.m_8bffd616 > span",
+     "label": "Explore the ToDiagram from the creators of JSON Crack",
+     "snippet": "<span style=\"transition: opacity 500ms; opacity: 1; will-change: opacity;\">"
+    },
+    "interaction": {
+     "inp": 104.951,
+     "tbt": 16.701000000000022,
+     "cls": 0,
+     "mainthread": 1730.922999999967
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*supabase.co*",
+   "*lemonsqueezy*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [
+   "cdnjs.cloudflare.com"
+  ],
+  "blocked": []
+ }
+}

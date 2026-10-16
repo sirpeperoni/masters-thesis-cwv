@@ -1,0 +1,551 @@
+{
+ "schema": 2,
+ "repo": "shadcn-admin",
+ "sha": "8936dbede61eb1fafb34db6273308d6f97f13e81",
+ "parent": "7b62fb60ba4941fda49c03be3762851246b186c3",
+ "date": "2024-12-09T18:56:44+07:00",
+ "subject": "refactor: update layouts and extract common layout",
+ "status": "ok",
+ "base": {
+  "sha": "7b62fb60ba4941fda49c03be3762851246b186c3",
+  "distHash": "df9eb3bb602cd32fc1dca569276eeb179c27fa422e21371505dee332b36e95d1"
+ },
+ "distHash": "8955f220bcaa24e894bce564aa88f3fdfc9e3df4316a30cf4cdd96360abfabeb",
+ "timings": {
+  "installMs": 2526,
+  "buildMs": 18858,
+  "measureMs": 122429
+ },
+ "bundle": {
+  "files": 34,
+  "byExt": {
+   ".js": {
+    "files": 29,
+    "raw": 1243039,
+    "gzip": 371817
+   },
+   ".css": {
+    "files": 1,
+    "raw": 64919,
+    "gzip": 11245
+   },
+   ".png": {
+    "files": 2,
+    "raw": 417922,
+    "gzip": 417922
+   },
+   ".svg": {
+    "files": 1,
+    "raw": 523,
+    "gzip": 319
+   },
+   ".html": {
+    "files": 1,
+    "raw": 1731,
+    "gzip": 562
+   }
+  },
+  "totalRaw": 1728134,
+  "totalGzip": 801865
+ },
+ "runs": {
+  "dashboard": [
+   {
+    "navigation": {
+     "lcp": 620.0516,
+     "cls": 0,
+     "tbt": 90,
+     "fcp": 485.0516,
+     "mpfid": 127,
+     "bytes": 301180,
+     "bootup": 519.5879999999994,
+     "mainthread": 1006.2640000000027,
+     "dom": 359,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 50,
+     "observedFirstContentfulPaint": 266,
+     "observedFirstContentfulPaintAllFrames": 266,
+     "observedLargestContentfulPaint": 266,
+     "observedLargestContentfulPaintAllFrames": 266,
+     "observedTraceEnd": 2627,
+     "observedLoad": 87,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 260,
+     "observedLastVisualChange": 729,
+     "observedSpeedIndex": 336,
+     "lcp_timeToFirstByte": 4.04,
+     "lcp_elementRenderDelay": 261.831
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 12.797,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 416.0039999999995
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 625.2448999999999,
+     "cls": 0,
+     "tbt": 96,
+     "fcp": 487.2449,
+     "mpfid": 129,
+     "bytes": 301180,
+     "bootup": 526.6879999999993,
+     "mainthread": 965.3640000000033,
+     "dom": 359,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 46,
+     "observedFirstContentfulPaint": 246,
+     "observedFirstContentfulPaintAllFrames": 246,
+     "observedLargestContentfulPaint": 246,
+     "observedLargestContentfulPaintAllFrames": 246,
+     "observedTraceEnd": 2609,
+     "observedLoad": 75,
+     "observedDomContentLoaded": 75,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 246,
+     "observedLastVisualChange": 693,
+     "observedSpeedIndex": 319,
+     "lcp_timeToFirstByte": 3.638,
+     "lcp_elementRenderDelay": 242.373
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 12.992,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 402.9249999999995
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 620.1174,
+     "cls": 0,
+     "tbt": 88,
+     "fcp": 486.1174,
+     "mpfid": 125,
+     "bytes": 301180,
+     "bootup": 510.58000000000027,
+     "mainthread": 965.920000000004,
+     "dom": 359,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 43,
+     "observedFirstContentfulPaint": 260,
+     "observedFirstContentfulPaintAllFrames": 260,
+     "observedLargestContentfulPaint": 260,
+     "observedLargestContentfulPaintAllFrames": 260,
+     "observedTraceEnd": 2624,
+     "observedLoad": 81,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 246,
+     "observedLastVisualChange": 727,
+     "observedSpeedIndex": 330,
+     "lcp_timeToFirstByte": 3.735,
+     "lcp_elementRenderDelay": 256.329
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 13.929,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 401.9459999999995
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 620.5463,
+     "cls": 0,
+     "tbt": 88,
+     "fcp": 486.5463,
+     "mpfid": 125,
+     "bytes": 301180,
+     "bootup": 509.1400000000005,
+     "mainthread": 944.0360000000042,
+     "dom": 359,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 36,
+     "observedFirstContentfulPaint": 253,
+     "observedFirstContentfulPaintAllFrames": 253,
+     "observedLargestContentfulPaint": 253,
+     "observedLargestContentfulPaintAllFrames": 253,
+     "observedTraceEnd": 2624,
+     "observedLoad": 75,
+     "observedDomContentLoaded": 75,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 241,
+     "observedLastVisualChange": 720,
+     "observedSpeedIndex": 324,
+     "lcp_timeToFirstByte": 3.292999969482422,
+     "lcp_elementRenderDelay": 249.58300003051758
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 13.22,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 416.13099999999946
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 622.5130999999999,
+     "cls": 0,
+     "tbt": 91.99999999999989,
+     "fcp": 486.5131,
+     "mpfid": 124.99999999999989,
+     "bytes": 301180,
+     "bootup": 523.1440000000008,
+     "mainthread": 1002.1920000000026,
+     "dom": 359,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 48,
+     "observedFirstContentfulPaint": 265,
+     "observedFirstContentfulPaintAllFrames": 265,
+     "observedLargestContentfulPaint": 265,
+     "observedLargestContentfulPaintAllFrames": 265,
+     "observedTraceEnd": 2603,
+     "observedLoad": 82,
+     "observedDomContentLoaded": 82,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 250,
+     "observedLastVisualChange": 735,
+     "observedSpeedIndex": 341,
+     "lcp_timeToFirstByte": 3.31,
+     "lcp_elementRenderDelay": 261.415
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 12.77,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 394.24299999999937
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "dashboard": [
+   {
+    "navigation": {
+     "lcp": 624.6191000000001,
+     "cls": 0,
+     "tbt": 97.00000000000006,
+     "fcp": 486.1191,
+     "mpfid": 131.0000000000001,
+     "bytes": 301446,
+     "bootup": 537.9439999999986,
+     "mainthread": 1008.1960000000031,
+     "dom": 367,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 42,
+     "observedFirstContentfulPaint": 275,
+     "observedFirstContentfulPaintAllFrames": 275,
+     "observedLargestContentfulPaint": 275,
+     "observedLargestContentfulPaintAllFrames": 275,
+     "observedTraceEnd": 2644,
+     "observedLoad": 80,
+     "observedDomContentLoaded": 80,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 269,
+     "observedLastVisualChange": 759,
+     "observedSpeedIndex": 359,
+     "lcp_timeToFirstByte": 3.815,
+     "lcp_elementRenderDelay": 271.132
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 17.481,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 419.5339999999996
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 623.5761,
+     "cls": 0,
+     "tbt": 95,
+     "fcp": 486.0761,
+     "mpfid": 130,
+     "bytes": 301446,
+     "bootup": 521.0520000000001,
+     "mainthread": 993.7800000000036,
+     "dom": 367,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 276,
+     "observedFirstContentfulPaintAllFrames": 276,
+     "observedLargestContentfulPaint": 276,
+     "observedLargestContentfulPaintAllFrames": 276,
+     "observedTraceEnd": 2642,
+     "observedLoad": 86,
+     "observedDomContentLoaded": 86,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 264,
+     "observedLastVisualChange": 723,
+     "observedSpeedIndex": 345,
+     "lcp_timeToFirstByte": 5.036,
+     "lcp_elementRenderDelay": 270.495
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 13.424,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 402.78199999999924
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 624.0745,
+     "cls": 0,
+     "tbt": 93,
+     "fcp": 487.5745,
+     "mpfid": 127,
+     "bytes": 301446,
+     "bootup": 520.5519999999993,
+     "mainthread": 986.120000000003,
+     "dom": 367,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 49,
+     "observedFirstContentfulPaint": 266,
+     "observedFirstContentfulPaintAllFrames": 266,
+     "observedLargestContentfulPaint": 266,
+     "observedLargestContentfulPaintAllFrames": 266,
+     "observedTraceEnd": 2624,
+     "observedLoad": 81,
+     "observedDomContentLoaded": 81,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 262,
+     "observedLastVisualChange": 732,
+     "observedSpeedIndex": 343,
+     "lcp_timeToFirstByte": 4.131,
+     "lcp_elementRenderDelay": 261.518
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 14.443,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 402.7629999999992
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 621.7445,
+     "cls": 0,
+     "tbt": 92,
+     "fcp": 485.7445,
+     "mpfid": 127,
+     "bytes": 301446,
+     "bootup": 527.784,
+     "mainthread": 1010.528000000004,
+     "dom": 367,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 53,
+     "observedFirstContentfulPaint": 269,
+     "observedFirstContentfulPaintAllFrames": 269,
+     "observedLargestContentfulPaint": 269,
+     "observedLargestContentfulPaintAllFrames": 269,
+     "observedTraceEnd": 2628,
+     "observedLoad": 86,
+     "observedDomContentLoaded": 86,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 260,
+     "observedLastVisualChange": 734,
+     "observedSpeedIndex": 340,
+     "lcp_timeToFirstByte": 4.388,
+     "lcp_elementRenderDelay": 265.05
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 26.878,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 401.2239999999999
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 622.0826999999999,
+     "cls": 0,
+     "tbt": 90,
+     "fcp": 487.0827,
+     "mpfid": 126,
+     "bytes": 301446,
+     "bootup": 520.8560000000003,
+     "mainthread": 966.4800000000037,
+     "dom": 367,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 38,
+     "observedFirstContentfulPaint": 255,
+     "observedFirstContentfulPaintAllFrames": 255,
+     "observedLargestContentfulPaint": 255,
+     "observedLargestContentfulPaintAllFrames": 255,
+     "observedTraceEnd": 2619,
+     "observedLoad": 75,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 249,
+     "observedLastVisualChange": 729,
+     "observedSpeedIndex": 333,
+     "lcp_timeToFirstByte": 3.645,
+     "lcp_elementRenderDelay": 250.906
+    },
+    "lcpElement": {
+     "selector": "div.grid > div.rounded-xl > div.p-6 > div.text-2xl",
+     "label": "$45,231.89",
+     "snippet": "<div class=\"text-2xl font-bold\">"
+    },
+    "interaction": {
+     "inp": 13.453,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 410.05699999999956
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": []
+ }
+}

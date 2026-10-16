@@ -1,0 +1,654 @@
+{
+ "schema": 2,
+ "repo": "bentopdf",
+ "sha": "ef3dab5aeb94a1ef9c8d1661ed3eeb7b0ff4c0b2",
+ "parent": "0040317e4861ed5e95df27f4c41c744ec497cac1",
+ "date": "2026-04-30T13:16:48+05:30",
+ "subject": "feat(workflow): add altenate merge tool and translate workflow node and engine errors across locales",
+ "status": "ok",
+ "base": {
+  "sha": "0040317e4861ed5e95df27f4c41c744ec497cac1",
+  "distHash": "c3bbe2b430b886b991085dd74b93e92f9113a9e3618ec549b96411a0c38aab27"
+ },
+ "distHash": "b4dbae4141a031a14ccdd793ed6a6fda112aefd1a0c10826d98f7c0590d84c5d",
+ "timings": {
+  "installMs": 85813,
+  "buildMs": 23694,
+  "measureMs": 137015
+ },
+ "bundle": {
+  "files": 1780,
+  "byExt": {
+   ".html": {
+    "files": 134,
+    "raw": 4559485,
+    "gzip": 901533
+   },
+   ".br": {
+    "files": 428,
+    "raw": 9003930,
+    "gzip": 9003930
+   },
+   ".js": {
+    "files": 281,
+    "raw": 20176903,
+    "gzip": 6632288
+   },
+   ".css": {
+    "files": 8,
+    "raw": 1099937,
+    "gzip": 171643
+   },
+   ".woff": {
+    "files": 44,
+    "raw": 1737804,
+    "gzip": 1737804
+   },
+   ".woff2": {
+    "files": 48,
+    "raw": 1421788,
+    "gzip": 1421788
+   },
+   ".svg": {
+    "files": 140,
+    "raw": 3160388,
+    "gzip": 890392
+   },
+   ".mjs": {
+    "files": 11,
+    "raw": 11848702,
+    "gzip": 2834829
+   },
+   ".wasm": {
+    "files": 6,
+    "raw": 16613063,
+    "gzip": 16613063
+   },
+   ".ttf": {
+    "files": 16,
+    "raw": 3177352,
+    "gzip": 3177352
+   },
+   ".md": {
+    "files": 1,
+    "raw": 3038,
+    "gzip": 3038
+   },
+   ".json": {
+    "files": 44,
+    "raw": 1288396,
+    "gzip": 369738
+   },
+   ".ico": {
+    "files": 1,
+    "raw": 113875,
+    "gzip": 113875
+   },
+   ".png": {
+    "files": 10,
+    "raw": 3688544,
+    "gzip": 3688544
+   },
+   ".gz": {
+    "files": 2,
+    "raw": 77368011,
+    "gzip": 77368011
+   },
+   "(none)": {
+    "files": 12,
+    "raw": 39351,
+    "gzip": 39351
+   },
+   ".bcmap": {
+    "files": 336,
+    "raw": 2331334,
+    "gzip": 2331334
+   },
+   ".gif": {
+    "files": 2,
+    "raw": 5090,
+    "gzip": 5090
+   },
+   ".ftl": {
+    "files": 223,
+    "raw": 3777659,
+    "gzip": 3777659
+   },
+   ".pfb": {
+    "files": 20,
+    "raw": 401230,
+    "gzip": 401230
+   },
+   ".icc": {
+    "files": 2,
+    "raw": 11516,
+    "gzip": 11516
+   },
+   ".mts": {
+    "files": 1,
+    "raw": 55,
+    "gzip": 55
+   },
+   ".txt": {
+    "files": 1,
+    "raw": 647,
+    "gzip": 294
+   },
+   ".webmanifest": {
+    "files": 1,
+    "raw": 1073,
+    "gzip": 408
+   },
+   ".ts": {
+    "files": 8,
+    "raw": 5232,
+    "gzip": 5232
+   }
+  },
+  "totalRaw": 161834403,
+  "totalGzip": 131499997
+ },
+ "runs": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1117.8656999999998,
+     "cls": 0.003297569973440738,
+     "tbt": 19,
+     "fcp": 850.4875999999999,
+     "mpfid": 66,
+     "bytes": 593557,
+     "bootup": 145.97200000000004,
+     "mainthread": 876.8880000000001,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 338,
+     "observedFirstContentfulPaint": 338,
+     "observedFirstContentfulPaintAllFrames": 338,
+     "observedLargestContentfulPaint": 338,
+     "observedLargestContentfulPaintAllFrames": 338,
+     "observedTraceEnd": 2910,
+     "observedLoad": 159,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 325,
+     "observedLastVisualChange": 549,
+     "observedSpeedIndex": 330,
+     "lcp_timeToFirstByte": 4.846000061035157,
+     "lcp_elementRenderDelay": 333.53099993896484
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 95.094,
+     "tbt": 20.737999999999943,
+     "cls": 0,
+     "mainthread": 1258.339000000001
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 1115.8566,
+     "cls": 0.003297569973440738,
+     "tbt": 20,
+     "fcp": 847.8088,
+     "mpfid": 69,
+     "bytes": 593557,
+     "bootup": 150.41600000000005,
+     "mainthread": 885.8720000000014,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 332,
+     "observedFirstContentfulPaint": 332,
+     "observedFirstContentfulPaintAllFrames": 332,
+     "observedLargestContentfulPaint": 332,
+     "observedLargestContentfulPaintAllFrames": 332,
+     "observedTraceEnd": 2885,
+     "observedLoad": 162,
+     "observedDomContentLoaded": 145,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 333,
+     "observedLastVisualChange": 552,
+     "observedSpeedIndex": 338,
+     "lcp_timeToFirstByte": 4.541999938964843,
+     "lcp_elementRenderDelay": 327.48200006103514
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 95.384,
+     "tbt": 15.832999999999743,
+     "cls": 0,
+     "mainthread": 1339.2570000000005
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 1116.80565,
+     "cls": 0.003297569973440738,
+     "tbt": 17,
+     "fcp": 849.0742,
+     "mpfid": 63,
+     "bytes": 593557,
+     "bootup": 137.48399999999992,
+     "mainthread": 869.6119999999997,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 320,
+     "observedFirstContentfulPaint": 320,
+     "observedFirstContentfulPaintAllFrames": 320,
+     "observedLargestContentfulPaint": 320,
+     "observedLargestContentfulPaintAllFrames": 320,
+     "observedTraceEnd": 2860,
+     "observedLoad": 157,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 312,
+     "observedLastVisualChange": 531,
+     "observedSpeedIndex": 317,
+     "lcp_timeToFirstByte": 4.322,
+     "lcp_elementRenderDelay": 315.248
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 111.045,
+     "tbt": 28.848999999999933,
+     "cls": 0,
+     "mainthread": 1393.9200000000008
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 1117.23285,
+     "cls": 0.003297569973440738,
+     "tbt": 29,
+     "fcp": 849.6438,
+     "mpfid": 70,
+     "bytes": 593557,
+     "bootup": 161.02000000000004,
+     "mainthread": 965.7760000000009,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 348,
+     "observedFirstContentfulPaint": 348,
+     "observedFirstContentfulPaintAllFrames": 348,
+     "observedLargestContentfulPaint": 348,
+     "observedLargestContentfulPaintAllFrames": 348,
+     "observedTraceEnd": 2903,
+     "observedLoad": 173,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 348,
+     "observedLastVisualChange": 556,
+     "observedSpeedIndex": 352,
+     "lcp_timeToFirstByte": 4.558,
+     "lcp_elementRenderDelay": 342.961
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 97.517,
+     "tbt": 19.47499999999991,
+     "cls": 0,
+     "mainthread": 1239.5020000000013
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 1119.1387499999996,
+     "cls": 0.003007615211744447,
+     "tbt": 20,
+     "fcp": 852.185,
+     "mpfid": 64,
+     "bytes": 593557,
+     "bootup": 138.93199999999996,
+     "mainthread": 879.868,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 322,
+     "observedFirstContentfulPaint": 322,
+     "observedFirstContentfulPaintAllFrames": 322,
+     "observedLargestContentfulPaint": 322,
+     "observedLargestContentfulPaintAllFrames": 322,
+     "observedTraceEnd": 2689,
+     "observedLoad": 160,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003007615211744447,
+     "observedCumulativeLayoutShiftMainFrame": 0.003007615211744447,
+     "observedFirstVisualChange": 315,
+     "observedLastVisualChange": 534,
+     "observedSpeedIndex": 320,
+     "lcp_timeToFirstByte": 4.140000061035156,
+     "lcp_elementRenderDelay": 317.77299993896486
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 95.125,
+     "tbt": 12.080000000000382,
+     "cls": 0,
+     "mainthread": 1309.2810000000002
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "home": [
+   {
+    "navigation": {
+     "lcp": 1117.56345,
+     "cls": 0.003297569973440738,
+     "tbt": 33.000000000000114,
+     "fcp": 850.0846,
+     "mpfid": 70,
+     "bytes": 592347,
+     "bootup": 167.75600000000009,
+     "mainthread": 1009.1120000000014,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 354,
+     "observedFirstContentfulPaint": 354,
+     "observedFirstContentfulPaintAllFrames": 354,
+     "observedLargestContentfulPaint": 354,
+     "observedLargestContentfulPaintAllFrames": 354,
+     "observedTraceEnd": 2715,
+     "observedLoad": 183,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 362,
+     "observedLastVisualChange": 621,
+     "observedSpeedIndex": 368,
+     "lcp_timeToFirstByte": 4.873,
+     "lcp_elementRenderDelay": 349.265
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 104.303,
+     "tbt": 47.01899999999978,
+     "cls": 0,
+     "mainthread": 1532.8200000000006
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 1117.7312999999997,
+     "cls": 0.003297569973440738,
+     "tbt": 16,
+     "fcp": 850.3083999999999,
+     "mpfid": 63,
+     "bytes": 592347,
+     "bootup": 138.73600000000002,
+     "mainthread": 856.9320000000002,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 325,
+     "observedFirstContentfulPaint": 325,
+     "observedFirstContentfulPaintAllFrames": 325,
+     "observedLargestContentfulPaint": 325,
+     "observedLargestContentfulPaintAllFrames": 325,
+     "observedTraceEnd": 2676,
+     "observedLoad": 157,
+     "observedDomContentLoaded": 140,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 323,
+     "observedLastVisualChange": 541,
+     "observedSpeedIndex": 328,
+     "lcp_timeToFirstByte": 4.248,
+     "lcp_elementRenderDelay": 320.653
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 92.726,
+     "tbt": 17.559999999999945,
+     "cls": 0,
+     "mainthread": 1255.2930000000006
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 1118.51535,
+     "cls": 0.003297569973440738,
+     "tbt": 34.999999999999886,
+     "fcp": 851.3538,
+     "mpfid": 75,
+     "bytes": 592347,
+     "bootup": 163.22000000000008,
+     "mainthread": 968.652000000001,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 358,
+     "observedFirstContentfulPaint": 358,
+     "observedFirstContentfulPaintAllFrames": 358,
+     "observedLargestContentfulPaint": 358,
+     "observedLargestContentfulPaintAllFrames": 358,
+     "observedTraceEnd": 2910,
+     "observedLoad": 171,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 348,
+     "observedLastVisualChange": 564,
+     "observedSpeedIndex": 353,
+     "lcp_timeToFirstByte": 4.17,
+     "lcp_elementRenderDelay": 354.308
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 96.861,
+     "tbt": 24.996000000000322,
+     "cls": 0,
+     "mainthread": 1334.5010000000002
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 1117.7147999999997,
+     "cls": 0.003297569973440738,
+     "tbt": 19,
+     "fcp": 850.2864,
+     "mpfid": 65,
+     "bytes": 592347,
+     "bootup": 144.3560000000001,
+     "mainthread": 901.2440000000008,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 319,
+     "observedFirstContentfulPaint": 319,
+     "observedFirstContentfulPaintAllFrames": 319,
+     "observedLargestContentfulPaint": 319,
+     "observedLargestContentfulPaintAllFrames": 319,
+     "observedTraceEnd": 2670,
+     "observedLoad": 164,
+     "observedDomContentLoaded": 147,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 321,
+     "observedLastVisualChange": 536,
+     "observedSpeedIndex": 326,
+     "lcp_timeToFirstByte": 5.472,
+     "lcp_elementRenderDelay": 313.684
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 92.362,
+     "tbt": 23.313999999999965,
+     "cls": 0,
+     "mainthread": 1293.018000000001
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 1117.3062,
+     "cls": 0.003297569973440738,
+     "tbt": 15,
+     "fcp": 849.7416,
+     "mpfid": 63,
+     "bytes": 592347,
+     "bootup": 136.85999999999999,
+     "mainthread": 862.5000000000007,
+     "dom": 1126,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 325,
+     "observedFirstContentfulPaint": 325,
+     "observedFirstContentfulPaintAllFrames": 325,
+     "observedLargestContentfulPaint": 325,
+     "observedLargestContentfulPaintAllFrames": 325,
+     "observedTraceEnd": 2677,
+     "observedLoad": 156,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0.003297569973440738,
+     "observedCumulativeLayoutShiftMainFrame": 0.003297569973440738,
+     "observedFirstVisualChange": 323,
+     "observedLastVisualChange": 557,
+     "observedSpeedIndex": 328,
+     "lcp_timeToFirstByte": 4.207,
+     "lcp_elementRenderDelay": 320.775
+    },
+    "lcpElement": {
+     "selector": "body.antialiased > div#app > section#hero-section > h1.text-4xl",
+     "label": "The \nPDF Toolkit\n built for privacy.",
+     "snippet": "<h1 class=\"text-4xl md:text-7xl font-bold text-white mb-4\">"
+    },
+    "interaction": {
+     "inp": 94.331,
+     "tbt": 15.593000000000188,
+     "cls": 0,
+     "mainthread": 1279.923
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/154.0.8037.98",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*",
+   "*pdffiller.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": [
+   "api.github.com"
+  ]
+ }
+}

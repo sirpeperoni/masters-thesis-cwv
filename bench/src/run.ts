@@ -61,6 +61,8 @@ const { values: args } = parseArgs({
     limit: { type: 'string' },
     every: { type: 'string', default: '1' },
     sha: { type: 'string', multiple: true },
+    // выборочный сбор: мерить только коммиты из файла (sha — первая колонка CSV; ml/select_commits.py)
+    'shas-file': { type: 'string' },
     force: { type: 'boolean', default: false },
     'retry-failed': { type: 'boolean', default: false },
     // режим искусственных регрессий (см. mutations.ts)
@@ -102,6 +104,15 @@ const allCommits = await listCommits(cfg, repoDir);
 const indexOf = new Map(allCommits.map((c, i) => [c.sha, i]));
 let commits = allCommits;
 if (args.sha?.length) commits = commits.filter((c) => args.sha!.some((s) => c.sha.startsWith(s)));
+if (args['shas-file']) {
+  // база по-прежнему — предыдущий коммит полной истории (findBase), а не предыдущий из списка
+  const wanted = new Set(
+    readFileSync(resolve(args['shas-file']), 'utf8').split('\n').slice(1)
+      .map((l) => l.split(',')[0].trim()).filter((s) => /^[0-9a-f]{7,40}$/.test(s)),
+  );
+  commits = commits.filter((c) => wanted.has(c.sha));
+  console.log(`выборочный сбор: ${commits.length} коммитов из списка ${args['shas-file']} (в списке ${wanted.size})`);
+}
 commits = commits.filter((_, i) => i % Number(args.every) === 0);
 if (!args.force) commits = commits.filter((c) => !alreadyDone(c.sha));
 if (args.limit) commits = commits.slice(0, Number(args.limit));

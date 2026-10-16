@@ -1,0 +1,541 @@
+{
+ "schema": 2,
+ "repo": "shadcn-admin",
+ "sha": "cbcfd9ee363adde063cb6d9b745b14dddb4d5c75",
+ "parent": "105d582ad24c0c43b35e9a21d92da05ac702470e",
+ "date": "2024-02-07T14:26:11+06:30",
+ "subject": "feat: implement tasks table and page",
+ "status": "ok",
+ "base": {
+  "sha": "105d582ad24c0c43b35e9a21d92da05ac702470e",
+  "distHash": "03302e12cf57c21d44b32647519477e54fcec2bf4d7aca1d0cf76093fead69b7"
+ },
+ "distHash": "4fc17fcb4ccfd0ebcf5687307825993f9b024ba73431a859c8f61677d9c5c268",
+ "timings": {
+  "installMs": 4765,
+  "buildMs": 16839,
+  "measureMs": 140127
+ },
+ "bundle": {
+  "files": 39,
+  "byExt": {
+   ".js": {
+    "files": 37,
+    "raw": 1088392,
+    "gzip": 331989
+   },
+   ".css": {
+    "files": 1,
+    "raw": 44250,
+    "gzip": 8108
+   },
+   ".html": {
+    "files": 1,
+    "raw": 477,
+    "gzip": 308
+   }
+  },
+  "totalRaw": 1133119,
+  "totalGzip": 340405
+ },
+ "runs": {
+  "dashboard": [
+   {
+    "navigation": {
+     "lcp": 888.8724000000001,
+     "cls": 0,
+     "tbt": 175.5,
+     "fcp": 512.7792999999999,
+     "mpfid": 160,
+     "bytes": 240340,
+     "bootup": 782.7000000000011,
+     "mainthread": 1482.0119999999984,
+     "dom": 315,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 69,
+     "observedFirstContentfulPaint": 402,
+     "observedFirstContentfulPaintAllFrames": 402,
+     "observedLargestContentfulPaint": 402,
+     "observedLargestContentfulPaintAllFrames": 402,
+     "observedTraceEnd": 2760,
+     "observedLoad": 65,
+     "observedDomContentLoaded": 65,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 100,
+     "observedLastVisualChange": 862,
+     "observedSpeedIndex": 252,
+     "lcp_timeToFirstByte": 7.312,
+     "lcp_elementRenderDelay": 394.941
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 87.543,
+     "tbt": 21.69699999999989,
+     "cls": 0,
+     "mainthread": 1324.1629999999989
+    },
+    "seq": 1
+   },
+   {
+    "navigation": {
+     "lcp": 893.6397999999999,
+     "cls": 0,
+     "tbt": 157.4999999999999,
+     "fcp": 564.3548499999999,
+     "mpfid": 138,
+     "bytes": 240340,
+     "bootup": 860.4079999999984,
+     "mainthread": 1632.2959999999966,
+     "dom": 315,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 76,
+     "observedFirstContentfulPaint": 409,
+     "observedFirstContentfulPaintAllFrames": 409,
+     "observedLargestContentfulPaint": 409,
+     "observedLargestContentfulPaintAllFrames": 409,
+     "observedTraceEnd": 2766,
+     "observedLoad": 83,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 114,
+     "observedLastVisualChange": 877,
+     "observedSpeedIndex": 267,
+     "lcp_timeToFirstByte": 8.896000061035156,
+     "lcp_elementRenderDelay": 400.51599993896485
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 66.521,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1153.7449999999992
+    },
+    "seq": 2
+   },
+   {
+    "navigation": {
+     "lcp": 842.5652,
+     "cls": 0,
+     "tbt": 114.5,
+     "fcp": 502.7989,
+     "mpfid": 120,
+     "bytes": 240340,
+     "bootup": 692.3560000000007,
+     "mainthread": 1303.2879999999998,
+     "dom": 315,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 359,
+     "observedFirstContentfulPaintAllFrames": 359,
+     "observedLargestContentfulPaint": 359,
+     "observedLargestContentfulPaintAllFrames": 359,
+     "observedTraceEnd": 2717,
+     "observedLoad": 61,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 98,
+     "observedLastVisualChange": 826,
+     "observedSpeedIndex": 222,
+     "lcp_timeToFirstByte": 5.073999938964843,
+     "lcp_elementRenderDelay": 354.28000006103514
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 70.72,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1215.4099999999976
+    },
+    "seq": 5
+   },
+   {
+    "navigation": {
+     "lcp": 920.9274,
+     "cls": 0,
+     "tbt": 234.5,
+     "fcp": 560.82055,
+     "mpfid": 168,
+     "bytes": 240340,
+     "bootup": 1032.747999999999,
+     "mainthread": 1916.7839999999967,
+     "dom": 315,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 68,
+     "observedFirstContentfulPaint": 468,
+     "observedFirstContentfulPaintAllFrames": 468,
+     "observedLargestContentfulPaint": 468,
+     "observedLargestContentfulPaintAllFrames": 468,
+     "observedTraceEnd": 2826,
+     "observedLoad": 82,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 124,
+     "observedLastVisualChange": 935,
+     "observedSpeedIndex": 296,
+     "lcp_timeToFirstByte": 9.978,
+     "lcp_elementRenderDelay": 458.055
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 91.995,
+     "tbt": 18.10299999999961,
+     "cls": 0,
+     "mainthread": 1310.9019999999987
+    },
+    "seq": 6
+   },
+   {
+    "navigation": {
+     "lcp": 835.9733999999999,
+     "cls": 0,
+     "tbt": 92.5,
+     "fcp": 503.2300499999999,
+     "mpfid": 106,
+     "bytes": 240340,
+     "bootup": 701.8040000000004,
+     "mainthread": 1298.5759999999996,
+     "dom": 315,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 64,
+     "observedFirstContentfulPaint": 330,
+     "observedFirstContentfulPaintAllFrames": 330,
+     "observedLargestContentfulPaint": 330,
+     "observedLargestContentfulPaintAllFrames": 330,
+     "observedTraceEnd": 2693,
+     "observedLoad": 61,
+     "observedDomContentLoaded": 61,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 89,
+     "observedLastVisualChange": 791,
+     "observedSpeedIndex": 222,
+     "lcp_timeToFirstByte": 6.2980000610351565,
+     "lcp_elementRenderDelay": 324.09599993896484
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 96.566,
+     "tbt": 38.05400000000009,
+     "cls": 0,
+     "mainthread": 1401.0719999999988
+    },
+    "seq": 9
+   }
+  ]
+ },
+ "baseRuns": {
+  "dashboard": [
+   {
+    "navigation": {
+     "lcp": 893.1093999999998,
+     "cls": 0,
+     "tbt": 142.49999999999994,
+     "fcp": 571.83205,
+     "mpfid": 130,
+     "bytes": 235693,
+     "bootup": 780.2799999999999,
+     "mainthread": 1447.531999999998,
+     "dom": 307,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 81,
+     "observedFirstContentfulPaint": 397,
+     "observedFirstContentfulPaintAllFrames": 397,
+     "observedLargestContentfulPaint": 397,
+     "observedLargestContentfulPaintAllFrames": 397,
+     "observedTraceEnd": 2758,
+     "observedLoad": 76,
+     "observedDomContentLoaded": 76,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 121,
+     "observedLastVisualChange": 857,
+     "observedSpeedIndex": 252,
+     "lcp_timeToFirstByte": 6.121,
+     "lcp_elementRenderDelay": 390.798
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 60.802,
+     "tbt": 0,
+     "cls": 0,
+     "mainthread": 1135.5459999999987
+    },
+    "seq": 0
+   },
+   {
+    "navigation": {
+     "lcp": 881.7854000000001,
+     "cls": 0,
+     "tbt": 171.4999999999999,
+     "fcp": 548.71405,
+     "mpfid": 153,
+     "bytes": 235693,
+     "bootup": 755.6080000000003,
+     "mainthread": 1442.0999999999988,
+     "dom": 307,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 65,
+     "observedFirstContentfulPaint": 382,
+     "observedFirstContentfulPaintAllFrames": 382,
+     "observedLargestContentfulPaint": 382,
+     "observedLargestContentfulPaintAllFrames": 382,
+     "observedTraceEnd": 2762,
+     "observedLoad": 70,
+     "observedDomContentLoaded": 70,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 102,
+     "observedLastVisualChange": 842,
+     "observedSpeedIndex": 245,
+     "lcp_timeToFirstByte": 7.610999938964844,
+     "lcp_elementRenderDelay": 373.90700006103515
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 83.654,
+     "tbt": 6.328999999999951,
+     "cls": 0,
+     "mainthread": 1276.1239999999977
+    },
+    "seq": 3
+   },
+   {
+    "navigation": {
+     "lcp": 867.7192,
+     "cls": 0,
+     "tbt": 120,
+     "fcp": 557.6644,
+     "mpfid": 120,
+     "bytes": 235693,
+     "bootup": 716.9840000000016,
+     "mainthread": 1338.2040000000015,
+     "dom": 307,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 59,
+     "observedFirstContentfulPaint": 342,
+     "observedFirstContentfulPaintAllFrames": 342,
+     "observedLargestContentfulPaint": 342,
+     "observedLargestContentfulPaintAllFrames": 342,
+     "observedTraceEnd": 2701,
+     "observedLoad": 69,
+     "observedDomContentLoaded": 0,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 101,
+     "observedLastVisualChange": 804,
+     "observedSpeedIndex": 224,
+     "lcp_timeToFirstByte": 6.657,
+     "lcp_elementRenderDelay": 335.643
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 84.556,
+     "tbt": 21.097999999999843,
+     "cls": 0,
+     "mainthread": 1302.5419999999979
+    },
+    "seq": 4
+   },
+   {
+    "navigation": {
+     "lcp": 805.8328000000001,
+     "cls": 0,
+     "tbt": 113,
+     "fcp": 500.8746,
+     "mpfid": 113,
+     "bytes": 235693,
+     "bootup": 730.3839999999999,
+     "mainthread": 1361.1839999999993,
+     "dom": 307,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 62,
+     "observedFirstContentfulPaint": 345,
+     "observedFirstContentfulPaintAllFrames": 345,
+     "observedLargestContentfulPaint": 345,
+     "observedLargestContentfulPaintAllFrames": 345,
+     "observedTraceEnd": 2707,
+     "observedLoad": 58,
+     "observedDomContentLoaded": 58,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 83,
+     "observedLastVisualChange": 812,
+     "observedSpeedIndex": 218,
+     "lcp_timeToFirstByte": 5.887999938964843,
+     "lcp_elementRenderDelay": 339.49400006103514
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 113.061,
+     "tbt": 65.88800000000015,
+     "cls": 0,
+     "mainthread": 1397.8619999999974
+    },
+    "seq": 7
+   },
+   {
+    "navigation": {
+     "lcp": 779.9596,
+     "cls": 0,
+     "tbt": 71.5,
+     "fcp": 497.7197,
+     "mpfid": 103,
+     "bytes": 235693,
+     "bootup": 604.9239999999998,
+     "mainthread": 1139.9240000000011,
+     "dom": 307,
+     "observedTimeOrigin": 0,
+     "observedNavigationStart": 0,
+     "observedFirstPaint": 51,
+     "observedFirstContentfulPaint": 301,
+     "observedFirstContentfulPaintAllFrames": 301,
+     "observedLargestContentfulPaint": 301,
+     "observedLargestContentfulPaintAllFrames": 301,
+     "observedTraceEnd": 2666,
+     "observedLoad": 58,
+     "observedDomContentLoaded": 58,
+     "observedCumulativeLayoutShift": 0,
+     "observedCumulativeLayoutShiftMainFrame": 0,
+     "observedFirstVisualChange": 80,
+     "observedLastVisualChange": 768,
+     "observedSpeedIndex": 199,
+     "lcp_timeToFirstByte": 5.340000061035156,
+     "lcp_elementRenderDelay": 295.71499993896487
+    },
+    "lcpElement": {
+     "selector": "main#content > div.space-y-4 > div.flex > h1.text-2xl",
+     "label": "Dashboard",
+     "snippet": "<h1 class=\"text-2xl font-bold tracking-tight md:text-3xl\">"
+    },
+    "interaction": {
+     "inp": 65.229,
+     "tbt": 1.849999999999909,
+     "cls": 0,
+     "mainthread": 1242.5929999999967
+    },
+    "seq": 8
+   }
+  ]
+ },
+ "extended": false,
+ "aa": false,
+ "method": {
+  "pairs": 5,
+  "extra": 10,
+  "extendRule": "p<0.1 && |delta|>=0.5*max(abs,rel*base)"
+ },
+ "env": {
+  "node": "v22.20.0",
+  "chrome": "Chrome/155.0.8059.41",
+  "lighthouse": "13.5.0",
+  "settings": {
+   "formFactor": "desktop",
+   "screenEmulation": {
+    "mobile": false,
+    "width": 1350,
+    "height": 940,
+    "deviceScaleFactor": 1,
+    "disabled": false
+   },
+   "throttlingMethod": "simulate",
+   "throttling": {
+    "rttMs": 40,
+    "throughputKbps": 10240,
+    "cpuSlowdownMultiplier": 4,
+    "requestLatencyMs": 0,
+    "downloadThroughputKbps": 0,
+    "uploadThroughputKbps": 0
+   },
+   "onlyAudits": [
+    "largest-contentful-paint",
+    "cumulative-layout-shift",
+    "total-blocking-time",
+    "first-contentful-paint",
+    "max-potential-fid",
+    "total-byte-weight",
+    "bootup-time",
+    "mainthread-work-breakdown",
+    "dom-size-insight",
+    "lcp-breakdown-insight",
+    "interaction-to-next-paint",
+    "metrics"
+   ],
+   "disableFullPageScreenshot": true
+  },
+  "blockedUrlPatterns": [
+   "*google-analytics*",
+   "*googletagmanager*",
+   "*/_vercel/*",
+   "*vercel-insights*",
+   "*vitals.vercel*",
+   "*plausible.io*",
+   "*umami*",
+   "*posthog*",
+   "*clarity.ms*",
+   "*cloudflareinsights*",
+   "*sentry.io*",
+   "*ingest.sentry*",
+   "*googlesyndication*",
+   "*doubleclick*",
+   "*carbonads*",
+   "*simpleanalytics*",
+   "*usefathom.com*",
+   "*ghbtns.com*",
+   "*api.github.com*"
+  ],
+  "lang": "en-US"
+ },
+ "externalHosts": {
+  "external": [],
+  "blocked": []
+ }
+}
