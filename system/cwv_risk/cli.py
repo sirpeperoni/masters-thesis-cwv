@@ -62,6 +62,36 @@ def queue(
     loop(github, bench, once, interval)
 
 
+web = typer.Typer(help="Веб-панель: импорт данных, сервер, статическая копия.")
+app.add_typer(web, name="web")
+
+
+@web.command("ingest")
+def web_ingest(no_assess: bool = typer.Option(False, help="не оценивать PR по истории (быстрее)")):
+    """Собрать базу панели из данных диссертации и замеров очереди → system/cwv-risk.db."""
+    from .web import db
+
+    typer.echo(db.ingest(assess_prs=not no_assess))
+
+
+@web.command("serve")
+def web_serve(port: int = typer.Option(8000), host: str = typer.Option("127.0.0.1")):
+    """Запустить панель: http://127.0.0.1:8000 (API — /api/docs)."""
+    import uvicorn
+
+    from .web.api import app as api_app
+
+    uvicorn.run(api_app, host=host, port=port)
+
+
+@web.command("export")
+def web_export(out: Path = typer.Option(Path("web/static"), help="папка статической копии")):
+    """Статическая копия панели (для GitHub Pages и защиты): фронтенд + JSON, без действий."""
+    from .web.api import export
+
+    typer.echo(export(out.resolve()))
+
+
 def main() -> None:
     app()
 
