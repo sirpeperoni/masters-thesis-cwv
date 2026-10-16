@@ -2,7 +2,7 @@
 # В публичном репозитории диссертации лежит в корне (scripts/export-repo.mjs копирует его туда), поэтому подключается так:
 #
 #   on: pull_request
-#   permissions: { contents: read, pull-requests: write }
+#   permissions: { contents: read, pull-requests: write, issues: write }   # issues — для меток очереди замеров
 #   jobs:
 #     cwv-risk:
 #       runs-on: ubuntu-latest
@@ -35,6 +35,9 @@ inputs:
   fail-on:
     description: "провалить проверку при уровне: high | elevated (пусто — не проваливать)"
     default: ""
+  measure-on:
+    description: "уровни через пробел, при которых PR ставится в очередь замеров (метка «cwv-risk: measure»; пусто — не ставить)"
+    default: "high"
 
 outputs:
   level:
@@ -43,6 +46,9 @@ outputs:
   place:
     description: доля коммитов истории с более высоким риском (0 — самый рискованный)
     value: ${{ steps.score.outputs.place }}
+  queued:
+    description: поставлен ли PR в очередь замеров
+    value: ${{ steps.queue.outputs.queued }}
 
 runs:
   using: composite
@@ -85,6 +91,35 @@ runs:
         print(f"place={r['place']:.4f}")
         EOF
         cat "$RUNNER_TEMP/cwv-risk.md" >> "$GITHUB_STEP_SUMMARY"
+
+    # очередь замеров: метка «cwv-risk: measure» — её забирает агент на машине со стендом (python -m cwv_risk queue).
+    # Новые коммиты в PR — прежний замер устарел: метки результата снимаются, решение принимается заново.
+    - id: queue
+      if: github.event.pull_request.number
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+        PR: ${{ github.event.pull_request.number }}
+        LEVEL: ${{ steps.score.outputs.level }}
+        MEASURE_ON: ${{ inputs.measure-on }}
+      run: |
+        for l in "cwv-risk: measured" "cwv-risk: regression" "cwv-risk: ok"; do
+          gh pr edit "$PR" --repo "$GITHUB_REPOSITORY" --remove-label "$l" > /dev/null 2>&1 || true
+        done
+        case " $MEASURE_ON " in
+          *" $LEVEL "*)
+            gh label create "cwv-risk: measure" --repo "$GITHUB_REPOSITORY" --color FBCA04 \
+              --description "cwv-risk: поставлен в очередь замеров на стенде" --force > /dev/null 2>&1 || true
+            gh pr edit "$PR" --repo "$GITHUB_REPOSITORY" --add-label "cwv-risk: measure"
+            {
+              echo
+              echo "🧪 **Поставлен в очередь замеров на стенде** (метка \`cwv-risk: measure\`) — результат появится в этом комментарии."
+            } >> "$RUNNER_TEMP/cwv-risk.md"
+            echo "queued=true" >> "$GITHUB_OUTPUT" ;;
+          *)
+            gh pr edit "$PR" --repo "$GITHUB_REPOSITORY" --remove-label "cwv-risk: measure" > /dev/null 2>&1 || true
+            echo "queued=false" >> "$GITHUB_OUTPUT" ;;
+        esac
 
     # один комментарий на PR: найти свой по метке <!-- cwv-risk --> и обновить, иначе создать
     - if: inputs.comment == 'true' && github.event.pull_request.number

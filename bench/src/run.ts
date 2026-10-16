@@ -69,16 +69,24 @@ const { values: args } = parseArgs({
     mutants: { type: 'boolean', default: false },
     'mutant-commits': { type: 'string', default: '6' },
     ops: { type: 'string', multiple: true },
+    // измерить одну заданную пару «база:коммит» (pull request; cwv_risk queue) → data/<проект>-pr/;
+    // коммиты должны быть в клоне work/repos/<проект> (агент очереди сам забирает их из GitHub)
+    pair: { type: 'string' },
   },
 });
 if (!args.repo) throw new Error('--repo is required');
 
 const MUTANTS = args.mutants;
+const PAIR = args.pair ? (() => {
+  const [base, head] = args.pair.split(':');
+  if (!/^[0-9a-f]{7,40}$/.test(base ?? '') || !/^[0-9a-f]{7,40}$/.test(head ?? '')) throw new Error('--pair <база>:<коммит> (sha)');
+  return { base, head };
+})() : null;
 const cfg: RepoConfig = (await import(`../repos/${args.repo}.ts`)).default;
 const repoDir = join(ROOT, 'work', 'repos', cfg.name);
 const buildsDir = join(ROOT, 'work', 'builds', cfg.name);
 /** Имя датасета: мутанты — отдельно, чтобы не смешивать с реальными коммитами. */
-const datasetName = MUTANTS ? `${cfg.name}-mutants` : cfg.name;
+const datasetName = MUTANTS ? `${cfg.name}-mutants` : PAIR ? `${cfg.name}-pr` : cfg.name;
 const outDir = join(ROOT, 'data', datasetName);
 const logDir = join(ROOT, 'work', 'logs', cfg.name);
 const stateFile = join(ROOT, 'work', `${cfg.name}.install-hash`);
@@ -103,8 +111,14 @@ await ensureClone(cfg, repoDir);
 const allCommits = await listCommits(cfg, repoDir);
 const indexOf = new Map(allCommits.map((c, i) => [c.sha, i]));
 let commits = allCommits;
-if (args.sha?.length) commits = commits.filter((c) => args.sha!.some((s) => c.sha.startsWith(s)));
-if (args['shas-file']) {
+if (PAIR) {
+  // пара вне истории ветки: дата и заголовок — из самого коммита; база — заданная (findBase не ищет)
+  const info = await sh(`git log -1 --format=%H%x1f%cI%x1f%s ${PAIR.head}`, { cwd: repoDir });
+  if (info.code !== 0) throw new Error(`нет коммита ${PAIR.head} в ${repoDir}: ${info.output}`);
+  const [sha, date, subject] = info.output.trim().split('\x1f');
+  commits = [{ sha, parent: PAIR.base, date, subject }];
+} else if (args.sha?.length) commits = commits.filter((c) => args.sha!.some((s) => c.sha.startsWith(s)));
+if (args['shas-file'] && !PAIR) {
   // база по-прежнему — предыдущий коммит полной истории (findBase), а не предыдущий из списка
   const wanted = new Set(
     readFileSync(resolve(args['shas-file']), 'utf8').split('\n').slice(1)
@@ -489,6 +503,10 @@ function looksLikeBrokenDeps(output: string): boolean {
 
 /** База — ближайший более ранний коммит диапазона, который удаётся собрать. */
 async function findBase(c: CommitInfo): Promise<Build | null> {
+  if (PAIR) {
+    const b = await ensureBuild(PAIR.base, 'base');
+    return b.ok ? b : null;
+  }
   const idx = indexOf.get(c.sha) ?? -1;
   const candidates = allCommits.slice(Math.max(0, idx - MAX_BASE_LOOKBACK), Math.max(0, idx)).map((x) => x.sha).reverse();
   // у первого коммита диапазона предшественников в списке нет — берём его git-родителя

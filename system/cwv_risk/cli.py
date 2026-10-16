@@ -48,6 +48,20 @@ def score(
         raise typer.Exit(1)
 
 
+@app.command()
+def queue(
+    github: str = typer.Option(..., help="репозиторий GitHub с pull request'ами: владелец/имя"),
+    bench: str = typer.Option(..., help="конфигурация стенда bench/repos/<имя>.ts"),
+    once: bool = typer.Option(False, help="обработать очередь один раз и выйти"),
+    interval: int = typer.Option(600, help="пауза между опросами GitHub, секунд"),
+):
+    """Очередь замеров: PR с меткой «cwv-risk: measure» → стенд → результат в комментарий и метки."""
+    from .queue import loop
+
+    sys.stdout.reconfigure(encoding="utf-8")
+    loop(github, bench, once, interval)
+
+
 def main() -> None:
     app()
 
