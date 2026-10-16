@@ -42,11 +42,15 @@ create table if not exists changes (
 );
 create table if not exists meta (key text primary key, value text);
 create table if not exists assessments (id integer primary key, project text, base text, head text, created text, result text);
+create table if not exists external (           -- сторонние проекты (web/external.py)
+  slug text primary key, name text, url text, branch text, status text, done integer, total integer,
+  message text, history integer, paths text, added text, finished text
+);
 """
 
 
 def connect() -> sqlite3.Connection:
-    con = sqlite3.connect(DB)
+    con = sqlite3.connect(DB, timeout=30, check_same_thread=False)  # пишет и фоновое задание сторонних проектов
     con.row_factory = sqlite3.Row
     con.executescript(SCHEMA)
     return con
@@ -99,8 +103,9 @@ def metrics(r: dict) -> dict:
 
 def ingest(assess_prs: bool = True) -> dict:
     con = connect()
-    con.execute("delete from changes")
-    con.execute("delete from projects")
+    # сторонние проекты (web/external.py) — свои данные, импорт эксперимента их не трогает
+    con.execute("delete from changes where project not in (select slug from external)")
+    con.execute("delete from projects where group_name != 'external'")
     repos = sorted({p.name.removesuffix(".labels.csv") for p in (ROOT / "data").glob("*.labels.csv")}
                    | {p.name.removesuffix(".scores.csv") for p in (ROOT / "data").glob("*.scores.csv")})
     repos = [r for r in repos if not r.endswith(("-mutants", "-pr")) and (ROOT / "bench" / "repos" / f"{r}.ts").exists()]

@@ -10,6 +10,7 @@
 from __future__ import annotations
 
 import datetime as dt
+from contextlib import asynccontextmanager
 import json
 import time
 from pathlib import Path
@@ -20,10 +21,16 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from .._ml import ROOT
-from . import db
+from . import db, external
 
 DIST = Path(__file__).resolve().parents[2] / "web" / "dist"
-app = FastAPI(title="cwv-risk", docs_url="/api/docs", openapi_url="/api/openapi.json")
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    external.resume_pending()  # незаконченные задания сторонних проектов после перезапуска
+    yield
+
+
+app = FastAPI(title="cwv-risk", docs_url="/api/docs", openapi_url="/api/openapi.json", lifespan=lifespan)
 _queue_cache: dict = {"at": 0.0, "data": None}
 
 
@@ -55,15 +62,28 @@ def summary(con) -> dict:
 
 
 def projects(con) -> list[dict]:
-    return [dict(r) for r in con.execute("select * from projects order by group_name desc, name")]
+    ext = {e["slug"]: e for e in external.listing()}
+    out = [dict(r) | {"external": ext.get(r["name"])} for r in con.execute(
+        "select * from projects order by case group_name when 'external' then 0 when 'new' then 1 else 2 end, name")]
+    # сторонние проекты, которые ещё считаются (в projects их ещё нет)
+    have = {p["name"] for p in out}
+    pending = [{"name": s, "url": e["url"], "group_name": "external", "commits": 0, "scored": 0, "measured": 0,
+                "regressions": 0, "prs": 0, "first_date": "", "last_date": "", "external": e}
+               for s, e in ext.items() if s not in have]
+    return pending + out
 
 
 def project(con, name: str) -> dict:
     p = con.execute("select * from projects where name = ?", (name,)).fetchone()
-    if not p:
+    ext = next((e for e in external.listing() if e["slug"] == name), None)
+    if not p and not ext:
         raise HTTPException(404, f"нет проекта {name}")
+    if not p:  # сторонний проект ещё считается
+        return {"project": {"name": name, "url": ext["url"], "group_name": "external", "commits": 0, "scored": 0,
+                            "measured": 0, "regressions": 0, "prs": 0, "first_date": "", "last_date": "", "external": ext},
+                "changes": []}
     ch = [row(r) for r in con.execute("select * from changes where project = ? order by date", (name,))]
-    return {"project": dict(p), "changes": ch}
+    return {"project": dict(p) | {"external": ext}, "changes": ch}
 
 
 def queue_items() -> list[dict]:
@@ -133,11 +153,11 @@ def post_assess(body: AssessIn):
     """Оценить произвольное изменение base..head в клоне проекта work/repos/<проект>."""
     from ..score import assess
 
-    clone = ROOT / "work" / "repos" / body.project
+    clone = external.clone_path(body.project)
     if not clone.exists():
         raise HTTPException(404, f"нет клона {clone}")
     try:
-        r = assess(clone, body.base, body.head, quiet=True)
+        r = assess(clone, body.base, body.head, external.history_n(body.project), quiet=True)
     except SystemExit as e:
         raise HTTPException(400, str(e)) from None
     out = r.to_dict()
@@ -159,13 +179,66 @@ def post_explain(name: str, sha: str):
     if not c:
         raise HTTPException(404, "нет такого изменения")
     try:
-        r = assess(ROOT / "work" / "repos" / name, c["base"], sha, quiet=True)
+        r = assess(external.clone_path(name), c["base"], sha, external.history_n(name), quiet=True)
     except SystemExit as e:
         raise HTTPException(400, str(e)) from None
     reasons = [x.__dict__ for x in r.reasons]
     con.execute("update changes set reasons = ? where project = ? and sha = ?", (json.dumps(reasons, ensure_ascii=False), name, sha))
     con.commit()
     return {"reasons": reasons, "history_place": r.place, "history_level": r.level, "history": r.history}
+
+
+class ExternalIn(BaseModel):
+    url: str
+    history: int = 200
+    paths: list[str] = []
+
+
+@app.post("/api/external")
+def post_external(body: ExternalIn):
+    """Добавить сторонний проект: клон и прогноз — фоновым заданием (прогресс — в projects.json)."""
+    try:
+        return {"slug": external.add(body.url, max(50, min(body.history, 1000)), body.paths)}
+    except ValueError as e:
+        raise HTTPException(400, str(e)) from None
+
+
+@app.post("/api/external/{slug}/refresh")
+def post_refresh(slug: str):
+    e = next((x for x in external.listing() if x["slug"] == slug), None)
+    if not e:
+        raise HTTPException(404, "нет такого стороннего проекта")
+    return {"slug": external.add(e["url"], e["history"], json.loads(e["paths"] or "[]"))}
+
+
+@app.delete("/api/external/{slug}")
+def delete_external(slug: str):
+    external.remove(slug)
+    return {"ok": True}
+
+
+@app.get("/api/projects/{name}/prs.json")
+def get_prs(name: str):
+    try:
+        return external.prs(name)
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(502, f"GitHub: {str(e)[:300]}") from None
+
+
+@app.post("/api/projects/{name}/prs/{number}/assess")
+def post_pr_assess(name: str, number: int):
+    try:
+        return external.assess_pr(name, number)
+    except (Exception, SystemExit) as e:  # noqa: BLE001
+        raise HTTPException(400, str(e)[:400]) from None
+
+
+@app.get("/api/projects/{name}/refs.json")
+def get_refs(name: str):
+    try:
+        return external.refs(name)
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(404, str(e)[:300]) from None
 
 
 # ─── фронтенд ─────────────────────────────────────────────────────────────────

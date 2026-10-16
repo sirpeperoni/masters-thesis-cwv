@@ -11,9 +11,13 @@ interface Point { x: number; y: number; c: Change }
 export function Timeline({ changes, selected, onSelect }: { changes: Change[]; selected?: string; onSelect: (c: Change) => void }) {
   const pts = (f: (c: Change) => boolean): Point[] =>
     changes.filter((c) => c.place != null && f(c)).map((c) => ({ x: Date.parse(c.date), y: (1 - (c.place as number)) * 100, c }));
-  const unmeasured = pts((c) => !c.measured && c.kind === 'commit');
+  // без замеров (сторонний проект) — цвет по уровню прогноза; с замерами — по итогу замера
+  const byLevel = !changes.some((c) => c.measured);
+  const unmeasured = pts((c) => !c.measured && c.kind === 'commit' && (!byLevel || c.level === 'low'));
   const ok = pts((c) => !!c.measured && c.label !== 'regression' && c.kind === 'commit');
   const regression = pts((c) => c.label === 'regression' && c.kind === 'commit');
+  const high = byLevel ? pts((c) => c.kind === 'commit' && c.level === 'high') : [];
+  const elevated = byLevel ? pts((c) => c.kind === 'commit' && c.level === 'elevated') : [];
   const prs = pts((c) => c.kind === 'pr');
   const click = (p: { payload?: Point }) => p?.payload && onSelect(p.payload.c);
   const sel = changes.find((c) => c.sha === selected && c.place != null);
@@ -38,6 +42,8 @@ export function Timeline({ changes, selected, onSelect }: { changes: Change[]; s
           <Scatter data={unmeasured} fill="var(--muted)" fillOpacity={0.35} shape="circle" onClick={click} isAnimationActive={false} />
           <Scatter data={ok} fill="var(--series-1)" fillOpacity={0.85} stroke="var(--surface)" strokeWidth={1} shape="circle" onClick={click} isAnimationActive={false} />
           <Scatter data={regression} fill="var(--critical)" stroke="var(--surface)" strokeWidth={1.5} shape="triangle" onClick={click} isAnimationActive={false} />
+          <Scatter data={elevated} fill="var(--warning)" stroke="var(--surface)" strokeWidth={1} shape="circle" onClick={click} isAnimationActive={false} />
+          <Scatter data={high} fill="var(--critical)" stroke="var(--surface)" strokeWidth={1} shape="circle" onClick={click} isAnimationActive={false} />
           <Scatter data={prs} fill="var(--series-2)" stroke="var(--surface)" strokeWidth={1.5} shape="diamond" onClick={click} isAnimationActive={false} />
           {sel && (
             <ReferenceLine x={Date.parse(sel.date)} stroke="var(--ink-2)" strokeDasharray="2 2" />
@@ -45,9 +51,19 @@ export function Timeline({ changes, selected, onSelect }: { changes: Change[]; s
         </ScatterChart>
       </ResponsiveContainer>
       <div className="legend">
-        <span><Mark shape="tri" color="var(--critical)" /> регрессия подтверждена замером ({regression.length})</span>
-        <span><Mark shape="dot" color="var(--series-1)" /> измерен, регрессии нет ({ok.length})</span>
-        <span><Mark shape="dot" color="var(--muted)" faint /> не измерен ({unmeasured.length})</span>
+        {byLevel ? (
+          <>
+            <span><Mark shape="dot" color="var(--critical)" /> высокий риск ({high.length})</span>
+            <span><Mark shape="dot" color="var(--warning)" /> повышенный ({elevated.length})</span>
+            <span><Mark shape="dot" color="var(--muted)" faint /> низкий ({unmeasured.length})</span>
+          </>
+        ) : (
+          <>
+            <span><Mark shape="tri" color="var(--critical)" /> регрессия подтверждена замером ({regression.length})</span>
+            <span><Mark shape="dot" color="var(--series-1)" /> измерен, регрессии нет ({ok.length})</span>
+            <span><Mark shape="dot" color="var(--muted)" faint /> не измерен ({unmeasured.length})</span>
+          </>
+        )}
         {prs.length > 0 && <span><Mark shape="dia" color="var(--series-2)" /> pull request ({prs.length})</span>}
         <span className="muted">высота — риск по прогнозу: доля коммитов проекта ниже по риску, %</span>
       </div>
@@ -76,7 +92,7 @@ function Tip({ active, payload }: { active?: boolean; payload?: { payload: Point
       <div className="muted">{date(c.date)} · <span className="mono">{short(c.sha)}</span>{c.pr ? ` · PR #${c.pr}` : ''}</div>
       <div style={{ margin: '2px 0 4px' }}>{c.subject || '—'}</div>
       {c.level && c.place != null && <div>прогноз: <strong>{LEVEL[c.level].name}</strong> · {topShare(c.place)}</div>}
-      <div>замер: <strong>{!c.measured ? 'не измерен' : c.label === 'regression' ? 'регрессия' : 'регрессии нет'}</strong></div>
+      {c.measured ? <div>замер: <strong>{c.label === 'regression' ? 'регрессия' : 'регрессии нет'}</strong></div> : null}
     </div>
   );
 }

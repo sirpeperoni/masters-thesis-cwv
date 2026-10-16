@@ -114,6 +114,48 @@ label.field { display: grid; gap: 4px; font-size: 13px; color: var(--ink-2); }
 .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-top: 8px; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 
+/* ── меню проектов ── */
+.nav a.add { color: var(--series-1); font-weight: 600; margin-top: 6px; }
+.nav .group { margin-top: 18px; }
+.nav .group-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); padding: 0 10px 4px; }
+.nav .group a { display: flex; justify-content: space-between; gap: 6px; padding: 5px 10px; font-size: 14px; }
+.nav .pname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav .pct { color: var(--series-1); font-size: 12px; font-variant-numeric: tabular-nums; }
+.nav a.plain { display: inline; padding: 0; color: var(--series-1); }
+.nav a.plain.active { background: none; }
+
+/* ── кнопки ── */
+button.ghost { border: 1px solid var(--axis); background: var(--surface); color: var(--ink); padding: 7px 12px; border-radius: 6px; font: inherit; cursor: pointer; }
+button.ghost:hover { background: var(--hover); }
+button.ghost.danger { color: var(--critical); }
+button.ghost.small { padding: 3px 10px; font-size: 13px; }
+button.ghost:disabled { opacity: 0.5; cursor: default; }
+button.primary.big { padding: 10px 20px; font-size: 16px; }
+button.link { background: none; border: 0; color: var(--series-1); cursor: pointer; font: inherit; padding: 0; }
+button.close { background: none; border: 0; font-size: 22px; line-height: 1; color: var(--muted); cursor: pointer; padding: 0 4px; }
+button.close:hover { color: var(--ink); }
+
+/* ── страница проекта ── */
+.title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.tabs.big button { font-size: 15px; padding: 8px 18px; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.error-notice { border-left-color: var(--critical); }
+.steps { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0 0 12px; flex-wrap: wrap; color: var(--muted); }
+.steps li.done { color: var(--good-text); }
+.steps li.now { color: var(--ink); font-weight: 600; }
+.bar { height: 8px; border-radius: 4px; background: var(--grid); overflow: hidden; margin-bottom: 10px; }
+.bar > div { height: 100%; background: var(--series-1); transition: width 0.4s; }
+
+/* ── добавление проекта и проверка ── */
+.add-form { display: flex; gap: 10px; }
+.add-form input { flex: 1; font-size: 16px; padding: 10px 12px; }
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+.chip { display: grid; gap: 2px; text-align: left; border: 1px solid var(--border); background: var(--plane); color: var(--ink); border-radius: 8px; padding: 10px 12px; cursor: pointer; font: inherit; font-size: 13px; }
+.chip:hover { border-color: var(--series-1); background: var(--hover); }
+.form-grid { display: grid; gap: 16px; max-width: 860px; }
+.form-grid select { width: 100%; }
+details summary { cursor: pointer; }
+
 @media (max-width: 1000px) {
   .app { grid-template-columns: 1fr; }
   .nav { border-right: 0; border-bottom: 1px solid var(--border); }

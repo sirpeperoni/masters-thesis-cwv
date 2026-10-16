@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import { api, type Assessment, type Meta, useData } from '../api.ts';
-import { LevelBadge } from '../components/Badges.tsx';
-import { date, num, pct, topShare } from '../format.ts';
+import { api, type Meta, useData } from '../api.ts';
+import { date } from '../format.ts';
 
 export function QueuePage({ meta }: { meta: Meta }) {
   const q = useData(api.queue);
@@ -38,60 +36,6 @@ export function QueuePage({ meta }: { meta: Meta }) {
         )}
       </div>
       {!meta.live && <p className="muted">Статическая копия: очередь — снимок на момент выгрузки.</p>}
-    </>
-  );
-}
-
-export function CheckPage({ meta }: { meta: Meta }) {
-  const projects = useData(api.projects);
-  const [form, setForm] = useState({ project: 'bentopdf', base: '', head: '' });
-  const [busy, setBusy] = useState(false);
-  const [res, setRes] = useState<Assessment>();
-  const [err, setErr] = useState<string>();
-
-  if (!meta.live) {
-    return (
-      <>
-        <h2>Проверить изменение</h2>
-        <div className="notice">Это статическая копия панели — оценка доступна в панели с сервером или в консольной утилите:
-          <code> python -m cwv_risk score --repo &lt;путь&gt; --base &lt;ветка&gt; --head &lt;коммит&gt;</code></div>
-      </>
-    );
-  }
-  const run = async () => {
-    setBusy(true); setErr(undefined); setRes(undefined);
-    try { setRes(await api.assess(form)); } catch (e) { setErr((e as Error).message); } finally { setBusy(false); }
-  };
-  return (
-    <>
-      <h2>Проверить изменение</h2>
-      <p className="lead">Оценка произвольного изменения «база → коммит» в клоне проекта (work/repos/&lt;проект&gt;). Первый
-        запуск на проекте считает признаки истории — до пары минут.</p>
-      <div className="card row" style={{ alignItems: 'end' }}>
-        <label className="field">Проект
-          <select value={form.project} onChange={(e) => setForm({ ...form, project: e.target.value })}>
-            {(projects.data ?? []).map((p) => <option key={p.name}>{p.name}</option>)}
-          </select>
-        </label>
-        <label className="field">База (ветка или sha)
-          <input value={form.base} onChange={(e) => setForm({ ...form, base: e.target.value })} placeholder="origin/main" />
-        </label>
-        <label className="field">Коммит
-          <input value={form.head} onChange={(e) => setForm({ ...form, head: e.target.value })} placeholder="sha" />
-        </label>
-        <button className="primary" disabled={busy || !form.base || !form.head} onClick={run}>{busy ? 'Оцениваю…' : 'Оценить'}</button>
-      </div>
-      {err && <p className="error">{err}</p>}
-      {res && (
-        <div className="card">
-          <h3><LevelBadge level={res.level} /></h3>
-          <p>{topShare(res.place)} среди {num(res.history)} последних коммитов проекта; на этом уровне в проверке регрессией
-            оказывалось {pct(res.expected_rate, 1)} изменений. Изменение: {num(res.files)} файлов, +{num(res.lines_added)} / −{num(res.lines_deleted)} строк.</p>
-          {res.level !== 'low' && res.reasons.length > 0 && (
-            <ul>{res.reasons.map((r) => <li key={r.feature}>{r.label}: <strong>{num(r.value, r.value % 1 ? 2 : 0)}</strong> <span className="muted">— больше, чем у {pct(r.percentile)} коммитов</span></li>)}</ul>
-          )}
-        </div>
-      )}
     </>
   );
 }

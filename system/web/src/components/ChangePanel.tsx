@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { api, type Change, type Meta, type MetricKey, type Project } from '../api.ts';
 import { date, LEVEL, METRIC, NBSP, num, pct, short, signed, topShare, withUnit } from '../format.ts';
 import { LevelBadge, ResultBadge } from './Badges.tsx';
@@ -6,11 +6,12 @@ import { LevelBadge, ResultBadge } from './Badges.tsx';
 const KEYS: MetricKey[] = ['lcp', 'inp', 'cls', 'tbt', 'tbtFlow'];
 
 /** Карточка изменения: прогноз, объяснение, замер на стенде, ссылки. */
-export function ChangePanel({ change, project, meta, onUpdate }: {
-  change: Change; project: Project; meta: Meta; onUpdate: (c: Change) => void;
+export function ChangePanel({ change, project, meta, onUpdate, onClose }: {
+  change: Change; project: Project; meta: Meta; onUpdate: (c: Change) => void; onClose?: () => void;
 }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string>();
+  const asked = useRef(new Set<string>());
   const queue = meta.queues.find((q) => q.bench === project.name);
   const commitUrl = change.kind === 'pr' && queue && change.pr
     ? `https://github.com/${queue.github}/pull/${change.pr}`
@@ -29,9 +30,21 @@ export function ChangePanel({ change, project, meta, onUpdate }: {
     }
   };
 
+  // объяснение — сразу при открытии карточки (один раз на изменение), без отдельной кнопки
+  useEffect(() => {
+    if (meta.live && change.level && !change.reasons && !asked.current.has(change.sha)) {
+      asked.current.add(change.sha);
+      explain();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [change.sha]);
+
   return (
     <div className="card panel">
-      <h3>{change.kind === 'pr' ? `Pull request #${change.pr}` : 'Коммит'} <span className="mono muted">{short(change.sha)}</span></h3>
+      <div className="panel-head">
+        <h3>{change.kind === 'pr' ? `Pull request #${change.pr}` : 'Коммит'} <span className="mono muted">{short(change.sha)}</span></h3>
+        {onClose && <button className="close" onClick={onClose} aria-label="Закрыть">×</button>}
+      </div>
       <p style={{ margin: '0 0 12px' }}>{change.subject || '—'}</p>
       <dl>
         <dt>Дата</dt><dd>{date(change.date)}</dd>
@@ -39,7 +52,7 @@ export function ChangePanel({ change, project, meta, onUpdate }: {
         {change.place != null && <><dt>Место</dt><dd>{topShare(change.place)} коммитов проекта по риску</dd></>}
         {change.level && <><dt>Рекомендация</dt><dd>{LEVEL[change.level].advice}</dd></>}
         {change.k_la != null && <><dt>Размер</dt><dd>+{num(change.k_la)} / −{num(change.k_ld ?? 0)} строк</dd></>}
-        <dt>Замер</dt><dd><ResultBadge change={change} /></dd>
+        {(change.measured || project.measured > 0) && <><dt>Замер</dt><dd><ResultBadge change={change} /></dd></>}
         {change.selection && <><dt>В эксперименте</dt><dd>{change.selection === 'risk' ? 'отобран моделью' : change.selection.startsWith('random') ? 'случайный контроль' : 'отобран моделью (5–20 %)'}</dd></>}
       </dl>
 
@@ -78,7 +91,7 @@ export function ChangePanel({ change, project, meta, onUpdate }: {
       ) : change.reasons ? (
         <p className="muted">Изменение ничем не выделяется среди коммитов проекта.</p>
       ) : meta.live && change.level ? (
-        <p><button className="primary" disabled={busy} onClick={explain}>{busy ? 'Считаю… (до пары минут)' : 'Объяснить прогноз'}</button></p>
+        <p className="muted">{busy ? 'Считаю объяснение… (первый раз в проекте — до пары минут)' : err ? '' : 'Готовлю объяснение…'}</p>
       ) : (
         <p className="muted">{change.level ? 'Объяснение доступно в панели с сервером.' : 'Прогноза нет: модель обучалась на этом проекте.'}</p>
       )}

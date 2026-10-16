@@ -43,10 +43,26 @@ export interface Change {
   reasons: Reason[] | null;
 }
 
+export interface ExternalState {
+  slug: string;
+  name: string;
+  url: string;
+  branch: string | null;
+  /** queued → clone → features → scoring → ready | error */
+  status: 'queued' | 'clone' | 'features' | 'scoring' | 'ready' | 'error';
+  done: number;
+  total: number;
+  message: string;
+  history: number;
+  added: string;
+  finished: string | null;
+}
+
 export interface Project {
   name: string;
   url: string | null;
-  group_name: 'study' | 'new';
+  group_name: 'study' | 'new' | 'external';
+  external?: ExternalState | null;
   commits: number;
   scored: number;
   measured: number;
@@ -98,6 +114,7 @@ export interface QueueItem {
 }
 
 export interface Assessment {
+  merge_base?: string;
   risk: number;
   place: number;
   level: Level;
@@ -110,15 +127,35 @@ export interface Assessment {
   reasons: Reason[];
 }
 
+export interface PullRequest {
+  number: number;
+  title: string;
+  headRefOid: string;
+  baseRefName: string;
+  author: string | null;
+  updatedAt: string;
+  url: string;
+  additions: number;
+  deletions: number;
+  isDraft: boolean;
+  assessed: { level: Level; place: number } | null;
+}
+
+export interface Refs {
+  default: string;
+  branches: string[];
+  commits: { sha: string; date: string; subject: string }[];
+}
+
 async function get<T>(path: string): Promise<T> {
   const r = await fetch(`api/${path}`);
   if (!r.ok) throw new Error(`${path}: ${r.status}`);
   return r.json() as Promise<T>;
 }
 
-async function post<T>(path: string, body?: unknown): Promise<T> {
+async function post<T>(path: string, body?: unknown, method = 'POST'): Promise<T> {
   const r = await fetch(`api/${path}`, {
-    method: 'POST',
+    method,
     headers: { 'Content-Type': 'application/json' },
     body: body ? JSON.stringify(body) : undefined,
   });
@@ -133,23 +170,39 @@ export const api = {
   project: (name: string) => get<{ project: Project; changes: Change[] }>(`projects/${encodeURIComponent(name)}.json`),
   queue: () => get<QueueItem[]>('queue.json'),
   assess: (body: { project: string; base: string; head: string }) => post<Assessment>('assess', body),
+  addExternal: (url: string, history: number) => post<{ slug: string }>('external', { url, history }),
+  refreshExternal: (slug: string) => post<{ slug: string }>(`external/${slug}/refresh`),
+  deleteExternal: (slug: string) => post<{ ok: boolean }>(`external/${slug}`, undefined, 'DELETE'),
+  prs: (project: string) => get<PullRequest[]>(`projects/${encodeURIComponent(project)}/prs.json`),
+  assessPr: (project: string, n: number) => post<Assessment & { pr: number; title: string; url: string }>(`projects/${project}/prs/${n}/assess`),
+  refs: (project: string) => get<Refs>(`projects/${encodeURIComponent(project)}/refs.json`),
   explain: (project: string, sha: string) =>
     post<{ reasons: Reason[]; history_place: number; history_level: Level; history: number }>(`explain/${project}/${sha}`),
 };
 
-/** Загрузка с состоянием: данные, ошибка, идёт ли загрузка. */
-export function useData<T>(load: () => Promise<T>, deps: unknown[] = []) {
+/**
+ * Загрузка с состоянием: данные, ошибка, идёт ли загрузка; reload() — перечитать (тихо, без мигания данных);
+ * pollMs — перечитывать по таймеру, пока poll(data) возвращает true (прогресс фоновых заданий).
+ */
+export function useData<T>(load: () => Promise<T>, deps: unknown[] = [], opts: { pollMs?: number; poll?: (d: T) => boolean } = {}) {
   const [state, setState] = useState<{ data?: T; error?: string; loading: boolean }>({ loading: true });
+  const [tick, setTick] = useState(0);
   useEffect(() => {
     let alive = true;
     setState((s) => ({ ...s, loading: true }));
     load()
       .then((data) => alive && setState({ data, loading: false }))
-      .catch((e: Error) => alive && setState({ error: e.message, loading: false }));
+      .catch((e: Error) => alive && setState((s) => ({ ...s, error: e.message, loading: false })));
     return () => {
       alive = false;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
-  return state;
+  }, [...deps, tick]);
+  useEffect(() => {
+    if (!opts.pollMs || !state.data || !opts.poll?.(state.data)) return;
+    const t = setTimeout(() => setTick((x) => x + 1), opts.pollMs);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.data]);
+  return { ...state, reload: () => setTick((x) => x + 1) };
 }

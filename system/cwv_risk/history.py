@@ -10,6 +10,7 @@ from __future__ import annotations
 import subprocess
 import sys
 from pathlib import Path
+from typing import Callable
 
 import pandas as pd
 
@@ -35,7 +36,9 @@ def commits(repo: Path, base: str, n: int, paths: list[str]) -> list[tuple[str, 
     return rows
 
 
-def features(repo: Path, base: str, n: int = 300, paths: list[str] | None = None, quiet: bool = False) -> pd.DataFrame:
+def features(repo: Path, base: str, n: int = 300, paths: list[str] | None = None, quiet: bool = False,
+             progress: Callable[[int, int], None] | None = None) -> pd.DataFrame:
+    """Признаки последних n коммитов; progress(i, всего) — для панели (клон стороннего проекта считается минутами)."""
     cache_dir = repo / ".cwv-risk"
     cache_dir.mkdir(exist_ok=True)
     cache = cache_dir / "history.csv"
@@ -43,13 +46,23 @@ def features(repo: Path, base: str, n: int = 300, paths: list[str] | None = None
     known = set(old.sha)
     todo = [(s, p) for s, p in commits(repo, base, n, paths or []) if s not in known]
     rows = []
+
+    def save() -> None:
+        nonlocal old, rows
+        if rows:
+            old = pd.concat([old, pd.DataFrame(rows)], ignore_index=True)
+            old.to_csv(cache, index=False)
+            rows = []
+
     for i, (sha, parent) in enumerate(todo, 1):
         f, _ = extract(repo, sha, parent, {})
         rows.append({"sha": sha, "parent": parent, **f})
-        if not quiet and (i % 25 == 0 or i == len(todo)):
-            print(f"  история: признаки {i}/{len(todo)}", file=sys.stderr, flush=True)
-    if rows:
-        old = pd.concat([old, pd.DataFrame(rows)], ignore_index=True)
-        old.to_csv(cache, index=False)
+        if progress:
+            progress(i, len(todo))
+        if i % 25 == 0 or i == len(todo):
+            save()  # кеш по ходу: прерванный расчёт продолжится с места остановки
+            if not quiet:
+                print(f"  история: признаки {i}/{len(todo)}", file=sys.stderr, flush=True)
+    save()
     wanted = [s for s, _ in commits(repo, base, n, paths or [])]
     return old.set_index("sha").loc[[s for s in wanted if s in set(old.sha)]].reset_index()
