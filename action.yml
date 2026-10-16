@@ -7,7 +7,7 @@
 #     cwv-risk:
 #       runs-on: ubuntu-latest
 #       steps:
-#         - uses: actions/checkout@v4
+#         - uses: actions/checkout@v7
 #           with: { fetch-depth: 0 }          # нужна история основной ветки — шкала проекта
 #         - uses: sirpeperoni/masters-thesis-cwv@main
 #           with:
@@ -47,7 +47,7 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v7
       with:
         python-version: "3.12"
 
@@ -56,7 +56,7 @@ runs:
       run: python -m pip install --quiet "scikit-learn==1.7.2" "pandas==2.3.3" "numpy==2.3.5" "joblib==1.5.2" "typer==0.20.0"
 
     # признаки истории проекта считаются один раз на базовый коммит, дальше — из кеша
-    - uses: actions/cache@v4
+    - uses: actions/cache@v6
       with:
         path: ${{ github.workspace }}/.cwv-risk
         key: cwv-risk-${{ runner.os }}-${{ github.event.pull_request.base.sha || github.sha }}
