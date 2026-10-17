@@ -1,6 +1,7 @@
 import { api, type Meta, useData } from '../api.ts';
 import { BudgetChart } from '../components/BudgetChart.tsx';
 import { LEVEL, num, pct } from '../format.ts';
+import { Hint } from '../components/Hint.tsx';
 
 export function SummaryPage({ meta }: { meta: Meta }) {
   const s = useData(api.summary);
@@ -40,7 +41,7 @@ export function SummaryPage({ meta }: { meta: Meta }) {
         <h3>Уровни риска</h3>
         <table>
           <thead>
-            <tr><th>Уровень</th><th>Место среди коммитов проекта</th><th className="num">Доля регрессий в проверке</th><th>Рекомендация</th></tr>
+            <tr><th>Уровень <Hint k="level" /></th><th>Место среди коммитов проекта <Hint k="place" /></th><th className="num">Доля регрессий в проверке</th><th>Рекомендация</th></tr>
           </thead>
           <tbody>
             {meta.levels.map((l, i) => (

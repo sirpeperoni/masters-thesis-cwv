@@ -38,6 +38,7 @@ class Result:
     files: int
     reasons: list[Reason] = field(default_factory=list)
     model: dict = field(default_factory=dict)
+    scale: str = "project"      # project — история проекта; pooled — запасная шкала (мало истории)
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -50,6 +51,29 @@ def percentile_against(values: np.ndarray, x: float) -> float:
     return (less + (equal + 1) / 2) / (n + 1)
 
 
+def rank_against(X: pd.DataFrame, ref: pd.DataFrame) -> pd.DataFrame:
+    """Перцентили строк X относительно распределения ref по каждому признаку (как percentile_against, векторно)."""
+    out = {}
+    n = len(ref)
+    for c in X.columns:
+        s = np.sort(ref[c].to_numpy())
+        v = X[c].to_numpy()
+        less, le = np.searchsorted(s, v, "left"), np.searchsorted(s, v, "right")
+        out[c] = (less + (le - less + 1) / 2) / (n + 1)
+    return pd.DataFrame(out, index=X.index)
+
+
+def scale(hist: pd.DataFrame, art: dict) -> tuple[pd.DataFrame, str]:
+    """Шкала «обычного» изменения: история проекта или, если её мало, коммиты обучающих проектов."""
+    feats = art["features"]
+    if len(hist) >= model.MIN_HISTORY:
+        for c in feats:
+            if c not in hist:
+                hist[c] = 0.0
+        return hist[feats].fillna(0).astype(float), "project"
+    return model.reference(art), "pooled"
+
+
 def assess(repo: Path, base: str, head: str, n_history: int = 300, paths: list[str] | None = None,
            model_path: Path = model.DEFAULT, top_reasons: int = 5, quiet: bool = False) -> Result:
     art = model.load(model_path)
@@ -60,12 +84,7 @@ def assess(repo: Path, base: str, head: str, n_history: int = 300, paths: list[s
     head_sha = history.git(repo, "rev-parse", head).strip()
     hist = history.features(repo, mb, n_history, paths, quiet=quiet)
     hist = hist[hist.sha != head_sha]
-    if len(hist) < 30:
-        raise SystemExit(f"в истории {len(hist)} коммитов — мало для шкалы (нужно хотя бы 30; увеличьте --history)")
-    for c in feats:
-        if c not in hist:
-            hist[c] = 0.0
-    H = hist[feats].fillna(0).astype(float)
+    H, kind = scale(hist, art)
 
     f, _ = extract(repo, head_sha, mb, {})
     x = pd.Series({c: float(f.get(c, 0.0)) for c in feats})
@@ -88,7 +107,7 @@ def assess(repo: Path, base: str, head: str, n_history: int = 300, paths: list[s
 
     return Result(
         base=base, head=head, merge_base=mb, risk=risk, place=place, level=key, level_name=name, expected_rate=rate,
-        history=len(hist), lines_added=int(x.get("k_la", 0)), lines_deleted=int(x.get("k_ld", 0)),
+        history=len(H) if kind == "pooled" else len(hist), lines_added=int(x.get("k_la", 0)), lines_deleted=int(x.get("k_ld", 0)),
         files=int(x.get("k_nf", 0)), reasons=reasons[:top_reasons],
-        model={k: art[k] for k in ("kind", "trained_on", "pairs", "regressions", "created")},
+        model={k: art[k] for k in ("kind", "trained_on", "pairs", "regressions", "created")}, scale=kind,
     )

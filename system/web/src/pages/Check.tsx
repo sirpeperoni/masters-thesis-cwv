@@ -99,7 +99,8 @@ export function CheckPage({ meta, projects }: { meta: Meta; projects: Project[] 
         <div className="card">
           <h3 style={{ fontSize: 20 }}><LevelBadge level={res.level} /> <span className="muted" style={{ fontSize: 15, fontWeight: 400 }}>— {LEVEL[res.level].advice}</span></h3>
           {res.title && <p className="muted" style={{ marginTop: 0 }}>{res.title}</p>}
-          <p>{topShare(res.place)} среди {num(res.history)} последних коммитов проекта по риску; среди изменений этого уровня
+          {res.scale === 'pooled' && <div className="notice">В истории проекта меньше 30 коммитов — изменение сравнивается с коммитами проектов, на которых обучена модель (менее точно).</div>}
+          <p>{topShare(res.place)} среди {num(res.history)} {res.scale === 'pooled' ? 'коммитов обучающих проектов' : 'последних коммитов проекта'} по риску; среди изменений этого уровня
             в проверке на 11 проектах регрессией оказывалось {pct(res.expected_rate, 1)}. Изменение: {num(res.files)} файлов,
             +{num(res.lines_added)} / −{num(res.lines_deleted)} строк.</p>
           {res.level !== 'low' && res.reasons.length > 0 && (

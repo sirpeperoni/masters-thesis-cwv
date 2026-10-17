@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { api, type Change, type Meta, type MetricKey, type Project } from '../api.ts';
 import { date, LEVEL, METRIC, NBSP, num, pct, short, signed, topShare, withUnit } from '../format.ts';
 import { LevelBadge, ResultBadge } from './Badges.tsx';
+import { Hint, HINTS } from './Hint.tsx';
 
 const KEYS: MetricKey[] = ['lcp', 'inp', 'cls', 'tbt', 'tbtFlow'];
 
@@ -48,23 +49,23 @@ export function ChangePanel({ change, project, meta, onUpdate, onClose }: {
       <p style={{ margin: '0 0 12px' }}>{change.subject || '—'}</p>
       <dl>
         <dt>Дата</dt><dd>{date(change.date)}</dd>
-        <dt>Прогноз</dt><dd><LevelBadge level={change.level} /></dd>
-        {change.place != null && <><dt>Место</dt><dd>{topShare(change.place)} коммитов проекта по риску</dd></>}
+        <dt>Прогноз <Hint k="forecast" /></dt><dd><LevelBadge level={change.level} /></dd>
+        {change.place != null && <><dt>Место <Hint k="place" /></dt><dd>{topShare(change.place)} коммитов проекта по риску</dd></>}
         {change.level && <><dt>Рекомендация</dt><dd>{LEVEL[change.level].advice}</dd></>}
         {change.k_la != null && <><dt>Размер</dt><dd>+{num(change.k_la)} / −{num(change.k_ld ?? 0)} строк</dd></>}
-        {(change.measured || project.measured > 0) && <><dt>Замер</dt><dd><ResultBadge change={change} /></dd></>}
+        {(change.measured || project.measured > 0) && <><dt>Замер <Hint k="measure" /></dt><dd><ResultBadge change={change} /></dd></>}
         {change.selection && <><dt>В эксперименте</dt><dd>{change.selection === 'risk' ? 'отобран моделью' : change.selection.startsWith('random') ? 'случайный контроль' : 'отобран моделью (5–20 %)'}</dd></>}
       </dl>
 
       {change.metrics && Object.keys(change.metrics).length > 0 && (
         <table style={{ marginBottom: 14 }}>
-          <thead><tr><th>Метрика</th><th className="num">База</th><th className="num">Изменение</th><th>Итог</th></tr></thead>
+          <thead><tr><th>Метрика</th><th className="num">База</th><th className="num">Изменение</th><th>Итог <Hint k="q" /></th></tr></thead>
           <tbody>
             {KEYS.filter((k) => change.metrics?.[k]).map((k) => {
               const m = change.metrics![k]!;
               return (
                 <tr key={k}>
-                  <td title={METRIC[k].name}>{METRIC[k].name.split(' — ')[0]}</td>
+                  <td>{METRIC[k].name.split(' — ')[0]} <Hint text={HINTS[k as keyof typeof HINTS]} /></td>
                   <td className="num">{m.base != null ? withUnit(m.base, k) : '—'}</td>
                   <td className="num">
                     {m.delta != null ? signed(m.delta, METRIC[k].digits) + (METRIC[k].unit ? NBSP + METRIC[k].unit : '') : '—'}
@@ -81,7 +82,7 @@ export function ChangePanel({ change, project, meta, onUpdate, onClose }: {
         </table>
       )}
 
-      <h3 style={{ marginTop: 6 }}>Почему такой прогноз</h3>
+      <h3 style={{ marginTop: 6 }}>Почему такой прогноз <Hint k="reasons" /></h3>
       {change.reasons?.length ? (
         <ul style={{ margin: '0 0 10px', paddingLeft: 18 }}>
           {change.reasons.map((r) => (

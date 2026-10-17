@@ -32,10 +32,12 @@ def text(r: Result) -> str:
     top = max(1, round(r.place * 100))
     lines = [
         f"Риск регрессии CWV: {r.level_name.upper()} — {ADVICE[r.level]}",
-        f"  место среди {r.history} последних коммитов проекта: риск выше, чем у {100 - top}{NBSP}% (верхние {top}{NBSP}%)",
+        f"  место среди {r.history} {'коммитов обучающих проектов' if r.scale == 'pooled' else 'последних коммитов проекта'}: риск выше, чем у {100 - top}{NBSP}% (верхние {top}{NBSP}%)",
         f"  среди коммитов этого уровня регрессий в проверке было {pct(r.expected_rate, 1)}",
         f"  изменение: {r.files} файлов, +{r.lines_added} / −{r.lines_deleted} строк ({short(r.merge_base)}..{short(r.head)})",
     ]
+    if r.scale == "pooled":
+        lines.append(f"  ⚠ в истории проекта меньше {30} коммитов — шкала по коммитам проектов, на которых обучена модель (менее точно)")
     if r.reasons and r.level != "low":  # при низком риске «необычные» признаки — не причины, а шум
         lines.append("  почему (необычно для проекта):")
         for x in r.reasons:
@@ -59,6 +61,9 @@ def markdown(r: Result) -> str:
         f"| Доля регрессий на этом уровне (проверка на 11 проектах) | {pct(r.expected_rate, 1)} |",
         f"| Изменение | {r.files} файлов, +{r.lines_added} / −{r.lines_deleted} строк |",
     ]
+    if r.scale == "pooled":
+        out += ["", "> ⚠ В истории проекта меньше 30 коммитов — изменение сравнивается с коммитами проектов, на которых "
+                "обучена модель (менее точно)."]
     if r.reasons and r.level != "low":
         out += ["", "**Почему** — признаки, необычные для этого проекта:", ""]
         out += [f"- {x.label}: {fmt_value(x.value)} — больше, чем у {pct(x.percentile)} коммитов" for x in r.reasons]

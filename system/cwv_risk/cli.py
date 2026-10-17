@@ -75,13 +75,19 @@ def web_ingest(no_assess: bool = typer.Option(False, help="не оцениват
 
 
 @web.command("serve")
-def web_serve(port: int = typer.Option(8000), host: str = typer.Option("127.0.0.1")):
+def web_serve(port: int = typer.Option(8000), host: str = typer.Option("127.0.0.1"),
+              reload: bool = typer.Option(False, help="перезапускаться при изменении кода (для доработки системы)")):
     """Запустить панель: http://127.0.0.1:8000 (API — /api/docs)."""
     import uvicorn
 
-    from .web.api import app as api_app
+    if reload:
+        pkg = Path(__file__).resolve().parent
+        uvicorn.run("cwv_risk.web.api:app", host=host, port=port, reload=True, reload_dirs=[str(pkg)],
+                    app_dir=str(pkg.parent))
+    else:
+        from .web.api import app as api_app
 
-    uvicorn.run(api_app, host=host, port=port)
+        uvicorn.run(api_app, host=host, port=port)
 
 
 @web.command("export")

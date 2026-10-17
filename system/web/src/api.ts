@@ -83,6 +83,8 @@ export interface BudgetPoint {
 
 export interface Meta {
   live: boolean;
+  /** код сервера изменился после запуска — нужен перезапуск */
+  stale?: boolean;
   ingested: string | null;
   queues: { github: string; bench: string }[];
   model: { kind: string; trained_on: string[]; pairs: number; regressions: number; created: string };
@@ -115,6 +117,8 @@ export interface QueueItem {
 
 export interface Assessment {
   merge_base?: string;
+  /** project — шкала по истории проекта; pooled — запасная (в истории меньше 30 коммитов) */
+  scale?: 'project' | 'pooled';
   risk: number;
   place: number;
   level: Level;
@@ -147,6 +151,8 @@ export interface Refs {
   commits: { sha: string; date: string; subject: string }[];
 }
 
+export const STALE = 'Сервер не знает этого действия — он запущен до обновления системы. Перезапустите его: Ctrl+C и python -m cwv_risk web serve.';
+
 async function get<T>(path: string): Promise<T> {
   const r = await fetch(`api/${path}`);
   if (!r.ok) throw new Error(`${path}: ${r.status}`);
@@ -159,6 +165,12 @@ async function post<T>(path: string, body?: unknown, method = 'POST'): Promise<T
     headers: { 'Content-Type': 'application/json' },
     body: body ? JSON.stringify(body) : undefined,
   });
+  if (r.status === 404 || r.status === 405) {
+    const detail = (await r.json().catch(() => null))?.detail;
+    // 405 и «Not Found» — сервер не знает этого действия: он запущен со старым кодом
+    if (r.status === 405 || detail === 'Not Found') throw new Error(STALE);
+    throw new Error(detail ?? `${path}: ${r.status}`);
+  }
   if (!r.ok) throw new Error((await r.json().catch(() => null))?.detail ?? `${path}: ${r.status}`);
   return r.json() as Promise<T>;
 }

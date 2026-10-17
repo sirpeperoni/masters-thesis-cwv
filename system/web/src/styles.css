@@ -18,8 +18,9 @@
   --hover: rgba(42, 120, 214, 0.08);
   color-scheme: light;
 }
+/* тёмная тема: по системе (если не выбрана светлая вручную) или выбрана вручную — переключатель в меню */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --plane: #0d0d0d;
     --surface: #1a1a19;
     --ink: #f0efec;
@@ -35,6 +36,22 @@
     color-scheme: dark;
   }
 }
+:root[data-theme='dark'] {
+    --plane: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.1);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --good-text: #0ca30c;
+    --hover: rgba(57, 135, 229, 0.12);
+    color-scheme: dark;
+  }
+
 
 * { box-sizing: border-box; }
 body {
@@ -155,6 +172,28 @@ button.close:hover { color: var(--ink); }
 .form-grid { display: grid; gap: 16px; max-width: 860px; }
 .form-grid select { width: 100%; }
 details summary { cursor: pointer; }
+
+/* ── подсказки «?» ── */
+.hint { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; border-radius: 50%;
+  border: 1px solid var(--axis); color: var(--muted); font-size: 10px; font-weight: 600; cursor: help; vertical-align: 1px; margin-left: 2px; }
+.hint:hover, .hint:focus { color: var(--series-1); border-color: var(--series-1); outline: none; }
+.hint:hover::after, .hint:focus::after { content: attr(data-tip); position: absolute; z-index: 20; left: 50%; top: calc(100% + 6px); transform: translateX(-50%);
+  width: 280px; padding: 8px 10px; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16); font-size: 13px; font-weight: 400; line-height: 1.4; text-align: left; white-space: normal; text-transform: none; letter-spacing: 0; }
+th .hint:hover::after, th .hint:focus::after { left: auto; right: -8px; transform: none; }
+
+/* ── сортировка и поиск ── */
+th.sortable button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+th.sortable .arrow { color: var(--axis); font-size: 10px; }
+th.sortable.on .arrow { color: var(--series-1); }
+th.sortable button:focus-visible { outline: 2px solid var(--series-1); outline-offset: 2px; border-radius: 3px; }
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 0 14px 12px; }
+.search input { width: 260px; }
+
+/* ── переключатель темы ── */
+.theme { display: flex; gap: 2px; margin-top: 22px; background: var(--plane); border: 1px solid var(--border); border-radius: 8px; padding: 2px; }
+.theme button { flex: 1; border: 0; background: none; color: var(--ink-2); font: inherit; font-size: 12px; padding: 4px 0; border-radius: 6px; cursor: pointer; }
+.theme button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
 
 @media (max-width: 1000px) {
   .app { grid-template-columns: 1fr; }

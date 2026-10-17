@@ -46,16 +46,39 @@ def train(out: Path = DEFAULT) -> dict:
         "regressions": int(np.sum(y)),
         "created": dt.date.today().isoformat(),
         "kind": "forest-rank-v1",
+        # запасная шкала для проектов с короткой историей (< MIN_HISTORY коммитов): признаки коммитов обучающих проектов
+        "reference": df[feats].fillna(0).astype("float32").to_numpy(),
     }
     out.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(art, out)
     return art
 
 
+MIN_HISTORY = 30  # меньше коммитов в истории проекта — шкала «обычного» изменения ненадёжна, берётся запасная
+_cache: dict = {}
+
+
 def load(path: Path = DEFAULT) -> dict:
     if not path.exists():
         raise SystemExit(f"нет модели {path} — сначала: cwv-risk train")
-    return joblib.load(path)
+    if path not in _cache:
+        _cache[path] = joblib.load(path)
+    return _cache[path]
+
+
+def reference(art: dict):
+    """Запасная шкала: признаки коммитов 4 обучающих проектов (DataFrame в порядке признаков модели)."""
+    import pandas as pd
+
+    if "reference" in art:
+        return pd.DataFrame(art["reference"].astype(float), columns=art["features"])
+    import models as M  # старая модель без шкалы в файле — собрать из данных диссертации
+
+    df = M.load(TRAIN_REPOS)
+    for c in art["features"]:
+        if c not in df:
+            df[c] = 0.0
+    return df[art["features"]].fillna(0).astype(float)
 
 
 def level(place_pct: float) -> tuple[str, str, float]:

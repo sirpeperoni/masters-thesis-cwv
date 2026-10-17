@@ -24,6 +24,13 @@ from .._ml import ROOT
 from . import db, external
 
 DIST = Path(__file__).resolve().parents[2] / "web" / "dist"
+PKG = Path(__file__).resolve().parents[1]  # cwv_risk/
+STARTED = time.time()
+
+
+def stale() -> bool:
+    """Код сервера изменился после запуска — новые адреса API ему неизвестны, нужен перезапуск (панель покажет плашку)."""
+    return any(p.stat().st_mtime > STARTED for p in PKG.rglob("*.py"))
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     external.resume_pending()  # незаконченные задания сторонних проектов после перезапуска
@@ -43,7 +50,7 @@ def row(r) -> dict:
 
 def meta_dict(con, live: bool) -> dict:
     m = {r["key"]: r["value"] for r in con.execute("select key, value from meta")}
-    out = {"live": live, "ingested": m.get("ingested"), "queues": db.config()["queues"]}
+    out = {"live": live, "stale": live and stale(), "ingested": m.get("ingested"), "queues": db.config()["queues"]}
     for k in ("model", "levels", "budget_curve", "selection_eval"):
         if k in m:
             out[k] = json.loads(m[k])

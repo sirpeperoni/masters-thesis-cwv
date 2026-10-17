@@ -16,6 +16,7 @@ import queue
 import re
 import subprocess
 import threading
+import time
 from pathlib import Path
 
 import pandas as pd
@@ -141,30 +142,63 @@ def run(slug: str) -> None:
                 last[0] = i
                 _status(slug, done=i, total=total)
 
-        H = history.features(path, f"origin/{branch}", e["history"], json.loads(e["paths"] or "[]"), quiet=True,
-                             progress=progress)
-        if len(H) < 30:
-            raise RuntimeError(f"в истории ветки {branch} всего {len(H)} коммитов — мало для шкалы проекта (нужно ≥ 30)")
+        # git докачивает файлы с GitHub по мере надобности — сеть может оборваться; признаки кешируются по ходу,
+        # поэтому повтор продолжает с места обрыва
+        for attempt in range(1, 4):
+            try:
+                H = history.features(path, f"origin/{branch}", e["history"], json.loads(e["paths"] or "[]"), quiet=True,
+                                     progress=progress)
+                break
+            except (Exception, SystemExit) as ex:  # noqa: BLE001
+                if attempt == 3 or not network_error(str(ex)):
+                    raise
+                _status(slug, message=f"обрыв сети — повтор {attempt + 1} из 3")
+                time.sleep(10 * attempt)
+        if len(H) == 0:
+            raise RuntimeError(f"в ветке {branch} нет коммитов с изменениями, которые можно оценить")
         _status(slug, status="scoring", message="прогноз для каждого коммита")
-        score_history(slug, e["name"], e["url"], path, branch, H)
-        _status(slug, status="ready", message="готово", finished=dt.datetime.now().isoformat(timespec="seconds"))
+        pooled = score_history(slug, e["name"], e["url"], path, branch, H)
+        _status(slug, status="ready", finished=dt.datetime.now().isoformat(timespec="seconds"),
+                message=(f"готово; в истории {len(H)} коммитов — меньше {model.MIN_HISTORY}, поэтому шкала — коммиты "
+                         "проектов, на которых обучена модель (менее точно)") if pooled else "готово")
     except (Exception, SystemExit) as ex:  # noqa: BLE001
-        _status(slug, status="error", message=str(ex)[:500])
+        msg = str(ex)
+        if network_error(msg):
+            msg = "не удалось скачать данные с GitHub — сеть оборвалась несколько раз подряд. Попробуйте снова чуть позже."
+        elif "Repository not found" in msg or "not found" in msg.lower() and "clone" in msg:
+            msg = "репозиторий не найден или закрыт — проверьте ссылку (нужен открытый репозиторий GitHub)"
+        _status(slug, status="error", message=msg[:500])
 
 
-def score_history(slug: str, name: str, url: str, path: Path, branch: str, H: pd.DataFrame) -> None:
-    """Прогноз для каждого коммита истории относительно самой истории — как место коммита в `cwv-risk score`."""
+def network_error(msg: str) -> bool:
+    return any(s in msg for s in ("unable to access", "could not fetch", "Could not resolve host", "Connection reset",
+                                  "Connection timed out", "errno 10022", "early EOF", "RPC failed", "Failed to connect"))
+
+
+def score_history(slug: str, name: str, url: str, path: Path, branch: str, H: pd.DataFrame) -> bool:
+    """Прогноз для каждого коммита истории относительно самой истории — как место коммита в `cwv-risk score`.
+    Короткая история (< MIN_HISTORY) — относительно коммитов обучающих проектов; возвращает True в этом случае."""
+    from ..score import rank_against
+
     art = model.load()
     feats = art["features"]
     for c in feats:
         if c not in H:
             H[c] = 0.0
     X = H[feats].fillna(0).astype(float)
-    risk = art["model"].predict_proba(X.rank(pct=True))[:, 1]
-    order = (-risk).argsort(kind="stable")
-    place = [0.0] * len(H)
-    for rank, i in enumerate(order):
-        place[i] = rank / len(H)
+    clf = art["model"]
+    pooled = len(H) < model.MIN_HISTORY
+    if pooled:
+        ref = model.reference(art)
+        risk = clf.predict_proba(rank_against(X, ref))[:, 1]
+        ref_risk = clf.predict_proba(ref.rank(pct=True))[:, 1]
+        place = [float((ref_risk > r).mean()) for r in risk]
+    else:
+        risk = clf.predict_proba(X.rank(pct=True))[:, 1]
+        order = (-risk).argsort(kind="stable")
+        place = [0.0] * len(H)
+        for rank, i in enumerate(order):
+            place[i] = rank / len(H)
     info = {}
     for line in git(path, "log", "--first-parent", f"-n{len(H) + 50}", "--format=%H%x1f%cI%x1f%s", f"origin/{branch}").splitlines():
         sha, date, subj = line.split("\x1f", 2)
@@ -184,6 +218,7 @@ def score_history(slug: str, name: str, url: str, path: Path, branch: str, H: pd
                  con.execute("select count(*) from changes where project = ? and kind = 'pr'", (slug,)).fetchone()[0],
                  dates[0][:10] if dates else "", dates[-1][:10] if dates else ""))
     con.commit()
+    return pooled
 
 
 def remove(slug: str) -> None:

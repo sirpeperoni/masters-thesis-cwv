@@ -1,9 +1,11 @@
-import { useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useMemo } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { api, type Change, type ExternalState, type Meta, type MetricKey, useData } from '../api.ts';
 import { LevelBadge, ResultBadge } from '../components/Badges.tsx';
 import { ChangePanel } from '../components/ChangePanel.tsx';
+import { Hint } from '../components/Hint.tsx';
 import { PullRequests } from '../components/PullRequests.tsx';
+import { matches, Search, SortTh, type SortState, useSorted } from '../components/Table.tsx';
 import { Timeline } from '../components/Timeline.tsx';
 import { date, num, short, signed } from '../format.ts';
 
@@ -11,18 +13,26 @@ type Filter = 'regressions' | 'measured' | 'high' | 'elevated' | 'pr' | 'all';
 const PAGE = 100;
 const busy = (e?: ExternalState | null) => !!e && e.status !== 'ready' && e.status !== 'error';
 
+/**
+ * Страница проекта. Состояние — в адресе (#/projects/x?tab=…&f=…&q=…&sort=…&sel=…): ссылкой можно поделиться,
+ * после обновления страницы открыто то же самое.
+ */
 export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProjectsChanged: () => void }) {
   const { name = '' } = useParams();
   const nav = useNavigate();
-  const res = useData(() => api.project(name), [name], { pollMs: 2000, poll: (d) => busy(d.project.external) });
-  const [tab, setTab] = useState<'commits' | 'prs'>('commits');
-  const [filter, setFilter] = useState<Filter>();
-  const [limit, setLimit] = useState(PAGE);
-  const [sel, setSel] = useState<Change>();
-  const [patched, setPatched] = useState<Record<string, Change>>({});
+  const [params, setParams] = useSearchParams();
+  const set = (patch: Record<string, string | null>) => {
+    const next = new URLSearchParams(params);
+    for (const [k, v] of Object.entries(patch)) (v == null || v === '' ? next.delete(k) : next.set(k, v));
+    setParams(next, { replace: true });
+  };
+  const tab = params.get('tab') === 'prs' ? 'prs' : 'commits';
+  const q = params.get('q') ?? '';
+  const limit = Number(params.get('n') ?? PAGE);
 
+  const res = useData(() => api.project(name), [name], { pollMs: 2000, poll: (d) => busy(d.project.external) });
   const data = res.data?.project.name === name ? res.data : undefined; // не показывать прошлый проект при переходе
-  const changes = useMemo(() => (data?.changes ?? []).map((c) => patched[c.sha + c.kind] ?? c), [data, patched]);
+  const changes = useMemo(() => data?.changes ?? [], [data]);
   const p = data?.project;
   const ext = p?.external;
   const hasMeasured = changes.some((c) => c.measured);
@@ -40,17 +50,31 @@ export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProject
     return all.filter(([k]) => (hasMeasured || (k !== 'regressions' && k !== 'measured')) && (scored || (k !== 'high' && k !== 'elevated'))
       && (k !== 'pr' || changes.some((c) => c.kind === 'pr')));
   }, [hasMeasured, scored, changes]);
-  const active = filter && filters.some(([k]) => k === filter) ? filter : filters[0]?.[0];
+  const fParam = params.get('f') as Filter | null;
+  const active = fParam && filters.some(([k]) => k === fParam) ? fParam : filters[0]?.[0];
 
-  const rows = useMemo(() => {
+  const sort: SortState = {
+    key: params.get('sort') ?? (scored ? 'risk' : 'date'),
+    dir: (params.get('dir') as SortState['dir']) ?? (params.get('sort') ? 'asc' : scored ? 'asc' : 'desc'),
+  };
+  const filtered = useMemo(() => {
     const f = filters.find(([k]) => k === active)?.[2] ?? (() => true);
-    return changes.filter(f).sort((a, b) => (a.place ?? 2) - (b.place ?? 2) || b.date.localeCompare(a.date));
-  }, [changes, filters, active]);
+    return changes.filter((c) => f(c) && matches(q, c.subject, c.sha, c.pr ? `#${c.pr}` : null));
+  }, [changes, filters, active, q]);
+  const rows = useSorted(filtered, sort, (c, k) =>
+    k === 'risk' ? c.place : k === 'date' ? c.date : k === 'subject' ? c.subject : k === 'size' ? (c.k_la ?? 0) + (c.k_ld ?? 0)
+      : k === 'result' ? (c.measured ? (c.label === 'regression' ? 0 : 1) : null) : c.metrics?.[k as MetricKey]?.delta ?? null);
+
+  const selSha = params.get('sel');
+  const current = selSha ? changes.find((c) => c.sha === selSha && c.kind === (params.get('kind') ?? c.kind)) : undefined;
+  const select = (c?: Change) => set({ sel: c?.sha ?? null, kind: c ? c.kind : null });
 
   if (res.error && !data) return <p className="error">{res.error}</p>;
   if (!data || !p) return <p className="muted">Загрузка…</p>;
-  const current = sel && (patched[sel.sha + sel.kind] ?? sel);
   const title = ext?.name ?? p.name;
+  const sortTh = (k: string, label: React.ReactNode, num?: boolean) => (
+    <SortTh k={k} sort={sort} num={num} onSort={(s) => set({ sort: s.key, dir: s.dir })}>{label}</SortTh>
+  );
 
   const refresh = async () => { await api.refreshExternal(p.name); onProjectsChanged(); res.reload(); };
   const remove = async () => {
@@ -69,17 +93,19 @@ export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProject
             {p.url && <a href={p.url} target="_blank" rel="noreferrer">открыть на GitHub ↗</a>}
             {p.commits > 0 && <> · {num(p.commits)} коммитов{hasMeasured && <>, {num(p.measured)} измерено, регрессий: {num(p.regressions)}</>}</>}
             {ext?.branch && <> · ветка <code>{ext.branch}</code></>}
+            {ext?.history && <> · шкала — {num(ext.history)} коммитов <Hint k="history" /></>}
           </p>
         </div>
         {ext && meta.live && (
           <div className="row" style={{ gap: 8 }}>
-            <button className="ghost" disabled={busy(ext)} onClick={refresh}>↻ Обновить</button>
+            <button className="ghost" disabled={busy(ext)} onClick={refresh} title="Подтянуть новые коммиты и пересчитать прогноз">↻ Обновить</button>
             <button className="ghost danger" onClick={remove}>Удалить</button>
           </div>
         )}
       </div>
 
       {busy(ext) && <Progress e={ext!} />}
+      {ext?.status === 'ready' && ext.message && ext.message !== 'готово' && <div className="notice">{ext.message.replace(/^готово;\s*/, '')}</div>}
       {ext?.status === 'error' && (
         <div className="notice error-notice">Не удалось подготовить проект: {ext.message}
           {meta.live && <> · <button className="link" onClick={refresh}>попробовать снова</button></>}</div>
@@ -88,20 +114,21 @@ export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProject
       {!busy(ext) && ext?.status !== 'error' && (
         <>
           <div className="tabs big">
-            <button className={tab === 'commits' ? 'on' : ''} onClick={() => setTab('commits')}>Коммиты</button>
+            <button className={tab === 'commits' ? 'on' : ''} onClick={() => set({ tab: null })}>Коммиты</button>
             {p.url?.startsWith('https://github.com/') && meta.live && (
-              <button className={tab === 'prs' ? 'on' : ''} onClick={() => setTab('prs')}>Pull request'ы</button>
+              <button className={tab === 'prs' ? 'on' : ''} onClick={() => set({ tab: 'prs', sel: null, kind: null })}>Pull request'ы</button>
             )}
           </div>
 
           {tab === 'prs' ? (
-            <PullRequests project={p.name} meta={meta} onAssessed={() => res.reload()} />
+            <PullRequests project={p.name} meta={meta} onAssessed={() => res.reload()}
+                          open={Number(params.get('pr')) || undefined} onOpen={(n) => set({ pr: n ? String(n) : null })} />
           ) : (
             <>
               {scored ? (
                 <div className="card">
-                  <h3>Прогноз{hasMeasured ? ' и замеры' : ''} во времени</h3>
-                  <Timeline changes={changes} selected={current?.sha} onSelect={(c) => setSel(c)} />
+                  <h3>Прогноз{hasMeasured ? ' и замеры' : ''} во времени <Hint k="forecast" /></h3>
+                  <Timeline changes={changes} selected={current?.sha} onSelect={select} />
                 </div>
               ) : (
                 <div className="notice">
@@ -112,25 +139,31 @@ export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProject
 
               <div className={current ? 'layout-split' : ''}>
                 <div className="card" style={{ padding: '14px 0 0', overflowX: 'auto' }}>
-                  <div className="tabs" style={{ padding: '0 14px' }}>
-                    {filters.map(([k, label, f]) => (
-                      <button key={k} className={active === k ? 'on' : ''} onClick={() => { setFilter(k); setLimit(PAGE); }}>
-                        {label} ({changes.filter(f).length})
-                      </button>
-                    ))}
+                  <div className="toolbar">
+                    <div className="tabs" style={{ margin: 0 }}>
+                      {filters.map(([k, label, f]) => (
+                        <button key={k} className={active === k ? 'on' : ''} onClick={() => set({ f: k, n: null })}>
+                          {label} ({changes.filter(f).length})
+                        </button>
+                      ))}
+                    </div>
+                    <Search value={q} onChange={(v) => set({ q: v, n: null })} placeholder="Поиск: заголовок, хеш, #PR" />
                   </div>
                   <table>
                     <thead>
                       <tr>
-                        <th>Дата</th><th>Изменение</th><th>Заголовок</th>{scored && <th>Прогноз</th>}
-                        {hasMeasured && <th>Замер</th>}
-                        {!current && hasMeasured && <><th className="num">Δ LCP, мс</th><th className="num">Δ INP, мс</th><th className="num">Δ TBT, мс</th></>}
-                        {!current && !hasMeasured && <th className="num">Строк +/−</th>}
+                        {sortTh('date', 'Дата')}
+                        <th>Изменение</th>
+                        {sortTh('subject', 'Заголовок')}
+                        {scored && sortTh('risk', <>Прогноз <Hint k="level" /></>)}
+                        {hasMeasured && sortTh('result', <>Замер <Hint k="measure" /></>)}
+                        {!current && hasMeasured && <>{sortTh('lcp', <>Δ LCP, мс <Hint k="lcp" /></>, true)}{sortTh('inp', <>Δ INP, мс <Hint k="inp" /></>, true)}{sortTh('tbt', <>Δ TBT, мс <Hint k="tbt" /></>, true)}</>}
+                        {!current && !hasMeasured && sortTh('size', 'Строк +/−', true)}
                       </tr>
                     </thead>
                     <tbody>
                       {rows.slice(0, limit).map((c) => (
-                        <tr key={c.sha + c.kind} className={`click${current?.sha === c.sha ? ' sel' : ''}`} onClick={() => setSel(c)}>
+                        <tr key={c.sha + c.kind} className={`click${current?.sha === c.sha ? ' sel' : ''}`} onClick={() => select(c)}>
                           <td className="muted">{date(c.date)}</td>
                           <td className="mono">{c.kind === 'pr' ? `PR #${c.pr}` : short(c.sha)}</td>
                           <td className="subject" style={current ? { maxWidth: 240 } : undefined} title={c.subject}>{c.subject || '—'}</td>
@@ -143,13 +176,13 @@ export function ProjectPage({ meta, onProjectsChanged }: { meta: Meta; onProject
                     </tbody>
                   </table>
                   {rows.length > limit && (
-                    <p style={{ padding: '0 14px' }}><button className="primary" onClick={() => setLimit(limit + PAGE)}>Показать ещё ({rows.length - limit})</button></p>
+                    <p style={{ padding: '0 14px' }}><button className="primary" onClick={() => set({ n: String(limit + PAGE) })}>Показать ещё ({rows.length - limit})</button></p>
                   )}
-                  {!rows.length && <p className="muted" style={{ padding: '0 14px' }}>Нет изменений в этом фильтре.</p>}
+                  {!rows.length && <p className="muted" style={{ padding: '0 14px' }}>{q ? `Ничего не найдено по «${q}».` : 'Нет изменений в этом фильтре.'}</p>}
                 </div>
                 {current && (
-                  <ChangePanel change={current} project={p} meta={meta} onClose={() => setSel(undefined)}
-                               onUpdate={(c) => setPatched((x) => ({ ...x, [c.sha + c.kind]: c }))} />
+                  <ChangePanel change={current} project={p} meta={meta} onClose={() => select(undefined)}
+                               onUpdate={() => res.reload()} />
                 )}
               </div>
             </>
